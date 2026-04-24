@@ -40,7 +40,7 @@ export function FeaturedProjects() {
 
       <Stagger className="mt-16 grid gap-12 md:grid-cols-12">
         {featured.map((e, i) => {
-          const numLabel = ["I", "II", "III", "IV"][i] ?? String(i + 1);
+          const numLabel = String(i + 1).padStart(2, "0");
           const layout = [
             "md:col-span-7",
             "md:col-span-5 md:mt-24",

@@ -52,10 +52,10 @@ export default async function ProgettiPage({
   const years = Array.from(new Set(events.map((e) => e.year))).sort((a, b) => b - a);
   const romanYear = (y: number) => {
     const map: Record<number, string> = {
-      2023: "MMXXIII",
-      2024: "MMXXIV",
-      2025: "MMXXV",
-      2026: "MMXXVI",
+      2023: "2023",
+      2024: "2024",
+      2025: "2025",
+      2026: "2026",
     };
     return map[y] ?? String(y);
   };
@@ -80,7 +80,7 @@ export default async function ProgettiPage({
               IL REPERTORIO
             </span>
             <span className="font-[family-name:var(--font-mono)] text-[0.72rem] uppercase tracking-[0.24em] text-[color:var(--color-sepia)]">
-              {events.length} {locale === "it" ? "titoli" : "titles"} · MMXXIII—MMXXVI
+              {events.length} {locale === "it" ? "titoli" : "titles"} · 2023—2026
             </span>
           </div>
         </div>
@@ -148,7 +148,7 @@ export default async function ProgettiPage({
                       {eventsOfYear.map((e, i) => (
                         <li key={e.slug} className="flex items-baseline gap-4">
                           <span className="font-[family-name:var(--font-mono)] text-[0.7rem] uppercase tracking-[0.24em] text-[color:var(--color-sepia-soft)]">
-                            {["I", "II", "III", "IV", "V"][i] ?? `${i + 1}`}
+                            {String(i + 1).padStart(2, "0")}
                           </span>
                           <span className="bodoni-italic text-[clamp(1.25rem,1.5vw+0.5rem,1.75rem)] leading-[1.1] text-[color:var(--color-sepia)]">
                             {e.title[loc]}

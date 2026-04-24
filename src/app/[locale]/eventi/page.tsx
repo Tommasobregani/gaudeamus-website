@@ -43,7 +43,7 @@ const monthNames = {
 };
 
 const romanYear = (y: number) => {
-  const map: Record<number, string> = { 2023: "MMXXIII", 2024: "MMXXIV", 2025: "MMXXV", 2026: "MMXXVI" };
+  const map: Record<number, string> = { 2023: "2023", 2024: "2024", 2025: "2025", 2026: "2026" };
   return map[y] ?? String(y);
 };
 
@@ -73,7 +73,7 @@ export default async function EventiPage({
         <div className="border-y-2 border-[color:var(--color-sepia)] py-5">
           <div className="flex items-center justify-between">
             <span className="font-[family-name:var(--font-cartel)] text-[0.75rem] tracking-[0.3em] text-[color:var(--color-sepia)]">
-              CALENDARIO · MMXXVI
+              CALENDARIO · 2026
             </span>
             <span className="font-[family-name:var(--font-mono)] text-[0.72rem] uppercase tracking-[0.24em] text-[color:var(--color-sepia)]">
               {locale === "it" ? "AGGIORNATO" : "UPDATED"} · {new Date().toLocaleDateString(loc === "it" ? "it-IT" : "en-GB", { day: "2-digit", month: "short" })}
@@ -191,7 +191,7 @@ export default async function EventiPage({
                       className="absolute right-5 top-5 text-[color:var(--color-terracotta)]"
                     />
                     <span className="font-[family-name:var(--font-cartel)] text-[0.78rem] tracking-[0.3em] text-[color:var(--color-terracotta)]">
-                      {["I", "II", "III"][i]}
+                      {String(i + 1).padStart(2, "0")}
                     </span>
                     <h3 className="mt-4 bodoni-italic text-[clamp(2.5rem,5vw+1rem,4rem)] leading-[0.95] text-[color:var(--color-sepia)]">
                       {city === "Edinburgh" && locale === "it" ? "Edimburgo" : city}
@@ -227,7 +227,7 @@ export default async function EventiPage({
                 className="group grid grid-cols-[auto_1fr_auto] items-center gap-6 border-b border-[color:var(--color-sepia)]/25 py-6 transition-colors hover:bg-[color:var(--color-carta)] md:grid-cols-[5rem_1fr_auto_auto] md:gap-10 md:py-8"
               >
                 <span className="bodoni-italic text-[clamp(2rem,3vw+1rem,2.75rem)] leading-none text-[color:var(--color-terracotta)]">
-                  {["I", "II", "III", "IV", "V", "VI"][i]}
+                  {String(i + 1).padStart(2, "0")}
                 </span>
                 <div>
                   <p className="font-[family-name:var(--font-cartel)] text-[0.72rem] tracking-[0.28em] text-[color:var(--color-sepia-soft)]">

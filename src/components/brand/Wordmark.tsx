@@ -13,7 +13,7 @@ type Props = {
  *   Gaudeamus             ← Bodoni italic, the name
  *   ——————————            ← hairline
  *   COMPAGNIA ARTISTICA   ← Bebas cartel, the legal lineage
- *   SCIO · MMXXIII
+ *   SCIO · 2023
  *
  * One-file swap when the official logo arrives.
  */
@@ -57,7 +57,7 @@ export function Wordmark({
             muted,
           )}
         >
-          SCIO · MMXXIII
+          SCIO · 2023
         </span>
       </span>
     );

@@ -15,7 +15,7 @@ export function Hero() {
       <div className="container-site flex flex-wrap items-center justify-between gap-3 border-t border-b border-[color:var(--color-sepia)]/20 py-3">
         <span className="stamp">Compagnia Artistica Gaudeamus · SCIO</span>
         <span className="stamp hidden md:inline">{t("eyebrow")}</span>
-        <span className="stamp">Aberdeen · Glasgow · MMXXIII</span>
+        <span className="stamp">Aberdeen · Glasgow · 2023</span>
       </div>
 
       {/* Latin tag — Gaudeamus igitur lineage */}
@@ -81,16 +81,16 @@ export function Hero() {
             <div>
               <dt className="stamp">Dal</dt>
               <dd className="bodoni-italic mt-1 text-[2rem] leading-none text-[color:var(--color-terracotta)]">
-                MMXXIII
+                2023
               </dd>
             </div>
             <div>
               <dt className="stamp">Produzioni</dt>
-              <dd className="bodoni-italic mt-1 text-[2rem] leading-none">VI</dd>
+              <dd className="bodoni-italic mt-1 text-[2rem] leading-none">6</dd>
             </div>
             <div>
               <dt className="stamp">Città</dt>
-              <dd className="bodoni-italic mt-1 text-[2rem] leading-none">III</dd>
+              <dd className="bodoni-italic mt-1 text-[2rem] leading-none">3</dd>
             </div>
           </dl>
         </motion.div>
@@ -124,7 +124,7 @@ export function Hero() {
                   SCENA · POOR PIERO
                 </span>
                 <span className="font-[family-name:var(--font-mono)] text-[0.68rem] tracking-[0.22em]">
-                  MMXXIV
+                  2024
                 </span>
               </div>
             </div>

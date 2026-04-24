@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 type Props = {
   issueLabel: string;      // "ANNO I · NUMERO III"
-  dateLabel: string;       // "APRILE · MMXXVI"
+  dateLabel: string;       // "APRILE · 2026"
   title: string;           // "Il Diario"
   subtitle?: string;       // "Notes from the wings."
   className?: string;

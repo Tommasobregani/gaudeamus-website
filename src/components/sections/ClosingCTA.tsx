@@ -15,7 +15,7 @@ export function ClosingCTA() {
         <div className="md:col-span-8">
           <FadeIn>
             <div className="flex items-center gap-4">
-              <span className="bodoni-italic text-[1.5rem] text-[color:var(--color-travertino)]/90">V</span>
+              <span className="font-[family-name:var(--font-mono)] text-[0.78rem] tracking-[0.2em] text-[color:var(--color-travertino)]/90">05</span>
               <span className="h-px w-6 bg-[color:var(--color-travertino)]/50" />
               <span className="font-[family-name:var(--font-cartel)] text-[0.85rem] tracking-[0.3em]">
                 {t("closingEyebrow")}

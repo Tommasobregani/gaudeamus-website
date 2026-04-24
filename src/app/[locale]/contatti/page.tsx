@@ -48,7 +48,7 @@ export default async function ContattiPage({
 
   const channels = [
     {
-      roman: "I",
+      roman: "01",
       title: t("generalTitle"),
       email: siteConfig.email.general,
       body: it
@@ -57,7 +57,7 @@ export default async function ContattiPage({
       hours: it ? "Lun — Ven · 10:00 — 17:00" : "Mon — Fri · 10:00 — 17:00",
     },
     {
-      roman: "II",
+      roman: "02",
       title: t("artisticTitle"),
       email: siteConfig.email.artistic,
       body: it
@@ -66,7 +66,7 @@ export default async function ContattiPage({
       hours: it ? "Su appuntamento" : "By appointment",
     },
     {
-      roman: "III",
+      roman: "03",
       title: t("financeTitle"),
       email: siteConfig.email.finance,
       body: it
@@ -78,14 +78,14 @@ export default async function ContattiPage({
 
   const offices = [
     {
-      roman: "I",
+      roman: "01",
       city: "Aberdeen",
       cityIt: "Aberdeen",
       role: "HQ",
       note: it ? "Sede legale e direzione" : "Registered office and direction",
     },
     {
-      roman: "II",
+      roman: "02",
       city: "Glasgow",
       cityIt: "Glasgow",
       role: it ? "SEDE" : "BRANCH",

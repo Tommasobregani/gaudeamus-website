@@ -50,7 +50,7 @@ export default async function SostieniciPage({
 
   const tiers = [
     {
-      roman: "I",
+      roman: "01",
       label: it ? "AMICO" : "FRIEND",
       subtitle: it ? "Amici di Gaudeamus" : "Friends of Gaudeamus",
       amount: it ? "da £20 / anno" : "from £20 / year",
@@ -68,7 +68,7 @@ export default async function SostieniciPage({
           ],
     },
     {
-      roman: "II",
+      roman: "02",
       label: it ? "SOSTENITORE" : "SUPPORTER",
       subtitle: it ? "Sostenitori" : "Supporters",
       amount: it ? "da £80 / anno" : "from £80 / year",
@@ -88,7 +88,7 @@ export default async function SostieniciPage({
           ],
     },
     {
-      roman: "III",
+      roman: "03",
       label: it ? "MECENATE" : "PATRON",
       subtitle: it ? "Mecenati della compagnia" : "Patrons of the company",
       amount: it ? "da £300 / anno" : "from £300 / year",
@@ -111,21 +111,21 @@ export default async function SostieniciPage({
 
   const otherWays = [
     {
-      roman: "IV",
+      roman: "04",
       title: it ? "Fai volontariato" : "Volunteer",
       body: it
         ? "Accogli, traduci, allestisci, costruisci. Le nostre produzioni si fanno in molti — se hai mani e tempo da offrire, ti aspettiamo."
         : "Welcome, translate, steward, build. Our productions are made by many hands — if you have hands and time to give, we are waiting for you.",
     },
     {
-      roman: "V",
+      roman: "05",
       title: it ? "Porta un amico" : "Bring a friend",
       body: it
         ? "Il passaparola resta il nostro miglior teatro. Vieni a un evento, porta qualcuno, scrivi di noi, taggaci. È semplice e funziona."
         : "Word of mouth is still our best theatre. Come to an event, bring someone, write about us, tag us. It is simple and it works.",
     },
     {
-      roman: "VI",
+      roman: "06",
       title: it ? "Collabora" : "Collaborate",
       body: it
         ? "Sei una compagnia, una scuola, un'università, un luogo? Parliamone. Le coproduzioni tengono viva una charity piccola come la nostra."

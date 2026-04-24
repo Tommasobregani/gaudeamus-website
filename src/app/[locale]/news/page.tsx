@@ -65,7 +65,7 @@ export default async function NewsPage({
   const [lead, ...rest] = combined;
   const now = new Date();
   const issueLabel = loc === "it" ? `Anno I · Numero ${combined.length}` : `Vol. I · No. ${combined.length}`;
-  const dateLabel = `${monthNames[loc][now.getMonth()]} · MMXXVI`;
+  const dateLabel = `${monthNames[loc][now.getMonth()]} · 2026`;
 
   // Categories strip
   const categories = Array.from(new Set(combined.map((a) => a.category[loc])));

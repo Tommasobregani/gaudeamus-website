@@ -35,7 +35,7 @@ export default async function OG() {
           }}
         >
           <span>COMPAGNIA ARTISTICA · SCIO</span>
-          <span>MMXXIII</span>
+          <span>2023</span>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>

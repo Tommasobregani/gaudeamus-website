@@ -1,18 +1,5 @@
 import { cn } from "@/lib/utils";
 
-const ROMAN: Record<number, string> = {
-  1: "I",
-  2: "II",
-  3: "III",
-  4: "IV",
-  5: "V",
-  6: "VI",
-  7: "VII",
-  8: "VIII",
-  9: "IX",
-  10: "X",
-};
-
 type Props = {
   n?: number;
   label: string;
@@ -21,8 +8,9 @@ type Props = {
 };
 
 /**
- * Teatro-program eyebrow: Roman numeral × Bebas cartel label.
- * "I · MANIFESTO" / "II · PROGETTI" / "III · EVENTI" — the cadence of an Italian playbill.
+ * Section eyebrow — numeric index + label, separated by a short rule.
+ * "01 · Manifesto" / "02 · Progetti". Replaced Roman numerals with Arabic
+ * (padded 01/02/03) for clarity.
  */
 export function RomanEyebrow({ n, label, className, align = "start" }: Props) {
   return (
@@ -34,11 +22,8 @@ export function RomanEyebrow({ n, label, className, align = "start" }: Props) {
       )}
     >
       {typeof n === "number" && (
-        <span
-          aria-hidden
-          className="bodoni-italic text-[1.5rem] leading-none text-[color:var(--color-terracotta)]"
-        >
-          {ROMAN[n] ?? n}
+        <span className="font-[family-name:var(--font-mono)] text-[0.78rem] font-medium tracking-[0.2em] text-[color:var(--color-terracotta)]">
+          {String(n).padStart(2, "0")}
         </span>
       )}
       <span className="h-px w-6 bg-current opacity-40" aria-hidden />

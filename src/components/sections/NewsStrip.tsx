@@ -68,7 +68,7 @@ export function NewsStrip() {
                     className="object-cover transition-transform duration-[1100ms] ease-[cubic-bezier(0.2,0.7,0.1,1)] group-hover:scale-[1.03]"
                   />
                   <span className="absolute left-3 top-2 bodoni-italic text-[1.75rem] leading-none text-[color:var(--color-travertino)]">
-                    {["I", "II", "III"][i] ?? String(i + 1)}
+                    {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
                 <div className="mt-5 border-t border-[color:var(--color-travertino)]/25 pt-4">

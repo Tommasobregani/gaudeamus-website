@@ -279,7 +279,7 @@ export default async function ChiSiamoPage({
               >
                 <div className="flex items-baseline justify-between">
                   <span className="bodoni-italic text-[2rem] leading-none text-[color:var(--color-terracotta)]">
-                    {["I", "II", "III", "IV", "V", "VI"][i]}
+                    {String(i + 1).padStart(2, "0")}
                   </span>
                   <span className="font-[family-name:var(--font-cartel)] text-[0.72rem] tracking-[0.26em] text-[color:var(--color-sepia)]">
                     {p.city.toUpperCase()}

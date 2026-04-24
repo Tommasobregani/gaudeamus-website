@@ -47,25 +47,25 @@ export default async function ParticipatePage({
 
   const kinds = [
     {
-      roman: "I",
+      roman: "01",
       code: "photo",
       label: it ? "FOTO" : "PHOTO",
       note: it ? "Uno o più scatti da un evento o dalle quinte." : "One or more shots from an event or the wings.",
     },
     {
-      roman: "II",
+      roman: "02",
       code: "video",
       label: "VIDEO",
       note: it ? "Link YouTube o file caricato." : "YouTube link or uploaded file.",
     },
     {
-      roman: "III",
+      roman: "03",
       code: "article",
       label: it ? "ARTICOLO" : "ARTICLE",
       note: it ? "Un testo, una riflessione, una cronaca." : "An essay, a reflection, a dispatch.",
     },
     {
-      roman: "IV",
+      roman: "04",
       code: "event",
       label: it ? "EVENTO" : "EVENT",
       note: it ? "Segnala un evento della comunità." : "Flag an event from the community.",

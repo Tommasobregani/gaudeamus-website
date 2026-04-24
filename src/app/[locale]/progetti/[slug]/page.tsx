@@ -52,7 +52,7 @@ export async function generateMetadata({
 }
 
 const romanYear = (y: number) => {
-  const map: Record<number, string> = { 2023: "MMXXIII", 2024: "MMXXIV", 2025: "MMXXV", 2026: "MMXXVI" };
+  const map: Record<number, string> = { 2023: "2023", 2024: "2024", 2025: "2025", 2026: "2026" };
   return map[y] ?? String(y);
 };
 

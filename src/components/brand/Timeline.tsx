@@ -19,7 +19,7 @@ type Props = {
  * Timeline — annals-style. Year (Roman numeral) right-aligned against a vertical
  * rule, title + body on the right. Each entry fades + rises on enter.
  *
- * Year column is sized generously (10rem desktop) to fit even "MMXXIV" without
+ * Year column is sized generously (10rem desktop) to fit even "2024" without
  * overflowing into the rule.
  */
 export function Timeline({ entries, className }: Props) {

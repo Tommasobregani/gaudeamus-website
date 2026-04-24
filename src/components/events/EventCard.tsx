@@ -9,7 +9,7 @@ import type { Locale } from "@/lib/utils";
 
 export function EventCard({ event, index }: { event: EventEntry; index?: number }) {
   const locale = useLocale() as Locale;
-  const roman = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"][index ?? 0];
+  const roman = String((index ?? 0) + 1).padStart(2, "0");
 
   return (
     <Link

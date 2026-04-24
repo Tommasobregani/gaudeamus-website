@@ -118,7 +118,7 @@ export function Header() {
               className="flex items-baseline gap-4 border-b border-[color:var(--color-sepia)]/20 py-4"
             >
               <span className="bodoni-italic text-[1.2rem] text-[color:var(--color-terracotta)]">
-                {["I", "II", "III", "IV", "V", "VI"][i]}
+                {String(i + 1).padStart(2, "0")}
               </span>
               <span className="bodoni-italic text-[2rem] leading-none text-[color:var(--color-sepia)]">
                 {t(l.key)}
