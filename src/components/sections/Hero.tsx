@@ -34,12 +34,7 @@ export function Hero() {
           aria-label={`${t("heroLine1")} ${t("heroLine2")} ${t("heroLine3")}`}
         >
           <span className="block text-[clamp(3rem,11vw,9rem)] leading-[0.92]">
-            <LetterReveal
-              as="span"
-              text={t("heroLine1")}
-              className="inline-block"
-              italicize
-            />
+            <LetterReveal as="span" text={t("heroLine1")} className="inline-block" italicize />
           </span>
           <span className="mt-1 block text-[clamp(3rem,11vw,9rem)] leading-[0.92]">
             <span className="bodoni-italic inline-block pr-4 text-[color:var(--color-terracotta)]">
@@ -116,7 +111,6 @@ export function Hero() {
                 sizes="(min-width: 1024px) 40vw, 100vw"
                 className="object-cover"
               />
-              {/* fresco duotone */}
               <div
                 aria-hidden
                 className="pointer-events-none absolute inset-0 mix-blend-multiply"
@@ -125,7 +119,6 @@ export function Hero() {
                     "linear-gradient(140deg, rgba(164,70,42,0.28) 0%, rgba(236,228,211,0.12) 60%, rgba(43,36,32,0.35) 100%)",
                 }}
               />
-              {/* tiny cast-list caption over image */}
               <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between text-[color:var(--color-travertino)]">
                 <span className="font-[family-name:var(--font-cartel)] text-[0.72rem] tracking-[0.26em]">
                   SCENA · POOR PIERO
@@ -136,7 +129,6 @@ export function Hero() {
               </div>
             </div>
           </figure>
-          {/* decorative bars */}
           <div
             className="absolute -bottom-3 -left-3 hidden h-24 w-[1px] bg-[color:var(--color-sepia)] md:block"
             aria-hidden
