@@ -7,29 +7,33 @@ type Props = {
 };
 
 /**
- * PullQuote — massive opening « in Bodoni italic terracotta,
- * the quoted text set in Bodoni italic at pull-quote scale.
- * The Italian editorial voice: Rivista Studio, Domus, Vogue Italia use this.
+ * PullQuote — balanced editorial quote.
+ *
+ * Italic Bodoni quote, left-aligned with a restrained terracotta « mark sitting
+ * above the text (not inside it). Attribution beneath, left-aligned so the whole
+ * block reads as one composition.
  */
 export function PullQuote({ quote, attribution, className }: Props) {
   return (
-    <aside className={cn("relative my-16 md:my-24", className)}>
-      <span
-        aria-hidden
-        className="bodoni-italic absolute -left-2 -top-8 text-[clamp(6rem,12vw,10rem)] leading-[0.6] text-[color:var(--color-terracotta)]"
-      >
-        «
-      </span>
-      <blockquote className="relative pl-10 md:pl-16">
-        <p className="bodoni-italic max-w-[28ch] text-[clamp(1.85rem,3vw+1rem,3rem)] leading-[1.15] text-[color:var(--color-sepia)]">
-          {quote}
-        </p>
-        {attribution && (
-          <footer className="mt-6 font-[family-name:var(--font-cartel)] text-[0.78rem] tracking-[0.28em] text-[color:var(--color-sepia-soft)]">
-            — {attribution}
-          </footer>
-        )}
-      </blockquote>
+    <aside className={cn("my-16 md:my-20", className)}>
+      <div className="mx-auto max-w-[52ch]">
+        <span
+          aria-hidden
+          className="bodoni-italic block text-[3.5rem] leading-[0.6] text-[color:var(--color-terracotta)] md:text-[4.5rem]"
+        >
+          «
+        </span>
+        <blockquote className="mt-4">
+          <p className="bodoni-italic text-[clamp(1.5rem,2.25vw+1rem,2.5rem)] leading-[1.22] text-[color:var(--color-sepia)]">
+            {quote}
+          </p>
+          {attribution && (
+            <footer className="mt-6 font-[family-name:var(--font-cartel)] text-[0.72rem] tracking-[0.26em] text-[color:var(--color-sepia-soft)]">
+              — {attribution}
+            </footer>
+          )}
+        </blockquote>
+      </div>
     </aside>
   );
 }
