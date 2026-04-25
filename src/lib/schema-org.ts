@@ -24,12 +24,12 @@ export function organizationJsonLd(locale: "en" | "it") {
         addressRegion: "Scotland",
       },
     },
-    address: siteConfig.locations.map((l) => ({
+    address: {
       "@type": "PostalAddress",
-      addressLocality: l.city,
+      addressLocality: siteConfig.registeredOffice.city,
       addressRegion: "Scotland",
       addressCountry: "GB",
-    })),
+    },
     email: siteConfig.email.general,
     sameAs: [siteConfig.social.facebook, siteConfig.social.instagram].filter(Boolean),
     inLanguage: ["en", "it"],
@@ -49,7 +49,6 @@ export function websiteJsonLd(locale: "en" | "it") {
 }
 
 export function eventJsonLd(e: EventEntry, locale: "en" | "it") {
-  const slugPrefix = locale === "en" ? "projects" : "progetti";
   return {
     "@context": "https://schema.org",
     "@type": e.kind === "production" ? "TheaterEvent" : "Event",
@@ -71,7 +70,7 @@ export function eventJsonLd(e: EventEntry, locale: "en" | "it") {
     image: `${siteConfig.url}${e.cover}`,
     organizer: { "@id": `${siteConfig.url}/#organization` },
     inLanguage: locale,
-    url: `${siteConfig.url}/${locale}/${slugPrefix}/${e.slug}`,
+    url: `${siteConfig.url}/${locale}/teatro/${e.slug}`,
   };
 }
 

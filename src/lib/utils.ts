@@ -6,25 +6,34 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export const siteConfig = {
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.italiandramauk.org",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://gaudeamus-webiste.netlify.app",
   name: "Gaudeamus",
   legalName: "Compagnia Artistica Gaudeamus SCIO",
+  charityNumber: "SC052772",
+  registeredOffice: { city: "Aberdeen", country: "Scotland" },
+  coverage: {
+    en: "Operating across Scotland",
+    it: "Operiamo in tutta la Scozia",
+  },
   tagline: {
-    en: "Italian arts and heritage, rooted in Scotland.",
-    it: "Arte e cultura italiana, radicata in Scozia.",
+    en: "Italian theatre and culture, across Scotland.",
+    it: "Teatro e cultura italiana, in tutta la Scozia.",
   },
   description: {
-    en: "Gaudeamus is an Italo-Scottish charity promoting Italian culture and heritage in Scotland through theatre, cultural events, education, and community initiatives.",
-    it: "Gaudeamus è una charity italo-scozzese dedicata alla promozione della cultura e del patrimonio italiano in Scozia attraverso teatro, eventi culturali, attività educative e iniziative comunitarie.",
+    en: "Compagnia Artistica Gaudeamus SCIO is a Scottish-registered Italian charity (SC052772) based in Aberdeen, the only theatre company in Scotland staging productions entirely in Italian with live English subtitles.",
+    it: "Compagnia Artistica Gaudeamus SCIO è una charity italiana registrata in Scozia (SC052772) con sede ad Aberdeen, l'unica compagnia teatrale in Scozia a portare in scena spettacoli interamente in italiano con sottotitoli live in inglese.",
   },
-  locations: [
-    { city: "Aberdeen", role: "HQ", country: "Scotland" },
-    { city: "Glasgow", role: "Branch", country: "Scotland" },
-  ],
   email: {
     general: "info@italiandramauk.org",
     artistic: "gaudeamus@italiandramauk.org",
     finance: "finance@italiandramauk.org",
+  },
+  bank: {
+    name: "Lloyds Bank",
+    accountHolder: "Compagnia Artistica Gaudeamus SCIO",
+    accountNumber: "TBD",
+    sortCode: "TBD",
+    reference: "DONATION + your name",
   },
   social: {
     facebook: "https://www.facebook.com/",

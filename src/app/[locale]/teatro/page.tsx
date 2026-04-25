@@ -1,0 +1,224 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import { setRequestLocale, getTranslations } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { hasLocale, routing, Link } from "@/i18n/routing";
+import { ArrowUpRight } from "lucide-react";
+import { FadeIn } from "@/components/motion/FadeIn";
+import { Stagger, StaggerItem } from "@/components/motion/Stagger";
+import {
+  upcomingProductions,
+  pastProductions,
+} from "@/content/events";
+import { siteConfig, type Locale } from "@/lib/utils";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbJsonLd, eventJsonLd } from "@/lib/schema-org";
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  if (!hasLocale(locale)) return {};
+  const t = await getTranslations({ locale, namespace: "teatro" });
+  return {
+    title: t("title"),
+    description: t("lead"),
+    alternates: {
+      canonical: `${siteConfig.url}/${locale}/teatro`,
+      languages: {
+        en: `${siteConfig.url}/en/teatro`,
+        it: `${siteConfig.url}/it/teatro`,
+      },
+    },
+  };
+}
+
+export default async function TeatroPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!hasLocale(locale)) notFound();
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "teatro" });
+  const loc = locale as Locale;
+
+  return (
+    <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", href: `/${locale}` },
+          { name: t("eyebrow"), href: `/${locale}/teatro` },
+        ])}
+      />
+      {[...upcomingProductions, ...pastProductions].map((e) => (
+        <JsonLd key={e.slug} data={eventJsonLd(e, loc)} />
+      ))}
+
+      {/* Header */}
+      <section className="container-site pt-16 pb-10 md:pt-24 md:pb-14">
+        <FadeIn>
+          <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-accent,var(--color-terracotta))]">
+            {t("eyebrow")}
+          </p>
+        </FadeIn>
+        <FadeIn delay={0.1}>
+          <h1 className="mt-8 max-w-[18ch] display-mixed text-[clamp(2.75rem,7vw+1rem,8rem)] leading-[0.96]">
+            {t("title")}
+          </h1>
+        </FadeIn>
+        <FadeIn delay={0.2}>
+          <div className="mt-10 grid gap-10 md:grid-cols-12">
+            <div className="md:col-span-8 md:col-start-5 space-y-5">
+              <p className="text-[1.1rem] leading-[1.65] text-[color:var(--color-sepia-soft)]">
+                {t("lead")}
+              </p>
+              <p className="text-[1rem] italic leading-[1.65] text-[color:var(--color-sepia-soft)]">
+                {t("leadExtra")}
+              </p>
+            </div>
+          </div>
+        </FadeIn>
+      </section>
+
+      {/* On stage / upcoming */}
+      <section className="container-site border-t border-[color:var(--color-sepia)]/25 py-16 md:py-24">
+        <FadeIn>
+          <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-accent,var(--color-terracotta))]">
+            {t("onStageTitle")}
+          </p>
+        </FadeIn>
+        {upcomingProductions.length === 0 ? (
+          <FadeIn delay={0.1}>
+            <p className="mt-8 max-w-[60ch] text-[1rem] leading-[1.65] text-[color:var(--color-sepia-soft)]">
+              {t("onStageEmpty")}
+            </p>
+          </FadeIn>
+        ) : (
+          <Stagger className="mt-10 grid gap-10 md:grid-cols-2 md:gap-14">
+            {upcomingProductions.map((e) => (
+              <StaggerItem key={e.slug}>
+                <Link href={`/teatro/${e.slug}`} className="group block">
+                  <div className="relative aspect-[3/4] w-full overflow-hidden bg-[color:var(--color-sepia)]/5">
+                    <Image
+                      src={e.poster ?? e.cover}
+                      alt={e.title[loc]}
+                      fill
+                      sizes="(min-width: 768px) 45vw, 90vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                    />
+                  </div>
+                  <div className="mt-6 flex items-start justify-between gap-4">
+                    <div>
+                      <p className="font-[family-name:var(--font-cartel)] text-[0.72rem] uppercase tracking-[0.28em] text-[color:var(--color-sepia-soft)]">
+                        {e.year} · {e.kind}
+                      </p>
+                      <h3 className="mt-3 bodoni-italic text-[2rem] leading-[1.05] text-[color:var(--color-sepia)]">
+                        {e.title[loc]}
+                      </h3>
+                      <p className="mt-2 text-[1rem] italic text-[color:var(--color-sepia-soft)]">
+                        {e.tagline[loc]}
+                      </p>
+                      {e.venues && (
+                        <ul className="mt-3 space-y-1 text-[0.92rem] text-[color:var(--color-sepia-soft)]">
+                          {e.venues.map((v) => (
+                            <li key={v}>· {v}</li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                    <ArrowUpRight
+                      size={22}
+                      strokeWidth={1.25}
+                      className="mt-1 shrink-0 text-[color:var(--color-accent,var(--color-terracotta))] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                    />
+                  </div>
+                </Link>
+              </StaggerItem>
+            ))}
+          </Stagger>
+        )}
+      </section>
+
+      {/* Past productions */}
+      <section className="relative border-t border-[color:var(--color-sepia)]/25 bg-[color:var(--color-carta)]">
+        <div className="container-site py-16 md:py-24">
+          <FadeIn>
+            <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-accent,var(--color-terracotta))]">
+              {t("pastTitle")}
+            </p>
+          </FadeIn>
+          <Stagger className="mt-10 grid gap-10 md:grid-cols-3 md:gap-12">
+            {pastProductions.map((e) => (
+              <StaggerItem key={e.slug}>
+                <Link href={`/teatro/${e.slug}`} className="group block">
+                  <div className="relative aspect-[3/4] w-full overflow-hidden bg-[color:var(--color-sepia)]/5">
+                    <Image
+                      src={e.poster ?? e.cover}
+                      alt={e.title[loc]}
+                      fill
+                      sizes="(min-width: 768px) 30vw, 90vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                    />
+                  </div>
+                  <div className="mt-5">
+                    <p className="font-[family-name:var(--font-cartel)] text-[0.7rem] uppercase tracking-[0.26em] text-[color:var(--color-sepia-soft)]">
+                      {e.year}
+                    </p>
+                    <h3 className="mt-2 bodoni-italic text-[1.5rem] leading-[1.05] text-[color:var(--color-sepia)]">
+                      {e.title[loc]}
+                    </h3>
+                    <p className="mt-1 text-[0.95rem] italic text-[color:var(--color-sepia-soft)]">
+                      {e.tagline[loc]}
+                    </p>
+                  </div>
+                </Link>
+              </StaggerItem>
+            ))}
+          </Stagger>
+        </div>
+      </section>
+
+      {/* Workshops + Reviews — sub-section teasers */}
+      <section className="container-site border-t border-[color:var(--color-sepia)]/25 py-16 md:py-24">
+        <div className="grid gap-12 md:grid-cols-2 md:gap-16">
+          <FadeIn>
+            <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-accent,var(--color-terracotta))]">
+              {t("workshopTitle")}
+            </p>
+            <h3 className="mt-6 bodoni-italic text-[clamp(1.75rem,2.5vw+1rem,2.5rem)] leading-[1.15] text-[color:var(--color-sepia)]">
+              {t("workshopBody")}
+            </h3>
+            <Link
+              href="/teatro/laboratori"
+              className="hover-underline mt-6 inline-flex items-center gap-1 font-[family-name:var(--font-cartel)] text-sm tracking-[0.22em]"
+            >
+              {t("workshopLink")} <ArrowUpRight size={14} strokeWidth={1.5} />
+            </Link>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-accent,var(--color-terracotta))]">
+              {t("reviewsTitle")}
+            </p>
+            <h3 className="mt-6 bodoni-italic text-[clamp(1.75rem,2.5vw+1rem,2.5rem)] leading-[1.15] text-[color:var(--color-sepia)]">
+              {t("reviewsBody")}
+            </h3>
+            <Link
+              href="/teatro/recensioni"
+              className="hover-underline mt-6 inline-flex items-center gap-1 font-[family-name:var(--font-cartel)] text-sm tracking-[0.22em]"
+            >
+              {t("reviewsLink")} <ArrowUpRight size={14} strokeWidth={1.5} />
+            </Link>
+          </FadeIn>
+        </div>
+      </section>
+    </>
+  );
+}

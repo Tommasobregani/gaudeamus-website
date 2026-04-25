@@ -64,36 +64,32 @@ export function Footer() {
           <p className="mt-10 font-[family-name:var(--font-cartel)] text-[0.78rem] tracking-[0.28em] text-[color:var(--color-oro-soft)]">
             {t("contact.locationsTitle")}
           </p>
-          <ul className="mt-4 space-y-1 text-sm">
-            {siteConfig.locations.map((l) => (
-              <li key={l.city}>
-                <span className="bodoni-italic text-[1.15rem] text-[color:var(--color-travertino)]">
-                  {l.city}
-                </span>
-                <span className="font-[family-name:var(--font-mono)] text-[0.7rem] tracking-[0.2em] text-[color:var(--color-travertino)]/55">
-                  {" · "}
-                  {l.role}
-                </span>
-              </li>
-            ))}
-          </ul>
+          <p className="mt-4 text-sm">
+            <span className="bodoni-italic text-[1.15rem] text-[color:var(--color-travertino)]">
+              {siteConfig.registeredOffice.city}
+            </span>
+            <span className="font-[family-name:var(--font-mono)] text-[0.7rem] tracking-[0.2em] text-[color:var(--color-travertino)]/55">
+              {" · "}
+              {siteConfig.registeredOffice.country}
+            </span>
+          </p>
+          <p className="mt-2 font-[family-name:var(--font-mono)] text-[0.72rem] tracking-[0.18em] text-[color:var(--color-travertino)]/55">
+            {t("footer.coverage")}
+          </p>
         </div>
       </div>
 
       <div className="border-t border-[color:var(--color-travertino)]/18">
         <div className="container-site flex flex-col items-start justify-between gap-4 py-6 font-[family-name:var(--font-mono)] text-[0.72rem] tracking-[0.1em] text-[color:var(--color-travertino)]/60 md:flex-row md:items-center">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-            <span>
-              © {year} {siteConfig.legalName}.
-            </span>
+            <span>© {year} {siteConfig.legalName}</span>
+            <span aria-hidden>·</span>
             <span>{t("footer.registered")}</span>
           </div>
           <nav aria-label="Legal" className="flex flex-wrap items-center gap-x-5 gap-y-2">
             <Link className="hover-underline" href="/contatti">
               {t("footer.contact")}
             </Link>
-            <span aria-hidden>·</span>
-            <span>{t("footer.credits")}</span>
           </nav>
         </div>
       </div>

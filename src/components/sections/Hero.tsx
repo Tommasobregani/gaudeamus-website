@@ -11,20 +11,10 @@ export function Hero() {
 
   return (
     <section className="relative overflow-hidden pb-16 pt-6 md:pb-24 md:pt-8">
-      {/* Top stamp bar — teatro-program header */}
+      {/* Top stamp bar — registered charity strap */}
       <div className="container-site flex flex-wrap items-center justify-between gap-3 border-t border-b border-[color:var(--color-sepia)]/20 py-3">
         <span className="stamp">Compagnia Artistica Gaudeamus · SCIO</span>
-        <span className="stamp hidden md:inline">{t("eyebrow")}</span>
-        <span className="stamp">Aberdeen · Glasgow · 2023</span>
-      </div>
-
-      {/* Latin tag — Gaudeamus igitur lineage */}
-      <div className="container-site mt-6 flex items-center justify-center gap-4 text-center">
-        <span aria-hidden className="h-px w-10 bg-[color:var(--color-sepia)]/30" />
-        <span className="bodoni-italic text-[1rem] text-[color:var(--color-terracotta)] md:text-[1.15rem]">
-          Gaudeamus igitur.
-        </span>
-        <span aria-hidden className="h-px w-10 bg-[color:var(--color-sepia)]/30" />
+        <span className="stamp">{t("eyebrow")}</span>
       </div>
 
       {/* Massive poster title */}
@@ -68,31 +58,13 @@ export function Hero() {
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-3">
-            <ButtonLink href="/progetti" variant="primary" withArrow>
+            <ButtonLink href="/teatro" variant="primary" withArrow>
               {t("heroCtaPrimary")}
             </ButtonLink>
             <ButtonLink href="/eventi" variant="outline">
               {t("heroCtaSecondary")}
             </ButtonLink>
           </div>
-
-          {/* Stats bar — teatro-program data */}
-          <dl className="mt-14 grid grid-cols-3 gap-4 border-t border-[color:var(--color-sepia)]/25 pt-6">
-            <div>
-              <dt className="stamp">Dal</dt>
-              <dd className="bodoni-italic mt-1 text-[2rem] leading-none text-[color:var(--color-terracotta)]">
-                2023
-              </dd>
-            </div>
-            <div>
-              <dt className="stamp">Produzioni</dt>
-              <dd className="bodoni-italic mt-1 text-[2rem] leading-none">6</dd>
-            </div>
-            <div>
-              <dt className="stamp">Città</dt>
-              <dd className="bodoni-italic mt-1 text-[2rem] leading-none">3</dd>
-            </div>
-          </dl>
         </motion.div>
 
         <motion.div

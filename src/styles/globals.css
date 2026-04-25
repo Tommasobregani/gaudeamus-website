@@ -20,7 +20,8 @@
   --color-oro: #b28730;               /* aged gold, small highlights */
   --color-oro-soft: #c9a65a;
   --color-salvia: #6f7a5a;            /* sage green — fresco, not bottle */
-  --color-notte: #25304a;             /* Italian blu notte — Scottish echo */
+  --color-notte: #1f3a8c;             /* deep theatre blue — primary action accent */
+  --color-notte-deep: #142868;        /* darker blu notte — hover state */
   --color-border: #cfc1a8;            /* warm travertine border */
   --color-border-strong: #2b2420;
   --color-muted: #7a6d5d;
@@ -31,7 +32,7 @@
   --color-surface: var(--color-carta);
   --color-primary: var(--color-sepia);
   --color-on-primary: var(--color-travertino);
-  --color-accent: var(--color-terracotta);
+  --color-accent: var(--color-notte);
   --color-on-accent: var(--color-travertino);
   --color-ring: var(--color-sepia);
 

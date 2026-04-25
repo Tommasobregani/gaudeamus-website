@@ -10,9 +10,10 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { href: "/chi-siamo", key: "about" },
-  { href: "/progetti", key: "projects" },
+  { href: "/teatro", key: "teatro" },
   { href: "/eventi", key: "events" },
   { href: "/news", key: "news" },
+  { href: "/progetti", key: "projects" },
   { href: "/sostienici", key: "support" },
   { href: "/contatti", key: "contact" },
 ] as const;
@@ -70,7 +71,7 @@ export function Header() {
                   "relative font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.24em] transition-colors",
                   "text-[color:var(--color-sepia)]",
                   isActive
-                    ? "opacity-100 after:absolute after:-bottom-1.5 after:left-0 after:h-[2px] after:w-full after:bg-[color:var(--color-terracotta)]"
+                    ? "opacity-100 after:absolute after:-bottom-1.5 after:left-0 after:h-[2px] after:w-full after:bg-[color:var(--color-accent)]"
                     : "opacity-75 hover:opacity-100",
                 )}
               >
@@ -81,12 +82,6 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-4">
-          <Link
-            href="/partecipa"
-            className="hidden h-9 items-center gap-2 border border-[color:var(--color-terracotta)] bg-[color:var(--color-terracotta)] px-4 font-[family-name:var(--font-cartel)] text-[0.72rem] tracking-[0.24em] text-[color:var(--color-travertino)] transition-colors hover:bg-[color:var(--color-terracotta-deep)] md:inline-flex"
-          >
-            {t("participate")}
-          </Link>
           <LanguageToggle className="hidden md:block" />
           <button
             type="button"
@@ -125,12 +120,6 @@ export function Header() {
               </span>
             </Link>
           ))}
-          <Link
-            href="/partecipa"
-            className="mt-4 inline-flex h-11 items-center justify-center border border-[color:var(--color-terracotta)] bg-[color:var(--color-terracotta)] px-5 font-[family-name:var(--font-cartel)] text-[0.78rem] tracking-[0.26em] text-[color:var(--color-travertino)]"
-          >
-            {t("participate")}
-          </Link>
           <div className="pt-6">
             <LanguageToggle />
           </div>

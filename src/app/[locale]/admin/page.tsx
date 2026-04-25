@@ -6,7 +6,6 @@ import { hasLocale, routing, Link } from "@/i18n/routing";
 import { createClient } from "@/lib/supabase/server";
 import { Fregio } from "@/components/brand/Fregio";
 import { RomanEyebrow } from "@/components/ui/RomanEyebrow";
-import { ButtonLink } from "@/components/ui/Button";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -141,18 +140,12 @@ export default async function AdminPage({
       <div className="mt-16">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <RomanEyebrow n={1} label={it ? "Pubblicazioni" : "Publications"} />
-          <ButtonLink href="/admin/posts/new" withArrow>
-            {it ? "Nuovo articolo" : "New article"}
-          </ButtonLink>
         </div>
 
         {!posts || posts.length === 0 ? (
           <div className="mt-10 border-2 border-dashed border-[color:var(--color-sepia)]/30 p-10 text-center">
             <p className="bodoni-italic text-[clamp(1.5rem,2vw+1rem,2rem)] text-[color:var(--color-sepia)]">
               {it ? "Nessun articolo in archivio." : "No articles in the archive."}
-            </p>
-            <p className="mt-3 font-[family-name:var(--font-body)] italic text-[color:var(--color-sepia-soft)]">
-              {it ? "Pubblica il primo da qui sopra." : "Publish your first from the button above."}
             </p>
           </div>
         ) : (

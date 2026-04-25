@@ -13,7 +13,7 @@ type Common = {
 
 const styles = {
   primary:
-    "bg-[color:var(--color-sepia)] text-[color:var(--color-travertino)] hover:bg-[color:var(--color-terracotta)]",
+    "bg-[color:var(--color-accent)] text-[color:var(--color-on-accent)] hover:opacity-90",
   outline:
     "bg-transparent text-[color:var(--color-sepia)] border border-[color:var(--color-sepia)] hover:bg-[color:var(--color-sepia)] hover:text-[color:var(--color-travertino)]",
   ghost:

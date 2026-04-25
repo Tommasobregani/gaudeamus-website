@@ -32,7 +32,7 @@ export async function generateMetadata({
   const event = eventBySlug(slug);
   if (!event) return {};
   const loc = locale as Locale;
-  const path = `progetti/${slug}`;
+  const path = `teatro/${slug}`;
   return {
     title: event.title[loc],
     description: event.summary[loc],
@@ -67,7 +67,8 @@ export default async function ProjectPage({
   const event = eventBySlug(slug);
   if (!event) notFound();
 
-  const t = await getTranslations({ locale, namespace: "projects" });
+  const t = await getTranslations({ locale, namespace: "teatro" });
+  const tProj = await getTranslations({ locale, namespace: "projects" });
   const loc = locale as Locale;
 
   const related = events.filter((e) => e.slug !== event.slug && e.kind === event.kind).slice(0, 3);
@@ -80,14 +81,14 @@ export default async function ProjectPage({
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", href: `/${locale}` },
-          { name: t("eyebrow"), href: `/${locale}/${"progetti"}` },
-          { name: event.title[loc], href: `/${locale}/${"progetti"}/${event.slug}` },
+          { name: t("eyebrow"), href: `/${locale}/${"teatro"}` },
+          { name: event.title[loc], href: `/${locale}/${"teatro"}/${event.slug}` },
         ])}
       />
 
       <section className="container-site pt-10 md:pt-14">
         <Link
-          href="/progetti"
+          href="/teatro"
           className="hover-underline inline-flex items-center gap-2 font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.24em] text-[color:var(--color-sepia-soft)]"
         >
           <ArrowLeft size={14} strokeWidth={1.5} />
@@ -237,7 +238,7 @@ export default async function ProjectPage({
           <div className="flex items-end justify-between">
             <RomanEyebrow n={2} label={locale === "it" ? "Galleria" : "Gallery"} />
             <p className="font-[family-name:var(--font-mono)] text-[0.72rem] uppercase tracking-[0.22em] text-[color:var(--color-muted)]">
-              {event.gallery.length} {t("photos")}
+              {event.gallery.length} {tProj("photos")}
             </p>
           </div>
         </FadeIn>
@@ -254,10 +255,10 @@ export default async function ProjectPage({
               <div className="flex items-end justify-between">
                 <RomanEyebrow n={3} label={locale === "it" ? "Anche da vedere" : "Also worth seeing"} />
                 <Link
-                  href="/progetti"
+                  href="/teatro"
                   className="hover-underline inline-flex items-center gap-1 font-[family-name:var(--font-cartel)] text-sm tracking-[0.22em]"
                 >
-                  {locale === "it" ? "Tutti i progetti" : "All projects"}
+                  {locale === "it" ? "Tutte le produzioni" : "All productions"}
                   <ArrowUpRight size={14} strokeWidth={1.5} />
                 </Link>
               </div>

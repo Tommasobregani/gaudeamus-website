@@ -1,24 +1,27 @@
 /**
- * Event & production catalog.
- * Bilingual copy. Client can extend via CMS later; for v1 this is the source of truth.
+ * Production / event / community catalog.
+ * All copy lifted from the client's "GAUDEAMUS - Teatro" doc and the main charity doc.
+ * When information is genuinely unknown, we mark it "TBD" — never invent.
  */
 
-export type EventKind = "production" | "gathering" | "workshop";
+export type EventKind = "production" | "community" | "workshop";
+export type EventStatus = "past" | "current" | "upcoming";
 
 export type EventEntry = {
   slug: string;
   kind: EventKind;
   year: number;
-  date?: string; // ISO
-  status: "past" | "current" | "upcoming";
+  date?: string; // ISO yyyy-mm-dd if a single date applies
+  status: EventStatus;
   title: { en: string; it: string };
   tagline: { en: string; it: string };
   summary: { en: string; it: string };
   description: { en: string[]; it: string[] };
   venues?: string[];
   role?: { en: string; it: string };
-  cover: string; // public path
-  gallery: string[]; // public paths
+  cover: string;
+  poster?: string; // locandina image — preferred over cover for production cards
+  gallery: string[];
   credits?: {
     en: { role: string; name: string }[];
     it: { role: string; name: string }[];
@@ -26,36 +29,150 @@ export type EventEntry = {
 };
 
 export const events: EventEntry[] = [
+  // ── UPCOMING PRODUCTIONS ──────────────────────────────────────────────
   {
-    slug: "no-shakespeare",
+    slug: "high-heels-from-the-big-boot",
     kind: "production",
-    year: 2023,
-    date: "2023-11-25",
-    status: "past",
-    title: { en: "No Shakespeare", it: "No Shakespeare" },
+    year: 2026,
+    date: "2026-08-13",
+    status: "upcoming",
+    title: {
+      en: "High Heels from the Big Boot",
+      it: "High Heels from the Big Boot",
+    },
     tagline: {
-      en: "An Italian answer to the Bard.",
-      it: "Una risposta italiana al Bardo.",
+      en: "A playful tribute to Italian women.",
+      it: "Un divertente tributo alle donne italiane.",
     },
     summary: {
-      en: "A theatrical conversation between Italian and Scottish dramatic traditions — what stories do we tell when we refuse the canon?",
-      it: "Una conversazione teatrale tra tradizioni drammatiche italiana e scozzese — quali storie raccontiamo quando rifiutiamo il canone?",
+      en: "Two grandchildren find a mysterious laptop and an AI that begins to reveal, with irony and precision, their grandmother's secrets — and from there, a chorus of extraordinary Italian women steps forward to tell their own stories.",
+      it: "Due nipoti scoprono un misterioso laptop e un'Intelligenza Artificiale che inizia a svelare, con ironia e precisione, i segreti della loro nonna — e da lì, un coro di donne italiane straordinarie si fa avanti per raccontarsi in prima persona.",
     },
     description: {
       en: [
-        "No Shakespeare began as a provocation: what would Italian theatre in Scotland look like if, for one evening, we put the national bard aside and asked what else we brought with us?",
-        "Staged in November 2023, the production drew on commedia dell'arte, modern Italian playwrights and the voices of the Italian diaspora in Aberdeen and Glasgow. The result was a bilingual evening, alternately fierce and tender, about the stories that travel with you when you move countries.",
-        "The night sold out. Photos, interviews and press coverage will live on this page.",
+        "A bright, irreverent show that pays homage to Italian women throughout history — from icons to forgotten figures, each restored in their own voice, between strength, fragility, irony and truth.",
+        "Between comic moments and intense passages, the piece weaves lightness and depth into a continuous dialogue between generations and identities. A choral story about memory, freedom, self-determination and the right to be oneself.",
       ],
       it: [
-        "No Shakespeare è nato come una provocazione: come sarebbe il teatro italiano in Scozia se, per una sera, mettessimo da parte il bardo nazionale e ci chiedessimo cos'altro ci siamo portati dietro?",
-        "Messa in scena nel novembre 2023, la produzione ha attinto dalla commedia dell'arte, dai drammaturghi italiani contemporanei e dalle voci della diaspora italiana tra Aberdeen e Glasgow. Il risultato è stata una serata bilingue, a tratti feroce e a tratti tenera, sulle storie che viaggiano con te quando cambi paese.",
-        "La serata è andata sold out. Foto, interviste e rassegna stampa troveranno casa qui.",
+        "Uno spettacolo brillante e irriverente che rende omaggio alle donne italiane attraverso la storia: da figure iconiche a personalità dimenticate, ognuna restituita nella sua autenticità, tra forza, fragilità, ironia e verità.",
+        "Tra momenti comici e passaggi intensi, lo spettacolo alterna leggerezza e profondità, creando un dialogo continuo tra generazioni e identità. È un racconto corale che parla di memoria, libertà, autodeterminazione e del diritto di essere se stesse.",
       ],
     },
-    venues: ["Aberdeen", "Glasgow"],
+    venues: [
+      "Edinburgh Fringe Festival, Venue 67 — 13, 14 & 15 August 2026",
+      "Aberdeen & Glasgow — Autumn 2026",
+    ],
+    role: { en: "Original production", it: "Produzione originale" },
+    cover: "/events/poor-piero/poor-piero-01.jpg",
+    gallery: [],
+    credits: {
+      en: [
+        { role: "Written by", name: "Eva D'Amico" },
+        { role: "Direction", name: "Eva D'Amico" },
+        { role: "Assistant Director", name: "Giancarlo Abobua" },
+        { role: "Cast", name: "Federica Casolari, Eva D'Amico, Domenico Serino" },
+        { role: "Running time", name: "One act, c. 60 min" },
+        { role: "Audience", name: "All ages" },
+      ],
+      it: [
+        { role: "Testo", name: "Eva D'Amico" },
+        { role: "Regia", name: "Eva D'Amico" },
+        { role: "Assistente di regia", name: "Giancarlo Abobua" },
+        { role: "Cast", name: "Federica Casolari, Eva D'Amico, Domenico Serino" },
+        { role: "Durata", name: "Atto unico, circa 60 min" },
+        { role: "Pubblico", name: "Tutti" },
+      ],
+    },
+  },
+  {
+    slug: "good-honest-lies",
+    kind: "production",
+    year: 2027,
+    status: "upcoming",
+    title: { en: "Good Honest Lies", it: "Good Honest Lies" },
+    tagline: {
+      en: "After Eduardo De Filippo's Le bugie con le gambe lunghe.",
+      it: "Ispirato a Le bugie con le gambe lunghe di Eduardo De Filippo.",
+    },
+    summary: {
+      en: "A bitter, surprisingly current comedy that lays bare social hypocrisy and the power of convention. At its centre, Libero Incoronato — a simple man adrift in a world of appearances, where everyone lies to save their own reputation.",
+      it: "Una commedia amara e sorprendentemente attuale, capace di mettere a nudo l'ipocrisia sociale e il potere delle convenzioni. Al centro, Libero Incoronato, uomo semplice immerso in un mondo fatto di apparenze, dove tutti mentono per salvare la propria reputazione.",
+    },
+    description: {
+      en: [
+        "Inspired by Eduardo De Filippo's Le bugie con le gambe lunghe, the production stages a collective game of pretence in which even the truth is bent until it becomes irrelevant.",
+        "While the staging keeps the immediate post-war setting, an added epilogue and a more dynamic, contemporary delivery underline how current the theme remains. Eduardo's lucid, ironic theatrical mechanism still mirrors a society willing to accept any lie to maintain a fragile equilibrium.",
+        "A comedy that makes you smile — and also invites you to recognise how, then as now, “everyone false, everyone happy.”",
+      ],
+      it: [
+        "Ispirato a Le bugie con le gambe lunghe di Eduardo De Filippo, lo spettacolo porta in scena una commedia amara e sorprendentemente attuale, capace di mettere a nudo l'ipocrisia sociale e il potere delle convenzioni.",
+        "La regia, pur mantenendo l'ambientazione nell'immediato dopoguerra, evidenzia con decisione l'attualità del tema attraverso l'inserimento di un epilogo e una recitazione più dinamica e contemporanea, capace di avvicinare il linguaggio scenico alla sensibilità di oggi.",
+        "Eduardo costruisce così un meccanismo teatrale lucido e ironico, che ancora oggi rispecchia una società pronta ad accettare qualsiasi menzogna pur di mantenere un fragile equilibrio. Una commedia che fa sorridere, ma che invita anche a riconoscere quanto, ieri come oggi, «tutti falsi, tutti contenti».",
+      ],
+    },
+    venues: ["Aberdeen, Edinburgh & Glasgow — Winter 2027"],
     role: { en: "Production", it: "Produzione" },
-    cover: "/events/no-shakespeare/no-shakespeare-01.jpg",
+    cover: "/events/no-shakespeare/no-shakespeare-08.jpg",
+    gallery: [],
+    credits: {
+      en: [
+        { role: "Direction", name: "Eva D'Amico" },
+        { role: "Assistant Director", name: "Giancarlo Abobua" },
+        { role: "Stage Assistant", name: "Antonio Ibba" },
+        { role: "Make-up", name: "Federica Casolari" },
+        { role: "Prompt", name: "Elena Pampana" },
+        {
+          role: "Cast",
+          name: "Erika Boetto, Barbara Canu, Federica Casolari, Eva D'Amico, Silvia Fittante, Sacha Fop, Nicolò Ibba, Mauro Manassi, Silvia Scoppio, Domenico Serino, Elena Tortoioli",
+        },
+        { role: "Running time", name: "Three acts, 30 min each" },
+        { role: "Audience", name: "12+" },
+      ],
+      it: [
+        { role: "Regia", name: "Eva D'Amico" },
+        { role: "Assistente di regia", name: "Giancarlo Abobua" },
+        { role: "Assistente di palcoscenico", name: "Antonio Ibba" },
+        { role: "Make-up artist", name: "Federica Casolari" },
+        { role: "Suggeritore", name: "Elena Pampana" },
+        {
+          role: "Cast",
+          name: "Erika Boetto, Barbara Canu, Federica Casolari, Eva D'Amico, Silvia Fittante, Sacha Fop, Nicolò Ibba, Mauro Manassi, Silvia Scoppio, Domenico Serino, Elena Tortoioli",
+        },
+        { role: "Durata", name: "Tre atti da 30 minuti" },
+        { role: "Pubblico", name: "Da 12 anni in su" },
+      ],
+    },
+  },
+
+  // ── PAST PRODUCTIONS ──────────────────────────────────────────────────
+  {
+    slug: "no-shakespeare-fringe",
+    kind: "production",
+    year: 2024,
+    status: "past",
+    title: {
+      en: "No Shakespeare — Fringe Edition",
+      it: "No Shakespeare — Fringe Edition",
+    },
+    tagline: {
+      en: "A homage to Italian dramaturgy and literature.",
+      it: "Un omaggio alla drammaturgia ed alla letteratura italiana.",
+    },
+    summary: {
+      en: "Inspired by a true story, a metatheatrical journey into Italian culture: desperate actors fighting to put on a show at the Fringe. Discover the beauty of Italian literature — and the terror of looming deadlines.",
+      it: "Ispirato a una storia vera, un viaggio metateatrale nella cultura italiana: attori disperati che lottano per mettere in scena uno spettacolo al Fringe. Scoprite la bellezza della letteratura italiana e il terrore delle scadenze imminenti!",
+    },
+    description: {
+      en: [
+        "A reworking of the original No Shakespeare, this Fringe edition is more than a play — it's a fascinating journey through Italian theatre and literature, from the Renaissance to the present day. A unique evening for all ages, dedicated to anyone who loves Italy or has always wanted to know it better.",
+      ],
+      it: [
+        "Riadattamento della precedente omonima produzione, Niente Shakespeare è molto più di uno spettacolo: è un viaggio affascinante attraverso la cultura teatrale e letteraria italiana, dal Rinascimento ai giorni nostri. Una serata unica, pensata per tutte le età, dedicata a chi ama l'Italia e a chi ha sempre desiderato conoscerla meglio.",
+      ],
+    },
+    role: { en: "Production", it: "Produzione" },
+    cover: "/events/no-shakespeare/locandina-fringe.jpg",
+    poster: "/events/no-shakespeare/locandina-fringe.jpg",
     gallery: [
       "/events/no-shakespeare/no-shakespeare-01.jpg",
       "/events/no-shakespeare/no-shakespeare-02.jpg",
@@ -64,27 +181,23 @@ export const events: EventEntry[] = [
       "/events/no-shakespeare/no-shakespeare-05.jpg",
       "/events/no-shakespeare/no-shakespeare-06.jpg",
       "/events/no-shakespeare/no-shakespeare-07.jpg",
-      "/events/no-shakespeare/no-shakespeare-08.jpg",
-      "/events/no-shakespeare/no-shakespeare-09.jpg",
-      "/events/no-shakespeare/no-shakespeare-10.jpg",
-      "/events/no-shakespeare/no-shakespeare-11.jpg",
     ],
     credits: {
       en: [
-        { role: "Direction", name: "Compagnia Gaudeamus" },
-        { role: "Dramaturgy", name: "Ensemble collective" },
-        { role: "Cast", name: "Italian & Scottish voices" },
-        { role: "Original music", name: "To be credited" },
-        { role: "Venues", name: "Aberdeen · Glasgow" },
-        { role: "Season", name: "November 2023" },
+        { role: "Written by", name: "Eva D'Amico" },
+        { role: "Direction", name: "Eva D'Amico" },
+        { role: "Assistant Director", name: "Giancarlo Abobua" },
+        { role: "Cast", name: "Erika Boetto, Eva D'Amico, Domenico Serino" },
+        { role: "Running time", name: "One act, c. 60 min" },
+        { role: "Audience", name: "All ages" },
       ],
       it: [
-        { role: "Regia", name: "Compagnia Gaudeamus" },
-        { role: "Drammaturgia", name: "Ensemble collettivo" },
-        { role: "Interpreti", name: "Voci italiane e scozzesi" },
-        { role: "Musiche originali", name: "In definizione" },
-        { role: "Sedi", name: "Aberdeen · Glasgow" },
-        { role: "Stagione", name: "Novembre 2023" },
+        { role: "Testo", name: "Eva D'Amico" },
+        { role: "Regia", name: "Eva D'Amico" },
+        { role: "Assistente di regia", name: "Giancarlo Abobua" },
+        { role: "Cast", name: "Erika Boetto, Eva D'Amico, Domenico Serino" },
+        { role: "Durata", name: "Atto unico, circa 60 min" },
+        { role: "Pubblico", name: "Tutti" },
       ],
     },
   },
@@ -95,26 +208,28 @@ export const events: EventEntry[] = [
     status: "past",
     title: { en: "Poor Piero", it: "Poor Piero" },
     tagline: {
-      en: "A small Italian tragedy, told with a Scottish accent.",
-      it: "Una piccola tragedia italiana, raccontata con accento scozzese.",
+      en: "A masterpiece of irreverent humour, after Achille Campanile.",
+      it: "Un capolavoro di umorismo dissacrante, da Achille Campanile.",
     },
     summary: {
-      en: "An original Gaudeamus production — a tragicomic portrait of a man caught between two countries, two languages and a single table.",
-      it: "Una produzione originale Gaudeamus — un ritratto tragicomico di un uomo in bilico tra due paesi, due lingue e un'unica tavola.",
+      en: "Piero is dead. But his funeral quickly becomes a whirlwind of misunderstandings, schemes and twists — a theatre of the absurd in which the deceased is shoved around, hidden in cupboards, and buried under epitaphs while relatives and friends keep up a parade of tears, outbursts and hypocrisy.",
+      it: "Piero è morto. Ma il suo funerale si trasforma presto in un turbine di equivoci, sotterfugi e colpi di scena, mentre il defunto viene sballottato, nascosto negli armadi, ricoperto da epitaffi e necrologi e parenti e amici alimentano un teatro dell'assurdo fatto di pianti, escandescenze e ipocrisie.",
     },
     description: {
       en: [
-        "Poor Piero is our love letter to the Italian character who never quite makes it home. Written for the stage by Gaudeamus, the production uses music, monologue and physical theatre to sketch a life lived between Naples and Aberdeen.",
-        "Piero is at times comic, at times unbearably lonely — but, in the Italian tradition, always generous. The production toured Scottish venues through 2024 and opened doors for the longer-form theatre work Gaudeamus is now developing.",
+        "Dripping with irreverent humour, Poor Piero is a divertissement in two acts and a prologue by Achille Campanile — a paradoxical, hilarious comedy in which death itself becomes the occasion for liberating laughter.",
+        "When Piero, perhaps from the shock of dying, unexpectedly resurrects, the chaos becomes total. Campanile's unmistakable style — double meanings, rapid-fire exchanges and situations on the edge of absurdity — dismantles the taboos around death and funeral rituals, exposing the hypocrisy of bourgeois “good manners.”",
+        "Our staging pushes the comedy and the irreverence further, sharpening the contrast between the rigidity of social conventions and the absurdity of the situations. Characters are deliberately caricatural, stripped of common sense and authentic feeling, fully enslaved to the codes that cage them. Between clumsy obituaries, ceremonial tears and cutting one-liners, the production lingers on the parody of respectability and the hypocrisies that surround death.",
       ],
       it: [
-        "Poor Piero è la nostra lettera d'amore al personaggio italiano che non torna mai davvero a casa. Scritta per la scena da Gaudeamus, la produzione usa musica, monologo e teatro fisico per disegnare una vita vissuta tra Napoli e Aberdeen.",
-        "Piero è a tratti comico, a tratti insopportabilmente solo — ma, nella tradizione italiana, sempre generoso. La produzione ha girato i teatri scozzesi nel 2024 e ha aperto la strada alle opere più estese che Gaudeamus sta sviluppando ora.",
+        "Grondante di humour dissacratore, Il povero Piero è un divertissement in due atti e prologo scritto da Achille Campanile. Una commedia tanto paradossale quanto esilarante in cui la morte stessa diventa occasione di risata liberatoria.",
+        "Quando il povero Piero, forse per lo choc della morte, resuscita inaspettatamente, il caos diventa totale. Lo stile inconfondibile di Campanile — fatto di doppi sensi, scambi serrati di battute e situazioni al limite dell'assurdo — smonta i tabù legati alla morte e ai rituali funebri, svelando l'ipocrisia delle «buone maniere» borghesi.",
+        "L'interpretazione registica estremizza il carattere comico e la forza dissacrante, accentuando il contrasto tra la rigidità delle convenzioni sociali e l'assurdità delle situazioni. I personaggi sono volutamente caricaturali, privati di buon senso e sentimenti autentici, completamente asserviti a un codice di comportamento che finisce per ingabbiarli. Tra necrologi maldestri, lacrime di circostanza e battute taglienti, la regia pone l'accento sulla parodia del perbenismo e sulle ipocrisie che avvolgono il tema della morte.",
       ],
     },
-    venues: ["Aberdeen", "Glasgow"],
-    role: { en: "Original production", it: "Produzione originale" },
-    cover: "/events/poor-piero/poor-piero-01.jpg",
+    role: { en: "Production", it: "Produzione" },
+    cover: "/events/poor-piero/locandina.jpg",
+    poster: "/events/poor-piero/locandina.jpg",
     gallery: [
       "/events/poor-piero/poor-piero-01.jpg",
       "/events/poor-piero/poor-piero-02.jpg",
@@ -128,53 +243,112 @@ export const events: EventEntry[] = [
     ],
     credits: {
       en: [
-        { role: "Writer & Director", name: "Compagnia Gaudeamus" },
-        { role: "Lead performer", name: "Piero" },
-        { role: "Physical theatre", name: "Ensemble" },
-        { role: "Original score", name: "Between Naples and Aberdeen" },
-        { role: "Venues", name: "Aberdeen · Glasgow" },
-        { role: "Season", name: "2024" },
+        { role: "Direction", name: "Eva D'Amico" },
+        { role: "Assistant Director", name: "Lorenzo Lojacono" },
+        { role: "Stage Assistant", name: "Giancarlo Abobua" },
+        { role: "Make-up", name: "Federica Casolari" },
+        { role: "Prompt", name: "Anna Maria Grieco" },
+        {
+          role: "Cast",
+          name: "Erika Boetto, Andrea Caci, Federica Casolari, Eva D'Amico, Silvia Fittante, Sacha Fop, Giorgia Giacomella, Margarita Gonzalez, Claudio Lombardi, Mauro Manassi, Silvia Scoppio, Domenico Serino, Elena Tortoioli",
+        },
+        { role: "Running time", name: "Two acts, 45 min each" },
+        { role: "Audience", name: "12+" },
       ],
       it: [
-        { role: "Autore & Regia", name: "Compagnia Gaudeamus" },
-        { role: "Interprete principale", name: "Piero" },
-        { role: "Teatro fisico", name: "Ensemble" },
-        { role: "Musiche originali", name: "Fra Napoli e Aberdeen" },
-        { role: "Sedi", name: "Aberdeen · Glasgow" },
-        { role: "Stagione", name: "2024" },
+        { role: "Regia", name: "Eva D'Amico" },
+        { role: "Assistente alla regia", name: "Lorenzo Lojacono" },
+        { role: "Assistente di palcoscenico", name: "Giancarlo Abobua" },
+        { role: "Make-up artist", name: "Federica Casolari" },
+        { role: "Suggeritore", name: "Anna Maria Grieco" },
+        {
+          role: "Cast",
+          name: "Erika Boetto, Andrea Caci, Federica Casolari, Eva D'Amico, Silvia Fittante, Sacha Fop, Giorgia Giacomella, Margarita Gonzalez, Claudio Lombardi, Mauro Manassi, Silvia Scoppio, Domenico Serino, Elena Tortoioli",
+        },
+        { role: "Durata", name: "Due atti da 45 min" },
+        { role: "Pubblico", name: "Da 12 anni in su" },
+      ],
+    },
+  },
+  {
+    slug: "no-shakespeare",
+    kind: "production",
+    year: 2023,
+    date: "2023-11-25",
+    status: "past",
+    title: { en: "No Shakespeare", it: "No Shakespeare" },
+    tagline: {
+      en: "A homage to Italian dramaturgy and literature.",
+      it: "Un omaggio alla drammaturgia ed alla letteratura italiana.",
+    },
+    summary: {
+      en: "More than a play — a journey through Italian theatre and literature, from the Renaissance to today. A unique evening for all ages, for anyone who loves Italy or has always wanted to know it better.",
+      it: "Più di uno spettacolo: un viaggio attraverso la cultura teatrale e letteraria italiana, dal Rinascimento a oggi. Una serata unica, per tutte le età, per chi ama l'Italia e per chi ha sempre desiderato conoscerla meglio.",
+    },
+    description: {
+      en: [
+        "Under the most classic frame of an immersive metatheatre, a group of actors leads the audience through a theatrical experience where text and staging meet in a balance of emotion and comedy.",
+        "The story follows twelve first-time actors wrestling with the difficult choice of which script to put on in just a few months. Between rehearsals, misunderstandings and pure stage moments, the audience is treated to a remixed tour of some of Italy's greatest theatrical classics, alongside the everyday dynamics of a theatre company.",
+        "For one evening, set Shakespeare aside and make room for a rich mosaic of Italian authors who have shaped theatre and literature. A unique experience that joins a passion for theatre, the value of cultural memory and the pleasure of discovery.",
+      ],
+      it: [
+        "Sotto la più classica cornice di un coinvolgente metateatro, un gruppo di attori conduce il pubblico in un'esperienza teatrale immersiva, dove testo e messa in scena si fondono in un equilibrio di emozioni e situazioni divertenti.",
+        "La storia segue le vicende di 12 attori alle prime armi, impegnati nella difficile scelta del copione giusto da portare in scena in pochi mesi. Tra prove, equivoci e momenti di puro spettacolo, il pubblico assiste alla rivisitazione di alcuni dei più grandi classici del teatro italiano, alternati alle dinamiche quotidiane di una compagnia teatrale.",
+        "Per una sera, mettiamo da parte Shakespeare e lasciamo spazio a un ricco mosaico di autori italiani che hanno segnato la storia del teatro e della letteratura. Un'esperienza unica, che unisce la passione per il teatro, il valore della memoria culturale e il piacere della scoperta.",
+      ],
+    },
+    role: { en: "Production", it: "Produzione" },
+    cover: "/events/no-shakespeare/locandina.jpg",
+    poster: "/events/no-shakespeare/locandina.jpg",
+    gallery: [
+      "/events/no-shakespeare/no-shakespeare-08.jpg",
+      "/events/no-shakespeare/no-shakespeare-09.jpg",
+      "/events/no-shakespeare/no-shakespeare-10.jpg",
+      "/events/no-shakespeare/no-shakespeare-11.jpg",
+    ],
+    credits: {
+      en: [
+        { role: "Written by", name: "Eva D'Amico" },
+        { role: "Direction", name: "Eva D'Amico" },
+        { role: "Running time", name: "One act, c. 60 min" },
+        { role: "Audience", name: "All ages" },
+      ],
+      it: [
+        { role: "Testo", name: "Eva D'Amico" },
+        { role: "Regia", name: "Eva D'Amico" },
+        { role: "Durata", name: "Atto unico, circa 60 min" },
+        { role: "Pubblico", name: "Tutti" },
       ],
     },
   },
   {
     slug: "viaggio-lingua",
-    kind: "workshop",
+    kind: "production",
     year: 2024,
     status: "past",
     title: {
-      en: "Journey to the centre of the Italian language",
+      en: "Viaggio al centro della lingua italiana",
       it: "Viaggio al centro della lingua italiana",
     },
     tagline: {
-      en: "A workshop on why Italian sounds the way it sounds.",
-      it: "Un laboratorio su perché l'italiano suona come suona.",
+      en: "An evening with the Italian language at its centre.",
+      it: "Una serata al centro della lingua italiana.",
     },
     summary: {
-      en: "An immersive session on the history, music and odd corners of the Italian language — for speakers, learners and the plainly curious.",
-      it: "Una sessione immersiva sulla storia, la musica e gli angoli strani della lingua italiana — per chi la parla, la studia o è semplicemente curioso.",
+      en: "A theatrical evening built around the Italian language — its rhythms, its words and its travel between Italy and Scotland. Cast list and credits to be confirmed.",
+      it: "Una serata teatrale costruita attorno alla lingua italiana — il suo ritmo, le sue parole e il suo viaggio tra Italia e Scozia. Cast e crediti in via di conferma.",
     },
     description: {
       en: [
-        "Italian is not just a language. It is a centuries-long argument between dialects, a musical tradition, and a way of gesturing with your hands. This workshop, held in Scotland for Scotland, took participants from Dante to the telefonini — with stops on the way for regional accents, untranslatable words and the Italian sigh.",
-        "Designed for both native speakers and learners, the session was led by Gaudeamus educators with guest contributions from Italian language faculty at collaborating universities.",
+        "TBD — full description to be confirmed by Eva.",
       ],
       it: [
-        "L'italiano non è solo una lingua. È una discussione secolare tra dialetti, una tradizione musicale, un modo di gesticolare. Questo laboratorio, tenuto in Scozia per la Scozia, ha portato i partecipanti da Dante ai telefonini — con soste per accenti regionali, parole intraducibili e il sospiro italiano.",
-        "Pensata tanto per madrelingua quanto per studenti, la sessione è stata guidata dagli educatori Gaudeamus con contributi ospiti dei docenti di lingua italiana delle università partner.",
+        "TBD — descrizione completa in attesa di conferma da Eva.",
       ],
     },
-    venues: ["Aberdeen"],
-    role: { en: "Workshop", it: "Laboratorio" },
-    cover: "/events/viaggio-lingua/viaggio-lingua-01.jpg",
+    role: { en: "Production", it: "Produzione" },
+    cover: "/events/viaggio-lingua/locandina.png",
+    poster: "/events/viaggio-lingua/locandina.png",
     gallery: [
       "/events/viaggio-lingua/viaggio-lingua-01.jpg",
       "/events/viaggio-lingua/viaggio-lingua-02.jpg",
@@ -189,26 +363,24 @@ export const events: EventEntry[] = [
     status: "past",
     title: { en: "Wander Fool Word", it: "Wander Fool Word" },
     tagline: {
-      en: "A wandering performance between Italian and Scottish poetry.",
-      it: "Una performance itinerante tra poesia italiana e scozzese.",
+      en: "A bilingual evening of poetry and performance.",
+      it: "Una serata bilingue di poesia e performance.",
     },
     summary: {
-      en: "A bilingual performance stitching together Italian and Scottish poetic voices — a slow, wandering evening about language, exile and coming home.",
-      it: "Una performance bilingue che cuce insieme voci poetiche italiane e scozzesi — una serata lenta e itinerante su lingua, esilio e ritorno.",
+      en: "A performance that refuses to pick a single language. Cast list and credits to be confirmed.",
+      it: "Una performance che non sceglie una sola lingua. Cast e crediti in via di conferma.",
     },
     description: {
       en: [
-        "Wander Fool Word is a performance that refuses to pick a language. Over the course of an evening, Italian and Scottish poems speak to each other — sometimes in translation, sometimes not. The audience is invited to listen to both, trust the rhythm, and let meaning arrive when it is ready.",
-        "We think of it as Gaudeamus at its most characteristic: bilingual, unhurried, a little strange, and quietly moving.",
+        "TBD — full description to be confirmed by Eva.",
       ],
       it: [
-        "Wander Fool Word è una performance che rifiuta di scegliere una lingua. Nel corso di una serata, poesie italiane e scozzesi si parlano — a volte in traduzione, a volte no. Al pubblico si chiede di ascoltarle entrambe, fidarsi del ritmo e lasciare che il senso arrivi quando è pronto.",
-        "La pensiamo come Gaudeamus al suo più caratteristico: bilingue, senza fretta, un po' strana, e silenziosamente commovente.",
+        "TBD — descrizione completa in attesa di conferma da Eva.",
       ],
     },
-    venues: ["Glasgow"],
     role: { en: "Production", it: "Produzione" },
-    cover: "/events/wander-fool-word/wander-fool-word-01.jpg",
+    cover: "/events/wander-fool-word/locandina.png",
+    poster: "/events/wander-fool-word/locandina.png",
     gallery: [
       "/events/wander-fool-word/wander-fool-word-01.jpg",
       "/events/wander-fool-word/wander-fool-word-02.jpg",
@@ -216,76 +388,163 @@ export const events: EventEntry[] = [
       "/events/wander-fool-word/wander-fool-word-04.jpg",
     ],
   },
-  {
-    slug: "talk-and-toast",
-    kind: "gathering",
-    year: 2024,
-    status: "past",
-    title: { en: "Talk and Toast — Edinburgh", it: "Talk and Toast — Edimburgo" },
-    tagline: {
-      en: "A conversation, a glass, and Italian culture between friends.",
-      it: "Una conversazione, un calice e cultura italiana fra amici.",
-    },
-    summary: {
-      en: "An evening of conversation and a shared toast — Italian artists, Scottish friends, and the short talks that turn into long friendships.",
-      it: "Una serata di conversazione e un brindisi condiviso — artisti italiani, amici scozzesi, e i brevi interventi che diventano lunghe amicizie.",
-    },
-    description: {
-      en: [
-        "Talk and Toast is Gaudeamus' informal gathering — half cultural salon, half aperitivo. A short talk, a glass in hand, and an open room for questions, Italian and Scottish voices alike.",
-        "The Edinburgh evening was one of our warmest yet. We plan to bring the format to Glasgow and Aberdeen in the coming seasons.",
-      ],
-      it: [
-        "Talk and Toast è l'incontro informale di Gaudeamus — metà salotto culturale, metà aperitivo. Un breve intervento, un calice in mano e una stanza aperta a domande, voci italiane e scozzesi in egual misura.",
-        "La serata di Edimburgo è stata una delle più calorose. Contiamo di portare il format anche a Glasgow e ad Aberdeen nelle prossime stagioni.",
-      ],
-    },
-    venues: ["Edinburgh"],
-    role: { en: "Gathering", it: "Incontro" },
-    cover: "/events/talk-and-toast/talk-and-toast-01.jpg",
-    gallery: [
-      "/events/talk-and-toast/talk-and-toast-01.jpg",
-      "/events/talk-and-toast/talk-and-toast-02.jpg",
-    ],
-  },
+
+  // ── COMMUNITY EVENTS ──────────────────────────────────────────────────
   {
     slug: "christmas-party",
-    kind: "gathering",
+    kind: "community",
     year: 2025,
     status: "past",
-    title: { en: "Gaudeamus Christmas Party", it: "Gaudeamus Christmas Party" },
+    title: { en: "Christmas Party", it: "Christmas Party" },
     tagline: {
-      en: "The community, in one room, at the end of the year.",
-      it: "La comunità, in una stanza sola, a fine anno.",
+      en: "Closing the year with the Gaudeamus community.",
+      it: "Chiudere l'anno con la comunità Gaudeamus.",
     },
     summary: {
-      en: "Our end-of-year gathering: friends, artists, supporters and volunteers sharing one long Italian table in the middle of Scotland.",
-      it: "L'incontro di fine anno: amici, artisti, sostenitori e volontari intorno a una lunga tavolata italiana nel cuore della Scozia.",
+      en: "Our end-of-year community gathering: friends, members, volunteers and supporters around a long Italian table in Scotland.",
+      it: "Il nostro incontro di fine anno: amici, soci, volontari e sostenitori intorno a una lunga tavolata italiana in Scozia.",
     },
     description: {
       en: [
-        "Every year, Gaudeamus closes the season with a Christmas Party that is part dinner, part performance, part thank-you letter. Italian food, Scottish welcome, mixed languages and — always — a small surprise on stage.",
-        "It is one of the nights where the charity stops looking like a charity and looks instead like a family.",
+        "Each year Gaudeamus closes the season with a community Christmas Party — half dinner, half thank-you to everyone who made the year possible.",
       ],
       it: [
-        "Ogni anno Gaudeamus chiude la stagione con una festa di Natale che è in parte cena, in parte spettacolo, in parte lettera di ringraziamento. Cucina italiana, accoglienza scozzese, lingue mescolate e — sempre — una piccola sorpresa sul palco.",
-        "È una delle serate in cui la charity smette di sembrare una charity e sembra, piuttosto, una famiglia.",
+        "Ogni anno Gaudeamus chiude la stagione con una festa di Natale aperta alla comunità — in parte cena, in parte ringraziamento a chi ha reso l'anno possibile.",
       ],
     },
-    venues: ["Aberdeen"],
-    role: { en: "Community gathering", it: "Incontro di comunità" },
     cover: "/events/christmas-party/christmas-party-01.jpg",
     gallery: [
       "/events/christmas-party/christmas-party-01.jpg",
       "/events/christmas-party/christmas-party-02.jpg",
       "/events/christmas-party/christmas-party-03.jpg",
       "/events/christmas-party/christmas-party-04.jpg",
+      "/events/christmas-party/christmas-party-05.jpg",
+      "/events/christmas-party/christmas-party-06.jpg",
+      "/events/christmas-party/christmas-party-07.jpg",
     ],
+  },
+  {
+    slug: "talk-and-toast-edinburgh",
+    kind: "community",
+    year: 2024,
+    status: "past",
+    title: { en: "Talk and Toast — Edinburgh", it: "Talk and Toast — Edimburgo" },
+    tagline: {
+      en: "A literary aperitivo with the community.",
+      it: "Un aperitivo letterario con la comunità.",
+    },
+    summary: {
+      en: "An informal evening of conversation around Italian literature and culture, hosted with friends in Edinburgh.",
+      it: "Una serata informale di conversazione attorno alla letteratura e alla cultura italiana, ospitata con amici a Edimburgo.",
+    },
+    description: {
+      en: [
+        "Talk and Toast is the format we use for our literary aperitivos: a short reading or conversation, a toast, and time with the community.",
+      ],
+      it: [
+        "Talk and Toast è il format dei nostri aperitivi letterari: un breve intervento o lettura, un brindisi e tempo con la comunità.",
+      ],
+    },
+    cover: "/events/talk-and-toast/talk-and-toast-01.jpg",
+    gallery: [
+      "/events/talk-and-toast/talk-and-toast-01.jpg",
+      "/events/talk-and-toast/talk-and-toast-02.jpg",
+    ],
+  },
+
+  // ── WORKSHOPS ─────────────────────────────────────────────────────────
+  {
+    slug: "laboratorio-aberdeen",
+    kind: "workshop",
+    year: 2025,
+    status: "past",
+    title: {
+      en: "Theatre Workshop — Aberdeen",
+      it: "Laboratorio di Teatro — Aberdeen",
+    },
+    tagline: {
+      en: "Theatre and Italian language, hands on.",
+      it: "Teatro e lingua italiana, in pratica.",
+    },
+    summary: {
+      en: "Aberdeen workshop in acting and Italian language, open to native speakers and learners alike.",
+      it: "Laboratorio di recitazione e lingua italiana ad Aberdeen, aperto a madrelingua e principianti.",
+    },
+    description: {
+      en: ["TBD — full programme to be confirmed by Eva."],
+      it: ["TBD — programma completo in attesa di conferma da Eva."],
+    },
+    venues: ["Aberdeen"],
+    cover: "/events/laboratori/aberdeen.png",
+    poster: "/events/laboratori/aberdeen.png",
+    gallery: [],
+  },
+  {
+    slug: "laboratorio-glasgow",
+    kind: "workshop",
+    year: 2025,
+    status: "past",
+    title: {
+      en: "Theatre Workshop — Glasgow",
+      it: "Laboratorio di Teatro — Glasgow",
+    },
+    tagline: {
+      en: "Theatre and Italian language, hands on.",
+      it: "Teatro e lingua italiana, in pratica.",
+    },
+    summary: {
+      en: "Glasgow workshop in acting and Italian language, open to native speakers and learners alike.",
+      it: "Laboratorio di recitazione e lingua italiana a Glasgow, aperto a madrelingua e principianti.",
+    },
+    description: {
+      en: ["TBD — full programme to be confirmed by Eva."],
+      it: ["TBD — programma completo in attesa di conferma da Eva."],
+    },
+    venues: ["Glasgow"],
+    cover: "/events/laboratori/glasgow.png",
+    poster: "/events/laboratori/glasgow.png",
+    gallery: [],
+  },
+  {
+    slug: "laboratorio-theater",
+    kind: "workshop",
+    year: 2025,
+    status: "past",
+    title: {
+      en: "Theatre Lab",
+      it: "Theatre Lab",
+    },
+    tagline: {
+      en: "An open lab on Italian theatre.",
+      it: "Un laboratorio aperto sul teatro italiano.",
+    },
+    summary: {
+      en: "An open theatre lab.",
+      it: "Un laboratorio di teatro aperto.",
+    },
+    description: {
+      en: ["TBD — full programme to be confirmed by Eva."],
+      it: ["TBD — programma completo in attesa di conferma da Eva."],
+    },
+    cover: "/events/laboratori/theater.png",
+    poster: "/events/laboratori/theater.png",
+    gallery: [],
   },
 ];
 
 export const eventBySlug = (slug: string) => events.find((e) => e.slug === slug);
 
+export const productions = events.filter((e) => e.kind === "production");
+export const upcomingProductions = productions.filter((e) => e.status === "upcoming" || e.status === "current");
+export const pastProductions = productions.filter((e) => e.status === "past");
+
+export const communityEvents = events.filter((e) => e.kind === "community");
+export const upcomingCommunityEvents = communityEvents.filter((e) => e.status === "upcoming" || e.status === "current");
+export const pastCommunityEvents = communityEvents.filter((e) => e.status === "past");
+
+export const workshops = events.filter((e) => e.kind === "workshop");
+
+// Backwards-compatible aliases — kept until callers are migrated.
 export const pastEvents = events.filter((e) => e.status === "past");
 export const upcomingEvents = events.filter((e) => e.status === "upcoming");
 export const currentEvents = events.filter((e) => e.status === "current");
