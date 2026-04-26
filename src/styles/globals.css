@@ -6,6 +6,39 @@
    Typography: Bodoni Moda (Parma, 1798) × Source Serif × Bebas cartel × Plex mono.
    ========================================================= */
 
+/* Explicit :root mirror — Tailwind v4 only emits @theme tokens when consumed
+   through generated utility classes, NOT through arbitrary `var(--color-x)`
+   references. Mirroring here guarantees every var resolves at runtime. */
+:root {
+  --color-travertino: #ece4d3;
+  --color-carta: #f6f0e4;
+  --color-carta-soft: #e7dcc5;
+  --color-sepia: #2b2420;
+  --color-sepia-soft: #3a322c;
+  --color-nero: #1c1814;
+  --color-terracotta: #a4462a;
+  --color-terracotta-deep: #7a2e18;
+  --color-pompeiano: #8e2f20;
+  --color-oro: #b28730;
+  --color-oro-soft: #c9a65a;
+  --color-salvia: #6f7a5a;
+  --color-notte: #1f3a8c;
+  --color-notte-deep: #142868;
+  --color-border: #cfc1a8;
+  --color-border-strong: #2b2420;
+  --color-muted: #7a6d5d;
+  --color-background: var(--color-travertino);
+  --color-foreground: var(--color-sepia);
+  --color-surface: var(--color-carta);
+  --color-primary: var(--color-sepia);
+  --color-on-primary: var(--color-travertino);
+  --color-accent: var(--color-notte);
+  --color-on-accent: var(--color-travertino);
+  --color-ring: var(--color-sepia);
+  --shadow-soft: 0 1px 2px rgba(43, 36, 32, 0.04), 0 8px 24px rgba(43, 36, 32, 0.06);
+  --shadow-lift: 0 20px 60px rgba(43, 36, 32, 0.16);
+}
+
 @theme {
   /* ---- Palette ---- */
   --color-travertino: #ece4d3;       /* travertino warm cream, primary bg */
