@@ -31,8 +31,8 @@ export const siteConfig = {
   bank: {
     name: "Lloyds Bank",
     accountHolder: "Compagnia Artistica Gaudeamus SCIO",
-    accountNumber: "TBD",
-    sortCode: "TBD",
+    accountNumber: "" as string, // To be set when Eva sends the details
+    sortCode: "" as string,
     reference: "DONATION + your name",
   },
   social: {

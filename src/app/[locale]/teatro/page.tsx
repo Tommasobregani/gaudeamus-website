@@ -9,8 +9,15 @@ import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import {
   upcomingProductions,
   pastProductions,
+  type EventKind,
 } from "@/content/events";
 import { siteConfig, type Locale } from "@/lib/utils";
+
+function kindLabel(kind: EventKind, loc: Locale) {
+  if (kind === "production") return loc === "it" ? "Produzione" : "Production";
+  if (kind === "workshop") return loc === "it" ? "Laboratorio" : "Workshop";
+  return loc === "it" ? "Comunità" : "Community";
+}
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd, eventJsonLd } from "@/lib/schema-org";
 
@@ -145,7 +152,7 @@ export default async function TeatroPage({
                     <div className="mt-6 flex items-start justify-between gap-4">
                       <div>
                         <p className="font-[family-name:var(--font-cartel)] text-[0.72rem] uppercase tracking-[0.28em] text-[color:var(--color-sepia-soft)]">
-                          {e.year} · {e.kind}
+                          {e.year} · {kindLabel(e.kind, loc)}
                         </p>
                         <h3 className="mt-3 bodoni-italic text-[2rem] leading-[1.05] text-[color:var(--color-sepia)]">
                           {e.title[loc]}

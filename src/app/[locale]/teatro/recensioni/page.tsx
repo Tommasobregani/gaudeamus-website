@@ -51,6 +51,15 @@ function formatDate(iso: string, loc: "en" | "it") {
   });
 }
 
+function youtubeEmbed(url: string): string | null {
+  const m = url.match(/(?:youtube\.com\/(?:watch\?v=|shorts\/)|youtu\.be\/)([\w-]{6,})/);
+  return m ? `https://www.youtube.com/embed/${m[1]}` : null;
+}
+function spotifyEmbed(url: string): string | null {
+  const m = url.match(/open\.spotify\.com\/(episode|show|track)\/([\w]+)/);
+  return m ? `https://open.spotify.com/embed/${m[1]}/${m[2]}` : null;
+}
+
 export default async function RecensioniPage({
   params,
 }: {
@@ -62,6 +71,13 @@ export default async function RecensioniPage({
   const t = await getTranslations({ locale, namespace: "press" });
   const tT = await getTranslations({ locale, namespace: "teatro" });
   const loc = locale as Locale;
+
+  const featured = press.find((p) => p.url === "/press/scda-article.pdf");
+  const youtubeFull = press.find((p) => p.type === "video" && p.url.includes("watch"));
+  const spotify = press.find((p) => p.type === "podcast");
+  const articles = press.filter(
+    (p) => p !== featured && p !== youtubeFull && p !== spotify,
+  );
 
   return (
     <>
@@ -77,7 +93,7 @@ export default async function RecensioniPage({
 
       <section className="container-site pt-10 pb-12 md:pt-14 md:pb-16">
         <FadeIn>
-          <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-accent,var(--color-terracotta))]">
+          <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-accent)]">
             {t("eyebrow")}
           </p>
         </FadeIn>
@@ -93,9 +109,43 @@ export default async function RecensioniPage({
         </FadeIn>
       </section>
 
-      <section className="container-site border-t border-[color:var(--color-sepia)]/25 py-12 md:py-16">
+      {/* Featured SCDA quote — the company's strongest one-line positioning */}
+      {featured && featured.quote ? (
+        <section className="border-y-2 border-[color:var(--color-accent)] bg-[color:var(--color-accent)] py-16 text-[color:var(--color-on-accent)] md:py-24">
+          <div className="container-site grid gap-8 md:grid-cols-12 md:gap-12">
+            <div className="md:col-span-8">
+              <FadeIn>
+                <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] opacity-80">
+                  {featured.outlet}
+                  {featured.date ? ` · ${formatDate(featured.date, loc)}` : ""}
+                </p>
+              </FadeIn>
+              <FadeIn delay={0.1}>
+                <blockquote className="mt-8 bodoni-italic text-[clamp(1.85rem,3.5vw+1rem,3.75rem)] leading-[1.1]">
+                  “{featured.quote[loc]}”
+                </blockquote>
+              </FadeIn>
+            </div>
+            <div className="md:col-span-4 md:flex md:items-end md:justify-end">
+              <FadeIn delay={0.2}>
+                <a
+                  href={featured.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover-underline inline-flex items-center gap-2 font-[family-name:var(--font-cartel)] text-[0.8rem] uppercase tracking-[0.26em]"
+                >
+                  {t("external")} <ArrowUpRight size={14} strokeWidth={1.5} />
+                </a>
+              </FadeIn>
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {/* Articles + reviews */}
+      <section className="container-site py-12 md:py-16">
         <Stagger className="border-t-2 border-[color:var(--color-sepia)]">
-          {press.map((item) => (
+          {articles.map((item) => (
             <StaggerItem key={item.url}>
               <a
                 href={item.url}
@@ -116,7 +166,7 @@ export default async function RecensioniPage({
                     {item.date ? ` · ${formatDate(item.date, loc)}` : ""}
                   </p>
                   {item.quote && (
-                    <p className="mt-4 max-w-[64ch] border-l-2 border-[color:var(--color-accent,var(--color-terracotta))] pl-4 italic text-[0.98rem] leading-[1.55] text-[color:var(--color-sepia-soft)]">
+                    <p className="mt-4 max-w-[64ch] border-l-2 border-[color:var(--color-accent)] pl-4 italic text-[0.98rem] leading-[1.55] text-[color:var(--color-sepia-soft)]">
                       “{item.quote[loc]}”
                     </p>
                   )}
@@ -124,13 +174,72 @@ export default async function RecensioniPage({
                 <ArrowUpRight
                   size={20}
                   strokeWidth={1.25}
-                  className="mt-1 text-[color:var(--color-accent,var(--color-terracotta))] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  className="mt-1 text-[color:var(--color-accent)] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                 />
               </a>
             </StaggerItem>
           ))}
         </Stagger>
       </section>
+
+      {/* Embedded media — video + podcast */}
+      {(youtubeFull || spotify) && (
+        <section className="relative border-t border-[color:var(--color-sepia)]/25 bg-[color:var(--color-carta)]">
+          <div className="container-site py-16 md:py-20">
+            <FadeIn>
+              <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-accent)]">
+                {loc === "it" ? "Vedere e ascoltare" : "Watch and listen"}
+              </p>
+            </FadeIn>
+            <div className="mt-10 grid gap-10 md:grid-cols-2 md:gap-12">
+              {youtubeFull
+                ? (() => {
+                    const embed = youtubeEmbed(youtubeFull.url);
+                    return embed ? (
+                      <FadeIn>
+                        <div className="relative aspect-video w-full overflow-hidden bg-[color:var(--color-sepia)]">
+                          <iframe
+                            src={embed}
+                            title={youtubeFull.title[loc]}
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            loading="lazy"
+                            className="absolute inset-0 h-full w-full border-0"
+                          />
+                        </div>
+                        <p className="mt-3 font-[family-name:var(--font-cartel)] text-[0.7rem] uppercase tracking-[0.24em] text-[color:var(--color-sepia)]/70">
+                          {youtubeFull.outlet} · {youtubeFull.title[loc]}
+                        </p>
+                      </FadeIn>
+                    ) : null;
+                  })()
+                : null}
+              {spotify
+                ? (() => {
+                    const embed = spotifyEmbed(spotify.url);
+                    return embed ? (
+                      <FadeIn delay={0.05}>
+                        <div className="relative h-[232px] w-full overflow-hidden">
+                          <iframe
+                            src={embed}
+                            title={spotify.title[loc]}
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            allowFullScreen
+                            loading="lazy"
+                            className="absolute inset-0 h-full w-full border-0"
+                          />
+                        </div>
+                        <p className="mt-3 font-[family-name:var(--font-cartel)] text-[0.7rem] uppercase tracking-[0.24em] text-[color:var(--color-sepia)]/70">
+                          {spotify.outlet} · {spotify.title[loc]}
+                        </p>
+                      </FadeIn>
+                    ) : null;
+                  })()
+                : null}
+            </div>
+          </div>
+        </section>
+      )}
     </>
   );
 }

@@ -2,14 +2,15 @@ import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { hasLocale } from "@/i18n/routing";
 import { Hero } from "@/components/sections/Hero";
-import { Manifesto } from "@/components/sections/Manifesto";
+import { ProgrammeStrip } from "@/components/sections/ProgrammeStrip";
 import { FeaturedProjects } from "@/components/sections/FeaturedProjects";
-import { NewsStrip } from "@/components/sections/NewsStrip";
 import { NewsletterCTA } from "@/components/sections/NewsletterCTA";
 import { ClosingCTA } from "@/components/sections/ClosingCTA";
 import { ScrollStage } from "@/components/motion/ScrollStage";
 import { JsonLd } from "@/components/JsonLd";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/schema-org";
+import { articles } from "@/content/news";
+import { NewsStrip } from "@/components/sections/NewsStrip";
 
 export default async function HomePage({
   params,
@@ -19,6 +20,9 @@ export default async function HomePage({
   const { locale } = await params;
   if (!hasLocale(locale)) notFound();
   setRequestLocale(locale);
+
+  // News section is only shown if there are real articles to show.
+  const showNews = articles.length > 0;
 
   return (
     <>
@@ -30,16 +34,18 @@ export default async function HomePage({
       </ScrollStage>
 
       <ScrollStage palette="carta">
-        <Manifesto />
+        <ProgrammeStrip />
       </ScrollStage>
 
       <ScrollStage palette="travertino">
         <FeaturedProjects />
       </ScrollStage>
 
-      <ScrollStage palette="sepia">
-        <NewsStrip />
-      </ScrollStage>
+      {showNews ? (
+        <ScrollStage palette="sepia">
+          <NewsStrip />
+        </ScrollStage>
+      ) : null}
 
       <ScrollStage palette="travertino">
         <NewsletterCTA />

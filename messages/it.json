@@ -21,7 +21,7 @@
     "close": "Chiudi"
   },
   "home": {
-    "eyebrow": "Charity italiana, registrata in Scozia · SC052772",
+    "eyebrow": "Compagnia teatrale italiana · Scozia",
     "heroLine1": "Teatro italiano,",
     "heroLine2": "in tutta",
     "heroLine3": "la Scozia.",
@@ -141,10 +141,18 @@
   "support": {
     "eyebrow": "Sostienici",
     "title": "Aiutaci a tenere vivo il teatro italiano in Scozia.",
-    "lead": "Gaudeamus è una charity scozzese registrata (SC052772). Ogni donazione ci aiuta a tenere il teatro in scena, i laboratori attivi e gli eventi di comunità vivi.",
+    "lead": "Gaudeamus è una charity scozzese registrata. Ogni donazione ci aiuta a tenere il teatro in scena, i laboratori attivi e gli eventi di comunità vivi.",
+    "whereTitle": "Dove va il tuo sostegno",
+    "whereProductions": "Produzioni teatrali in italiano con sottotitoli live in inglese",
+    "whereProductionsBody": "Diritti, spazi prove, costumi, scene, attrezzatura per i sottotitoli.",
+    "whereWorkshops": "Laboratori di teatro e di lingua italiana in Scozia",
+    "whereWorkshopsBody": "Aperti a madrelingua e principianti, bambini e adulti.",
+    "whereCommunity": "Eventi di comunità — aperitivi letterari, feste di Natale",
+    "whereCommunityBody": "Gratuiti e aperti a chiunque sia curioso della cultura italiana.",
     "donateTitle": "Dona",
-    "donateBody": "Accettiamo donazioni di qualunque importo tramite bonifico sul nostro conto charity presso Lloyds Bank. I contribuenti del Regno Unito possono anche aggiungere il Gift Aid, che porta la donazione al 125% senza costi aggiuntivi.",
+    "donateBody": "Accettiamo donazioni di qualunque importo tramite bonifico sul nostro conto charity presso Lloyds Bank. I contribuenti del Regno Unito possono aggiungere il Gift Aid — senza costi per te, ogni £1 diventa £1,25.",
     "bankTitle": "Coordinate bancarie",
+    "bankPending": "Le coordinate del nostro conto Lloyds Bank sono in fase di preparazione. Nel frattempo scrivi al nostro team finance — ti guideremo passo passo.",
     "bankAccountHolder": "Intestatario",
     "bankName": "Banca",
     "bankAccountNumber": "Numero conto",
@@ -159,7 +167,14 @@
     "shareTitle": "Passaparola",
     "shareBody": "Vieni a uno spettacolo. Porta un amico. Parla di noi. La comunità si costruisce una conversazione alla volta.",
     "contactCta": "Scrivici",
-    "comingSoon": "Stiamo predisponendo un canale sicuro per donazioni online."
+    "comingSoon": "Stiamo predisponendo un canale sicuro per donazioni online.",
+    "calculatorTitle": "Quanto vale la tua donazione con il Gift Aid",
+    "calculatorBody": "Se paghi le tasse nel Regno Unito, ogni £1 che doni diventa £1,25 — senza alcun costo per te.",
+    "calculatorAmountLabel": "Importo donazione",
+    "calculatorYouGive": "Tu doni",
+    "calculatorGiftAid": "Gift Aid (+25%)",
+    "calculatorWeReceive": "Noi riceviamo",
+    "calculatorFootnote": "Spunta la dichiarazione Gift Aid quando doni, così possiamo recuperarlo dall'HMRC."
   },
   "giftAid": {
     "eyebrow": "Gift Aid",

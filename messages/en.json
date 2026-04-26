@@ -21,7 +21,7 @@
     "close": "Close"
   },
   "home": {
-    "eyebrow": "Italian charity, registered in Scotland · SC052772",
+    "eyebrow": "Italian theatre company · Scotland",
     "heroLine1": "Italian theatre,",
     "heroLine2": "across",
     "heroLine3": "Scotland.",
@@ -141,10 +141,18 @@
   "support": {
     "eyebrow": "Support us",
     "title": "Help us keep Italian theatre live in Scotland.",
-    "lead": "Gaudeamus is a registered Scottish charity (SC052772). Every donation helps us keep theatre on stage, workshops running and community events alive.",
+    "lead": "Gaudeamus is a registered Scottish charity. Every donation helps us keep theatre on stage, workshops running and community events alive.",
+    "whereTitle": "Where your support goes",
+    "whereProductions": "Stage productions in Italian with live English subtitles",
+    "whereProductionsBody": "Theatre rights, rehearsal space, costumes, set, subtitle equipment.",
+    "whereWorkshops": "Theatre and Italian-language workshops across Scotland",
+    "whereWorkshopsBody": "Open to native speakers and learners, children and adults.",
+    "whereCommunity": "Community gatherings — literary aperitivos, Christmas parties",
+    "whereCommunityBody": "Free to attend, open to anyone curious about Italian culture.",
     "donateTitle": "Donate",
-    "donateBody": "We accept donations of any amount by bank transfer to our charity account at Lloyds Bank. UK taxpayers can also Gift Aid their donation, adding 25% at no cost.",
+    "donateBody": "We accept donations of any amount by bank transfer to our charity account at Lloyds Bank. UK taxpayers can Gift Aid their donation — at no cost to you, every £1 becomes £1.25.",
     "bankTitle": "Bank transfer details",
+    "bankPending": "Our Lloyds Bank transfer details are being prepared. In the meantime, please contact our finance team and we'll walk you through it.",
     "bankAccountHolder": "Account holder",
     "bankName": "Bank",
     "bankAccountNumber": "Account number",
@@ -159,7 +167,14 @@
     "shareTitle": "Share the word",
     "shareBody": "Come to a show. Bring a friend. Tell people about us. The community is built one conversation at a time.",
     "contactCta": "Get in touch",
-    "comingSoon": "A secure online donation channel is coming soon."
+    "comingSoon": "A secure online donation channel is coming soon.",
+    "calculatorTitle": "See how Gift Aid grows your donation",
+    "calculatorBody": "If you're a UK taxpayer, every £1 you give becomes £1.25 — at no cost to you.",
+    "calculatorAmountLabel": "Donation amount",
+    "calculatorYouGive": "You give",
+    "calculatorGiftAid": "Gift Aid (+25%)",
+    "calculatorWeReceive": "We receive",
+    "calculatorFootnote": "Tick the Gift Aid declaration when you donate so we can claim it from HMRC."
   },
   "giftAid": {
     "eyebrow": "Gift Aid",

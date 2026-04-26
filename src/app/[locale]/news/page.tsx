@@ -94,6 +94,28 @@ export default async function NewsPage({
         </FadeIn>
       </section>
 
+      {/* Empty state when no articles exist yet */}
+      {combined.length === 0 && (
+        <section className="container-site border-t-2 border-[color:var(--color-sepia)] py-24 md:py-32">
+          <div className="mx-auto max-w-[60ch] text-center">
+            <p className="bodoni-italic text-[clamp(1.75rem,2.5vw+1rem,2.5rem)] leading-[1.2] text-[color:var(--color-sepia)]">
+              {loc === "it"
+                ? "Il diario è in preparazione. Iscriviti alla newsletter e ti avviseremo non appena usciranno i primi numeri."
+                : "The journal is in preparation. Subscribe to the newsletter and we'll let you know as soon as the first issues are out."}
+            </p>
+            <div className="mt-10">
+              <Link
+                href="/contatti"
+                className="hover-underline inline-flex items-center gap-2 font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.26em] text-[color:var(--color-accent)]"
+              >
+                {loc === "it" ? "Scrivici" : "Get in touch"}
+                <ArrowUpRight size={14} strokeWidth={1.5} />
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* LEAD story — big front-page article */}
       {lead && (
         <section className="container-site border-t-2 border-[color:var(--color-sepia)] pt-16 pb-20 md:pt-20 md:pb-24">

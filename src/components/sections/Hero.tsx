@@ -11,13 +11,13 @@ export function Hero() {
 
   return (
     <section className="relative overflow-hidden pb-16 pt-6 md:pb-24 md:pt-8">
-      {/* Top stamp bar — registered charity strap */}
+      {/* Top stamp bar — single sober line */}
       <div className="container-site flex flex-wrap items-center justify-between gap-3 border-t border-b border-[color:var(--color-sepia)]/20 py-3">
         <span className="stamp">Compagnia Artistica Gaudeamus · SCIO</span>
         <span className="stamp">{t("eyebrow")}</span>
       </div>
 
-      {/* Massive poster title */}
+      {/* Massive poster title — second line in deep blue */}
       <div className="container-site relative pt-10 md:pt-16">
         <h1
           className="bodoni-title text-[color:var(--color-sepia)]"
@@ -27,7 +27,7 @@ export function Hero() {
             <LetterReveal as="span" text={t("heroLine1")} className="inline-block" italicize />
           </span>
           <span className="mt-1 block text-[clamp(3rem,11vw,9rem)] leading-[0.92]">
-            <span className="bodoni-italic inline-block pr-4 text-[color:var(--color-terracotta)]">
+            <span className="bodoni-italic inline-block pr-4 text-[color:var(--color-accent)]">
               <LetterReveal as="span" text={t("heroLine2")} className="inline-block" delay={0.12} />
             </span>
           </span>
@@ -38,7 +38,7 @@ export function Hero() {
               animate={{ scaleX: 1 }}
               transition={{ delay: 0.95, duration: 1.1, ease: [0.2, 0.7, 0.1, 1] }}
               style={{ transformOrigin: "left" }}
-              className="hidden h-[0.14em] flex-1 self-center bg-[color:var(--color-terracotta)] md:block"
+              className="hidden h-[0.14em] flex-1 self-center bg-[color:var(--color-accent)] md:block"
               aria-hidden
             />
           </span>
@@ -74,39 +74,31 @@ export function Hero() {
           className="relative md:col-span-5"
         >
           <figure className="relative">
-            <div className="relative aspect-[4/5] w-full overflow-hidden bg-[color:var(--color-terracotta-deep)]">
+            <div className="relative aspect-[4/5] w-full overflow-hidden bg-[color:var(--color-accent)]">
               <Image
                 src="/events/poor-piero/poor-piero-01.jpg"
-                alt="Gaudeamus — produzione teatrale"
+                alt="Gaudeamus — Poor Piero, on stage in Aberdeen"
                 fill
                 priority
                 sizes="(min-width: 1024px) 40vw, 100vw"
                 className="object-cover"
               />
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-0 mix-blend-multiply"
-                style={{
-                  background:
-                    "linear-gradient(140deg, rgba(164,70,42,0.28) 0%, rgba(236,228,211,0.12) 60%, rgba(43,36,32,0.35) 100%)",
-                }}
-              />
-              <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between text-[color:var(--color-travertino)]">
+              <div className="absolute bottom-0 left-0 right-0 flex items-end justify-between border-t border-[color:var(--color-travertino)]/40 bg-gradient-to-t from-[color:var(--color-sepia)]/80 via-[color:var(--color-sepia)]/40 to-transparent px-4 py-3 text-[color:var(--color-travertino)]">
                 <span className="font-[family-name:var(--font-cartel)] text-[0.72rem] tracking-[0.26em]">
                   SCENA · POOR PIERO
                 </span>
                 <span className="font-[family-name:var(--font-mono)] text-[0.68rem] tracking-[0.22em]">
-                  2024
+                  2024 — 2025 TOUR
                 </span>
               </div>
             </div>
           </figure>
           <div
-            className="absolute -bottom-3 -left-3 hidden h-24 w-[1px] bg-[color:var(--color-sepia)] md:block"
+            className="absolute -bottom-3 -left-3 hidden h-24 w-[1px] bg-[color:var(--color-accent)] md:block"
             aria-hidden
           />
           <div
-            className="absolute -top-3 -right-3 hidden h-[1px] w-24 bg-[color:var(--color-sepia)] md:block"
+            className="absolute -top-3 -right-3 hidden h-[1px] w-24 bg-[color:var(--color-accent)] md:block"
             aria-hidden
           />
         </motion.div>

@@ -34,8 +34,8 @@ export default async function OG() {
             color: "#7a6d5d",
           }}
         >
-          <span>COMPAGNIA ARTISTICA · SCIO · SC052772</span>
-          <span>EST. 2023</span>
+          <span>COMPAGNIA ARTISTICA · SCIO</span>
+          <span>EST. ABERDEEN · 2023</span>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>

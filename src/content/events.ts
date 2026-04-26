@@ -171,7 +171,7 @@ export const events: EventEntry[] = [
       ],
     },
     role: { en: "Production", it: "Produzione" },
-    cover: "/events/no-shakespeare/locandina-fringe.jpg",
+    cover: "/events/no-shakespeare/no-shakespeare-04.jpg",
     poster: "/events/no-shakespeare/locandina-fringe.jpg",
     gallery: [
       "/events/no-shakespeare/no-shakespeare-01.jpg",
@@ -233,7 +233,7 @@ export const events: EventEntry[] = [
       "Edinburgh — Assembly Roxy Theatre (November 2025)",
     ],
     role: { en: "Production", it: "Produzione" },
-    cover: "/events/poor-piero/locandina.jpg",
+    cover: "/events/poor-piero/poor-piero-04.jpeg",
     poster: "/events/poor-piero/locandina.jpg",
     gallery: [
       "/events/poor-piero/poor-piero-01.jpg",
@@ -303,7 +303,7 @@ export const events: EventEntry[] = [
       ],
     },
     role: { en: "Production", it: "Produzione" },
-    cover: "/events/no-shakespeare/locandina.jpg",
+    cover: "/events/no-shakespeare/no-shakespeare-08.jpg",
     poster: "/events/no-shakespeare/locandina.jpg",
     gallery: [
       "/events/no-shakespeare/no-shakespeare-08.jpg",
@@ -352,7 +352,7 @@ export const events: EventEntry[] = [
       ],
     },
     role: { en: "Production", it: "Produzione" },
-    cover: "/events/viaggio-lingua/locandina.png",
+    cover: "/events/viaggio-lingua/viaggio-lingua-01.jpg",
     poster: "/events/viaggio-lingua/locandina.png",
     gallery: [
       "/events/viaggio-lingua/viaggio-lingua-01.jpg",
@@ -384,13 +384,14 @@ export const events: EventEntry[] = [
       ],
     },
     role: { en: "Production", it: "Produzione" },
-    cover: "/events/wander-fool-word/locandina.png",
+    cover: "/events/wander-fool-word/wander-fool-word-05.jpg",
     poster: "/events/wander-fool-word/locandina.png",
     gallery: [
       "/events/wander-fool-word/wander-fool-word-01.jpg",
       "/events/wander-fool-word/wander-fool-word-02.jpg",
       "/events/wander-fool-word/wander-fool-word-03.jpg",
       "/events/wander-fool-word/wander-fool-word-04.jpg",
+      "/events/wander-fool-word/wander-fool-word-05.jpg",
     ],
   },
 
