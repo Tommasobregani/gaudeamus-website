@@ -103,46 +103,71 @@ export default async function TeatroPage({
           </FadeIn>
         ) : (
           <Stagger className="mt-10 grid gap-10 md:grid-cols-2 md:gap-14">
-            {upcomingProductions.map((e) => (
-              <StaggerItem key={e.slug}>
-                <Link href={`/teatro/${e.slug}`} className="group block">
-                  <div className="relative aspect-[3/4] w-full overflow-hidden bg-[color:var(--color-sepia)]/5">
-                    <Image
-                      src={e.poster ?? e.cover}
-                      alt={e.title[loc]}
-                      fill
-                      sizes="(min-width: 768px) 45vw, 90vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-                    />
-                  </div>
-                  <div className="mt-6 flex items-start justify-between gap-4">
-                    <div>
-                      <p className="font-[family-name:var(--font-cartel)] text-[0.72rem] uppercase tracking-[0.28em] text-[color:var(--color-sepia-soft)]">
-                        {e.year} · {e.kind}
-                      </p>
-                      <h3 className="mt-3 bodoni-italic text-[2rem] leading-[1.05] text-[color:var(--color-sepia)]">
-                        {e.title[loc]}
-                      </h3>
-                      <p className="mt-2 text-[1rem] italic text-[color:var(--color-sepia-soft)]">
-                        {e.tagline[loc]}
-                      </p>
-                      {e.venues && (
-                        <ul className="mt-3 space-y-1 text-[0.92rem] text-[color:var(--color-sepia-soft)]">
-                          {e.venues.map((v) => (
-                            <li key={v}>· {v}</li>
-                          ))}
-                        </ul>
-                      )}
+            {upcomingProductions.map((e) => {
+              const hasPoster = Boolean(e.poster || e.cover);
+              return (
+                <StaggerItem key={e.slug}>
+                  <Link href={`/teatro/${e.slug}`} className="group block">
+                    {hasPoster ? (
+                      <div className="relative aspect-[3/4] w-full overflow-hidden bg-[color:var(--color-sepia)]/5">
+                        <Image
+                          src={e.poster ?? e.cover}
+                          alt={e.title[loc]}
+                          fill
+                          sizes="(min-width: 768px) 45vw, 90vw"
+                          className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                        />
+                      </div>
+                    ) : (
+                      <div className="relative flex aspect-[3/4] w-full flex-col justify-between border-2 border-[color:var(--color-sepia)] bg-[color:var(--color-carta)] p-8 transition-colors group-hover:bg-[color:var(--color-travertino)] md:p-10">
+                        <p className="text-center font-[family-name:var(--font-cartel)] text-[0.7rem] tracking-[0.3em] text-[color:var(--color-sepia)]">
+                          COMPAGNIA GAUDEAMUS · SCIO
+                        </p>
+                        <div className="text-center">
+                          <p className="font-[family-name:var(--font-body)] italic text-[0.95rem] text-[color:var(--color-sepia-soft)]">
+                            {loc === "it" ? "presenta" : "presents"}
+                          </p>
+                          <h4 className="mt-4 bodoni-italic text-[clamp(1.5rem,2.4vw+0.5rem,2.5rem)] leading-[1.05] text-[color:var(--color-sepia)]">
+                            {e.title[loc]}
+                          </h4>
+                          <p className="mt-4 italic text-[0.95rem] text-[color:var(--color-accent,var(--color-terracotta))]">
+                            {e.tagline[loc]}
+                          </p>
+                        </div>
+                        <p className="text-center font-[family-name:var(--font-mono)] text-[0.7rem] uppercase tracking-[0.22em] text-[color:var(--color-sepia)]">
+                          {e.year}
+                        </p>
+                      </div>
+                    )}
+                    <div className="mt-6 flex items-start justify-between gap-4">
+                      <div>
+                        <p className="font-[family-name:var(--font-cartel)] text-[0.72rem] uppercase tracking-[0.28em] text-[color:var(--color-sepia-soft)]">
+                          {e.year} · {e.kind}
+                        </p>
+                        <h3 className="mt-3 bodoni-italic text-[2rem] leading-[1.05] text-[color:var(--color-sepia)]">
+                          {e.title[loc]}
+                        </h3>
+                        <p className="mt-2 text-[1rem] italic text-[color:var(--color-sepia-soft)]">
+                          {e.tagline[loc]}
+                        </p>
+                        {e.venues && (
+                          <ul className="mt-3 space-y-1 text-[0.92rem] text-[color:var(--color-sepia-soft)]">
+                            {e.venues.map((v) => (
+                              <li key={v}>· {v}</li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                      <ArrowUpRight
+                        size={22}
+                        strokeWidth={1.25}
+                        className="mt-1 shrink-0 text-[color:var(--color-accent,var(--color-terracotta))] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                      />
                     </div>
-                    <ArrowUpRight
-                      size={22}
-                      strokeWidth={1.25}
-                      className="mt-1 shrink-0 text-[color:var(--color-accent,var(--color-terracotta))] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                    />
-                  </div>
-                </Link>
-              </StaggerItem>
-            ))}
+                  </Link>
+                </StaggerItem>
+              );
+            })}
           </Stagger>
         )}
       </section>

@@ -39,7 +39,9 @@ export async function generateMetadata({
     openGraph: {
       title: event.title[loc],
       description: event.summary[loc],
-      images: [{ url: event.cover, width: 1200, height: 1500, alt: event.title[loc] }],
+      ...(event.cover
+        ? { images: [{ url: event.cover, width: 1200, height: 1500, alt: event.title[loc] }] }
+        : {}),
     },
     alternates: {
       canonical: `${siteConfig.url}/${locale}/${path}`,
@@ -129,20 +131,22 @@ export default async function ProjectPage({
         </div>
       </section>
 
-      {/* Curtain reveal cover */}
-      <section className="container-site pt-6 md:pt-10">
-        <FadeIn>
-          <CurtainReveal
-            src={event.cover}
-            alt={event.title[loc]}
-            fill
-            wrapperClassName="relative aspect-[21/10] w-full"
-            className="object-cover"
-            sizes="100vw"
-            priority
-          />
-        </FadeIn>
-      </section>
+      {/* Curtain reveal cover (skipped for upcoming shows without a poster yet) */}
+      {event.cover ? (
+        <section className="container-site pt-6 md:pt-10">
+          <FadeIn>
+            <CurtainReveal
+              src={event.cover}
+              alt={event.title[loc]}
+              fill
+              wrapperClassName="relative aspect-[21/10] w-full"
+              className="object-cover"
+              sizes="100vw"
+              priority
+            />
+          </FadeIn>
+        </section>
+      ) : null}
 
       {/* Story + cast list */}
       <section className="border-y border-[color:var(--color-sepia)]/25 bg-[color:var(--color-carta)]">

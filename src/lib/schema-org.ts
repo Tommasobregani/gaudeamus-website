@@ -67,7 +67,7 @@ export function eventJsonLd(e: EventEntry, locale: "en" | "it") {
         addressCountry: "GB",
       },
     })),
-    image: `${siteConfig.url}${e.cover}`,
+    ...(e.cover ? { image: `${siteConfig.url}${e.cover}` } : {}),
     organizer: { "@id": `${siteConfig.url}/#organization` },
     inLanguage: locale,
     url: `${siteConfig.url}/${locale}/teatro/${e.slug}`,

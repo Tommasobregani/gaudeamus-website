@@ -70,8 +70,8 @@ export default async function ContattiPage({
       title: t("financeTitle"),
       email: siteConfig.email.finance,
       body: it
-        ? "Tesoreria, donazioni, partecipazione come Amico / Sostenitore / Mecenate."
-        : "Treasury, donations, and membership as a Friend / Supporter / Patron.",
+        ? "Tesoreria, donazioni e Gift Aid."
+        : "Treasury, donations and Gift Aid.",
       hours: it ? "Lun — Gio · 10:00 — 16:00" : "Mon — Thu · 10:00 — 16:00",
     },
   ];
@@ -81,15 +81,10 @@ export default async function ContattiPage({
       roman: "01",
       city: "Aberdeen",
       cityIt: "Aberdeen",
-      role: "HQ",
-      note: it ? "Sede legale e direzione" : "Registered office and direction",
-    },
-    {
-      roman: "02",
-      city: "Glasgow",
-      cityIt: "Glasgow",
-      role: it ? "SEDE" : "BRANCH",
-      note: it ? "Programma di comunità" : "Community programme",
+      role: it ? "SEDE LEGALE" : "REGISTERED OFFICE",
+      note: it
+        ? "Sede legale della charity. Operiamo in tutta la Scozia."
+        : "Registered charity office. We operate across Scotland.",
     },
   ];
 

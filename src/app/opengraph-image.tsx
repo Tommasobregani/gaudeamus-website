@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Gaudeamus — Arte italiana, radicata in Scozia";
+export const alt = "Compagnia Artistica Gaudeamus — Italian theatre across Scotland";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -34,8 +34,8 @@ export default async function OG() {
             color: "#7a6d5d",
           }}
         >
-          <span>COMPAGNIA ARTISTICA · SCIO</span>
-          <span>2023</span>
+          <span>COMPAGNIA ARTISTICA · SCIO · SC052772</span>
+          <span>EST. 2023</span>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
@@ -62,7 +62,7 @@ export default async function OG() {
               color: "#a4462a",
             }}
           >
-            Arte italiana, radicata in Scozia.
+            Italian theatre, across Scotland.
           </span>
         </div>
 
@@ -78,7 +78,7 @@ export default async function OG() {
           }}
         >
           <span>italiandramauk.org</span>
-          <span>Aberdeen · Glasgow</span>
+          <span>Aberdeen · Scotland</span>
         </div>
       </div>
     ),

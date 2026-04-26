@@ -6,10 +6,14 @@ import { articles } from "@/content/news";
 const staticPages = [
   "",
   "chi-siamo",
-  "progetti",
+  "teatro",
+  "teatro/laboratori",
+  "teatro/recensioni",
   "eventi",
   "news",
+  "progetti",
   "sostienici",
+  "sostienici/gift-aid",
   "contatti",
 ];
 
@@ -39,8 +43,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   for (const e of events) {
-    const urlEn = `${base}/en/progetti/${e.slug}`;
-    const urlIt = `${base}/it/progetti/${e.slug}`;
+    const urlEn = `${base}/en/teatro/${e.slug}`;
+    const urlIt = `${base}/it/teatro/${e.slug}`;
     entries.push({
       url: urlEn,
       lastModified: now,

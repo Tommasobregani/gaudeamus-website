@@ -13,7 +13,7 @@ export function EventCard({ event, index }: { event: EventEntry; index?: number 
 
   return (
     <Link
-      href={`/progetti/${event.slug}`}
+      href={`/teatro/${event.slug}`}
       className="group block"
     >
       <div className="relative aspect-[4/5] w-full overflow-hidden bg-[color:var(--color-terracotta-deep)]">

@@ -63,7 +63,7 @@ export const events: EventEntry[] = [
       "Aberdeen & Glasgow — Autumn 2026",
     ],
     role: { en: "Original production", it: "Produzione originale" },
-    cover: "/events/poor-piero/poor-piero-01.jpg",
+    cover: "",
     gallery: [],
     credits: {
       en: [
@@ -112,7 +112,7 @@ export const events: EventEntry[] = [
     },
     venues: ["Aberdeen, Edinburgh & Glasgow — Winter 2027"],
     role: { en: "Production", it: "Produzione" },
-    cover: "/events/no-shakespeare/no-shakespeare-08.jpg",
+    cover: "",
     gallery: [],
     credits: {
       en: [

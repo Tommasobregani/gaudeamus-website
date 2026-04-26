@@ -27,7 +27,7 @@ export function Playbill({ event, index }: { event: EventEntry; index?: number }
 
   return (
     <Link
-      href={`/progetti/${event.slug}`}
+      href={`/teatro/${event.slug}`}
       className="group block border-2 border-[color:var(--color-sepia)] bg-[color:var(--color-carta)] transition-colors hover:bg-[color:var(--color-travertino)]"
     >
       {/* Playbill header */}

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { ArrowUpRight } from "lucide-react";
-import { events } from "@/content/events";
+import { upcomingProductions, pastProductions } from "@/content/events";
 import { FadeIn } from "@/components/motion/FadeIn";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { RomanEyebrow } from "@/components/ui/RomanEyebrow";
@@ -13,7 +13,11 @@ import type { Locale } from "@/lib/utils";
 export function FeaturedProjects() {
   const t = useTranslations("home");
   const locale = useLocale() as Locale;
-  const featured = events.slice(0, 4);
+  // Only feature productions that have a real image — keeps the home grid honest
+  // until upcoming-show locandine arrive.
+  const featured = [...upcomingProductions, ...pastProductions]
+    .filter((e) => Boolean(e.poster || e.cover))
+    .slice(0, 4);
 
   return (
     <section className="container-site border-t border-[color:var(--color-sepia)]/20 py-24 md:py-36">
@@ -30,7 +34,7 @@ export function FeaturedProjects() {
         </div>
         <FadeIn delay={0.15}>
           <Link
-            href="/progetti"
+            href="/teatro"
             className="hover-underline inline-flex items-center gap-1 font-[family-name:var(--font-cartel)] text-sm tracking-[0.22em]"
           >
             {t("projectsLink")} <ArrowUpRight size={14} strokeWidth={1.5} />
@@ -53,12 +57,12 @@ export function FeaturedProjects() {
               className={layout}
             >
               <Link
-                href={`/progetti/${e.slug}`}
+                href={`/teatro/${e.slug}`}
                 className="group block"
               >
-                <div className="relative aspect-[4/5] w-full overflow-hidden bg-[color:var(--color-terracotta-deep)] duotone">
+                <div className="relative aspect-[4/5] w-full overflow-hidden bg-[color:var(--color-sepia)]/10">
                   <Image
-                    src={e.cover}
+                    src={e.poster ?? e.cover}
                     alt={e.title[locale]}
                     fill
                     sizes="(min-width: 1024px) 40vw, 90vw"
