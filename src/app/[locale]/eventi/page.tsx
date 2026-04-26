@@ -55,41 +55,29 @@ export default async function EventiPage({
 
   return (
     <>
-      {/* Editorial masthead — community photo with title overlay */}
-      <section className="relative">
-        <div className="relative aspect-[16/10] w-full overflow-hidden bg-[color:var(--color-sepia)] md:aspect-[21/9]">
-          <Image
-            src="/events/christmas-party/christmas-party-2025.jpg"
-            alt="Gaudeamus community gathering at the Butchers Arms, Aberdeen"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover opacity-80"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--color-sepia)]/85 via-[color:var(--color-sepia)]/30 to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 pb-10 md:pb-16">
-            <div className="container-site">
-              <FadeIn>
-                <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-oro-soft)]">
-                  {t("eyebrow")}
-                </p>
-              </FadeIn>
-              <FadeIn delay={0.1}>
-                <h1 className="mt-4 max-w-[20ch] bodoni-italic text-[clamp(2.5rem,8vw+1rem,7rem)] leading-[0.94] text-[color:var(--color-travertino)]">
-                  {t("title")}
-                </h1>
-              </FadeIn>
-            </div>
+      {/* Typographic deep-blue masthead — pairs with the red Past panel below */}
+      <section className="relative bg-[color:var(--color-notte)] text-[color:var(--color-travertino)]">
+        <div className="container-site grid gap-8 py-20 md:grid-cols-12 md:gap-12 md:py-28">
+          <div className="md:col-span-7">
+            <FadeIn>
+              <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] opacity-80">
+                {t("eyebrow")}
+              </p>
+            </FadeIn>
+            <FadeIn delay={0.1}>
+              <h1 className="mt-6 max-w-[12ch] bodoni-italic text-[clamp(3rem,9vw+1rem,8.5rem)] leading-[0.94]">
+                {t("title")}
+              </h1>
+            </FadeIn>
+          </div>
+          <div className="md:col-span-5 md:flex md:items-end">
+            <FadeIn delay={0.2}>
+              <p className="max-w-[44ch] text-[1.05rem] leading-[1.65] opacity-90">
+                {t("lead")}
+              </p>
+            </FadeIn>
           </div>
         </div>
-      </section>
-
-      <section className="container-site py-12 md:py-16">
-        <FadeIn>
-          <p className="max-w-[60ch] text-[1.1rem] leading-[1.65] text-[color:var(--color-sepia-soft)]">
-            {t("lead")}
-          </p>
-        </FadeIn>
       </section>
 
       {/* Upcoming */}

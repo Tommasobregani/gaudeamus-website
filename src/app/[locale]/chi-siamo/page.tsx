@@ -62,54 +62,43 @@ export default async function ChiSiamoPage({
         ])}
       />
 
-      {/* Editorial masthead — full-bleed group photo with title overlay */}
-      <section className="relative">
-        <div className="relative aspect-[16/10] w-full overflow-hidden bg-[color:var(--color-sepia)] md:aspect-[21/9]">
-          <Image
-            src="/events/no-shakespeare/no-shakespeare-04.jpg"
-            alt="Compagnia Artistica Gaudeamus on stage"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover opacity-80"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--color-sepia)]/85 via-[color:var(--color-sepia)]/30 to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 pb-10 md:pb-16">
-            <div className="container-site">
-              <FadeIn>
-                <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-oro-soft)]">
-                  {t("eyebrow")}
-                </p>
-              </FadeIn>
-              <FadeIn delay={0.1}>
-                <h1 className="mt-4 max-w-[20ch] bodoni-italic text-[clamp(2.5rem,8vw+1rem,7rem)] leading-[0.94] text-[color:var(--color-travertino)]">
-                  {t("title")}
-                </h1>
-              </FadeIn>
-            </div>
+      {/* Typographic dark-sepia masthead — theatre-lights-down opening */}
+      <section className="relative bg-[color:var(--color-nero)] text-[color:var(--color-travertino)]">
+        <div className="container-site grid gap-8 py-20 md:grid-cols-12 md:gap-12 md:py-28">
+          <div className="md:col-span-7">
+            <FadeIn>
+              <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-oro-soft)]">
+                {t("eyebrow")}
+              </p>
+            </FadeIn>
+            <FadeIn delay={0.1}>
+              <h1 className="mt-6 bodoni-italic text-[clamp(3rem,9vw+1rem,8rem)] leading-[0.94]">
+                {t("title")}
+              </h1>
+            </FadeIn>
+          </div>
+          <div className="md:col-span-5 md:flex md:items-end">
+            <FadeIn delay={0.2}>
+              <p className="max-w-[44ch] text-[1.05rem] leading-[1.65] opacity-90">
+                {t("lead")}
+              </p>
+            </FadeIn>
           </div>
         </div>
       </section>
 
-      {/* Lead paragraph */}
-      <section className="container-site py-16 md:py-20">
-        <div className="grid gap-10 md:grid-cols-12 md:gap-12">
-          <FadeIn className="md:col-span-3">
-            <Image
-              src="/brand-mark.jpg"
-              alt="Gaudeamus brand mark"
-              width={220}
-              height={220}
-              priority
-              className="h-32 w-32 rounded-full object-cover md:h-40 md:w-40"
-            />
-          </FadeIn>
-          <FadeIn delay={0.1} className="md:col-span-9">
-            <p className="bodoni-italic text-[clamp(1.5rem,2.2vw+0.5rem,2.25rem)] leading-[1.3] text-[color:var(--color-sepia)]">
-              {t("lead")}
-            </p>
-          </FadeIn>
-        </div>
+      {/* Brand mark + transition */}
+      <section className="container-site py-12 md:py-16">
+        <FadeIn>
+          <Image
+            src="/brand-mark.jpg"
+            alt="Gaudeamus brand mark"
+            width={220}
+            height={220}
+            priority
+            className="mx-auto h-28 w-28 rounded-full object-cover md:h-36 md:w-36"
+          />
+        </FadeIn>
       </section>
 
       {/* History */}
