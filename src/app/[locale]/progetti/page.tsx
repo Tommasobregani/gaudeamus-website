@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { hasLocale, routing } from "@/i18n/routing";
@@ -106,23 +107,40 @@ export default async function ProgettiPage({
         ])}
       />
 
-      <section className="container-site pt-16 pb-12 md:pt-24 md:pb-16">
-        <FadeIn>
-          <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-accent,var(--color-terracotta))]">
-            {t("eyebrow")}
-          </p>
-        </FadeIn>
-        <FadeIn delay={0.1}>
-          <h1 className="mt-8 max-w-[18ch] display-mixed text-[clamp(2.5rem,6vw+1rem,7rem)] leading-[0.96]">
-            {t("title")}
-          </h1>
-        </FadeIn>
-        <FadeIn delay={0.2}>
-          <div className="mt-10 grid gap-10 md:grid-cols-12">
-            <p className="md:col-span-8 md:col-start-5 text-[1.05rem] leading-[1.65] text-[color:var(--color-sepia-soft)]">
-              {t("lead")}
-            </p>
+      {/* Editorial masthead — production photo with title overlay */}
+      <section className="relative">
+        <div className="relative aspect-[16/10] w-full overflow-hidden bg-[color:var(--color-sepia)] md:aspect-[21/9]">
+          <Image
+            src="/events/poor-piero/poor-piero-04.jpeg"
+            alt="Gaudeamus production — Poor Piero"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover opacity-80"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--color-sepia)]/85 via-[color:var(--color-sepia)]/30 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 pb-10 md:pb-16">
+            <div className="container-site">
+              <FadeIn>
+                <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-oro-soft)]">
+                  {t("eyebrow")}
+                </p>
+              </FadeIn>
+              <FadeIn delay={0.1}>
+                <h1 className="mt-4 max-w-[20ch] bodoni-italic text-[clamp(2.5rem,7vw+1rem,6rem)] leading-[0.96] text-[color:var(--color-travertino)]">
+                  {t("title")}
+                </h1>
+              </FadeIn>
+            </div>
           </div>
+        </div>
+      </section>
+
+      <section className="container-site py-12 md:py-16">
+        <FadeIn>
+          <p className="max-w-[60ch] text-[1.05rem] leading-[1.65] text-[color:var(--color-sepia-soft)]">
+            {t("lead")}
+          </p>
         </FadeIn>
       </section>
 
