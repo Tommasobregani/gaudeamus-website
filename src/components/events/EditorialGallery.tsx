@@ -208,7 +208,7 @@ function GalleryCell({
       animate={{ y: entered ? 0 : 12 }}
       transition={{ duration: 0.6, delay: Math.min(index * 0.03, 0.3), ease: [0.2, 0.7, 0.1, 1] }}
       className={cn(
-        "group relative block overflow-hidden bg-[color:var(--color-terracotta-deep)] focus-visible:outline-2 focus-visible:outline-offset-4",
+        "group relative block overflow-hidden bg-[color:var(--color-sepia)]/10 focus-visible:outline-2 focus-visible:outline-offset-4",
         spanClass,
         aspectClass,
       )}

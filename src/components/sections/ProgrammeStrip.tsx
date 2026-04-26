@@ -41,7 +41,7 @@ export function ProgrammeStrip() {
         locale === "it"
           ? "Aperitivi letterari, feste di Natale, comunità."
           : "Literary aperitivos, Christmas parties, community.",
-      image: "/events/christmas-party/christmas-party-2025.jpg",
+      image: "/events/christmas-party/christmas-party-07.jpg",
     },
   ];
 

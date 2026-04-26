@@ -353,7 +353,7 @@ export const events: EventEntry[] = [
   {
     slug: "viaggio-lingua",
     kind: "production",
-    producer: "hosted",
+    producer: "compagnia",
     year: 2024,
     status: "past",
     title: {
@@ -361,19 +361,30 @@ export const events: EventEntry[] = [
       it: "Viaggio al centro della lingua italiana",
     },
     tagline: {
-      en: "An evening with the Italian language at its centre.",
-      it: "Una serata al centro della lingua italiana.",
+      en: "A journey to the centre of the Italian language.",
+      it: "Un viaggio al centro della lingua italiana.",
     },
     summary: {
-      en: "A theatrical evening built around the Italian language — its rhythms, its words and its travel between Italy and Scotland. Cast list and credits to be confirmed.",
-      it: "Una serata teatrale costruita attorno alla lingua italiana — il suo ritmo, le sue parole e il suo viaggio tra Italia e Scozia. Cast e crediti in via di conferma.",
+      en: "A Compagnia Gaudeamus theatrical performance for the Girotondo Italian School community in Edinburgh — taking the audience inside the Italian language through its rhythms, words and stories.",
+      it: "Uno spettacolo teatrale della Compagnia Gaudeamus per la comunità della Girotondo Italian School di Edimburgo — un viaggio dentro la lingua italiana attraverso i suoi ritmi, le sue parole e le sue storie.",
     },
     description: {
       en: [
-        "TBD — full description to be confirmed by Eva.",
+        "An original Compagnia Gaudeamus performance staged for the Girotondo Italian School in Edinburgh, taking children, parents and the wider Italian community on a journey through the Italian language — its sounds, its rhythms and its stories.",
       ],
       it: [
-        "TBD — descrizione completa in attesa di conferma da Eva.",
+        "Uno spettacolo originale della Compagnia Artistica Gaudeamus, andato in scena per la Girotondo Italian School di Edimburgo, che porta bambini, genitori e la comunità italiana più ampia in un viaggio attraverso la lingua italiana — i suoi suoni, i suoi ritmi, le sue storie.",
+      ],
+    },
+    venues: ["Girotondo Italian School, Edinburgh — Saturday 4 October, 11am"],
+    credits: {
+      en: [
+        { role: "Conceived & Directed by", name: "Eva D'Amico" },
+        { role: "Cast", name: "Eva D'Amico, Sacha Fop, Domenico Serino, Elena Tortoioli" },
+      ],
+      it: [
+        { role: "Ideato e diretto da", name: "Eva D'Amico" },
+        { role: "Cast", name: "Eva D'Amico, Sacha Fop, Domenico Serino, Elena Tortoioli" },
       ],
     },
     role: { en: "Production", it: "Produzione" },
@@ -389,26 +400,33 @@ export const events: EventEntry[] = [
   {
     slug: "wander-fool-word",
     kind: "production",
-    producer: "hosted",
+    producer: "compagnia",
     year: 2024,
     status: "past",
     title: { en: "Wander Fool Word", it: "Wander Fool Word" },
     tagline: {
-      en: "A bilingual evening of poetry and performance.",
-      it: "Una serata bilingue di poesia e performance.",
+      en: "A laugh-out-loud family show playing with languages.",
+      it: "Uno spettacolo per famiglie che gioca con le lingue.",
     },
     summary: {
-      en: "A performance that refuses to pick a single language. Cast list and credits to be confirmed.",
-      it: "Una performance che non sceglie una sola lingua. Cast e crediti in via di conferma.",
+      en: "A Compagnia Gaudeamus family show — two clowns, three languages, and one mission: help Nino learn to speak. Performed at Aberdeen Art Centre with a multilingual edition (English, Spanish, French) and a bilingual edition (English, Italian).",
+      it: "Uno spettacolo per famiglie della Compagnia Gaudeamus — due clown, tre lingue, e una missione: aiutare Nino a imparare a parlare. In scena all'Aberdeen Art Centre con una versione multilingue (inglese, spagnolo, francese) e una bilingue (inglese, italiano).",
     },
     description: {
       en: [
-        "TBD — full description to be confirmed by Eva.",
+        "Wander Fool Word is a Compagnia Gaudeamus family show built around two clowns and three languages. The audience follows Nino as he learns to speak — through gesture, song and the playful collisions that happen when languages meet.",
+        "The show was staged at Aberdeen Art Centre with two performances on the same day: an 11:30am multilingual edition (English, Spanish, French) and a 2pm bilingual edition (English, Italian). Supported by the Community Fund.",
       ],
       it: [
-        "TBD — descrizione completa in attesa di conferma da Eva.",
+        "Wander Fool Word è uno spettacolo per famiglie della Compagnia Gaudeamus costruito attorno a due clown e tre lingue. Il pubblico segue Nino mentre impara a parlare — attraverso il gesto, la canzone e gli incontri giocosi tra le lingue.",
+        "Lo spettacolo è andato in scena all'Aberdeen Art Centre con due rappresentazioni nello stesso giorno: alle 11:30 nella versione multilingue (inglese, spagnolo, francese) e alle 14:00 nella versione bilingue (inglese, italiano). Sostenuto dal Community Fund.",
       ],
     },
+    venues: [
+      "Aberdeen Art Centre, 33 King Street AB24 5AA — Sunday 15 February",
+      "11:30am multilingual edition (EN · ES · FR)",
+      "2pm bilingual edition (EN · IT)",
+    ],
     role: { en: "Production", it: "Produzione" },
     cover: "/events/wander-fool-word/wander-fool-word-05.jpg",
     poster: "/events/wander-fool-word/locandina.png",
@@ -448,15 +466,16 @@ export const events: EventEntry[] = [
       ],
     },
     venues: ["Butchers Arms Pub, Aberdeen"],
-    cover: "/events/christmas-party/christmas-party-01.jpg",
+    // Lead with the circle-dance group shot — the photo Eva would want as the
+    // signature of the community gathering (group, joyful, in motion).
+    cover: "/events/christmas-party/christmas-party-07.jpg",
     gallery: [
-      "/events/christmas-party/christmas-party-01.jpg",
+      "/events/christmas-party/christmas-party-07.jpg",
+      "/events/christmas-party/christmas-party-06.jpg",
+      "/events/christmas-party/christmas-party-05.jpg",
       "/events/christmas-party/christmas-party-02.jpg",
       "/events/christmas-party/christmas-party-03.jpg",
       "/events/christmas-party/christmas-party-04.jpg",
-      "/events/christmas-party/christmas-party-05.jpg",
-      "/events/christmas-party/christmas-party-06.jpg",
-      "/events/christmas-party/christmas-party-07.jpg",
     ],
   },
   {

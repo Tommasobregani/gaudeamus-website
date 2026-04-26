@@ -65,7 +65,7 @@ export default async function SostieniciPage({
       key: "Community",
       title: t("whereCommunity"),
       body: t("whereCommunityBody"),
-      image: "/events/christmas-party/christmas-party-2025.jpg",
+      image: "/events/christmas-party/christmas-party-07.jpg",
     },
   ];
 
@@ -94,7 +94,7 @@ export default async function SostieniciPage({
           <FadeIn delay={0.15} className="md:col-span-5">
             <div className="relative aspect-[4/5] w-full overflow-hidden bg-[color:var(--color-accent)]">
               <Image
-                src="/events/christmas-party/christmas-party-2025.jpg"
+                src="/events/christmas-party/christmas-party-07.jpg"
                 alt="Gaudeamus community Christmas Party, Aberdeen"
                 fill
                 priority

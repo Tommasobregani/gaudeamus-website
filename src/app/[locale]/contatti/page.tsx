@@ -75,19 +75,29 @@ export default async function ContattiPage({
 
   return (
     <>
-      <section className="container-site pt-16 pb-12 md:pt-24 md:pb-16">
-        <FadeIn>
-          <h1 className="mt-10 max-w-[12ch] bodoni-italic text-[clamp(3.5rem,10vw+1rem,11rem)] leading-[0.92] text-[color:var(--color-sepia)]">
-            {it ? "Parliamone." : "Let's talk."}
-          </h1>
-        </FadeIn>
-        <FadeIn delay={0.2}>
-          <div className="mt-12 grid gap-10 md:grid-cols-12">
-            <p className="md:col-span-8 md:col-start-5 text-[1.15rem] leading-[1.65] text-[color:var(--color-sepia-soft)]">
-              {t("lead")}
-            </p>
+      {/* Typographic dark-sepia masthead, matching the pattern */}
+      <section className="relative bg-[color:var(--color-nero)] text-[color:var(--color-travertino)]">
+        <div className="container-site grid gap-8 py-20 md:grid-cols-12 md:gap-12 md:py-28">
+          <div className="md:col-span-7">
+            <FadeIn>
+              <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-oro-soft)]">
+                {it ? "Contatti" : "Contact"}
+              </p>
+            </FadeIn>
+            <FadeIn delay={0.1}>
+              <h1 className="mt-6 max-w-[10ch] bodoni-italic text-[clamp(3.5rem,10vw+1rem,10rem)] leading-[0.92]">
+                {it ? "Parliamone." : "Let's talk."}
+              </h1>
+            </FadeIn>
           </div>
-        </FadeIn>
+          <div className="md:col-span-5 md:flex md:items-end">
+            <FadeIn delay={0.2}>
+              <p className="max-w-[44ch] text-[1.05rem] leading-[1.65] opacity-90">
+                {t("lead")}
+              </p>
+            </FadeIn>
+          </div>
+        </div>
       </section>
 
       {/* Channels — three big address cards */}
