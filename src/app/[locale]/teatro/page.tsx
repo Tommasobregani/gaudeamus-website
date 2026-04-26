@@ -150,18 +150,22 @@ export default async function TeatroPage({
                       </div>
                     )}
                     <div className="mt-6 flex items-start justify-between gap-4">
-                      <div>
-                        <p className="font-[family-name:var(--font-cartel)] text-[0.72rem] uppercase tracking-[0.28em] text-[color:var(--color-sepia-soft)]">
-                          {e.year} · {kindLabel(e.kind, loc)}
-                        </p>
-                        <h3 className="mt-3 bodoni-italic text-[2rem] leading-[1.05] text-[color:var(--color-sepia)]">
-                          {e.title[loc]}
-                        </h3>
-                        <p className="mt-2 text-[1rem] italic text-[color:var(--color-sepia-soft)]">
-                          {e.tagline[loc]}
-                        </p>
+                      <div className="flex-1">
+                        {hasPoster ? (
+                          <>
+                            <p className="font-[family-name:var(--font-cartel)] text-[0.72rem] uppercase tracking-[0.28em] text-[color:var(--color-sepia-soft)]">
+                              {e.year} · {kindLabel(e.kind, loc)}
+                            </p>
+                            <h3 className="mt-3 bodoni-italic text-[2rem] leading-[1.05] text-[color:var(--color-sepia)]">
+                              {e.title[loc]}
+                            </h3>
+                            <p className="mt-2 text-[1rem] italic text-[color:var(--color-sepia-soft)]">
+                              {e.tagline[loc]}
+                            </p>
+                          </>
+                        ) : null}
                         {e.venues && (
-                          <ul className="mt-3 space-y-1 text-[0.92rem] text-[color:var(--color-sepia-soft)]">
+                          <ul className={`${hasPoster ? "mt-3" : ""} space-y-1 text-[0.92rem] text-[color:var(--color-sepia-soft)]`}>
                             {e.venues.map((v) => (
                               <li key={v}>· {v}</li>
                             ))}
@@ -171,7 +175,7 @@ export default async function TeatroPage({
                       <ArrowUpRight
                         size={22}
                         strokeWidth={1.25}
-                        className="mt-1 shrink-0 text-[color:var(--color-accent,var(--color-terracotta))] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                        className="mt-1 shrink-0 text-[color:var(--color-accent)] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                       />
                     </div>
                   </Link>

@@ -81,16 +81,9 @@ export function Footer() {
 
       <div className="border-t border-[color:var(--color-travertino)]/18">
         <div className="container-site flex flex-col items-start justify-between gap-4 py-6 font-[family-name:var(--font-mono)] text-[0.72rem] tracking-[0.1em] text-[color:var(--color-travertino)]/60 md:flex-row md:items-center">
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-            <span>© {year} {siteConfig.legalName}</span>
-            <span aria-hidden>·</span>
-            <span>{t("footer.registered")}</span>
-          </div>
-          <nav aria-label="Legal" className="flex flex-wrap items-center gap-x-5 gap-y-2">
-            <Link className="hover-underline" href="/contatti">
-              {t("footer.contact")}
-            </Link>
-          </nav>
+          <span>
+            © {year} {siteConfig.legalName} · Registered Scottish charity, No. {siteConfig.charityNumber}
+          </span>
         </div>
       </div>
     </footer>

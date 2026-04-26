@@ -54,7 +54,6 @@ export default async function ContattiPage({
       body: it
         ? "Informazioni generali, segreteria, richieste di stampa e curiosità."
         : "General enquiries, press requests and anything else.",
-      hours: it ? "Lun — Ven · 10:00 — 17:00" : "Mon — Fri · 10:00 — 17:00",
     },
     {
       roman: "02",
@@ -63,7 +62,6 @@ export default async function ContattiPage({
       body: it
         ? "Proposte artistiche, coproduzioni, inviti a festival, collaborazioni."
         : "Artistic proposals, co-productions, festival invitations, collaborations.",
-      hours: it ? "Su appuntamento" : "By appointment",
     },
     {
       roman: "03",
@@ -72,7 +70,6 @@ export default async function ContattiPage({
       body: it
         ? "Tesoreria, donazioni e Gift Aid."
         : "Treasury, donations and Gift Aid.",
-      hours: it ? "Lun — Gio · 10:00 — 16:00" : "Mon — Thu · 10:00 — 16:00",
     },
   ];
 
@@ -154,9 +151,6 @@ export default async function ContattiPage({
                   {c.email}
                 </a>
 
-                <p className="mt-auto pt-8 font-[family-name:var(--font-mono)] text-[0.72rem] uppercase tracking-[0.22em] text-[color:var(--color-sepia-soft)]">
-                  {it ? "Orari" : "Hours"} · {c.hours}
-                </p>
               </article>
             </StaggerItem>
           ))}
@@ -215,8 +209,8 @@ export default async function ContattiPage({
             <FadeIn delay={0.1}>
               <p className="mt-6 max-w-[40ch] bodoni-italic text-[clamp(1.75rem,2.5vw+1rem,2.75rem)] leading-[1.15] text-[color:var(--color-sepia)]">
                 {it
-                  ? "Rispondiamo entro due giorni lavorativi. Non di più, promesso."
-                  : "We answer within two working days. Not longer, we promise."}
+                  ? "Rispondiamo entro qualche giorno lavorativo."
+                  : "We aim to respond within a few working days."}
               </p>
             </FadeIn>
           </div>

@@ -253,16 +253,6 @@ export default async function ProjectPage({
         </div>
       </section>
 
-      {/* Pull quote */}
-      <section className="container-site py-20 md:py-24">
-        <FadeIn>
-          <PullQuote
-            quote={event.tagline[loc]}
-            attribution={`${event.title[loc]} — ${romanYear(event.year)}`}
-          />
-        </FadeIn>
-      </section>
-
       {/* Gallery */}
       <section className="container-site border-t border-[color:var(--color-sepia)]/25 py-20 md:py-32">
         <FadeIn>

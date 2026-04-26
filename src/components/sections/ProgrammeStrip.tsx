@@ -46,13 +46,13 @@ export function ProgrammeStrip() {
   ];
 
   return (
-    <section className="container-site border-t border-[color:var(--color-sepia)]/20 py-20 md:py-28">
+    <section className="container-site py-20 md:py-28 text-[color:var(--color-travertino)]">
       <div className="flex flex-wrap items-end justify-between gap-6">
         <FadeIn>
-          <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-accent)]">
+          <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] opacity-80">
             {t("manifestoEyebrow")}
           </p>
-          <h2 className="mt-6 max-w-[24ch] bodoni-italic text-[clamp(2.25rem,4.5vw+1rem,4rem)] leading-[1.05] text-[color:var(--color-sepia)]">
+          <h2 className="mt-6 max-w-[24ch] bodoni-italic text-[clamp(2.25rem,4.5vw+1rem,4rem)] leading-[1.05]">
             {t("manifestoTitle")}
           </h2>
         </FadeIn>
@@ -61,7 +61,7 @@ export function ProgrammeStrip() {
         {items.map((it, i) => (
           <StaggerItem key={it.key}>
             <Link href={it.href} className="group block">
-              <div className="relative aspect-[4/5] w-full overflow-hidden bg-[color:var(--color-accent)]">
+              <div className="relative aspect-[4/5] w-full overflow-hidden bg-[color:var(--color-sepia)]">
                 <Image
                   src={it.image}
                   alt={it.label}
@@ -80,7 +80,7 @@ export function ProgrammeStrip() {
                   <ArrowUpRight size={20} strokeWidth={1.25} className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </div>
               </div>
-              <h3 className="mt-5 max-w-[28ch] bodoni-italic text-[1.45rem] leading-[1.2] text-[color:var(--color-sepia)]">
+              <h3 className="mt-5 max-w-[28ch] bodoni-italic text-[1.45rem] leading-[1.2] text-[color:var(--color-travertino)]">
                 {it.title}
               </h3>
             </Link>

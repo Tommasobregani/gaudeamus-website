@@ -33,7 +33,7 @@ export default async function HomePage({
         <Hero />
       </ScrollStage>
 
-      <ScrollStage palette="carta">
+      <ScrollStage palette="notte">
         <ProgrammeStrip />
       </ScrollStage>
 

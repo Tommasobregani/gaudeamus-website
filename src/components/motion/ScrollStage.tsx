@@ -4,7 +4,14 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { cn } from "@/lib/utils";
 
-export type StagePalette = "travertino" | "carta" | "sepia" | "terracotta" | "salvia" | "notte";
+export type StagePalette =
+  | "travertino"
+  | "carta"
+  | "sepia"
+  | "terracotta"
+  | "salvia"
+  | "notte"
+  | "pompeiano";
 
 const themes: Record<StagePalette, { bg: string; fg: string; accent: string }> = {
   travertino: { bg: "#ece4d3", fg: "#2b2420", accent: "#a4462a" },
@@ -12,7 +19,8 @@ const themes: Record<StagePalette, { bg: string; fg: string; accent: string }> =
   sepia: { bg: "#1c1814", fg: "#ece4d3", accent: "#c9a65a" },
   terracotta: { bg: "#a4462a", fg: "#ece4d3", accent: "#ece4d3" },
   salvia: { bg: "#6f7a5a", fg: "#ece4d3", accent: "#ece4d3" },
-  notte: { bg: "#25304a", fg: "#ece4d3", accent: "#c9a65a" },
+  notte: { bg: "#1f3a8c", fg: "#ece4d3", accent: "#ece4d3" },
+  pompeiano: { bg: "#8e2f20", fg: "#ece4d3", accent: "#ece4d3" },
 };
 
 type Props = {

@@ -115,39 +115,41 @@ export default async function SostieniciPage({
         </div>
       </section>
 
-      {/* Where your money goes */}
-      <section className="container-site mt-20 border-t border-[color:var(--color-sepia)]/25 pt-16 md:mt-28 md:pt-20">
-        <FadeIn>
-          <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-accent)]">
-            {t("whereTitle")}
-          </p>
-        </FadeIn>
-        <Stagger className="mt-10 grid gap-10 md:grid-cols-3 md:gap-8">
-          {where.map((w, i) => (
-            <StaggerItem key={w.key}>
-              <article>
-                <div className="relative aspect-[4/3] w-full overflow-hidden bg-[color:var(--color-sepia)]/10">
-                  <Image
-                    src={w.image}
-                    alt={w.title}
-                    fill
-                    sizes="(min-width: 768px) 30vw, 90vw"
-                    className="object-cover"
-                  />
-                </div>
-                <p className="mt-5 font-[family-name:var(--font-mono)] text-[0.7rem] uppercase tracking-[0.22em] text-[color:var(--color-sepia)]/55">
-                  {String(i + 1).padStart(2, "0")}
-                </p>
-                <h3 className="mt-2 bodoni-italic text-[1.4rem] leading-[1.2] text-[color:var(--color-sepia)]">
-                  {w.title}
-                </h3>
-                <p className="mt-2 text-[0.95rem] leading-[1.6] text-[color:var(--color-sepia-soft)]">
-                  {w.body}
-                </p>
-              </article>
-            </StaggerItem>
-          ))}
-        </Stagger>
+      {/* Where your money goes — Pompeii-red panel for emotional weight */}
+      <section className="mt-20 bg-[color:var(--color-pompeiano)] py-20 text-[color:var(--color-travertino)] md:mt-28 md:py-28">
+        <div className="container-site">
+          <FadeIn>
+            <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] opacity-80">
+              {t("whereTitle")}
+            </p>
+          </FadeIn>
+          <Stagger className="mt-10 grid gap-10 md:grid-cols-3 md:gap-8">
+            {where.map((w, i) => (
+              <StaggerItem key={w.key}>
+                <article>
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[color:var(--color-sepia)]">
+                    <Image
+                      src={w.image}
+                      alt={w.title}
+                      fill
+                      sizes="(min-width: 768px) 30vw, 90vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <p className="mt-5 font-[family-name:var(--font-mono)] text-[0.7rem] uppercase tracking-[0.22em] opacity-70">
+                    {String(i + 1).padStart(2, "0")}
+                  </p>
+                  <h3 className="mt-2 bodoni-italic text-[1.4rem] leading-[1.2]">
+                    {w.title}
+                  </h3>
+                  <p className="mt-2 text-[0.95rem] leading-[1.6] opacity-90">
+                    {w.body}
+                  </p>
+                </article>
+              </StaggerItem>
+            ))}
+          </Stagger>
+        </div>
       </section>
 
       {/* Gift Aid calculator + CTA */}

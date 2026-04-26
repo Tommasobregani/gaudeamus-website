@@ -80,8 +80,8 @@ const fundedProjects: FundedProject[] = [
       it: "Fondazione e registrazione come charity",
     },
     body: {
-      en: "Compagnia Artistica Gaudeamus is founded in Aberdeen in May 2023. In September 2023 it is officially recognised as a Scottish Charitable Incorporated Organisation (SCIO), Charity No. SC052772 — making it the only theatre company in Scotland staging productions entirely in Italian, with live English subtitles. First production: No Shakespeare, November 2023.",
-      it: "La Compagnia Artistica Gaudeamus nasce ad Aberdeen nel maggio 2023. Nel settembre 2023 viene ufficialmente riconosciuta come Scottish Charitable Incorporated Organisation (SCIO), Charity n. SC052772 — diventando l'unica compagnia teatrale in Scozia a portare in scena spettacoli interamente in italiano con sottotitoli live in inglese. Prima produzione: No Shakespeare, novembre 2023.",
+      en: "Compagnia Artistica Gaudeamus is founded in Aberdeen in May 2023. In September 2023 it is officially recognised as a Scottish Charitable Incorporated Organisation (SCIO) — becoming the only Scottish charity to stage productions entirely in Italian with live English subtitles. First production: No Shakespeare, November 2023.",
+      it: "La Compagnia Artistica Gaudeamus nasce ad Aberdeen nel maggio 2023. Nel settembre 2023 viene ufficialmente riconosciuta come Scottish Charitable Incorporated Organisation (SCIO) — diventando l'unica charity in Scozia a portare in scena spettacoli interamente in italiano con sottotitoli live in inglese. Prima produzione: No Shakespeare, novembre 2023.",
     },
   },
 ];
@@ -128,25 +128,30 @@ export default async function ProgettiPage({
 
       <section className="container-site border-t border-[color:var(--color-sepia)]/25 py-12 md:py-16">
         <Stagger className="border-t-2 border-[color:var(--color-sepia)]">
-          {fundedProjects.map((p) => (
-            <StaggerItem key={p.year}>
-              <article className="grid gap-6 border-b border-[color:var(--color-sepia)]/25 py-10 md:grid-cols-12 md:gap-10 md:py-12">
-                <div className="md:col-span-3">
-                  <span className="bodoni-italic block text-[clamp(2.5rem,4vw+1rem,3.75rem)] leading-[0.95] text-[color:var(--color-sepia)]">
-                    {p.year}
-                  </span>
-                </div>
-                <div className="md:col-span-9">
-                  <h3 className="bodoni-italic text-[clamp(1.5rem,2vw+0.5rem,2.25rem)] leading-[1.15] text-[color:var(--color-sepia)]">
-                    {p.title[loc]}
-                  </h3>
-                  <p className="mt-4 max-w-[64ch] text-[1.02rem] leading-[1.7] text-[color:var(--color-sepia-soft)]">
-                    {p.body[loc]}
-                  </p>
-                </div>
-              </article>
-            </StaggerItem>
-          ))}
+          {fundedProjects.map((p, i) => {
+            const showYear = i === 0 || fundedProjects[i - 1].year !== p.year;
+            return (
+              <StaggerItem key={`${p.year}-${p.title.en}`}>
+                <article className="grid gap-6 border-b border-[color:var(--color-sepia)]/25 py-10 md:grid-cols-12 md:gap-10 md:py-12">
+                  <div className="md:col-span-3">
+                    {showYear ? (
+                      <span className="bodoni-italic block text-[clamp(2.5rem,4vw+1rem,3.75rem)] leading-[0.95] text-[color:var(--color-sepia)]">
+                        {p.year}
+                      </span>
+                    ) : null}
+                  </div>
+                  <div className="md:col-span-9">
+                    <h3 className="bodoni-italic text-[clamp(1.5rem,2vw+0.5rem,2.25rem)] leading-[1.15] text-[color:var(--color-sepia)]">
+                      {p.title[loc]}
+                    </h3>
+                    <p className="mt-4 max-w-[64ch] text-[1.02rem] leading-[1.7] text-[color:var(--color-sepia-soft)]">
+                      {p.body[loc]}
+                    </p>
+                  </div>
+                </article>
+              </StaggerItem>
+            );
+          })}
         </Stagger>
         <FadeIn delay={0.2}>
           <p className="mt-12 max-w-[58ch] text-[0.95rem] italic leading-[1.7] text-[color:var(--color-sepia-soft)]">

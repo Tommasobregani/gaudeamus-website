@@ -220,10 +220,6 @@ function GalleryCell({
         sizes="(min-width: 1024px) 66vw, 100vw"
         className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.2,0.7,0.1,1)] group-hover:scale-[1.04]"
       />
-      {/* number stamp */}
-      <span className="pointer-events-none absolute left-3 top-2 font-[family-name:var(--font-mono)] text-[0.7rem] uppercase tracking-[0.22em] text-[color:var(--color-travertino)]/80">
-        N.°{String(index + 1).padStart(2, "0")}
-      </span>
     </motion.button>
   );
 }

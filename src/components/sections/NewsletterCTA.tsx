@@ -14,7 +14,7 @@ export function NewsletterCTA() {
       <div className="grid gap-12 md:grid-cols-12">
         <div className="md:col-span-5">
           <FadeIn>
-            <RomanEyebrow n={4} label={t("newsletterEyebrow")} />
+            <RomanEyebrow label={t("newsletterEyebrow")} />
           </FadeIn>
           <FadeIn delay={0.1}>
             <h2 className="mt-6 bodoni-italic text-[clamp(2rem,3.5vw+1rem,3.25rem)] leading-[1.05] text-[color:var(--color-sepia)]">
