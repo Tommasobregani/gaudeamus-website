@@ -117,29 +117,29 @@ export default async function ChiSiamoPage({
         </div>
       </section>
 
-      {/* Mission */}
-      <section className="container-site py-20 md:py-28">
-        <div className="grid gap-10 md:grid-cols-12">
+      {/* Mission — Pompeii-red panel for emotional weight */}
+      <section className="bg-[color:var(--color-pompeiano)] py-20 text-[color:var(--color-travertino)] md:py-28">
+        <div className="container-site grid gap-10 md:grid-cols-12">
           <div className="md:col-span-4">
             <FadeIn>
-              <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-accent,var(--color-terracotta))]">
+              <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] opacity-80">
                 {t("missionTitle")}
               </p>
             </FadeIn>
           </div>
           <div className="md:col-span-8 space-y-8">
             <FadeIn delay={0.1}>
-              <p className="bodoni-italic text-[clamp(1.6rem,2.4vw+0.8rem,2.5rem)] leading-[1.2] text-[color:var(--color-sepia)]">
+              <p className="bodoni-italic text-[clamp(1.6rem,2.4vw+0.8rem,2.5rem)] leading-[1.2]">
                 {t("missionBody")}
               </p>
             </FadeIn>
             <FadeIn delay={0.15}>
-              <p className="max-w-[64ch] text-[1.05rem] leading-[1.7] text-[color:var(--color-sepia-soft)]">
+              <p className="max-w-[64ch] text-[1.05rem] leading-[1.7] opacity-90">
                 {t("missionExtra1")}
               </p>
             </FadeIn>
             <FadeIn delay={0.2}>
-              <p className="max-w-[64ch] text-[1.05rem] leading-[1.7] text-[color:var(--color-sepia-soft)]">
+              <p className="max-w-[64ch] text-[1.05rem] leading-[1.7] opacity-90">
                 {t("missionExtra2")}
               </p>
             </FadeIn>

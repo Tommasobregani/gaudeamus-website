@@ -28,14 +28,16 @@ export function FeaturedProjects() {
   const featured = [...upcomingProductions, ...pastProductions].slice(0, 4);
 
   return (
-    <section className="container-site border-t border-[color:var(--color-sepia)]/20 py-24 md:py-36">
+    <section className="container-site py-24 text-[color:var(--color-travertino)] md:py-36">
       <div className="flex flex-wrap items-end justify-between gap-6">
         <div>
           <FadeIn>
-            <RomanEyebrow label={t("projectsEyebrow")} />
+            <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-oro-soft)]">
+              {t("projectsEyebrow")}
+            </p>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <h2 className="mt-6 bodoni-italic text-[clamp(2.5rem,5vw+1rem,4.75rem)] leading-[1] text-[color:var(--color-sepia)]">
+            <h2 className="mt-6 bodoni-italic text-[clamp(2.5rem,5vw+1rem,4.75rem)] leading-[1]">
               {t("projectsTitle")}
             </h2>
           </FadeIn>
@@ -112,17 +114,17 @@ export function FeaturedProjects() {
                 )}
                 <div className="mt-6 flex items-start justify-between gap-4">
                   <div className="flex-1">
-                    <h3 className="bodoni-italic text-[2rem] leading-[1.02] text-[color:var(--color-sepia)]">
+                    <h3 className="bodoni-italic text-[2rem] leading-[1.02]">
                       {e.title[locale]}
                     </h3>
-                    <p className="mt-2 max-w-[46ch] text-[0.975rem] leading-relaxed text-[color:var(--color-sepia-soft)]">
+                    <p className="mt-2 max-w-[46ch] text-[0.975rem] leading-relaxed opacity-85">
                       {e.tagline[locale]}
                     </p>
                   </div>
                   <ArrowUpRight
                     size={22}
                     strokeWidth={1.25}
-                    className="mt-1 shrink-0 text-[color:var(--color-accent)] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                    className="mt-1 shrink-0 text-[color:var(--color-oro-soft)] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                   />
                 </div>
               </Link>

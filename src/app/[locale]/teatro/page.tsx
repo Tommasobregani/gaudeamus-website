@@ -98,16 +98,17 @@ export default async function TeatroPage({
         </FadeIn>
       </section>
 
-      {/* On stage / upcoming */}
-      <section className="container-site border-t border-[color:var(--color-sepia)]/25 py-16 md:py-24">
+      {/* On stage / upcoming — deep-blue theatre-night panel */}
+      <section className="bg-[color:var(--color-notte)] py-16 text-[color:var(--color-travertino)] md:py-24">
+        <div className="container-site">
         <FadeIn>
-          <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-accent,var(--color-terracotta))]">
+          <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] opacity-80">
             {t("onStageTitle")}
           </p>
         </FadeIn>
         {upcomingProductions.length === 0 ? (
           <FadeIn delay={0.1}>
-            <p className="mt-8 max-w-[60ch] text-[1rem] leading-[1.65] text-[color:var(--color-sepia-soft)]">
+            <p className="mt-8 max-w-[60ch] text-[1rem] leading-[1.65] opacity-85">
               {t("onStageEmpty")}
             </p>
           </FadeIn>
@@ -153,19 +154,19 @@ export default async function TeatroPage({
                       <div className="flex-1">
                         {hasPoster ? (
                           <>
-                            <p className="font-[family-name:var(--font-cartel)] text-[0.72rem] uppercase tracking-[0.28em] text-[color:var(--color-sepia-soft)]">
+                            <p className="font-[family-name:var(--font-cartel)] text-[0.72rem] uppercase tracking-[0.28em] opacity-80">
                               {e.year} · {kindLabel(e.kind, loc)}
                             </p>
-                            <h3 className="mt-3 bodoni-italic text-[2rem] leading-[1.05] text-[color:var(--color-sepia)]">
+                            <h3 className="mt-3 bodoni-italic text-[2rem] leading-[1.05]">
                               {e.title[loc]}
                             </h3>
-                            <p className="mt-2 text-[1rem] italic text-[color:var(--color-sepia-soft)]">
+                            <p className="mt-2 text-[1rem] italic opacity-90">
                               {e.tagline[loc]}
                             </p>
                           </>
                         ) : null}
                         {e.venues && (
-                          <ul className={`${hasPoster ? "mt-3" : ""} space-y-1 text-[0.92rem] text-[color:var(--color-sepia-soft)]`}>
+                          <ul className={`${hasPoster ? "mt-3" : ""} space-y-1 text-[0.92rem] opacity-90`}>
                             {e.venues.map((v) => (
                               <li key={v}>· {v}</li>
                             ))}
@@ -175,7 +176,7 @@ export default async function TeatroPage({
                       <ArrowUpRight
                         size={22}
                         strokeWidth={1.25}
-                        className="mt-1 shrink-0 text-[color:var(--color-accent)] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                        className="mt-1 shrink-0 text-[color:var(--color-oro-soft)] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                       />
                     </div>
                   </Link>
@@ -184,6 +185,7 @@ export default async function TeatroPage({
             })}
           </Stagger>
         )}
+        </div>
       </section>
 
       {/* Past productions */}

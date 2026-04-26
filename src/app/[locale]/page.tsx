@@ -37,17 +37,17 @@ export default async function HomePage({
         <ProgrammeStrip />
       </ScrollStage>
 
-      <ScrollStage palette="travertino">
+      <ScrollStage palette="sepia">
         <FeaturedProjects />
       </ScrollStage>
 
       {showNews ? (
-        <ScrollStage palette="sepia">
+        <ScrollStage palette="travertino">
           <NewsStrip />
         </ScrollStage>
       ) : null}
 
-      <ScrollStage palette="travertino">
+      <ScrollStage palette="pompeiano">
         <NewsletterCTA />
       </ScrollStage>
 
