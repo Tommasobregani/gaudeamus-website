@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Compagnia Artistica Gaudeamus — Italian theatre across Scotland";
+export const alt = "Compagnia Artistica Gaudeamus — Italian arts and culture in Scotland";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -62,7 +62,7 @@ export default async function OG() {
               color: "#a4462a",
             }}
           >
-            Italian theatre, across Scotland.
+            Italian arts, lived in Scotland.
           </span>
         </div>
 

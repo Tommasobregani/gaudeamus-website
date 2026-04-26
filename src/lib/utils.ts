@@ -16,12 +16,12 @@ export const siteConfig = {
     it: "Operiamo in tutta la Scozia",
   },
   tagline: {
-    en: "Italian theatre and culture, across Scotland.",
-    it: "Teatro e cultura italiana, in tutta la Scozia.",
+    en: "Italian arts and culture, across Scotland.",
+    it: "Arte e cultura italiana, in tutta la Scozia.",
   },
   description: {
-    en: "Compagnia Artistica Gaudeamus SCIO is a Scottish-registered Italian charity (SC052772) based in Aberdeen, the only theatre company in Scotland staging productions entirely in Italian with live English subtitles.",
-    it: "Compagnia Artistica Gaudeamus SCIO è una charity italiana registrata in Scozia (SC052772) con sede ad Aberdeen, l'unica compagnia teatrale in Scozia a portare in scena spettacoli interamente in italiano con sottotitoli live in inglese.",
+    en: "Compagnia Artistica Gaudeamus SCIO is a Scottish-registered Italian charity (SC052772) based in Aberdeen. We bring Italian arts to Scotland through theatre, language workshops and community events — and we are the only charity in Scotland staging plays entirely in Italian, with live English subtitles.",
+    it: "Compagnia Artistica Gaudeamus SCIO è una charity italiana registrata in Scozia (SC052772) con sede ad Aberdeen. Portiamo l'arte italiana in Scozia attraverso teatro, laboratori di lingua ed eventi di comunità — e siamo l'unica charity in Scozia a portare in scena spettacoli interamente in italiano, con sottotitoli live in inglese.",
   },
   email: {
     general: "info@italiandramauk.org",

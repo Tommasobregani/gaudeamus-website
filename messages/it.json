@@ -1,10 +1,10 @@
 {
   "meta": {
     "siteName": "Gaudeamus",
-    "defaultTitle": "Compagnia Artistica Gaudeamus — Teatro italiano in Scozia",
+    "defaultTitle": "Compagnia Artistica Gaudeamus — Arte e cultura italiana in Scozia",
     "titleTemplate": "%s · Gaudeamus",
-    "description": "Compagnia Artistica Gaudeamus SCIO è una charity italiana registrata in Scozia (SC052772) con sede ad Aberdeen — l'unica compagnia teatrale in Scozia a portare in scena spettacoli interamente in italiano, con sottotitoli live in inglese.",
-    "keywords": "teatro italiano Scozia, Compagnia Artistica Gaudeamus, charity italiana Aberdeen, cultura italiana Scozia, teatro bilingue, comunità italiana Scozia"
+    "description": "Compagnia Artistica Gaudeamus SCIO è una charity italiana registrata in Scozia, con sede ad Aberdeen. Portiamo la cultura italiana in Scozia attraverso teatro, laboratori ed eventi di comunità — e siamo l'unica charity in Scozia a portare in scena spettacoli interamente in italiano, con sottotitoli live in inglese.",
+    "keywords": "charity italiana Scozia, Compagnia Artistica Gaudeamus, arte italiana Aberdeen, cultura italiana Scozia, teatro bilingue, comunità italiana Scozia"
   },
   "nav": {
     "home": "Home",
@@ -21,16 +21,16 @@
     "close": "Chiudi"
   },
   "home": {
-    "eyebrow": "Compagnia teatrale italiana · Scozia",
-    "heroLine1": "Teatro italiano,",
-    "heroLine2": "in tutta",
-    "heroLine3": "la Scozia.",
-    "heroSub": "Compagnia Artistica Gaudeamus è una charity italiana registrata in Scozia, con sede ad Aberdeen — l'unica compagnia teatrale in Scozia a portare in scena spettacoli interamente in italiano, con sottotitoli live in inglese.",
+    "eyebrow": "Charity italiana · Scozia",
+    "heroLine1": "Arte italiana,",
+    "heroLine2": "vissuta in",
+    "heroLine3": "Scozia.",
+    "heroSub": "Compagnia Artistica Gaudeamus è una charity italiana con sede ad Aberdeen. Portiamo la cultura italiana in Scozia attraverso teatro, laboratori e incontri di comunità — e siamo l'unica charity in Scozia a portare in scena spettacoli interamente in italiano, con sottotitoli live in inglese.",
     "heroCtaPrimary": "Le nostre produzioni",
     "heroCtaSecondary": "Prossimi eventi",
     "manifestoEyebrow": "Cosa facciamo",
-    "manifestoTitle": "Portiamo la cultura italiana sui palchi scozzesi — e nella comunità.",
-    "manifestoBody": "Attraverso teatro, laboratori e incontri di comunità, Gaudeamus preserva e condivide lingua, drammaturgia e patrimonio italiani — per gli italiani in Scozia e per chiunque voglia scoprirli. Le nostre produzioni girano in tutta la Scozia; i laboratori e gli aperitivi letterari sono aperti a tutti.",
+    "manifestoTitle": "Arte italiana, in tre voci — teatro, lingua, comunità.",
+    "manifestoBody": "Gaudeamus è una charity che usa il teatro come veicolo principale e attorno costruisce laboratori ed eventi di comunità. Preserviamo e condividiamo lingua, drammaturgia e patrimonio italiani — per gli italiani in Scozia e per chiunque voglia incontrarli. Le nostre produzioni girano in tutta la Scozia; i laboratori e gli aperitivi letterari sono aperti a tutti.",
     "projectsEyebrow": "In scena",
     "projectsTitle": "Il teatro è la colonna portante di Gaudeamus.",
     "projectsLink": "Tutte le produzioni",
@@ -45,7 +45,7 @@
     "newsletterBody": "Un aggiornamento breve e occasionale dalla compagnia — produzioni, date e novità dalla comunità.",
     "newsletterCta": "Iscriviti",
     "closingEyebrow": "Unisciti",
-    "closingTitle": "Aiutaci a tenere vivo il teatro italiano in Scozia.",
+    "closingTitle": "Aiutaci a tenere viva l'arte italiana e la comunità in Scozia.",
     "closingCtaPrimary": "Sostieni Gaudeamus",
     "closingCtaSecondary": "Scrivici"
   },
@@ -140,7 +140,7 @@
   },
   "support": {
     "eyebrow": "Sostienici",
-    "title": "Aiutaci a tenere vivo il teatro italiano in Scozia.",
+    "title": "Aiutaci a tenere viva l'arte italiana e la comunità in Scozia.",
     "lead": "Gaudeamus è una charity scozzese registrata. Ogni donazione ci aiuta a tenere il teatro in scena, i laboratori attivi e gli eventi di comunità vivi.",
     "whereTitle": "Dove va il tuo sostegno",
     "whereProductions": "Produzioni teatrali in italiano con sottotitoli live in inglese",
@@ -221,7 +221,7 @@
     "privacy": "Useremo la tua email solo per la newsletter Gaudeamus. Puoi disiscriverti quando vuoi."
   },
   "footer": {
-    "tagline": "Teatro e cultura italiana, in tutta la Scozia.",
+    "tagline": "Arte e cultura italiana, in tutta la Scozia.",
     "sitemap": "Mappa del sito",
     "legal": "Legale",
     "contact": "Contatti",

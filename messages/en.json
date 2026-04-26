@@ -1,10 +1,10 @@
 {
   "meta": {
     "siteName": "Gaudeamus",
-    "defaultTitle": "Compagnia Artistica Gaudeamus — Italian theatre across Scotland",
+    "defaultTitle": "Compagnia Artistica Gaudeamus — Italian arts and culture in Scotland",
     "titleTemplate": "%s · Gaudeamus",
-    "description": "Compagnia Artistica Gaudeamus SCIO is a Scottish-registered Italian charity (SC052772) based in Aberdeen — the only theatre company in Scotland staging shows entirely in Italian, with live English subtitles.",
-    "keywords": "Italian theatre Scotland, Compagnia Artistica Gaudeamus, Italian charity Aberdeen, Italian culture Scotland, bilingual theatre, Italian community Scotland"
+    "description": "Compagnia Artistica Gaudeamus SCIO is a Scottish-registered Italian charity based in Aberdeen. We bring Italian culture to Scotland through theatre, workshops and community events — and we are the only charity in Scotland staging plays entirely in Italian, with live English subtitles.",
+    "keywords": "Italian charity Scotland, Compagnia Artistica Gaudeamus, Italian arts Aberdeen, Italian culture Scotland, bilingual theatre, Italian community Scotland"
   },
   "nav": {
     "home": "Home",
@@ -21,16 +21,16 @@
     "close": "Close"
   },
   "home": {
-    "eyebrow": "Italian theatre company · Scotland",
-    "heroLine1": "Italian theatre,",
-    "heroLine2": "across",
+    "eyebrow": "Italian charity · Scotland",
+    "heroLine1": "Italian arts,",
+    "heroLine2": "lived in",
     "heroLine3": "Scotland.",
-    "heroSub": "Compagnia Artistica Gaudeamus is a Scottish-registered Italian charity based in Aberdeen — the only theatre company in Scotland staging shows entirely in Italian, with live English subtitles.",
+    "heroSub": "Compagnia Artistica Gaudeamus is a Scottish-registered Italian charity based in Aberdeen. We bring Italian culture to Scotland through theatre, workshops and community gatherings — and we are the only charity here staging plays entirely in Italian, with live English subtitles.",
     "heroCtaPrimary": "See our productions",
     "heroCtaSecondary": "Upcoming events",
     "manifestoEyebrow": "What we do",
-    "manifestoTitle": "We bring Italian culture to Scottish stages — and to the community.",
-    "manifestoBody": "Through theatre, workshops and community gatherings, Gaudeamus preserves and shares Italian language, drama and heritage — for Italians in Scotland and for anyone who wants to discover them. Our productions tour across Scotland; our workshops and literary aperitivos are open to all.",
+    "manifestoTitle": "Italian arts in three voices — theatre, language, community.",
+    "manifestoBody": "Gaudeamus is a charity that uses theatre as its main vehicle and adds workshops and community events around it. We preserve and share Italian language, drama and heritage — for Italians in Scotland and for anyone who wants to meet them. Our productions tour across Scotland; our workshops and literary aperitivos are open to all.",
     "projectsEyebrow": "On stage",
     "projectsTitle": "Theatre is the backbone of what we do.",
     "projectsLink": "All productions",
@@ -45,7 +45,7 @@
     "newsletterBody": "A short, occasional update from the company — productions, dates and community news.",
     "newsletterCta": "Subscribe",
     "closingEyebrow": "Join us",
-    "closingTitle": "Help us keep Italian theatre live in Scotland.",
+    "closingTitle": "Help us keep Italian arts and community live in Scotland.",
     "closingCtaPrimary": "Support Gaudeamus",
     "closingCtaSecondary": "Get in touch"
   },
@@ -140,7 +140,7 @@
   },
   "support": {
     "eyebrow": "Support us",
-    "title": "Help us keep Italian theatre live in Scotland.",
+    "title": "Help us keep Italian arts and community live in Scotland.",
     "lead": "Gaudeamus is a registered Scottish charity. Every donation helps us keep theatre on stage, workshops running and community events alive.",
     "whereTitle": "Where your support goes",
     "whereProductions": "Stage productions in Italian with live English subtitles",
@@ -221,7 +221,7 @@
     "privacy": "We will only use your email for the Gaudeamus newsletter. Unsubscribe anytime."
   },
   "footer": {
-    "tagline": "Italian theatre and culture, across Scotland.",
+    "tagline": "Italian arts and culture, across Scotland.",
     "sitemap": "Sitemap",
     "legal": "Legal",
     "contact": "Contact",
