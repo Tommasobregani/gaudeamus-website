@@ -43,6 +43,17 @@ const fundedProjects: FundedProject[] = [
   {
     year: 2025,
     title: {
+      en: "Italian Connections — Italy in Scotland between theatre and music (2025/26)",
+      it: "Italian Connections — l'Italia in Scozia tra teatro e musica (2025/26)",
+    },
+    body: {
+      en: "A nine-month cultural programme across Aberdeen, Edinburgh and Glasgow celebrating Italian identity through theatre and music. Supported by the Italian Consular Authority and the National Lottery Fund, it ran from November 2025 to June 2026 with productions (Poor Piero), commedia dell'arte workshops, and cultural events exploring the connections between Italian and Scottish heritage.",
+      it: "Un programma culturale di nove mesi tra Aberdeen, Edimburgo e Glasgow che celebra l'identità italiana attraverso teatro e musica. Sostenuto dall'Autorità Consolare Italiana e dal National Lottery Fund, è andato in scena da novembre 2025 a giugno 2026 con produzioni (Poor Piero), laboratori di commedia dell'arte ed eventi culturali sui legami tra patrimonio italiano e scozzese.",
+    },
+  },
+  {
+    year: 2025,
+    title: {
       en: "Joining the Albo Consolare",
       it: "Ingresso nell'Albo Consolare",
     },

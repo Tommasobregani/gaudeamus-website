@@ -80,6 +80,9 @@ export default async function TeatroPage({
               <p className="text-[1.1rem] leading-[1.65] text-[color:var(--color-sepia-soft)]">
                 {t("lead")}
               </p>
+              <p className="text-[1rem] leading-[1.65] text-[color:var(--color-sepia-soft)]">
+                {t("leadInclusion")}
+              </p>
               <p className="text-[1rem] italic leading-[1.65] text-[color:var(--color-sepia-soft)]">
                 {t("leadExtra")}
               </p>

@@ -227,6 +227,11 @@ export const events: EventEntry[] = [
         "L'interpretazione registica estremizza il carattere comico e la forza dissacrante, accentuando il contrasto tra la rigidità delle convenzioni sociali e l'assurdità delle situazioni. I personaggi sono volutamente caricaturali, privati di buon senso e sentimenti autentici, completamente asserviti a un codice di comportamento che finisce per ingabbiarli. Tra necrologi maldestri, lacrime di circostanza e battute taglienti, la regia pone l'accento sulla parodia del perbenismo e sulle ipocrisie che avvolgono il tema della morte.",
       ],
     },
+    venues: [
+      "Aberdeen — Lemon Tree Theatre (February 2025)",
+      "Perth Theatre (March 2025)",
+      "Edinburgh — Assembly Roxy Theatre (November 2025)",
+    ],
     role: { en: "Production", it: "Produzione" },
     cover: "/events/poor-piero/locandina.jpg",
     poster: "/events/poor-piero/locandina.jpg",
@@ -394,24 +399,28 @@ export const events: EventEntry[] = [
     slug: "christmas-party",
     kind: "community",
     year: 2025,
+    date: "2025-12-01",
     status: "past",
-    title: { en: "Christmas Party", it: "Christmas Party" },
+    title: { en: "Early Italian Christmas Party", it: "Early Italian Christmas Party" },
     tagline: {
-      en: "Closing the year with the Gaudeamus community.",
-      it: "Chiudere l'anno con la comunità Gaudeamus.",
+      en: "An Italian Christmas at the Butchers Arms, Aberdeen.",
+      it: "Un Natale italiano al Butchers Arms, Aberdeen.",
     },
     summary: {
-      en: "Our end-of-year community gathering: friends, members, volunteers and supporters around a long Italian table in Scotland.",
-      it: "Il nostro incontro di fine anno: amici, soci, volontari e sostenitori intorno a una lunga tavolata italiana in Scozia.",
+      en: "Aberdeen's Butchers Arms Pub turned into a corner of Italy for our community Christmas — live music with The Badwills, traditional treats, and a room full of Italian and Scottish friends.",
+      it: "Il Butchers Arms Pub di Aberdeen si è trasformato in un angolo d'Italia per il nostro Natale di comunità — musica dal vivo con i The Badwills, dolci tradizionali e una sala piena di amici italiani e scozzesi.",
     },
     description: {
       en: [
-        "Each year Gaudeamus closes the season with a community Christmas Party — half dinner, half thank-you to everyone who made the year possible.",
+        "An Early Italian Christmas Party at Aberdeen's Butchers Arms Pub: live music, traditional Italian food, and a celebration of how the Italian community in Scotland keeps its cultural identity alive.",
+        "The live band — The Badwills — kept the night going with rhythms of pizzica, tarantella and tammuriata. The evening was supported by the Honorary Consul and the Com.It.Es. president.",
       ],
       it: [
-        "Ogni anno Gaudeamus chiude la stagione con una festa di Natale aperta alla comunità — in parte cena, in parte ringraziamento a chi ha reso l'anno possibile.",
+        "Un Early Italian Christmas Party al Butchers Arms Pub di Aberdeen: musica dal vivo, cibo italiano tradizionale, e una serata che racconta come la comunità italiana in Scozia tenga viva la propria identità culturale.",
+        "La band dal vivo — The Badwills — ha animato la serata con ritmi di pizzica, tarantella e tammuriata. L'evento è stato sostenuto dal Console Onorario e dal presidente del Com.It.Es.",
       ],
     },
+    venues: ["Butchers Arms Pub, Aberdeen"],
     cover: "/events/christmas-party/christmas-party-01.jpg",
     gallery: [
       "/events/christmas-party/christmas-party-01.jpg",
