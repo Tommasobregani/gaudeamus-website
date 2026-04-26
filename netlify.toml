@@ -14,3 +14,12 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+# Make sure HTML pages are revalidated on every deploy — without this,
+# Netlify's Durable cache can serve stale HTML referencing pre-deploy
+# asset hashes for hours after a deploy.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    Netlify-CDN-Cache-Control = "public, max-age=60, must-revalidate"
