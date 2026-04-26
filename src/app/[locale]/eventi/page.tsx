@@ -132,42 +132,44 @@ export default async function EventiPage({
         )}
       </section>
 
-      {/* Past */}
-      <section className="relative border-t border-[color:var(--color-sepia)]/25 bg-[color:var(--color-carta)]">
-        <div className="container-site py-16 md:py-20">
+      {/* Past — image-card grid for community memory */}
+      <section className="relative bg-[color:var(--color-pompeiano)] py-16 text-[color:var(--color-travertino)] md:py-20">
+        <div className="container-site">
           <FadeIn>
-            <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-accent,var(--color-terracotta))]">
+            <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] opacity-80">
               {t("pastTitle")}
             </p>
           </FadeIn>
-          <Stagger className="mt-10 space-y-0 border-t-2 border-[color:var(--color-sepia)]">
-            {pastCommunityEvents.map((e, i) => (
+          <Stagger className="mt-10 grid gap-8 md:grid-cols-2 md:gap-10">
+            {pastCommunityEvents.map((e) => (
               <StaggerItem key={e.slug}>
-                <Link
-                  href={`/teatro/${e.slug}`}
-                  className="group grid grid-cols-[auto_1fr_auto] items-center gap-6 border-b border-[color:var(--color-sepia)]/25 py-6 transition-colors hover:bg-white md:grid-cols-[5rem_1fr_auto_auto] md:gap-10 md:py-7"
-                >
-                  <span className="font-[family-name:var(--font-mono)] text-[0.7rem] tracking-[0.22em] text-[color:var(--color-sepia)]/55">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <div>
-                    <h3 className="bodoni-italic text-[clamp(1.25rem,1.5vw+0.5rem,1.75rem)] leading-[1.1] text-[color:var(--color-sepia)]">
-                      {e.title[loc]}
-                    </h3>
-                    <p className="mt-1 italic text-[0.92rem] text-[color:var(--color-sepia-soft)]">
-                      {e.tagline[loc]}
-                    </p>
-                  </div>
-                  <span className="hidden font-[family-name:var(--font-mono)] text-[0.78rem] uppercase tracking-[0.22em] text-[color:var(--color-sepia)] md:inline">
-                    {e.year}
-                  </span>
-                  <div className="relative hidden h-16 w-24 overflow-hidden bg-[color:var(--color-sepia)]/10 md:block">
+                <Link href={`/teatro/${e.slug}`} className="group block">
+                  <div className="relative aspect-[3/2] w-full overflow-hidden bg-[color:var(--color-sepia)]/40">
                     <Image
                       src={e.cover}
                       alt={e.title[loc]}
                       fill
-                      sizes="96px"
+                      sizes="(min-width: 768px) 45vw, 90vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-[1.05]"
+                    />
+                    <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[color:var(--color-pompeiano)]/90 via-[color:var(--color-pompeiano)]/40 to-transparent" />
+                  </div>
+                  <div className="mt-5 flex items-start justify-between gap-3">
+                    <div>
+                      <p className="font-[family-name:var(--font-cartel)] text-[0.7rem] uppercase tracking-[0.26em] opacity-70">
+                        {e.year}
+                      </p>
+                      <h3 className="mt-2 bodoni-italic text-[clamp(1.5rem,2vw+0.5rem,2.25rem)] leading-[1.1]">
+                        {e.title[loc]}
+                      </h3>
+                      <p className="mt-2 italic text-[0.95rem] opacity-90">
+                        {e.tagline[loc]}
+                      </p>
+                    </div>
+                    <ArrowUpRight
+                      size={20}
+                      strokeWidth={1.25}
+                      className="mt-1 shrink-0 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                     />
                   </div>
                 </Link>

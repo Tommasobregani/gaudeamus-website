@@ -189,28 +189,31 @@ export default async function ChiSiamoPage({
           </p>
         </FadeIn>
 
-        <Stagger className="mt-12 grid grid-cols-1 gap-0 border-t-2 border-[color:var(--color-sepia)] sm:grid-cols-2 lg:grid-cols-3">
-          {staff.map((p, i) => (
-            <StaggerItem key={p.name}>
-              <article
-                className={
-                  "flex flex-col border-b border-[color:var(--color-sepia)]/25 p-6 lg:p-8 " +
-                  (i % 2 === 0 ? "sm:border-r sm:border-r-[color:var(--color-sepia)]/25 " : "") +
-                  "lg:border-r lg:border-r-[color:var(--color-sepia)]/25 lg:[&:nth-child(3n)]:border-r-0"
-                }
-              >
-                <span className="font-[family-name:var(--font-mono)] text-[0.7rem] tracking-[0.22em] text-[color:var(--color-sepia)]/55">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="mt-4 bodoni-italic text-[1.6rem] leading-[1.05] text-[color:var(--color-sepia)]">
-                  {p.name}
-                </h3>
-                <p className="mt-2 font-[family-name:var(--font-body)] text-[0.95rem] text-[color:var(--color-sepia-soft)]">
-                  {p.role[loc]}
-                </p>
-              </article>
-            </StaggerItem>
-          ))}
+        <Stagger className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {staff.map((p) => {
+            const initials = p.name
+              .split(" ")
+              .map((part) => part[0])
+              .join("")
+              .slice(0, 2);
+            return (
+              <StaggerItem key={p.name}>
+                <article className="flex items-start gap-5 border border-[color:var(--color-sepia)]/15 bg-[color:var(--color-carta)] p-6 transition-colors hover:bg-[color:var(--color-travertino)]">
+                  <span className="flex h-14 w-14 shrink-0 items-center justify-center bg-[color:var(--color-notte)] font-[family-name:var(--font-cartel)] text-[1.05rem] tracking-[0.18em] text-[color:var(--color-travertino)]">
+                    {initials}
+                  </span>
+                  <div className="min-w-0">
+                    <h3 className="bodoni-italic text-[1.5rem] leading-[1.1] text-[color:var(--color-sepia)]">
+                      {p.name}
+                    </h3>
+                    <p className="mt-1 font-[family-name:var(--font-cartel)] text-[0.72rem] uppercase tracking-[0.26em] text-[color:var(--color-sepia-soft)]">
+                      {p.role[loc]}
+                    </p>
+                  </div>
+                </article>
+              </StaggerItem>
+            );
+          })}
         </Stagger>
       </section>
 

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { hasLocale, routing } from "@/i18n/routing";
-import { MapPin } from "lucide-react";
 import { FadeIn } from "@/components/motion/FadeIn";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { RomanEyebrow } from "@/components/ui/RomanEyebrow";
@@ -73,33 +72,10 @@ export default async function ContattiPage({
     },
   ];
 
-  const offices = [
-    {
-      roman: "01",
-      city: "Aberdeen",
-      cityIt: "Aberdeen",
-      role: it ? "SEDE LEGALE" : "REGISTERED OFFICE",
-      note: it
-        ? "Sede legale della charity. Operiamo in tutta la Scozia."
-        : "Registered charity office. We operate across Scotland.",
-    },
-  ];
 
   return (
     <>
-      {/* Cartello */}
       <section className="container-site pt-16 pb-12 md:pt-24 md:pb-16">
-        <div className="border-y-2 border-[color:var(--color-sepia)] py-5">
-          <div className="flex items-center justify-between">
-            <span className="font-[family-name:var(--font-cartel)] text-[0.75rem] tracking-[0.3em] text-[color:var(--color-sepia)]">
-              {it ? "CONTATTI" : "CONTACT"}
-            </span>
-            <span className="font-[family-name:var(--font-mono)] text-[0.72rem] uppercase tracking-[0.24em] text-[color:var(--color-sepia)]">
-              ITALIANDRAMAUK.ORG
-            </span>
-          </div>
-        </div>
-
         <FadeIn>
           <h1 className="mt-10 max-w-[12ch] bodoni-italic text-[clamp(3.5rem,10vw+1rem,11rem)] leading-[0.92] text-[color:var(--color-sepia)]">
             {it ? "Parliamone." : "Let's talk."}
@@ -157,44 +133,39 @@ export default async function ContattiPage({
         </Stagger>
       </section>
 
-      {/* Offices — like signage panels */}
-      <section className="relative border-t border-[color:var(--color-sepia)]/25 bg-[color:var(--color-carta)]">
-        <div className="container-site py-20 md:py-28">
-          <FadeIn>
-            <RomanEyebrow n={2} label={it ? "Dove siamo" : "Where we are"} />
-          </FadeIn>
-          <div className="mt-12 grid gap-0 border-t-2 border-[color:var(--color-sepia)] md:grid-cols-2">
-            {offices.map((o, i) => (
-              <FadeIn key={o.city} delay={i * 0.1}>
-                <article
-                  className={
-                    "relative flex flex-col border-b border-[color:var(--color-sepia)]/25 p-10 md:border-b-0 md:p-14 " +
-                    (i === 0 ? "md:border-r md:border-r-[color:var(--color-sepia)]/25" : "")
-                  }
-                >
-                  <MapPin
-                    size={28}
-                    strokeWidth={1.25}
-                    className="absolute right-8 top-8 text-[color:var(--color-terracotta)]"
-                  />
-                  <span className="bodoni-italic text-[2rem] leading-none text-[color:var(--color-terracotta)]">
-                    {o.roman}
-                  </span>
-                  <span className="mt-5 font-[family-name:var(--font-cartel)] text-[0.78rem] tracking-[0.3em] text-[color:var(--color-terracotta)]">
-                    {o.role}
-                  </span>
-                  <h3 className="mt-4 bodoni-italic text-[clamp(3rem,7vw+1rem,6rem)] leading-[0.95] text-[color:var(--color-sepia)]">
-                    {it ? o.cityIt : o.city}
-                  </h3>
-                  <p className="mt-4 font-[family-name:var(--font-body)] italic text-[1.05rem] text-[color:var(--color-sepia-soft)]">
-                    {o.note}
-                  </p>
-                  <p className="mt-3 font-[family-name:var(--font-mono)] text-[0.78rem] uppercase tracking-[0.22em] text-[color:var(--color-sepia)]">
-                    Scotland · United Kingdom
-                  </p>
-                </article>
-              </FadeIn>
-            ))}
+      {/* Registered office — single Pompeii-red panel, no empty 2-col grid */}
+      <section className="relative bg-[color:var(--color-pompeiano)] text-[color:var(--color-travertino)]">
+        <div className="container-site grid gap-10 py-16 md:grid-cols-12 md:gap-12 md:py-24">
+          <div className="md:col-span-4">
+            <FadeIn>
+              <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] opacity-80">
+                {it ? "Dove siamo" : "Where we are"}
+              </p>
+            </FadeIn>
+            <FadeIn delay={0.1}>
+              <p className="mt-6 font-[family-name:var(--font-cartel)] text-[0.74rem] uppercase tracking-[0.28em] opacity-70">
+                {it ? "SEDE LEGALE" : "REGISTERED OFFICE"}
+              </p>
+            </FadeIn>
+          </div>
+          <div className="md:col-span-8 md:flex md:flex-col md:justify-center">
+            <FadeIn delay={0.1}>
+              <h2 className="bodoni-italic text-[clamp(4rem,10vw+1rem,9rem)] leading-[0.92]">
+                Aberdeen
+              </h2>
+            </FadeIn>
+            <FadeIn delay={0.15}>
+              <p className="mt-6 max-w-[44ch] bodoni-italic text-[clamp(1.25rem,1.6vw+0.5rem,1.65rem)] leading-[1.3] opacity-95">
+                {it
+                  ? "Sede legale della charity. Operiamo in tutta la Scozia."
+                  : "Registered charity office. We operate across Scotland."}
+              </p>
+            </FadeIn>
+            <FadeIn delay={0.2}>
+              <p className="mt-4 font-[family-name:var(--font-mono)] text-[0.78rem] uppercase tracking-[0.22em] opacity-80">
+                Scotland · United Kingdom
+              </p>
+            </FadeIn>
           </div>
         </div>
       </section>

@@ -52,18 +52,12 @@ export function FeaturedProjects() {
         </FadeIn>
       </div>
 
-      <Stagger className="mt-16 grid gap-12 md:grid-cols-12">
+      <Stagger className="mt-16 grid gap-12 md:grid-cols-2 md:gap-16">
         {featured.map((e, i) => {
           const numLabel = String(i + 1).padStart(2, "0");
-          const layout = [
-            "md:col-span-7",
-            "md:col-span-5 md:mt-24",
-            "md:col-span-7 md:mt-24",
-            "md:col-span-5 md:mt-40",
-          ][i] ?? "md:col-span-6";
           const image = e.poster || e.cover;
           return (
-            <StaggerItem key={e.slug} className={layout}>
+            <StaggerItem key={e.slug}>
               <Link href={`/teatro/${e.slug}`} className="group block">
                 {image ? (
                   <div className="relative aspect-[4/5] w-full overflow-hidden bg-[color:var(--color-sepia)]/10">

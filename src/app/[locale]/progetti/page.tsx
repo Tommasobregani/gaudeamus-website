@@ -126,10 +126,45 @@ export default async function ProgettiPage({
         </FadeIn>
       </section>
 
-      <section className="container-site border-t border-[color:var(--color-sepia)]/25 py-12 md:py-16">
+      {/* Founding hero — the 2023 entry as a deep-blue anchor */}
+      {(() => {
+        const founding = fundedProjects[fundedProjects.length - 1];
+        return (
+          <section className="bg-[color:var(--color-notte)] py-16 text-[color:var(--color-travertino)] md:py-20">
+            <div className="container-site grid gap-10 md:grid-cols-12">
+              <div className="md:col-span-4">
+                <FadeIn>
+                  <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] opacity-80">
+                    {locale === "it" ? "Da dove veniamo" : "Where it started"}
+                  </p>
+                </FadeIn>
+                <FadeIn delay={0.1}>
+                  <span className="mt-6 block bodoni-italic text-[clamp(4rem,8vw+1rem,8rem)] leading-[0.9]">
+                    {founding.year}
+                  </span>
+                </FadeIn>
+              </div>
+              <div className="md:col-span-8 md:flex md:flex-col md:justify-center">
+                <FadeIn delay={0.1}>
+                  <h2 className="bodoni-italic text-[clamp(1.75rem,2.6vw+1rem,3rem)] leading-[1.1]">
+                    {founding.title[loc]}
+                  </h2>
+                </FadeIn>
+                <FadeIn delay={0.15}>
+                  <p className="mt-6 max-w-[64ch] text-[1.05rem] leading-[1.7] opacity-90">
+                    {founding.body[loc]}
+                  </p>
+                </FadeIn>
+              </div>
+            </div>
+          </section>
+        );
+      })()}
+
+      <section className="container-site py-12 md:py-16">
         <Stagger className="border-t-2 border-[color:var(--color-sepia)]">
-          {fundedProjects.map((p, i) => {
-            const showYear = i === 0 || fundedProjects[i - 1].year !== p.year;
+          {fundedProjects.slice(0, -1).map((p, i, arr) => {
+            const showYear = i === 0 || arr[i - 1].year !== p.year;
             return (
               <StaggerItem key={`${p.year}-${p.title.en}`}>
                 <article className="grid gap-6 border-b border-[color:var(--color-sepia)]/25 py-10 md:grid-cols-12 md:gap-10 md:py-12">

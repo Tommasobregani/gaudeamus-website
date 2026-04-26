@@ -196,29 +196,31 @@ export default async function TeatroPage({
               {t("pastTitle")}
             </p>
           </FadeIn>
-          <Stagger className="mt-10 grid gap-10 md:grid-cols-3 md:gap-12">
+          <Stagger className="mt-10 grid gap-12 md:grid-cols-2 md:gap-16">
             {pastProductions.map((e) => (
               <StaggerItem key={e.slug}>
                 <Link href={`/teatro/${e.slug}`} className="group block">
                   <div className="relative aspect-[3/4] w-full overflow-hidden bg-[color:var(--color-sepia)]/5">
                     <Image
                       src={e.poster ?? e.cover}
-                      alt={e.title[loc]}
+                      alt={`${e.title[loc]} — locandina`}
                       fill
-                      sizes="(min-width: 768px) 30vw, 90vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                      sizes="(min-width: 768px) 45vw, 90vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                     />
                   </div>
-                  <div className="mt-5">
-                    <p className="font-[family-name:var(--font-cartel)] text-[0.7rem] uppercase tracking-[0.26em] text-[color:var(--color-sepia-soft)]">
-                      {e.year}
-                    </p>
-                    <h3 className="mt-2 bodoni-italic text-[1.5rem] leading-[1.05] text-[color:var(--color-sepia)]">
-                      {e.title[loc]}
-                    </h3>
-                    <p className="mt-1 text-[0.95rem] italic text-[color:var(--color-sepia-soft)]">
-                      {e.tagline[loc]}
-                    </p>
+                  <div className="mt-6 flex items-start justify-between gap-4">
+                    <div>
+                      <p className="font-[family-name:var(--font-cartel)] text-[0.72rem] uppercase tracking-[0.26em] text-[color:var(--color-sepia-soft)]">
+                        {e.year} · {kindLabel(e.kind, loc)}
+                      </p>
+                      <h3 className="mt-3 bodoni-italic text-[clamp(1.6rem,2.2vw+0.5rem,2.25rem)] leading-[1.05] text-[color:var(--color-sepia)]">
+                        {e.title[loc]}
+                      </h3>
+                      <p className="mt-2 text-[1rem] italic text-[color:var(--color-sepia-soft)]">
+                        {e.tagline[loc]}
+                      </p>
+                    </div>
                   </div>
                 </Link>
               </StaggerItem>
