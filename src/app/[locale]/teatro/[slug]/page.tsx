@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { hasLocale, routing, Link } from "@/i18n/routing";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
-import { events, eventBySlug, type EventKind } from "@/content/events";
+import { events, eventBySlug, producerLabel, type EventKind } from "@/content/events";
 import { FadeIn } from "@/components/motion/FadeIn";
 import { RomanEyebrow } from "@/components/ui/RomanEyebrow";
 import { Fregio } from "@/components/brand/Fregio";
@@ -109,6 +109,7 @@ export default async function ProjectPage({
         <FadeIn>
           <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.3em] text-[color:var(--color-accent)]">
             {kindLabel(event.kind, loc)} · {romanYear(event.year)}
+            {event.producer ? ` · ${producerLabel(event.producer, loc)}` : ""}
           </p>
         </FadeIn>
         <FadeIn delay={0.05}>

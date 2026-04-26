@@ -9,6 +9,7 @@ import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import {
   upcomingProductions,
   pastProductions,
+  producerLabel,
   type EventKind,
 } from "@/content/events";
 import { siteConfig, type Locale } from "@/lib/utils";
@@ -188,46 +189,86 @@ export default async function TeatroPage({
         </div>
       </section>
 
-      {/* Past productions */}
-      <section className="relative border-t border-[color:var(--color-sepia)]/25 bg-[color:var(--color-carta)]">
-        <div className="container-site py-16 md:py-24">
-          <FadeIn>
-            <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-accent,var(--color-terracotta))]">
-              {t("pastTitle")}
-            </p>
-          </FadeIn>
-          <Stagger className="mt-10 grid gap-12 md:grid-cols-2 md:gap-16">
-            {pastProductions.map((e) => (
-              <StaggerItem key={e.slug}>
-                <Link href={`/teatro/${e.slug}`} className="group block">
-                  <div className="relative aspect-[3/4] w-full overflow-hidden bg-[color:var(--color-sepia)]/5">
-                    <Image
-                      src={e.poster ?? e.cover}
-                      alt={`${e.title[loc]} — locandina`}
-                      fill
-                      sizes="(min-width: 768px) 45vw, 90vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                    />
-                  </div>
-                  <div className="mt-6 flex items-start justify-between gap-4">
-                    <div>
-                      <p className="font-[family-name:var(--font-cartel)] text-[0.72rem] uppercase tracking-[0.26em] text-[color:var(--color-sepia-soft)]">
-                        {e.year} · {kindLabel(e.kind, loc)}
-                      </p>
-                      <h3 className="mt-3 bodoni-italic text-[clamp(1.6rem,2.2vw+0.5rem,2.25rem)] leading-[1.05] text-[color:var(--color-sepia)]">
-                        {e.title[loc]}
-                      </h3>
-                      <p className="mt-2 text-[1rem] italic text-[color:var(--color-sepia-soft)]">
-                        {e.tagline[loc]}
-                      </p>
-                    </div>
-                  </div>
-                </Link>
-              </StaggerItem>
-            ))}
-          </Stagger>
-        </div>
-      </section>
+      {/* Past productions — split into Compagnia productions and Hosted */}
+      {(() => {
+        const compagnia = pastProductions.filter((e) => e.producer === "compagnia");
+        const hosted = pastProductions.filter((e) => e.producer === "hosted");
+        const renderCard = (e: typeof pastProductions[number]) => (
+          <StaggerItem key={e.slug}>
+            <Link href={`/teatro/${e.slug}`} className="group block">
+              <div className="relative aspect-[3/4] w-full overflow-hidden bg-[color:var(--color-sepia)]/5">
+                <Image
+                  src={e.poster ?? e.cover}
+                  alt={`${e.title[loc]} — locandina`}
+                  fill
+                  sizes="(min-width: 768px) 45vw, 90vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                />
+                {e.producer ? (
+                  <span className="absolute left-3 top-3 inline-flex items-center bg-[color:var(--color-travertino)]/90 px-2 py-1 font-[family-name:var(--font-cartel)] text-[0.66rem] uppercase tracking-[0.2em] text-[color:var(--color-sepia)]">
+                    {producerLabel(e.producer, loc)}
+                  </span>
+                ) : null}
+              </div>
+              <div className="mt-6">
+                <p className="font-[family-name:var(--font-cartel)] text-[0.72rem] uppercase tracking-[0.26em] text-[color:var(--color-sepia-soft)]">
+                  {e.year} · {kindLabel(e.kind, loc)}
+                </p>
+                <h3 className="mt-3 bodoni-italic text-[clamp(1.6rem,2.2vw+0.5rem,2.25rem)] leading-[1.05] text-[color:var(--color-sepia)]">
+                  {e.title[loc]}
+                </h3>
+                <p className="mt-2 text-[1rem] italic text-[color:var(--color-sepia-soft)]">
+                  {e.tagline[loc]}
+                </p>
+              </div>
+            </Link>
+          </StaggerItem>
+        );
+
+        return (
+          <>
+            {compagnia.length > 0 ? (
+              <section className="relative border-t border-[color:var(--color-sepia)]/25 bg-[color:var(--color-carta)]">
+                <div className="container-site py-16 md:py-24">
+                  <FadeIn>
+                    <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-accent)]">
+                      {loc === "it" ? "Produzioni della Compagnia" : "Compagnia productions"}
+                    </p>
+                    <p className="mt-4 max-w-[60ch] text-[0.95rem] italic leading-[1.6] text-[color:var(--color-sepia-soft)]">
+                      {loc === "it"
+                        ? "Spettacoli scritti, diretti e prodotti dalla Compagnia."
+                        : "Plays written, directed and produced by the Compagnia."}
+                    </p>
+                  </FadeIn>
+                  <Stagger className="mt-10 grid gap-12 md:grid-cols-2 md:gap-16">
+                    {compagnia.map(renderCard)}
+                  </Stagger>
+                </div>
+              </section>
+            ) : null}
+
+            {hosted.length > 0 ? (
+              <section className="relative border-t border-[color:var(--color-sepia)]/25 bg-[color:var(--color-travertino)]">
+                <div className="container-site py-16 md:py-24">
+                  <FadeIn>
+                    <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-accent)]">
+                      {loc === "it" ? "Ospitati da Gaudeamus" : "Hosted by Gaudeamus"}
+                    </p>
+                    <p className="mt-4 max-w-[60ch] text-[0.95rem] italic leading-[1.6] text-[color:var(--color-sepia-soft)]">
+                      {loc === "it"
+                        ? "Lavori di artisti esterni che la Compagnia ha sostenuto, ospitato o fatto circolare."
+                        : "Work by external artists that the Compagnia has supported, hosted or circulated."}
+                    </p>
+                  </FadeIn>
+                  <Stagger className="mt-10 grid gap-12 md:grid-cols-2 md:gap-16">
+                    {hosted.map(renderCard)}
+                  </Stagger>
+                </div>
+              </section>
+            ) : null}
+          </>
+        );
+      })()}
 
       {/* Workshops + Reviews — sub-section teasers */}
       <section className="container-site border-t border-[color:var(--color-sepia)]/25 py-16 md:py-24">

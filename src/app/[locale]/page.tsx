@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { hasLocale } from "@/i18n/routing";
 import { Hero } from "@/components/sections/Hero";
 import { ProgrammeStrip } from "@/components/sections/ProgrammeStrip";
+import { PressRibbon } from "@/components/sections/PressRibbon";
 import { FeaturedProjects } from "@/components/sections/FeaturedProjects";
 import { NewsletterCTA } from "@/components/sections/NewsletterCTA";
 import { ClosingCTA } from "@/components/sections/ClosingCTA";
@@ -35,6 +36,10 @@ export default async function HomePage({
 
       <ScrollStage palette="notte">
         <ProgrammeStrip />
+      </ScrollStage>
+
+      <ScrollStage palette="carta">
+        <PressRibbon />
       </ScrollStage>
 
       <ScrollStage palette="sepia">

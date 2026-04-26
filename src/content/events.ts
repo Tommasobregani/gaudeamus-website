@@ -7,11 +7,24 @@
 export type EventKind = "production" | "community" | "workshop";
 export type EventStatus = "past" | "current" | "upcoming";
 
+/**
+ * producer differentiates who actually made the work, per Eva's framing in
+ * the meeting: "the charity is a container — some shows are our own, others
+ * are external artists we sponsor and circulate."
+ *
+ * - `compagnia`  → original Compagnia Gaudeamus production
+ *                  (Eva D'Amico as writer / director / company ensemble)
+ * - `hosted`     → external artist / company hosted by Gaudeamus
+ * - `tbd`        → producer not yet confirmed by Eva
+ */
+export type EventProducer = "compagnia" | "hosted" | "tbd";
+
 export type EventEntry = {
   slug: string;
   kind: EventKind;
+  producer?: EventProducer;
   year: number;
-  date?: string; // ISO yyyy-mm-dd if a single date applies
+  date?: string;
   status: EventStatus;
   title: { en: string; it: string };
   tagline: { en: string; it: string };
@@ -20,7 +33,7 @@ export type EventEntry = {
   venues?: string[];
   role?: { en: string; it: string };
   cover: string;
-  poster?: string; // locandina image — preferred over cover for production cards
+  poster?: string;
   gallery: string[];
   credits?: {
     en: { role: string; name: string }[];
@@ -28,11 +41,18 @@ export type EventEntry = {
   };
 };
 
+export function producerLabel(p: EventProducer | undefined, loc: "en" | "it") {
+  if (p === "compagnia") return loc === "it" ? "Produzione Compagnia" : "Compagnia production";
+  if (p === "hosted") return loc === "it" ? "Ospitato da Gaudeamus" : "Hosted by Gaudeamus";
+  return loc === "it" ? "Da confermare" : "To be confirmed";
+}
+
 export const events: EventEntry[] = [
   // ── UPCOMING PRODUCTIONS ──────────────────────────────────────────────
   {
     slug: "high-heels-from-the-big-boot",
     kind: "production",
+    producer: "compagnia",
     year: 2026,
     date: "2026-08-13",
     status: "upcoming",
@@ -87,6 +107,7 @@ export const events: EventEntry[] = [
   {
     slug: "good-honest-lies",
     kind: "production",
+    producer: "compagnia",
     year: 2027,
     status: "upcoming",
     title: { en: "Good Honest Lies", it: "Good Honest Lies" },
@@ -148,6 +169,7 @@ export const events: EventEntry[] = [
   {
     slug: "no-shakespeare-fringe",
     kind: "production",
+    producer: "compagnia",
     year: 2024,
     status: "past",
     title: {
@@ -204,6 +226,7 @@ export const events: EventEntry[] = [
   {
     slug: "poor-piero",
     kind: "production",
+    producer: "compagnia",
     year: 2024,
     status: "past",
     title: { en: "Poor Piero", it: "Poor Piero" },
@@ -278,6 +301,7 @@ export const events: EventEntry[] = [
   {
     slug: "no-shakespeare",
     kind: "production",
+    producer: "compagnia",
     year: 2023,
     date: "2023-11-25",
     status: "past",
@@ -329,6 +353,7 @@ export const events: EventEntry[] = [
   {
     slug: "viaggio-lingua",
     kind: "production",
+    producer: "hosted",
     year: 2024,
     status: "past",
     title: {
@@ -364,6 +389,7 @@ export const events: EventEntry[] = [
   {
     slug: "wander-fool-word",
     kind: "production",
+    producer: "hosted",
     year: 2024,
     status: "past",
     title: { en: "Wander Fool Word", it: "Wander Fool Word" },
