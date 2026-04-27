@@ -31,7 +31,7 @@ export function ProgrammeStrip() {
         locale === "it"
           ? "Teatro e lingua italiana, in pratica, in tutta la Scozia."
           : "Theatre and the Italian language, hands on, across Scotland.",
-      image: "/events/laboratori/aberdeen.png",
+      image: "/events/viaggio-lingua/viaggio-lingua-01.jpg",
     },
     {
       key: "eventi",
@@ -69,13 +69,10 @@ export function ProgrammeStrip() {
                   sizes="(min-width: 768px) 30vw, 90vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                 />
-                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[color:var(--color-sepia)]/65 to-transparent" />
-                <span className="absolute left-4 top-4 font-[family-name:var(--font-mono)] text-[0.7rem] uppercase tracking-[0.22em] text-[color:var(--color-travertino)]">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[color:var(--color-sepia)]/65 via-[color:var(--color-sepia)]/15 to-transparent" />
                 <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-3 text-[color:var(--color-travertino)]">
-                  <span className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em]">
-                    {it.label}
+                  <span className="font-[family-name:var(--font-cartel)] text-[0.82rem] uppercase tracking-[0.28em]">
+                    {String(i + 1).padStart(2, "0")} — {it.label}
                   </span>
                   <ArrowUpRight size={20} strokeWidth={1.25} className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </div>

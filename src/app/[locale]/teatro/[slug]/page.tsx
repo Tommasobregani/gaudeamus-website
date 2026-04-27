@@ -254,20 +254,22 @@ export default async function ProjectPage({
         </div>
       </section>
 
-      {/* Gallery */}
-      <section className="container-site border-t border-[color:var(--color-sepia)]/25 py-20 md:py-32">
-        <FadeIn>
-          <div className="flex items-end justify-between">
-            <RomanEyebrow n={2} label={locale === "it" ? "Galleria" : "Gallery"} />
-            <p className="font-[family-name:var(--font-mono)] text-[0.72rem] uppercase tracking-[0.22em] text-[color:var(--color-muted)]">
-              {event.gallery.length} {tProj("photos")}
-            </p>
+      {/* Gallery — only when we have at least 2 images */}
+      {event.gallery.length >= 2 ? (
+        <section className="container-site border-t border-[color:var(--color-sepia)]/25 py-20 md:py-32">
+          <FadeIn>
+            <div className="flex items-end justify-between">
+              <RomanEyebrow n={2} label={locale === "it" ? "Galleria" : "Gallery"} />
+              <p className="font-[family-name:var(--font-mono)] text-[0.72rem] uppercase tracking-[0.22em] text-[color:var(--color-muted)]">
+                {event.gallery.length} {tProj("photos")}
+              </p>
+            </div>
+          </FadeIn>
+          <div className="mt-10">
+            <EditorialGallery images={event.gallery} alt={event.title[loc]} />
           </div>
-        </FadeIn>
-        <div className="mt-10">
-          <EditorialGallery images={event.gallery} alt={event.title[loc]} />
-        </div>
-      </section>
+        </section>
+      ) : null}
 
       {/* Related */}
       {relatedList.length > 0 && (

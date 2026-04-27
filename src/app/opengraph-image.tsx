@@ -15,12 +15,12 @@ export default async function OG() {
           width: "100%",
           height: "100%",
           padding: "72px",
-          background: "#ece4d3",
-          color: "#2b2420",
+          background: "#eef1f5",
+          color: "#1e1e1e",
           fontFamily: "serif",
           backgroundImage:
-            "radial-gradient(rgba(43,36,32,0.06) 1px, transparent 1px)",
-          backgroundSize: "3px 3px",
+            "radial-gradient(rgba(18,53,91,0.07) 1px, transparent 1px)",
+          backgroundSize: "22px 22px",
         }}
       >
         <div
@@ -31,7 +31,7 @@ export default async function OG() {
             fontSize: 22,
             letterSpacing: "0.28em",
             textTransform: "uppercase",
-            color: "#7a6d5d",
+            color: "#5d6471",
           }}
         >
           <span>COMPAGNIA ARTISTICA · SCIO</span>
@@ -59,10 +59,10 @@ export default async function OG() {
               lineHeight: 1.1,
               letterSpacing: "-0.03em",
               fontStyle: "italic",
-              color: "#a4462a",
+              color: "#a83232",
             }}
           >
-            Italian arts, lived in Scotland.
+            Italian theatre, culture and community across Scotland.
           </span>
         </div>
 
@@ -72,7 +72,7 @@ export default async function OG() {
             alignItems: "center",
             justifyContent: "space-between",
             fontSize: 20,
-            color: "#7a6d5d",
+            color: "#5d6471",
             letterSpacing: "0.16em",
             textTransform: "uppercase",
           }}

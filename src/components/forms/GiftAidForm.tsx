@@ -99,7 +99,7 @@ export function GiftAidForm() {
           type="checkbox"
           name="consent"
           required
-          className="mt-1 size-4 shrink-0 accent-[color:var(--color-accent,var(--color-terracotta))]"
+          className="mt-1 size-4 shrink-0 accent-[color:var(--color-pompeiano)]"
         />
         <span>{t("consentLabel")}</span>
       </label>
@@ -107,7 +107,7 @@ export function GiftAidForm() {
       {status === "error" && (
         <p
           role="alert"
-          className="border-l-2 border-[color:var(--color-accent,var(--color-terracotta))] bg-[color:var(--color-carta)] p-4 text-[0.9rem] text-[color:var(--color-sepia)]"
+          className="border-l-2 border-[color:var(--color-pompeiano)] bg-[color:var(--color-carta)] p-4 text-[0.9rem] text-[color:var(--color-sepia)]"
         >
           {t("error")}
           {serverError ? ` (${serverError})` : null}
@@ -117,7 +117,7 @@ export function GiftAidForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="inline-flex h-11 items-center justify-center bg-[color:var(--color-accent,var(--color-terracotta))] px-6 font-[family-name:var(--font-cartel)] text-[0.78rem] tracking-[0.26em] text-[color:var(--color-travertino)] transition-opacity disabled:opacity-60"
+        className="inline-flex h-11 items-center justify-center bg-[color:var(--color-pompeiano)] px-6 font-[family-name:var(--font-cartel)] text-[0.78rem] tracking-[0.26em] text-[color:var(--color-travertino)] transition-opacity disabled:opacity-60"
       >
         {status === "submitting" ? t("submitting") : t("submit")}
       </button>
@@ -158,7 +158,7 @@ function Field({
         defaultValue={defaultValue}
         step={step}
         min={min}
-        className="mt-2 block w-full border border-[color:var(--color-sepia)]/25 bg-white px-3 py-2.5 font-[family-name:var(--font-body)] text-[0.95rem] text-[color:var(--color-sepia)] outline-none transition-colors focus:border-[color:var(--color-accent,var(--color-terracotta))]"
+        className="mt-2 block w-full border border-[color:var(--color-sepia)]/25 bg-white px-3 py-2.5 font-[family-name:var(--font-body)] text-[0.95rem] text-[color:var(--color-sepia)] outline-none transition-colors focus:border-[color:var(--color-pompeiano)]"
       />
     </label>
   );

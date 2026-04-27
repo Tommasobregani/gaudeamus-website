@@ -31,9 +31,8 @@ export function PressRibbon() {
             <p className="bodoni-italic text-[clamp(1.6rem,2.5vw+1rem,2.85rem)] leading-[1.2] text-[color:var(--color-sepia)]">
               “{featured.quote[locale]}”
             </p>
-            <footer className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 font-[family-name:var(--font-cartel)] text-[0.74rem] uppercase tracking-[0.26em] text-[color:var(--color-sepia-soft)]">
-              <span>— {featured.outlet}</span>
-              {featured.date ? <span>· {featured.date.slice(0, 4)}</span> : null}
+            <footer className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2 font-[family-name:var(--font-cartel)] text-[0.74rem] uppercase tracking-[0.26em] text-[color:var(--color-sepia-soft)]">
+              <span>{featured.outlet}{featured.date ? ` · ${featured.date.slice(0, 4)}` : ""}</span>
               <Link
                 href="/teatro/recensioni"
                 className="hover-underline ml-auto inline-flex items-center gap-1 text-[color:var(--color-accent)]"

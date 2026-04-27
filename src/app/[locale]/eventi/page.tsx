@@ -55,35 +55,36 @@ export default async function EventiPage({
 
   return (
     <>
-      {/* Typographic deep-blue masthead — pairs with the red Past panel below */}
+      {/* Community-night masthead — deep blue for gathering */}
       <section className="relative bg-[color:var(--color-notte)] text-[color:var(--color-travertino)]">
-        <div className="container-site grid gap-8 py-20 md:grid-cols-12 md:gap-12 md:py-28">
-          <div className="md:col-span-7">
-            <FadeIn>
-              <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] opacity-80">
-                {t("eyebrow")}
-              </p>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <h1 className="mt-6 max-w-[12ch] bodoni-italic text-[clamp(3rem,9vw+1rem,8.5rem)] leading-[0.94]">
-                {t("title")}
-              </h1>
-            </FadeIn>
-          </div>
-          <div className="md:col-span-5 md:flex md:items-end">
-            <FadeIn delay={0.2}>
-              <p className="max-w-[44ch] text-[1.05rem] leading-[1.65] opacity-90">
+        <div className="container-site py-20 md:py-28">
+          <FadeIn>
+            <p className="font-[family-name:var(--font-cartel)] text-[0.74rem] uppercase tracking-[0.32em] text-[color:var(--color-oro-soft)]">
+              {t("eyebrow")}
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <h1 className="mt-6 max-w-[12ch] bodoni-italic text-[clamp(2.6rem,7vw+1rem,6.5rem)] leading-[0.94]">
+              {t("title")}
+            </h1>
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <div className="mt-12 grid items-end gap-10 md:grid-cols-12 md:gap-14">
+              <p className="md:col-span-7 max-w-[58ch] text-[1.05rem] leading-[1.7] text-[color:var(--color-travertino)]/85">
                 {t("lead")}
               </p>
-            </FadeIn>
-          </div>
+              <p className="md:col-span-4 md:col-start-9 font-[family-name:var(--font-mono)] text-[0.74rem] uppercase tracking-[0.2em] text-[color:var(--color-travertino)]/55">
+                {t("heroMeta")}
+              </p>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* Upcoming */}
       <section className="container-site border-t border-[color:var(--color-sepia)]/25 py-16 md:py-20">
         <FadeIn>
-          <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-accent,var(--color-terracotta))]">
+          <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-accent)]">
             {t("upcomingTitle")}
           </p>
         </FadeIn>
@@ -109,7 +110,7 @@ export default async function EventiPage({
                       <span className="bodoni-italic block text-[clamp(2.25rem,4vw,3.5rem)] leading-none text-[color:var(--color-sepia)]">
                         {date ? String(date.getDate()).padStart(2, "0") : "—"}
                       </span>
-                      <span className="mt-1 block font-[family-name:var(--font-cartel)] text-[0.7rem] tracking-[0.26em] text-[color:var(--color-accent,var(--color-terracotta))]">
+                      <span className="mt-1 block font-[family-name:var(--font-cartel)] text-[0.7rem] tracking-[0.26em] text-[color:var(--color-accent)]">
                         {date ? monthNames[loc][date.getMonth()].toUpperCase() : ""}
                       </span>
                     </div>
@@ -127,7 +128,7 @@ export default async function EventiPage({
                     <ArrowUpRight
                       size={22}
                       strokeWidth={1.25}
-                      className="text-[color:var(--color-accent,var(--color-terracotta))] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                      className="text-[color:var(--color-accent)] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                     />
                   </Link>
                 </StaggerItem>

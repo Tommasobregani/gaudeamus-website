@@ -76,6 +76,9 @@ export function Footer() {
           <p className="mt-2 font-[family-name:var(--font-mono)] text-[0.72rem] tracking-[0.18em] text-[color:var(--color-travertino)]/55">
             {t("footer.coverage")}
           </p>
+          <p className="mt-2 font-[family-name:var(--font-mono)] text-[0.7rem] tracking-[0.18em] text-[color:var(--color-travertino)]/55">
+            SCIO No. {siteConfig.charityNumber}
+          </p>
         </div>
       </div>
 

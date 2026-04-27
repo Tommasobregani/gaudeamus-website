@@ -22,12 +22,33 @@
   },
   "home": {
     "eyebrow": "Italian charity · Scotland",
-    "heroLine1": "Italian arts,",
-    "heroLine2": "lived in",
-    "heroLine3": "Scotland.",
-    "heroSub": "Compagnia Artistica Gaudeamus is a Scottish-registered Italian charity based in Aberdeen. We bring Italian culture to Scotland through theatre, workshops and community gatherings — and we are the only charity here staging plays entirely in Italian, with live English subtitles.",
-    "heroCtaPrimary": "See our productions",
-    "heroCtaSecondary": "Upcoming events",
+    "heroLine1": "Italian theatre,",
+    "heroLine2": "culture and community,",
+    "heroLine3": "across Scotland.",
+    "heroSub": "An Italian charity registered in Scotland, based in Aberdeen and active across the country. We stage plays entirely in Italian — with live English subtitles — and build workshops, gatherings and a bilingual community around them.",
+    "heroCtaPrimary": "Explore Teatro",
+    "heroCtaSecondary": "Support Gaudeamus",
+    "spotlight": {
+      "eyebrow": "Next production · Summer 2026",
+      "kicker": "The Compagnia's new original work premieres at the Edinburgh Fringe.",
+      "metaWhen": "When",
+      "metaWhere": "Where",
+      "metaWho": "Who",
+      "metaWhoValue": "Compagnia Gaudeamus · Eva D'Amico",
+      "cta": "See the show"
+    },
+    "impact": {
+      "eyebrow": "Our story, in numbers",
+      "title": "Three years of Italian theatre across Scotland.",
+      "yearLabel": "Year founded",
+      "yearNote": "Established in Aberdeen — registered Scottish charity from September 2023.",
+      "productionsLabel": "Productions on stage",
+      "productionsNote": "Seven shows brought to the stage between 2023 and 2026.",
+      "citiesLabel": "Scottish cities",
+      "citiesNote": "Aberdeen, Edinburgh and Glasgow — plus tours and the Fringe.",
+      "italianLabel": "In Italian",
+      "italianNote": "Plays staged entirely in Italian, with live English subtitles."
+    },
     "manifestoEyebrow": "What we do",
     "manifestoTitle": "Italian arts in three voices — theatre, language, community.",
     "manifestoBody": "Gaudeamus is a charity that uses theatre as its main vehicle and adds workshops and community events around it. We preserve and share Italian language, drama and heritage — for Italians in Scotland and for anyone who wants to meet them. Our productions tour across Scotland; our workshops and literary aperitivos are open to all.",
@@ -50,7 +71,9 @@
     "closingCtaSecondary": "Get in touch"
   },
   "about": {
-    "eyebrow": "About us",
+    "eyebrow": "About",
+    "stamp": "An Italian charity, in Scotland.",
+    "heroMeta": "Founded in Aberdeen, May 2023.",
     "title": "Compagnia Artistica Gaudeamus.",
     "lead": "Founded in Aberdeen in May 2023, Gaudeamus was created to give the Italian community in Scotland a place to meet, socialise and celebrate its culture through theatre. In a short time, the company has become a cultural reference point for Italians in Scotland — and for anyone who wants to discover Italian theatre and culture.",
     "historyTitle": "A short history",
@@ -80,19 +103,29 @@
   },
   "teatro": {
     "eyebrow": "Teatro",
+    "stamp": "Compagnia Artistica Gaudeamus",
     "title": "Theatre is the backbone of Gaudeamus.",
+    "heroKicker": "Plays staged entirely in Italian, with live English subtitles — written, directed and brought to the stage by the Compagnia, and every so often by artists we host.",
+    "heroMeta": "Since 2023, across Scotland.",
     "lead": "For our charity, theatre is much more than an art form — it is a powerful tool of social value. It nurtures dialogue, prompts reflection and strengthens our sense of community. Every production we make is performed in Italian, with live English subtitles.",
     "leadInclusion": "It is a space of expression and inclusion, where cultures meet and identities are built. Through storytelling, theatre raises awareness of social themes, fosters empathy and helps build a more cohesive community.",
     "leadExtra": "It is also, of course, a place of joy and shared time.",
     "onStageTitle": "On stage",
     "onStageEmpty": "No productions currently on stage.",
+    "currentEyebrow": "On stage now",
+    "currentCta": "See the show",
+    "upcomingTitle": "Upcoming productions",
+    "upcomingEmpty": "New productions in development — announcements soon.",
     "pastTitle": "Past productions",
     "workshopTitle": "Workshops",
     "workshopBody": "Theatre and Italian language workshops, run across Scotland — open to native speakers and learners.",
     "workshopLink": "See workshops",
     "reviewsTitle": "Press & reviews",
     "reviewsBody": "Articles, reviews and conversations about the company.",
-    "reviewsLink": "Read"
+    "reviewsLink": "Read",
+    "diconoEyebrow": "What they say about us",
+    "diconoBody": "A growing collection of articles, reviews and conversations about the Compagnia — honest, in the words of those who have seen us.",
+    "diconoCta": "Full press archive"
   },
   "workshops": {
     "eyebrow": "Workshops",
@@ -108,8 +141,12 @@
   },
   "projects": {
     "eyebrow": "Projects",
+    "stamp": "Institutional archive · SCIO No. SC052772",
     "title": "Yearly funded projects, in chronological order.",
+    "heroMeta": "For funders, partners and the record.",
     "lead": "An archive of mission-driven projects funded year by year. Kept here for grant credibility and for anyone who wants to read the full history of the charity's work.",
+    "partnersTitle": "Institutional partners",
+    "partnersBody": "Our projects are supported by Italian institutions across Scotland and the UK.",
     "currentTitle": "Current",
     "pastTitle": "Past",
     "learnMore": "Read more",
@@ -120,8 +157,10 @@
   },
   "events": {
     "eyebrow": "Events",
+    "stamp": "Community · Aperitivos · Parties",
     "title": "Community events.",
-    "lead": "Literary aperitivos, Christmas parties and other community gatherings. Theatre productions and workshops live in their own sections.",
+    "lead": "Literary aperitivos, Christmas parties and Italian gatherings open to all. Theatre productions and workshops live in their own sections.",
+    "heroMeta": "Since 2024, across Scotland.",
     "upcomingTitle": "Upcoming",
     "pastTitle": "Past",
     "noUpcoming": "No events scheduled at the moment. Subscribe to the newsletter to be the first to know.",
@@ -139,7 +178,9 @@
     "publishedOn": "Published on"
   },
   "support": {
-    "eyebrow": "Support us",
+    "eyebrow": "Support",
+    "stamp": "Scottish charity · SCIO No. SC052772",
+    "heroMeta": "Every £1 with Gift Aid becomes £1.25.",
     "title": "Help us keep Italian arts and community live in Scotland.",
     "lead": "Gaudeamus is a registered Scottish charity. Every donation helps us keep theatre on stage, workshops running and community events alive.",
     "whereTitle": "Where your support goes",
@@ -259,9 +300,11 @@
     "comingSoon": "Coming soon",
     "soon": "Soon"
   },
-  "events404": {
-    "title": "This page does not exist.",
-    "body": "It may have moved — or it was never here at all. Let's get you back.",
-    "cta": "Return home"
+  "notFound": {
+    "eyebrow": "404 · Off-stage",
+    "title": "This page is not on the playbill.",
+    "body": "It may have moved, or it was never here at all. Let's get you back to where things are happening.",
+    "primaryCta": "Return home",
+    "secondaryCta": "Explore Teatro"
   }
 }

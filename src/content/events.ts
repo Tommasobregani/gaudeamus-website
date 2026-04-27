@@ -441,6 +441,37 @@ export const events: EventEntry[] = [
 
   // ── COMMUNITY EVENTS ──────────────────────────────────────────────────
   {
+    slug: "christmas-party-2026",
+    kind: "community",
+    year: 2026,
+    date: "2026-12-13",
+    status: "upcoming",
+    title: { en: "Italian Christmas Party 2026", it: "Italian Christmas Party 2026" },
+    tagline: {
+      en: "An Italian Christmas in Aberdeen — second edition.",
+      it: "Un Natale italiano ad Aberdeen — seconda edizione.",
+    },
+    summary: {
+      en: "Our community Christmas returns to Aberdeen — live music, traditional Italian food, and a roomful of Italian and Scottish friends. Date and venue confirmed closer to the time.",
+      it: "Il nostro Natale di comunità torna ad Aberdeen — musica dal vivo, cibo italiano tradizionale e una sala piena di amici italiani e scozzesi. Data e luogo confermati più vicino all'evento.",
+    },
+    description: {
+      en: [
+        "Building on the 2025 night at the Butchers Arms, we're bringing back the format: live band, food from home, Italian Christmas songs and the community in one room.",
+      ],
+      it: [
+        "Sulla scia della serata 2025 al Butchers Arms, riproponiamo il format: band dal vivo, cibo di casa, canti natalizi italiani e la comunità tutta in una sala.",
+      ],
+    },
+    venues: ["Aberdeen — Dicembre 2026"],
+    cover: "/media/events/christmas-party-2026-1.jpg",
+    gallery: [
+      "/media/events/christmas-party-2026-1.jpg",
+      "/media/events/christmas-party-2026-2.jpg",
+      "/media/events/christmas-party-2026-3.jpg",
+    ],
+  },
+  {
     slug: "christmas-party",
     kind: "community",
     year: 2025,

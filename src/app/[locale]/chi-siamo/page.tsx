@@ -62,43 +62,33 @@ export default async function ChiSiamoPage({
         ])}
       />
 
-      {/* Typographic dark-sepia masthead — theatre-lights-down opening */}
-      <section className="relative bg-[color:var(--color-nero)] text-[color:var(--color-travertino)]">
-        <div className="container-site grid gap-8 py-20 md:grid-cols-12 md:gap-12 md:py-28">
-          <div className="md:col-span-7">
-            <FadeIn>
-              <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-oro-soft)]">
-                {t("eyebrow")}
-              </p>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <h1 className="mt-6 bodoni-italic text-[clamp(3rem,9vw+1rem,8rem)] leading-[0.94]">
-                {t("title")}
-              </h1>
-            </FadeIn>
-          </div>
-          <div className="md:col-span-5 md:flex md:items-end">
-            <FadeIn delay={0.2}>
-              <p className="max-w-[44ch] text-[1.05rem] leading-[1.65] opacity-90">
+      {/* Welcome masthead — paper, warm narrative */}
+      <section className="relative">
+        <div className="container-site border-b border-[color:var(--color-sepia)]/15 py-3 font-[family-name:var(--font-cartel)] text-[0.7rem] uppercase tracking-[0.26em] text-[color:var(--color-muted)]">
+          {t("stamp")}
+        </div>
+        <div className="container-site py-20 md:py-28">
+          <FadeIn>
+            <p className="font-[family-name:var(--font-cartel)] text-[0.74rem] uppercase tracking-[0.32em] text-[color:var(--color-pompeiano)]">
+              {t("eyebrow")}
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <h1 className="mt-6 max-w-[16ch] bodoni-italic text-[clamp(2.6rem,7vw+1rem,6.5rem)] leading-[0.94] text-[color:var(--color-sepia)]">
+              {t("title")}
+            </h1>
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <div className="mt-12 grid items-end gap-10 md:grid-cols-12 md:gap-14">
+              <p className="md:col-span-7 max-w-[60ch] text-[1.1rem] leading-[1.7] text-[color:var(--color-sepia-soft)]">
                 {t("lead")}
               </p>
-            </FadeIn>
-          </div>
+              <p className="md:col-span-4 md:col-start-9 font-[family-name:var(--font-mono)] text-[0.74rem] uppercase tracking-[0.2em] text-[color:var(--color-muted)]">
+                {t("heroMeta")}
+              </p>
+            </div>
+          </FadeIn>
         </div>
-      </section>
-
-      {/* Brand mark + transition */}
-      <section className="container-site py-12 md:py-16">
-        <FadeIn>
-          <Image
-            src="/brand-mark.jpg"
-            alt="Gaudeamus brand mark"
-            width={220}
-            height={220}
-            priority
-            className="mx-auto h-28 w-28 rounded-full object-cover md:h-36 md:w-36"
-          />
-        </FadeIn>
       </section>
 
       {/* History */}
@@ -107,7 +97,7 @@ export default async function ChiSiamoPage({
           <div className="grid gap-10 md:grid-cols-12">
             <div className="md:col-span-4">
               <FadeIn>
-                <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-accent,var(--color-terracotta))]">
+                <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-pompeiano)]">
                   {t("historyTitle")}
                 </p>
               </FadeIn>
@@ -157,7 +147,7 @@ export default async function ChiSiamoPage({
       <section className="relative border-t border-[color:var(--color-sepia)]/25 bg-[color:var(--color-carta)]">
         <div className="container-site py-20 md:py-28">
           <FadeIn>
-            <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-accent,var(--color-terracotta))]">
+            <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-pompeiano)]">
               {t("doingTitle")}
             </p>
           </FadeIn>
@@ -185,7 +175,7 @@ export default async function ChiSiamoPage({
       {/* Team */}
       <section className="container-site py-20 md:py-28">
         <FadeIn>
-          <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-accent,var(--color-terracotta))]">
+          <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-pompeiano)]">
             {t("staffTitle")}
           </p>
         </FadeIn>
@@ -227,7 +217,7 @@ export default async function ChiSiamoPage({
       <section className="relative border-t border-[color:var(--color-sepia)]/25 bg-[color:var(--color-carta)]">
         <div className="container-site py-16 md:py-20">
           <FadeIn>
-            <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-accent,var(--color-terracotta))]">
+            <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-pompeiano)]">
               {t("partnersTitle")}
             </p>
           </FadeIn>
@@ -274,7 +264,7 @@ export default async function ChiSiamoPage({
       {/* Join */}
       <section className="container-site py-20 md:py-28">
         <FadeIn>
-          <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-accent,var(--color-terracotta))]">
+          <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-pompeiano)]">
             {t("joinTitle")}
           </p>
         </FadeIn>

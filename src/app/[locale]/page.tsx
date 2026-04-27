@@ -2,16 +2,14 @@ import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { hasLocale } from "@/i18n/routing";
 import { Hero } from "@/components/sections/Hero";
+import { Spotlight } from "@/components/sections/Spotlight";
 import { ProgrammeStrip } from "@/components/sections/ProgrammeStrip";
+import { Impact } from "@/components/sections/Impact";
 import { PressRibbon } from "@/components/sections/PressRibbon";
-import { FeaturedProjects } from "@/components/sections/FeaturedProjects";
-import { NewsletterCTA } from "@/components/sections/NewsletterCTA";
 import { ClosingCTA } from "@/components/sections/ClosingCTA";
 import { ScrollStage } from "@/components/motion/ScrollStage";
 import { JsonLd } from "@/components/JsonLd";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/schema-org";
-import { articles } from "@/content/news";
-import { NewsStrip } from "@/components/sections/NewsStrip";
 
 export default async function HomePage({
   params,
@@ -22,9 +20,6 @@ export default async function HomePage({
   if (!hasLocale(locale)) notFound();
   setRequestLocale(locale);
 
-  // News section is only shown if there are real articles to show.
-  const showNews = articles.length > 0;
-
   return (
     <>
       <JsonLd data={organizationJsonLd(locale as "en" | "it")} />
@@ -34,29 +29,21 @@ export default async function HomePage({
         <Hero />
       </ScrollStage>
 
+      <Spotlight />
+
       <ScrollStage palette="notte">
         <ProgrammeStrip />
+      </ScrollStage>
+
+      <ScrollStage palette="travertino">
+        <Impact />
       </ScrollStage>
 
       <ScrollStage palette="carta">
         <PressRibbon />
       </ScrollStage>
 
-      <ScrollStage palette="sepia">
-        <FeaturedProjects />
-      </ScrollStage>
-
-      {showNews ? (
-        <ScrollStage palette="travertino">
-          <NewsStrip />
-        </ScrollStage>
-      ) : null}
-
       <ScrollStage palette="pompeiano">
-        <NewsletterCTA />
-      </ScrollStage>
-
-      <ScrollStage palette="terracotta">
         <ClosingCTA />
       </ScrollStage>
     </>

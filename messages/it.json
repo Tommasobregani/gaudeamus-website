@@ -12,7 +12,7 @@
     "teatro": "Teatro",
     "events": "Eventi",
     "news": "News",
-    "projects": "Projects",
+    "projects": "Progetti",
     "support": "Sostienici",
     "contact": "Contatti",
     "language": "Lingua",
@@ -22,12 +22,33 @@
   },
   "home": {
     "eyebrow": "Charity italiana · Scozia",
-    "heroLine1": "Arte italiana,",
-    "heroLine2": "vissuta in",
-    "heroLine3": "Scozia.",
-    "heroSub": "Compagnia Artistica Gaudeamus è una charity italiana con sede ad Aberdeen. Portiamo la cultura italiana in Scozia attraverso teatro, laboratori e incontri di comunità — e siamo l'unica charity in Scozia a portare in scena spettacoli interamente in italiano, con sottotitoli live in inglese.",
-    "heroCtaPrimary": "Le nostre produzioni",
-    "heroCtaSecondary": "Prossimi eventi",
+    "heroLine1": "Teatro, cultura",
+    "heroLine2": "e comunità,",
+    "heroLine3": "in tutta la Scozia.",
+    "heroSub": "Charity italiana con sede ad Aberdeen, attiva in tutta la Scozia. Portiamo in scena spettacoli interamente in italiano — con sottotitoli live in inglese — e costruiamo intorno laboratori, incontri e una comunità che parla due lingue.",
+    "heroCtaPrimary": "Esplora il Teatro",
+    "heroCtaSecondary": "Sostieni Gaudeamus",
+    "spotlight": {
+      "eyebrow": "Prossima produzione · Estate 2026",
+      "kicker": "La nuova produzione originale della Compagnia debutta all'Edinburgh Fringe.",
+      "metaWhen": "Quando",
+      "metaWhere": "Dove",
+      "metaWho": "Chi",
+      "metaWhoValue": "Compagnia Gaudeamus · Eva D'Amico",
+      "cta": "Scopri lo spettacolo"
+    },
+    "impact": {
+      "eyebrow": "La nostra storia, in numeri",
+      "title": "Tre anni di teatro italiano, in tutta la Scozia.",
+      "yearLabel": "Anno di fondazione",
+      "yearNote": "Costituiti ad Aberdeen — riconosciuti charity scozzese a settembre 2023.",
+      "productionsLabel": "Produzioni in scena",
+      "productionsNote": "Sette spettacoli portati sul palco fra il 2023 e il 2026.",
+      "citiesLabel": "Città scozzesi",
+      "citiesNote": "Aberdeen, Edimburgo e Glasgow — più tournée e Fringe.",
+      "italianLabel": "In italiano",
+      "italianNote": "Spettacoli interamente in italiano, con sottotitoli live in inglese."
+    },
     "manifestoEyebrow": "Cosa facciamo",
     "manifestoTitle": "Arte italiana, in tre voci — teatro, lingua, comunità.",
     "manifestoBody": "Gaudeamus è una charity che usa il teatro come veicolo principale e attorno costruisce laboratori ed eventi di comunità. Preserviamo e condividiamo lingua, drammaturgia e patrimonio italiani — per gli italiani in Scozia e per chiunque voglia incontrarli. Le nostre produzioni girano in tutta la Scozia; i laboratori e gli aperitivi letterari sono aperti a tutti.",
@@ -51,6 +72,8 @@
   },
   "about": {
     "eyebrow": "Chi siamo",
+    "stamp": "Una charity italiana, in Scozia.",
+    "heroMeta": "Fondata ad Aberdeen, maggio 2023.",
     "title": "Compagnia Artistica Gaudeamus.",
     "lead": "La Compagnia Artistica Gaudeamus nasce ad Aberdeen nel maggio 2023 con l'obiettivo di creare uno spazio in cui la comunità italiana possa incontrarsi, socializzare e celebrare la propria cultura attraverso il teatro. Fondata da un gruppo di italiani appassionati di arte e spettacolo, in poco tempo è diventata un punto di riferimento culturale per gli italiani in Scozia e per chiunque voglia scoprire il fascino del teatro e della cultura italiana.",
     "historyTitle": "Una breve storia",
@@ -80,19 +103,29 @@
   },
   "teatro": {
     "eyebrow": "Teatro",
+    "stamp": "Compagnia Artistica Gaudeamus",
     "title": "Il teatro è la colonna portante di Gaudeamus.",
+    "heroKicker": "Spettacoli interamente in italiano, con sottotitoli live in inglese — scritti, diretti e portati in scena dalla Compagnia, e ogni tanto da artisti che ospitiamo.",
+    "heroMeta": "Dal 2023, in tutta la Scozia.",
     "lead": "Per la nostra charity il teatro è molto più di una forma d'arte: è un potente strumento di valore sociale. Favorisce il dialogo, stimola la riflessione e rafforza il senso di comunità. Ogni nostra produzione viene rappresentata in italiano con sottotitoli live in inglese.",
     "leadInclusion": "È uno spazio di espressione e inclusione, dove le culture si incontrano e le identità si costruiscono. Attraverso la narrazione, il teatro sensibilizza sui temi sociali, promuove empatia e contribuisce a creare una comunità più coesa.",
     "leadExtra": "Ed è, naturalmente, anche un luogo di gioia e tempo condiviso.",
     "onStageTitle": "In scena",
     "onStageEmpty": "Al momento non ci sono produzioni in scena.",
+    "currentEyebrow": "In scena adesso",
+    "currentCta": "Scopri lo spettacolo",
+    "upcomingTitle": "Prossime produzioni",
+    "upcomingEmpty": "Nuove produzioni in arrivo — annunci a breve.",
     "pastTitle": "Produzioni passate",
     "workshopTitle": "Laboratori",
     "workshopBody": "Laboratori di teatro e di lingua italiana, in tutta la Scozia — aperti a madrelingua e a chi sta imparando.",
     "workshopLink": "Vedi i laboratori",
     "reviewsTitle": "Stampa & recensioni",
     "reviewsBody": "Articoli, recensioni e conversazioni sulla compagnia.",
-    "reviewsLink": "Leggi"
+    "reviewsLink": "Leggi",
+    "diconoEyebrow": "Dicono di noi",
+    "diconoBody": "Una raccolta in crescita di articoli, recensioni e conversazioni sulla Compagnia — onesta e nelle parole di chi ci ha visti.",
+    "diconoCta": "Tutta la rassegna stampa"
   },
   "workshops": {
     "eyebrow": "Laboratori",
@@ -107,9 +140,13 @@
     "back": "Torna a Teatro"
   },
   "projects": {
-    "eyebrow": "Projects",
+    "eyebrow": "Progetti",
+    "stamp": "Archivio istituzionale · SCIO No. SC052772",
     "title": "Progetti finanziati, anno per anno.",
+    "heroMeta": "Per i finanziatori, i partner e la storia.",
     "lead": "L'archivio cronologico dei progetti finanziati, mission-driven. Mantenuto qui per credibilità verso i finanziatori e per chi vuole leggere la storia completa del lavoro della charity.",
+    "partnersTitle": "Partner istituzionali",
+    "partnersBody": "I nostri progetti hanno il sostegno di istituzioni italiane in Scozia e nel Regno Unito.",
     "currentTitle": "In corso",
     "pastTitle": "Passati",
     "learnMore": "Scopri",
@@ -120,8 +157,10 @@
   },
   "events": {
     "eyebrow": "Eventi",
+    "stamp": "Comunità · Aperitivi · Feste",
     "title": "Eventi della comunità.",
-    "lead": "Aperitivi letterari, feste di Natale e altri incontri di comunità. Le produzioni teatrali e i laboratori vivono nelle loro sezioni dedicate.",
+    "lead": "Aperitivi letterari, feste di Natale e incontri italiani aperti a tutti. Le produzioni teatrali e i laboratori vivono nelle loro sezioni dedicate.",
+    "heroMeta": "Dal 2024, in tutta la Scozia.",
     "upcomingTitle": "Prossimi",
     "pastTitle": "Passati",
     "noUpcoming": "Al momento non ci sono eventi in programma. Iscriviti alla newsletter per essere il primo a saperlo.",
@@ -140,6 +179,8 @@
   },
   "support": {
     "eyebrow": "Sostienici",
+    "stamp": "Charity scozzese · SCIO No. SC052772",
+    "heroMeta": "Ogni £1 con Gift Aid diventa £1,25.",
     "title": "Aiutaci a tenere viva l'arte italiana e la comunità in Scozia.",
     "lead": "Gaudeamus è una charity scozzese registrata. Ogni donazione ci aiuta a tenere il teatro in scena, i laboratori attivi e gli eventi di comunità vivi.",
     "whereTitle": "Dove va il tuo sostegno",
@@ -259,9 +300,11 @@
     "comingSoon": "In arrivo",
     "soon": "Presto"
   },
-  "events404": {
-    "title": "Questa pagina non esiste.",
-    "body": "Potrebbe essere stata spostata — o non è mai stata qui. Ti riportiamo a casa.",
-    "cta": "Torna alla home"
+  "notFound": {
+    "eyebrow": "404 · Fuori scena",
+    "title": "Questa pagina non è in cartellone.",
+    "body": "Potrebbe essere stata spostata, oppure non è mai esistita. Riportiamoti dove succedono le cose.",
+    "primaryCta": "Torna alla home",
+    "secondaryCta": "Esplora il Teatro"
   }
 }

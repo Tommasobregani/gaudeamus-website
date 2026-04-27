@@ -14,13 +14,13 @@ export type StagePalette =
   | "pompeiano";
 
 const themes: Record<StagePalette, { bg: string; fg: string; accent: string }> = {
-  travertino: { bg: "#ece4d3", fg: "#2b2420", accent: "#a4462a" },
-  carta: { bg: "#f6f0e4", fg: "#2b2420", accent: "#a4462a" },
-  sepia: { bg: "#1c1814", fg: "#ece4d3", accent: "#c9a65a" },
-  terracotta: { bg: "#a4462a", fg: "#ece4d3", accent: "#ece4d3" },
-  salvia: { bg: "#6f7a5a", fg: "#ece4d3", accent: "#ece4d3" },
-  notte: { bg: "#1f3a8c", fg: "#ece4d3", accent: "#ece4d3" },
-  pompeiano: { bg: "#8e2f20", fg: "#ece4d3", accent: "#ece4d3" },
+  travertino: { bg: "#e8edf3", fg: "#1e1e1e", accent: "#a83232" },
+  carta: { bg: "#fbfbfd", fg: "#1e1e1e", accent: "#a83232" },
+  sepia: { bg: "#1e1e1e", fg: "#eef1f5", accent: "#c89b3c" },
+  terracotta: { bg: "#b8613b", fg: "#fbfbfd", accent: "#fbfbfd" },
+  salvia: { bg: "#6f7a5a", fg: "#fbfbfd", accent: "#fbfbfd" },
+  notte: { bg: "#12355b", fg: "#fbfbfd", accent: "#c89b3c" },
+  pompeiano: { bg: "#a83232", fg: "#fbfbfd", accent: "#fbfbfd" },
 };
 
 type Props = {

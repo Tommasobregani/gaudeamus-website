@@ -107,28 +107,32 @@ export default async function ProgettiPage({
         ])}
       />
 
-      {/* Typographic dark-sepia masthead */}
-      <section className="relative bg-[color:var(--color-nero)] text-[color:var(--color-travertino)]">
-        <div className="container-site grid gap-8 py-20 md:grid-cols-12 md:gap-12 md:py-28">
-          <div className="md:col-span-8">
-            <FadeIn>
-              <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-oro-soft)]">
-                {t("eyebrow")}
-              </p>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <h1 className="mt-6 max-w-[18ch] bodoni-italic text-[clamp(2.5rem,7vw+1rem,6.5rem)] leading-[0.96]">
-                {t("title")}
-              </h1>
-            </FadeIn>
-          </div>
-          <div className="md:col-span-4 md:flex md:items-end">
-            <FadeIn delay={0.2}>
-              <p className="max-w-[40ch] text-[1rem] leading-[1.65] opacity-90">
+      {/* Dossier masthead — cool paper, annual-report quiet */}
+      <section className="relative">
+        <div className="container-site border-b border-[color:var(--color-sepia)]/15 py-3 font-[family-name:var(--font-cartel)] text-[0.7rem] uppercase tracking-[0.26em] text-[color:var(--color-muted)]">
+          {t("stamp")}
+        </div>
+        <div className="container-site py-20 md:py-28">
+          <FadeIn>
+            <p className="font-[family-name:var(--font-cartel)] text-[0.74rem] uppercase tracking-[0.32em] text-[color:var(--color-pompeiano)]">
+              {t("eyebrow")}
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <h1 className="mt-6 max-w-[18ch] bodoni-italic text-[clamp(2.4rem,6vw+1rem,5.6rem)] leading-[0.98] text-[color:var(--color-sepia)]">
+              {t("title")}
+            </h1>
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <div className="mt-12 grid items-end gap-10 md:grid-cols-12 md:gap-14">
+              <p className="md:col-span-7 max-w-[58ch] text-[1.05rem] leading-[1.7] text-[color:var(--color-sepia-soft)]">
                 {t("lead")}
               </p>
-            </FadeIn>
-          </div>
+              <p className="md:col-span-4 md:col-start-9 font-[family-name:var(--font-mono)] text-[0.74rem] uppercase tracking-[0.2em] text-[color:var(--color-muted)]">
+                {t("heroMeta")}
+              </p>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
@@ -166,6 +170,54 @@ export default async function ProgettiPage({
           </section>
         );
       })()}
+
+      {/* Institutional partners strip */}
+      <section className="border-y border-[color:var(--color-sepia)]/15 bg-[color:var(--color-cielo)] py-16 md:py-20">
+        <div className="container-site grid gap-10 md:grid-cols-12 md:gap-14">
+          <div className="md:col-span-4">
+            <FadeIn>
+              <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.32em] text-[color:var(--color-pompeiano)]">
+                {t("partnersTitle")}
+              </p>
+              <p className="mt-6 max-w-[36ch] bodoni-italic text-[1.1rem] leading-[1.45] text-[color:var(--color-sepia)]">
+                {t("partnersBody")}
+              </p>
+            </FadeIn>
+          </div>
+          <div className="md:col-span-8">
+            <FadeIn delay={0.1}>
+              <ul className="grid grid-cols-1 gap-x-10 gap-y-5 sm:grid-cols-2">
+                {[
+                  loc === "it"
+                    ? "Com.It.Es. Scozia e Irlanda del Nord"
+                    : "Com.It.Es. Scotland & Northern Ireland",
+                  loc === "it"
+                    ? "Consolato Generale d'Italia, Edimburgo"
+                    : "Consulate General of Italy, Edinburgh",
+                  loc === "it"
+                    ? "Consolato Onorario d'Italia, Aberdeen"
+                    : "Honorary Consulate of Italy, Aberdeen",
+                  loc === "it"
+                    ? "MAECI · Ministero degli Affari Esteri"
+                    : "MAECI · Italian Ministry of Foreign Affairs",
+                  loc === "it"
+                    ? "Albo Consolare delle Associazioni Culturali Italiane nel Regno Unito"
+                    : "Italian Consular Register of Cultural Associations in the UK",
+                  loc === "it" ? "London One Radio" : "London One Radio",
+                ].map((p) => (
+                  <li
+                    key={p}
+                    className="flex items-baseline gap-3 border-t border-[color:var(--color-sepia)]/15 pt-4 text-[0.95rem] leading-[1.4] text-[color:var(--color-sepia)]"
+                  >
+                    <span aria-hidden className="text-[color:var(--color-pompeiano)]">·</span>
+                    <span>{p}</span>
+                  </li>
+                ))}
+              </ul>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
 
       <section className="container-site py-12 md:py-16">
         <Stagger className="border-t-2 border-[color:var(--color-sepia)]">

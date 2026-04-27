@@ -39,7 +39,7 @@ export function LanguageToggle({ className }: { className?: string }) {
         disabled={isPending}
         className={cn(
           "px-2 py-1 transition-colors",
-          locale === "en" ? "text-[color:var(--color-terracotta)]" : "opacity-65 hover:opacity-100",
+          locale === "en" ? "text-[color:var(--color-pompeiano)]" : "opacity-65 hover:opacity-100",
         )}
       >
         EN
@@ -54,7 +54,7 @@ export function LanguageToggle({ className }: { className?: string }) {
         disabled={isPending}
         className={cn(
           "px-2 py-1 transition-colors",
-          locale === "it" ? "text-[color:var(--color-terracotta)]" : "opacity-65 hover:opacity-100",
+          locale === "it" ? "text-[color:var(--color-pompeiano)]" : "opacity-65 hover:opacity-100",
         )}
       >
         IT

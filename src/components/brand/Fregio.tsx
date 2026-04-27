@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 type Props = {
   className?: string;
   width?: number;
-  tone?: "ink" | "terracotta" | "cream";
+  tone?: "ink" | "terracotta" | "cream" | "rosso" | "blu";
 };
 
 export function Fregio({ className, width = 240, tone = "ink" }: Props) {
@@ -20,6 +20,10 @@ export function Fregio({ className, width = 240, tone = "ink" }: Props) {
       ? "var(--color-terracotta)"
       : tone === "cream"
       ? "var(--color-travertino)"
+      : tone === "rosso"
+      ? "var(--color-pompeiano)"
+      : tone === "blu"
+      ? "var(--color-notte)"
       : "var(--color-sepia)";
 
   return (
@@ -113,6 +117,10 @@ export function Asterism({ className, tone = "ink" }: { className?: string; tone
       ? "var(--color-terracotta)"
       : tone === "cream"
       ? "var(--color-travertino)"
+      : tone === "rosso"
+      ? "var(--color-pompeiano)"
+      : tone === "blu"
+      ? "var(--color-notte)"
       : "var(--color-sepia)";
 
   return (

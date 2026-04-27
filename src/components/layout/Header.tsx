@@ -42,6 +42,15 @@ export function Header() {
     };
   }, [open]);
 
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
   return (
     <header
       className={cn(
@@ -85,7 +94,7 @@ export function Header() {
           <LanguageToggle className="hidden md:block" />
           <button
             type="button"
-            className="grid h-10 w-10 place-items-center text-[color:var(--color-sepia)] md:hidden"
+            className="-mr-2 grid h-11 w-11 place-items-center text-[color:var(--color-sepia)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--color-pompeiano)] md:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? t("close") : t("menu")}
@@ -97,30 +106,58 @@ export function Header() {
       </div>
 
       <div
+        aria-hidden
+        onClick={() => setOpen(false)}
+        className={cn(
+          "fixed inset-0 top-[72px] z-20 bg-[color:var(--color-sepia)]/35 backdrop-blur-[2px] transition-opacity duration-300 md:hidden",
+          open ? "opacity-100" : "pointer-events-none opacity-0",
+        )}
+      />
+      <div
         id="mobile-nav"
         className={cn(
-          "fixed inset-x-0 top-[72px] z-30 border-b border-[color:var(--color-sepia)]/25 bg-[color:var(--color-travertino)] transition-[transform,opacity] duration-300 md:hidden",
+          "fixed inset-x-0 top-[72px] bottom-0 z-30 overflow-y-auto border-t border-[color:var(--color-sepia)]/15 bg-[color:var(--color-travertino)] transition-[transform,opacity] duration-300 md:hidden",
           open
             ? "translate-y-0 opacity-100"
             : "pointer-events-none -translate-y-2 opacity-0",
         )}
       >
-        <nav aria-label="Mobile" className="container-site flex flex-col gap-0 py-6">
-          {navLinks.map((l, i) => (
-            <Link
-              key={l.key}
-              href={l.href}
-              className="flex items-baseline gap-4 border-b border-[color:var(--color-sepia)]/20 py-4"
-            >
-              <span className="bodoni-italic text-[1.2rem] text-[color:var(--color-terracotta)]">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <span className="bodoni-italic text-[2rem] leading-none text-[color:var(--color-sepia)]">
-                {t(l.key)}
-              </span>
-            </Link>
-          ))}
-          <div className="pt-6">
+        <nav aria-label="Mobile" className="container-site flex flex-col gap-0 pb-10 pt-2">
+          {navLinks.map((l, i) => {
+            const isActive = pathname === l.href || pathname.startsWith(`${l.href}/`);
+            return (
+              <Link
+                key={l.key}
+                href={l.href}
+                aria-current={isActive ? "page" : undefined}
+                className={cn(
+                  "flex items-baseline gap-4 border-b border-[color:var(--color-sepia)]/15 py-4 transition-opacity",
+                  isActive ? "opacity-100" : "opacity-90 hover:opacity-100",
+                )}
+              >
+                <span
+                  className={cn(
+                    "bodoni-italic text-[1.2rem] tabular-nums",
+                    isActive
+                      ? "text-[color:var(--color-pompeiano)]"
+                      : "text-[color:var(--color-pompeiano)]/70",
+                  )}
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span
+                  className={cn(
+                    "bodoni-italic text-[2rem] leading-none text-[color:var(--color-sepia)]",
+                    isActive &&
+                      "border-b-2 border-[color:var(--color-pompeiano)] pb-1",
+                  )}
+                >
+                  {t(l.key)}
+                </span>
+              </Link>
+            );
+          })}
+          <div className="mt-8 border-t border-[color:var(--color-sepia)]/15 pt-6">
             <LanguageToggle />
           </div>
         </nav>

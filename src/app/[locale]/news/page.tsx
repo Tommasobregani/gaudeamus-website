@@ -66,58 +66,72 @@ export default async function NewsPage({
   const now = new Date();
   const isEmpty = combined.length === 0;
   const issueLabel = isEmpty
-    ? ""
+    ? loc === "it"
+      ? "Numero 1 · in preparazione"
+      : "Issue 1 · forthcoming"
     : loc === "it"
       ? `Anno I · Numero ${combined.length}`
       : `Vol. I · No. ${combined.length}`;
-  const dateLabel = isEmpty ? "" : `${monthNames[loc][now.getMonth()]} · ${now.getFullYear()}`;
+  const dateLabel = `${monthNames[loc][now.getMonth()]} · ${now.getFullYear()}`;
 
   // Categories strip
   const categories = Array.from(new Set(combined.map((a) => a.category[loc])));
 
   return (
     <>
-      {/* Masthead */}
-      <section className="container-site pt-10 md:pt-14">
-        <MagazineMasthead
-          issueLabel={issueLabel}
-          dateLabel={dateLabel}
-          title={loc === "it" ? "Il Diario" : "The Journal"}
-          subtitle={t("lead")}
-        />
-        <FadeIn delay={0.2}>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
-            {categories.map((cat, i) => (
-              <span key={cat} className="flex items-center gap-5">
-                {i > 0 && <span aria-hidden className="h-1 w-1 rounded-full bg-[color:var(--color-terracotta)]" />}
-                <span className="font-[family-name:var(--font-cartel)] text-[0.72rem] tracking-[0.28em] text-[color:var(--color-sepia)]">
-                  {cat.toUpperCase()}
-                </span>
-              </span>
-            ))}
-          </div>
-        </FadeIn>
-      </section>
-
-      {/* Empty state when no articles exist yet */}
-      {combined.length === 0 && (
-        <section className="container-site border-t-2 border-[color:var(--color-sepia)] py-24 md:py-32">
+      {combined.length === 0 ? (
+        // Empty state — single quiet section, no oversized magazine masthead
+        <section className="container-site py-24 md:py-32">
           <div className="mx-auto max-w-[60ch] text-center">
-            <p className="bodoni-italic text-[clamp(1.75rem,2.5vw+1rem,2.5rem)] leading-[1.2] text-[color:var(--color-sepia)]">
-              {loc === "it"
-                ? "Il diario è in preparazione. Iscriviti alla newsletter e ti avviseremo non appena usciranno i primi numeri."
-                : "The journal is in preparation. Subscribe to the newsletter and we'll let you know as soon as the first issues are out."}
+            <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.32em] text-[color:var(--color-pompeiano)]">
+              {loc === "it" ? "Il Diario · in preparazione" : "The Journal · in preparation"}
             </p>
-            <div className="mt-10">
+            <h1 className="mt-8 bodoni-italic text-[clamp(2rem,3.4vw+0.5rem,3.4rem)] leading-[1.15] text-[color:var(--color-sepia)]">
+              {loc === "it"
+                ? "Il primo numero arriva presto. Per intanto, le storie le raccontiamo dal vivo."
+                : "The first issue is on its way. In the meantime, we tell our stories on stage."}
+            </h1>
+            <p className="mx-auto mt-8 max-w-[46ch] text-[1rem] leading-[1.7] text-[color:var(--color-muted)]">
+              {t("lead")}
+            </p>
+            <div className="mt-12 flex flex-wrap justify-center gap-x-8 gap-y-3">
+              <Link
+                href="/teatro"
+                className="hover-underline inline-flex items-center gap-2 font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.26em] text-[color:var(--color-sepia)]"
+              >
+                {loc === "it" ? "Vai al teatro" : "Visit Teatro"}
+                <ArrowUpRight size={14} strokeWidth={1.5} />
+              </Link>
               <Link
                 href="/contatti"
-                className="hover-underline inline-flex items-center gap-2 font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.26em] text-[color:var(--color-accent)]"
+                className="hover-underline inline-flex items-center gap-2 font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.26em] text-[color:var(--color-pompeiano)]"
               >
                 {loc === "it" ? "Scrivici" : "Get in touch"}
                 <ArrowUpRight size={14} strokeWidth={1.5} />
               </Link>
             </div>
           </div>
+        </section>
+      ) : (
+        <section className="container-site pt-10 md:pt-14">
+          <MagazineMasthead
+            issueLabel={issueLabel}
+            dateLabel={dateLabel}
+            title={loc === "it" ? "Il Diario" : "The Journal"}
+            subtitle={t("lead")}
+          />
+          <FadeIn delay={0.2}>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+              {categories.map((cat, i) => (
+                <span key={cat} className="flex items-center gap-5">
+                  {i > 0 && <span aria-hidden className="h-1 w-1 rounded-full bg-[color:var(--color-pompeiano)]" />}
+                  <span className="font-[family-name:var(--font-cartel)] text-[0.72rem] tracking-[0.28em] text-[color:var(--color-sepia)]">
+                    {cat.toUpperCase()}
+                  </span>
+                </span>
+              ))}
+            </div>
+          </FadeIn>
         </section>
       )}
 
@@ -130,7 +144,7 @@ export default async function NewsPage({
               className="group grid gap-10 md:grid-cols-12 md:gap-14"
             >
               <div className="md:col-span-7">
-                <div className="relative aspect-[4/3] w-full overflow-hidden bg-[color:var(--color-terracotta-deep)] duotone">
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-[color:var(--color-pompeiano-deep)] duotone">
                   <Image
                     src={lead.cover}
                     alt={lead.title[loc]}
@@ -142,7 +156,7 @@ export default async function NewsPage({
                 </div>
               </div>
               <div className="md:col-span-5 md:flex md:flex-col md:justify-center">
-                <p className="font-[family-name:var(--font-cartel)] text-[0.82rem] tracking-[0.28em] text-[color:var(--color-terracotta)]">
+                <p className="font-[family-name:var(--font-cartel)] text-[0.82rem] tracking-[0.28em] text-[color:var(--color-pompeiano)]">
                   {loc === "it" ? "In apertura" : "Lead"} · {lead.category[loc]} · {lead.readingMinutes} {t("minRead")}
                 </p>
                 <h2 className="mt-5 bodoni-italic text-[clamp(2.5rem,5vw+1rem,5rem)] leading-[0.98] text-[color:var(--color-sepia)]">
@@ -151,7 +165,7 @@ export default async function NewsPage({
                 <p className="mt-6 max-w-[52ch] font-[family-name:var(--font-body)] text-[1.1rem] leading-[1.7] text-[color:var(--color-sepia-soft)]">
                   {lead.excerpt[loc]}
                 </p>
-                <p className="mt-8 inline-flex items-center gap-2 font-[family-name:var(--font-cartel)] text-[0.78rem] tracking-[0.26em] text-[color:var(--color-sepia)] group-hover:text-[color:var(--color-terracotta)]">
+                <p className="mt-8 inline-flex items-center gap-2 font-[family-name:var(--font-cartel)] text-[0.78rem] tracking-[0.26em] text-[color:var(--color-sepia)] group-hover:text-[color:var(--color-pompeiano)] transition-colors">
                   {loc === "it" ? "Leggi l'articolo" : "Read the article"}
                   <ArrowUpRight size={14} strokeWidth={1.5} />
                 </p>
@@ -182,7 +196,7 @@ export default async function NewsPage({
                   href={`/news/${a.slug}`}
                   className="group flex h-full flex-col p-6 transition-colors hover:bg-[color:var(--color-carta)] md:p-8"
                 >
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[color:var(--color-terracotta-deep)]">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[color:var(--color-pompeiano-deep)]">
                     <Image
                       src={a.cover}
                       alt={a.title[loc]}
@@ -191,7 +205,7 @@ export default async function NewsPage({
                       className="object-cover transition-transform duration-[1100ms] ease-[cubic-bezier(0.2,0.7,0.1,1)] group-hover:scale-[1.04]"
                     />
                   </div>
-                  <p className="mt-5 font-[family-name:var(--font-cartel)] text-[0.72rem] tracking-[0.26em] text-[color:var(--color-terracotta)]">
+                  <p className="mt-5 font-[family-name:var(--font-cartel)] text-[0.72rem] tracking-[0.26em] text-[color:var(--color-pompeiano)]">
                     {a.category[loc]} · {a.readingMinutes} {t("minRead")}
                   </p>
                   <h3 className="mt-3 bodoni-italic text-[1.65rem] leading-[1.1] text-[color:var(--color-sepia)]">
@@ -210,11 +224,13 @@ export default async function NewsPage({
         </section>
       )}
 
-      <div className="container-site py-16">
-        <div className="flex justify-center">
-          <Fregio width={240} tone="terracotta" />
+      {combined.length > 0 ? (
+        <div className="container-site py-16">
+          <div className="flex justify-center">
+            <Fregio width={240} tone="rosso" />
+          </div>
         </div>
-      </div>
+      ) : null}
     </>
   );
 }

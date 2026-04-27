@@ -59,7 +59,7 @@ export default async function SostieniciPage({
       key: "Workshops",
       title: t("whereWorkshops"),
       body: t("whereWorkshopsBody"),
-      image: "/events/laboratori/aberdeen.png",
+      image: "/events/viaggio-lingua/viaggio-lingua-01.jpg",
     },
     {
       key: "Community",
@@ -71,28 +71,31 @@ export default async function SostieniciPage({
 
   return (
     <>
-      {/* Hero — split with a community photo */}
-      <section className="container-site pt-12 md:pt-20">
-        <div className="grid gap-10 md:grid-cols-12 md:items-end md:gap-12">
+      {/* Support masthead — theatre red, urgent + warm */}
+      <section className="relative bg-[color:var(--color-pompeiano)] text-[color:var(--color-on-accent)]">
+        <div className="container-site grid gap-10 py-20 md:grid-cols-12 md:gap-14 md:py-28">
           <div className="md:col-span-7">
             <FadeIn>
-              <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-accent)]">
+              <p className="font-[family-name:var(--font-cartel)] text-[0.74rem] uppercase tracking-[0.32em] text-[color:var(--color-on-accent)]/80">
                 {t("eyebrow")}
               </p>
             </FadeIn>
             <FadeIn delay={0.1}>
-              <h1 className="mt-8 max-w-[18ch] display-mixed text-[clamp(2.75rem,7vw+1rem,8rem)] leading-[0.96]">
+              <h1 className="mt-6 max-w-[20ch] bodoni-italic text-[clamp(2.6rem,6.8vw+1rem,6rem)] leading-[0.98]">
                 {t("title")}
               </h1>
             </FadeIn>
             <FadeIn delay={0.2}>
-              <p className="mt-8 max-w-[60ch] text-[1.1rem] leading-[1.65] text-[color:var(--color-sepia-soft)]">
+              <p className="mt-10 max-w-[58ch] text-[1.05rem] leading-[1.7] opacity-90">
                 {t("lead")}
+              </p>
+              <p className="mt-8 font-[family-name:var(--font-mono)] text-[0.74rem] uppercase tracking-[0.2em] opacity-75">
+                {t("heroMeta")}
               </p>
             </FadeIn>
           </div>
-          <FadeIn delay={0.15} className="md:col-span-5">
-            <div className="relative aspect-[4/5] w-full overflow-hidden bg-[color:var(--color-accent)]">
+          <FadeIn delay={0.15} className="md:col-span-5 md:flex md:items-end">
+            <div className="relative aspect-[4/5] w-full overflow-hidden">
               <Image
                 src="/events/christmas-party/christmas-party-07.jpg"
                 alt="Gaudeamus community Christmas Party, Aberdeen"
@@ -101,10 +104,10 @@ export default async function SostieniciPage({
                 sizes="(min-width: 768px) 40vw, 100vw"
                 className="object-cover"
               />
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[color:var(--color-sepia)]/65 to-transparent" />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[color:var(--color-nero)]/55 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between text-[color:var(--color-travertino)]">
                 <span className="font-[family-name:var(--font-cartel)] text-[0.72rem] tracking-[0.26em]">
-                  COMMUNITY · ABERDEEN
+                  {locale === "it" ? "Comunità · Aberdeen" : "Community · Aberdeen"}
                 </span>
                 <span className="font-[family-name:var(--font-mono)] text-[0.68rem] tracking-[0.22em]">
                   2025
@@ -115,8 +118,8 @@ export default async function SostieniciPage({
         </div>
       </section>
 
-      {/* Where your money goes — Pompeii-red panel for emotional weight */}
-      <section className="mt-20 bg-[color:var(--color-pompeiano)] py-20 text-[color:var(--color-travertino)] md:mt-28 md:py-28">
+      {/* Where your money goes — deep-blue panel after the red hero */}
+      <section className="mt-0 bg-[color:var(--color-notte)] py-20 text-[color:var(--color-travertino)] md:py-28">
         <div className="container-site">
           <FadeIn>
             <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] opacity-80">

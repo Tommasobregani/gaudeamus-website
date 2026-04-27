@@ -8,8 +8,8 @@ export default function manifest(): MetadataRoute.Manifest {
       "An Italo-Scottish charity promoting Italian culture and heritage in Scotland.",
     start_url: "/",
     display: "standalone",
-    background_color: "#f4efe6",
-    theme_color: "#1a1713",
+    background_color: "#eef1f5",
+    theme_color: "#12355b",
     icons: [
       { src: "/icon.svg", sizes: "any", type: "image/svg+xml" },
     ],
