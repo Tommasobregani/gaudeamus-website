@@ -1,11 +1,8 @@
 import { redirect, notFound } from "next/navigation";
-import { hasLocale, routing } from "@/i18n/routing";
-
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
+import { hasLocale } from "@/i18n/routing";
 
 export const metadata = { robots: { index: false, follow: false } };
+export const dynamic = "force-dynamic";
 
 export default async function NewPostPage({
   params,
