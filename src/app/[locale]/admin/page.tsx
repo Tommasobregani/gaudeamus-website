@@ -2,14 +2,10 @@ import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
-import { hasLocale, routing, Link } from "@/i18n/routing";
+import { hasLocale, Link } from "@/i18n/routing";
 import { createClient } from "@/lib/supabase/server";
 import { Fregio } from "@/components/brand/Fregio";
 import { RomanEyebrow } from "@/components/ui/RomanEyebrow";
-
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
 
 export const metadata: Metadata = {
   robots: { index: false, follow: false },
