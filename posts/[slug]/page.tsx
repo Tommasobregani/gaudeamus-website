@@ -1,17 +1,13 @@
 import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
-import { hasLocale, routing } from "@/i18n/routing";
+import { hasLocale } from "@/i18n/routing";
 import { createClient } from "@/lib/supabase/server";
 import { RomanEyebrow } from "@/components/ui/RomanEyebrow";
 import { PostEditor } from "@/components/admin/PostEditor";
 
 export const metadata: Metadata = { robots: { index: false, follow: false }, title: "Modifica articolo" };
 export const dynamic = "force-dynamic";
-
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
 
 export default async function EditPostPage({
   params,
