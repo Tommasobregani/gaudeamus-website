@@ -65,7 +65,10 @@ export default async function LaboratoriPage({
           </p>
         </FadeIn>
         <FadeIn delay={0.1}>
-          <h1 className="mt-8 max-w-[18ch] display-mixed text-[clamp(2.5rem,6vw+1rem,7rem)] leading-[0.96]">
+          <h1
+            className="mt-8 max-w-[18ch] min-w-0 font-[family-name:var(--font-display)] font-medium leading-[0.96] tracking-[-0.025em] text-[clamp(2.4rem,5.4vw+1rem,5.25rem)] text-[color:var(--color-sepia)]"
+            style={{ overflowWrap: "break-word" }}
+          >
             {t("title")}
           </h1>
         </FadeIn>

@@ -5,6 +5,7 @@ import { Hero } from "@/components/sections/Hero";
 import { Spotlight } from "@/components/sections/Spotlight";
 import { ProgrammeStrip } from "@/components/sections/ProgrammeStrip";
 import { Impact } from "@/components/sections/Impact";
+import { ArtistInvite } from "@/components/sections/ArtistInvite";
 import { PressRibbon } from "@/components/sections/PressRibbon";
 import { ClosingCTA } from "@/components/sections/ClosingCTA";
 import { ScrollStage } from "@/components/motion/ScrollStage";
@@ -38,6 +39,8 @@ export default async function HomePage({
       <ScrollStage palette="travertino">
         <Impact />
       </ScrollStage>
+
+      <ArtistInvite />
 
       <ScrollStage palette="carta">
         <PressRibbon />

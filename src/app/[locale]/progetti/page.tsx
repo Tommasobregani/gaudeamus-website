@@ -44,12 +44,12 @@ const fundedProjects: FundedProject[] = [
   {
     year: 2025,
     title: {
-      en: "Italian Connections — Italy in Scotland between theatre and music (2025/26)",
-      it: "Italian Connections — l'Italia in Scozia tra teatro e musica (2025/26)",
+      en: "Italian Connections. Italy in Scotland between theatre and music (2025/26)",
+      it: "Italian Connections. L'Italia in Scozia tra teatro e musica (2025/26)",
     },
     body: {
-      en: "A nine-month cultural programme across Aberdeen, Edinburgh and Glasgow celebrating Italian identity through theatre and music. Supported by the Italian Consular Authority and the National Lottery Fund, it ran from November 2025 to June 2026 with productions (Poor Piero), commedia dell'arte workshops, and cultural events exploring the connections between Italian and Scottish heritage.",
-      it: "Un programma culturale di nove mesi tra Aberdeen, Edimburgo e Glasgow che celebra l'identità italiana attraverso teatro e musica. Sostenuto dall'Autorità Consolare Italiana e dal National Lottery Fund, è andato in scena da novembre 2025 a giugno 2026 con produzioni (Poor Piero), laboratori di commedia dell'arte ed eventi culturali sui legami tra patrimonio italiano e scozzese.",
+      en: "A nine-month programme of artistic, cultural and educational events across Aberdeen, Edinburgh and Glasgow, focused on second-generation Italians and anyone who feels distant from their roots, opening up spaces for dialogue and collaboration to strengthen social ties and celebrate cultural identity. Delivered exclusively by Italian-heritage artists, teachers, professionals and volunteers based in Scotland and beyond. In partnership with Com.It.Es. Scotland & Northern Ireland and the National Lottery Ethnic Minority Development Fund.",
+      it: "Un programma di nove mesi di eventi artistici, culturali ed educativi tra Aberdeen, Edimburgo e Glasgow, focalizzato sui giovani italiani di seconda generazione e su chi si sente distante dalle proprie radici, offrendo spazi di dialogo e collaborazione per rafforzare i legami sociali e celebrare l'identità culturale. Realizzato da artisti, docenti, professionisti e volontari esclusivamente di origine italiana, presenti sul territorio scozzese e non. In collaborazione con i Com.It.Es. di Scozia e Irlanda del Nord e il National Lottery Ethnic Minority Development Fund.",
     },
   },
   {
@@ -59,19 +59,30 @@ const fundedProjects: FundedProject[] = [
       it: "Ingresso nell'Albo Consolare",
     },
     body: {
-      en: "Gaudeamus joins the Albo Consolare delle Associazioni Culturali Italiane nel Regno Unito — the official Italian-government register of cultural associations in the UK — consolidating its institutional role in promoting Italian art and culture across Scotland.",
+      en: "Gaudeamus joins the Albo Consolare delle Associazioni Culturali Italiane nel Regno Unito (the official Italian-government register of cultural associations in the UK), consolidating its institutional role in promoting Italian art and culture across Scotland.",
       it: "Gaudeamus entra ufficialmente nell'Albo Consolare delle Associazioni Culturali Italiane nel Regno Unito, consolidando il proprio ruolo istituzionale nella promozione dell'arte e della cultura italiana in Scozia.",
     },
   },
   {
     year: 2024,
     title: {
-      en: "Production season — Poor Piero, No Shakespeare Fringe Edition",
-      it: "Stagione produttiva — Poor Piero, No Shakespeare Fringe Edition",
+      en: "Production season: Poor Piero, No Shakespeare Fringe Edition",
+      it: "Stagione produttiva: Poor Piero, No Shakespeare Fringe Edition",
     },
     body: {
-      en: "Mission-driven production of Poor Piero (after Achille Campanile) and the Fringe Edition of No Shakespeare — both staged in Italian with live English subtitles, with the goal of giving Italian dramaturgy a Scottish stage.",
-      it: "Produzione mission-driven di Poor Piero (da Achille Campanile) e della Fringe Edition di No Shakespeare — entrambi in italiano con sottotitoli live in inglese, con l'obiettivo di portare la drammaturgia italiana sui palchi scozzesi.",
+      en: "Mission-driven production of Poor Piero (after Achille Campanile) and the Fringe Edition of No Shakespeare, both staged in Italian with live English subtitles, with the goal of giving Italian dramaturgy a Scottish stage.",
+      it: "Produzione mission-driven di Poor Piero (da Achille Campanile) e della Fringe Edition di No Shakespeare, entrambi in italiano con sottotitoli live in inglese, con l'obiettivo di portare la drammaturgia italiana sui palchi scozzesi.",
+    },
+  },
+  {
+    year: 2023,
+    title: {
+      en: "Return to the Roots: first production & community workshops",
+      it: "Return to the Roots: prima produzione e laboratori di comunità",
+    },
+    body: {
+      en: "Our first theatrical production, staged in Italian and made accessible to English-speaking audiences through live surtitles to encourage inclusive cultural exchange. Alongside the show, a series of workshops actively involved the community, fostering participation and connection. The project set out to counter isolation and strengthen the ties between the Italian community and the local territory. In partnership with Aberdeen City Council, Creative Funding.",
+      it: "La nostra prima produzione teatrale in italiano, resa accessibile al pubblico anglofono tramite sovratitoli per favorire uno scambio culturale inclusivo. Parallelamente allo spettacolo, una serie di laboratori ha coinvolto attivamente la comunità, promuovendo partecipazione e incontro. Il progetto mirava a contrastare l'isolamento e rafforzare i legami tra la comunità italiana e il territorio locale. In collaborazione con l'Aberdeen City Council, Creative Funding.",
     },
   },
   {
@@ -81,8 +92,8 @@ const fundedProjects: FundedProject[] = [
       it: "Fondazione e registrazione come charity",
     },
     body: {
-      en: "Compagnia Artistica Gaudeamus is founded in Aberdeen in May 2023. In September 2023 it is officially recognised as a Scottish Charitable Incorporated Organisation (SCIO) — becoming the only Scottish charity to stage productions entirely in Italian with live English subtitles. First production: No Shakespeare, November 2023.",
-      it: "La Compagnia Artistica Gaudeamus nasce ad Aberdeen nel maggio 2023. Nel settembre 2023 viene ufficialmente riconosciuta come Scottish Charitable Incorporated Organisation (SCIO) — diventando l'unica charity in Scozia a portare in scena spettacoli interamente in italiano con sottotitoli live in inglese. Prima produzione: No Shakespeare, novembre 2023.",
+      en: "Compagnia Artistica Gaudeamus is founded in Aberdeen in May 2023. In September 2023 it is officially recognised as a Scottish Charitable Incorporated Organisation (SCIO), becoming the only Scottish charity to stage productions entirely in Italian with live English subtitles. First production: No Shakespeare, November 2023.",
+      it: "La Compagnia Artistica Gaudeamus nasce ad Aberdeen nel maggio 2023. Nel settembre 2023 viene ufficialmente riconosciuta come Scottish Charitable Incorporated Organisation (SCIO), diventando l'unica charity in Scozia a portare in scena spettacoli interamente in italiano con sottotitoli live in inglese. Prima produzione: No Shakespeare, novembre 2023.",
     },
   },
 ];
@@ -119,7 +130,10 @@ export default async function ProgettiPage({
             </p>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <h1 className="mt-6 max-w-[18ch] bodoni-italic text-[clamp(2.4rem,6vw+1rem,5.6rem)] leading-[0.98] text-[color:var(--color-sepia)]">
+            <h1
+              className="mt-6 max-w-[18ch] min-w-0 font-[family-name:var(--font-display)] font-medium italic text-[clamp(2.3rem,5.2vw+1rem,4.8rem)] leading-[0.98] tracking-[-0.025em] text-[color:var(--color-sepia)]"
+              style={{ overflowWrap: "break-word" }}
+            >
               {t("title")}
             </h1>
           </FadeIn>
@@ -192,6 +206,9 @@ export default async function ProgettiPage({
                     ? "Com.It.Es. Scozia e Irlanda del Nord"
                     : "Com.It.Es. Scotland & Northern Ireland",
                   loc === "it"
+                    ? "Istituto Italiano di Cultura, Edimburgo"
+                    : "Italian Cultural Institute, Edinburgh",
+                  loc === "it"
                     ? "Consolato Generale d'Italia, Edimburgo"
                     : "Consulate General of Italy, Edinburgh",
                   loc === "it"
@@ -204,6 +221,13 @@ export default async function ProgettiPage({
                     ? "Albo Consolare delle Associazioni Culturali Italiane nel Regno Unito"
                     : "Italian Consular Register of Cultural Associations in the UK",
                   loc === "it" ? "London One Radio" : "London One Radio",
+                  loc === "it" ? "Valvona & Crolla, Edimburgo" : "Valvona & Crolla, Edinburgh",
+                  loc === "it"
+                    ? "Aberdeen City Council, Creative Funding"
+                    : "Aberdeen City Council, Creative Funding",
+                  loc === "it"
+                    ? "National Lottery Ethnic Minority Development Fund"
+                    : "National Lottery Ethnic Minority Development Fund",
                 ].map((p) => (
                   <li
                     key={p}

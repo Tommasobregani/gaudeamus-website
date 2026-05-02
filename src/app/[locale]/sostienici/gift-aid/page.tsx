@@ -62,7 +62,10 @@ export default async function GiftAidPage({
           </p>
         </FadeIn>
         <FadeIn delay={0.1}>
-          <h1 className="mt-8 max-w-[20ch] display-mixed text-[clamp(2.5rem,6vw+1rem,7rem)] leading-[0.96]">
+          <h1
+            className="mt-8 max-w-[20ch] min-w-0 font-[family-name:var(--font-display)] font-medium leading-[0.96] tracking-[-0.025em] text-[clamp(2.4rem,5.4vw+1rem,5.25rem)] text-[color:var(--color-sepia)]"
+            style={{ overflowWrap: "break-word" }}
+          >
             {t("title")}
           </h1>
         </FadeIn>
@@ -75,35 +78,20 @@ export default async function GiftAidPage({
         </FadeIn>
       </section>
 
+      {/* Per Eva: skip the long explainer (Gift Aid is normal in UK culture and the
+          detailed tax math risks confusing international audiences). Show the form. */}
       <section className="container-site border-t border-[color:var(--color-sepia)]/25 py-12 md:py-16">
-        <div className="grid gap-10 md:grid-cols-12">
-          <div className="md:col-span-4">
-            <FadeIn>
-              <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-pompeiano)]">
-                {t("explainerTitle")}
-              </p>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <p className="mt-6 text-[0.98rem] leading-[1.7] text-[color:var(--color-sepia-soft)]">
-                {t("explainerBody1")}
-              </p>
-            </FadeIn>
-            <FadeIn delay={0.15}>
-              <p className="mt-4 text-[0.98rem] leading-[1.7] text-[color:var(--color-sepia-soft)]">
-                {t("explainerBody2")}
-              </p>
-            </FadeIn>
-          </div>
-          <div className="md:col-span-8">
-            <FadeIn delay={0.1}>
-              <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-pompeiano)]">
-                {t("formTitle")}
-              </p>
-              <div className="mt-8">
-                <GiftAidForm />
-              </div>
-            </FadeIn>
-          </div>
+        <div className="mx-auto max-w-3xl">
+          <FadeIn>
+            <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-pompeiano)]">
+              {t("formTitle")}
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <div className="mt-8">
+              <GiftAidForm />
+            </div>
+          </FadeIn>
         </div>
       </section>
 

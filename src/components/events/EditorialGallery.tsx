@@ -73,7 +73,7 @@ export function EditorialGallery({ images, alt, className }: Props) {
               <GalleryCell
                 key={item.globalIndex}
                 image={images[item.globalIndex]}
-                alt={`${alt} — ${item.globalIndex + 1}`}
+                alt={`${alt}, ${item.globalIndex + 1}`}
                 index={item.globalIndex}
                 spanClass={item.span}
                 aspectClass={item.aspect}
@@ -138,7 +138,7 @@ export function EditorialGallery({ images, alt, className }: Props) {
             >
               <Image
                 src={images[open]}
-                alt={`${alt} — ${open + 1}`}
+                alt={`${alt}, ${open + 1}`}
                 fill
                 sizes="100vw"
                 className="object-contain"

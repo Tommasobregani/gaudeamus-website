@@ -16,7 +16,10 @@ export function ClosingCTA() {
           </p>
         </FadeIn>
         <FadeIn delay={0.1}>
-          <h2 className="mt-6 max-w-[20ch] bodoni-italic text-[clamp(2.4rem,5.4vw+0.5rem,5.4rem)] leading-[1.02]">
+          <h2
+            className="mt-6 max-w-[20ch] min-w-0 font-[family-name:var(--font-display)] font-medium italic text-[clamp(2.2rem,4.6vw+0.5rem,4.4rem)] leading-[1.04] tracking-[-0.025em]"
+            style={{ overflowWrap: "break-word" }}
+          >
             {t("closingTitle")}
           </h2>
         </FadeIn>

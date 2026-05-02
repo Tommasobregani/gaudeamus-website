@@ -27,8 +27,8 @@ export const press: PressItem[] = [
     url: "https://londononeradio.com/teatro-italiano-in-scozia-trionfo-per-poor-piero-della-compagnia-gaudeamus/",
     date: "2025-11-09",
     quote: {
-      en: "Poor Piero speaks of life more than of death. It speaks of the need to smile at ourselves. — Eva D'Amico",
-      it: "Poor Piero parla della vita più che della morte. Parla della necessità di sorridere di noi stessi. — Eva D'Amico",
+      en: "Poor Piero speaks of life more than of death. It speaks of the need to smile at ourselves. Eva D'Amico",
+      it: "Poor Piero parla della vita più che della morte. Parla della necessità di sorridere di noi stessi. Eva D'Amico",
     },
     type: "article",
     related: "poor-piero",
@@ -42,8 +42,8 @@ export const press: PressItem[] = [
     url: "https://londononeradio.com/italian-connections-litalia-in-scozia-tra-teatro-e-musica/",
     date: "2025-10-09",
     quote: {
-      en: "Italian culture continues to unite, move and be reborn — like a sun that filters through the Scottish clouds.",
-      it: "La cultura italiana continua a unire, emozionare e rinascere — come un sole che filtra tra le nuvole scozzesi.",
+      en: "Italian culture continues to unite, move and be reborn, like a sun that filters through the Scottish clouds.",
+      it: "La cultura italiana continua a unire, emozionare e rinascere, come un sole che filtra tra le nuvole scozzesi.",
     },
     type: "article",
   },
@@ -71,8 +71,8 @@ export const press: PressItem[] = [
     url: "https://londononeradio.com/aberdeen-butchers-arms-pub-si-e-trasformato-in-un-angolo-ditalia-grazie-alla-compagnia-artistica-gaudeamus/",
     date: "2025-12-01",
     quote: {
-      en: "The live band — The Badwills — kept the night alive with rhythms of pizzica, tarantella and tammuriata.",
-      it: "La band dal vivo — The Badwills — ha animato la serata con ritmi di pizzica, tarantella e tammuriata.",
+      en: "The live band, The Badwills, kept the night alive with rhythms of pizzica, tarantella and tammuriata.",
+      it: "La band dal vivo, The Badwills, ha animato la serata con ritmi di pizzica, tarantella e tammuriata.",
     },
     type: "article",
     related: "christmas-party",
@@ -98,7 +98,7 @@ export const press: PressItem[] = [
       en: "Welcome Compagnia Artistica Gaudeamus",
       it: "Welcome Compagnia Artistica Gaudeamus",
     },
-    outlet: "Scene — SCDA Magazine",
+    outlet: "Scene · SCDA Magazine",
     url: "/press/scda-article.pdf",
     date: "2024-07-01",
     quote: {
@@ -108,7 +108,7 @@ export const press: PressItem[] = [
     type: "pdf",
   },
   {
-    title: { en: "No Shakespeare — review", it: "No Shakespeare — recensione" },
+    title: { en: "No Shakespeare. Review", it: "No Shakespeare. Recensione" },
     outlet: "Broadway Baby",
     url: "https://broadwaybaby.com/shows/no-shakespeare/824819",
     type: "review",
@@ -116,8 +116,8 @@ export const press: PressItem[] = [
   },
   {
     title: {
-      en: "Gaudeamus on stage — short",
-      it: "Gaudeamus in scena — short",
+      en: "Gaudeamus on stage. Short",
+      it: "Gaudeamus in scena. Short",
     },
     outlet: "YouTube",
     url: "https://www.youtube.com/shorts/sVg0iPccIFI",
@@ -125,8 +125,8 @@ export const press: PressItem[] = [
   },
   {
     title: {
-      en: "Gaudeamus on stage — full",
-      it: "Gaudeamus in scena — full",
+      en: "Gaudeamus on stage. Full",
+      it: "Gaudeamus in scena. Full",
     },
     outlet: "YouTube",
     url: "https://www.youtube.com/watch?v=CqhJ7oj39O4",
@@ -134,8 +134,8 @@ export const press: PressItem[] = [
   },
   {
     title: {
-      en: "Gaudeamus on London One Radio — podcast",
-      it: "Gaudeamus su London One Radio — podcast",
+      en: "Gaudeamus on London One Radio, podcast",
+      it: "Gaudeamus su London One Radio, podcast",
     },
     outlet: "Spotify",
     url: "https://open.spotify.com/episode/4p9nPxK2hr3vV7Fsye9BrZ",

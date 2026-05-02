@@ -57,12 +57,12 @@ export function Lightbox({ images, alt, className }: Props) {
             key={src}
             type="button"
             onClick={() => setOpen(i)}
-            aria-label={`${alt} — photo ${i + 1}`}
+            aria-label={`${alt}, photo ${i + 1}`}
             className="group relative aspect-square overflow-hidden bg-[color:var(--color-carta-soft)] focus-visible:outline-2 focus-visible:outline-offset-4"
           >
             <Image
               src={src}
-              alt={`${alt} — ${i + 1}`}
+              alt={`${alt}, ${i + 1}`}
               fill
               sizes="(min-width:1024px) 22vw, (min-width:640px) 32vw, 48vw"
               className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.2,0.7,0.1,1)] group-hover:scale-[1.06]"
@@ -125,7 +125,7 @@ export function Lightbox({ images, alt, className }: Props) {
             >
               <Image
                 src={images[open]}
-                alt={`${alt} — ${open + 1}`}
+                alt={`${alt}, ${open + 1}`}
                 fill
                 sizes="100vw"
                 className="object-contain"

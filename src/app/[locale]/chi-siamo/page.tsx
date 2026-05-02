@@ -74,7 +74,10 @@ export default async function ChiSiamoPage({
             </p>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <h1 className="mt-6 max-w-[16ch] bodoni-italic text-[clamp(2.6rem,7vw+1rem,6.5rem)] leading-[0.94] text-[color:var(--color-sepia)]">
+            <h1
+              className="mt-6 max-w-[16ch] min-w-0 font-[family-name:var(--font-display)] font-medium italic text-[clamp(2.4rem,5.6vw+1rem,5.25rem)] leading-[0.96] tracking-[-0.025em] text-[color:var(--color-sepia)]"
+              style={{ overflowWrap: "break-word" }}
+            >
               {t("title")}
             </h1>
           </FadeIn>
@@ -252,6 +255,13 @@ export default async function ChiSiamoPage({
               <Image
                 src="/partners/london-one-radio.jpg"
                 alt="London One Radio"
+                width={140}
+                height={70}
+                className="h-12 w-auto object-contain"
+              />
+              <Image
+                src="/partners/valvona-crolla.png"
+                alt="Valvona &amp; Crolla, Edimburgo"
                 width={140}
                 height={70}
                 className="h-12 w-auto object-contain"

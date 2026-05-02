@@ -72,12 +72,12 @@ export function ProgrammeStrip() {
                 <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[color:var(--color-sepia)]/65 via-[color:var(--color-sepia)]/15 to-transparent" />
                 <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-3 text-[color:var(--color-travertino)]">
                   <span className="font-[family-name:var(--font-cartel)] text-[0.82rem] uppercase tracking-[0.28em]">
-                    {String(i + 1).padStart(2, "0")} — {it.label}
+                    {String(i + 1).padStart(2, "0")} · {it.label}
                   </span>
                   <ArrowUpRight size={20} strokeWidth={1.25} className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </div>
               </div>
-              <h3 className="mt-5 max-w-[28ch] bodoni-italic text-[1.45rem] leading-[1.2] text-[color:var(--color-travertino)]">
+              <h3 className="mt-5 max-w-[28ch] font-[family-name:var(--font-display)] font-medium text-[1.45rem] leading-[1.25] tracking-[-0.018em] text-[color:var(--color-travertino)]">
                 {it.title}
               </h3>
             </Link>

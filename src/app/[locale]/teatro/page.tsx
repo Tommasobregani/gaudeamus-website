@@ -80,7 +80,10 @@ export default async function TeatroPage({
             </p>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <h1 className="mt-6 max-w-[14ch] bodoni-italic text-[clamp(2.6rem,7vw+1rem,6.5rem)] leading-[0.94]">
+            <h1
+              className="mt-6 max-w-[14ch] min-w-0 font-[family-name:var(--font-display)] font-medium italic text-[clamp(2.4rem,5.6vw+1rem,5.25rem)] leading-[0.96] tracking-[-0.025em]"
+              style={{ overflowWrap: "break-word" }}
+            >
               {t("title")}
             </h1>
           </FadeIn>

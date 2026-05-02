@@ -96,6 +96,13 @@ export default async function NewsPage({
             </p>
             <div className="mt-12 flex flex-wrap justify-center gap-x-8 gap-y-3">
               <Link
+                href="/news/parlano-di-noi"
+                className="hover-underline inline-flex items-center gap-2 font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.26em] text-[color:var(--color-pompeiano)]"
+              >
+                {loc === "it" ? "Parlano di noi" : "Press"}
+                <ArrowUpRight size={14} strokeWidth={1.5} />
+              </Link>
+              <Link
                 href="/teatro"
                 className="hover-underline inline-flex items-center gap-2 font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.26em] text-[color:var(--color-sepia)]"
               >

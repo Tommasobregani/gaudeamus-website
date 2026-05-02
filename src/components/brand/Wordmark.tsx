@@ -44,7 +44,7 @@ export function Wordmark({
   if (variant === "stacked") {
     return (
       <span
-        aria-label={ariaHidden ? undefined : "Gaudeamus — Compagnia Artistica SCIO"}
+        aria-label={ariaHidden ? undefined : "Gaudeamus, Compagnia Artistica SCIO"}
         className={cn("inline-flex flex-col items-start leading-none", className)}
       >
         <span className={cn("bodoni-italic text-[1.9rem] leading-[0.85] tracking-[-0.035em]", ink)}>

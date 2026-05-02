@@ -7,7 +7,6 @@ import { ArrowUpRight } from "lucide-react";
 import { FadeIn } from "@/components/motion/FadeIn";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { ButtonLink } from "@/components/ui/Button";
-import { GiftAidCalculator } from "@/components/forms/GiftAidCalculator";
 import { siteConfig } from "@/lib/utils";
 
 export function generateStaticParams() {
@@ -81,7 +80,10 @@ export default async function SostieniciPage({
               </p>
             </FadeIn>
             <FadeIn delay={0.1}>
-              <h1 className="mt-6 max-w-[20ch] bodoni-italic text-[clamp(2.6rem,6.8vw+1rem,6rem)] leading-[0.98]">
+              <h1
+                className="mt-6 max-w-[20ch] min-w-0 font-[family-name:var(--font-display)] font-medium italic text-[clamp(2.4rem,5.4vw+1rem,5.25rem)] leading-[0.98] tracking-[-0.025em]"
+                style={{ overflowWrap: "break-word" }}
+              >
                 {t("title")}
               </h1>
             </FadeIn>
@@ -142,7 +144,7 @@ export default async function SostieniciPage({
                   <p className="mt-5 font-[family-name:var(--font-mono)] text-[0.7rem] uppercase tracking-[0.22em] opacity-70">
                     {String(i + 1).padStart(2, "0")}
                   </p>
-                  <h3 className="mt-2 bodoni-italic text-[1.4rem] leading-[1.2]">
+                  <h3 className="mt-2 font-[family-name:var(--font-display)] font-medium text-[1.4rem] leading-[1.22] tracking-[-0.018em]">
                     {w.title}
                   </h3>
                   <p className="mt-2 text-[0.95rem] leading-[1.6] opacity-90">
@@ -155,31 +157,26 @@ export default async function SostieniciPage({
         </div>
       </section>
 
-      {/* Gift Aid calculator + CTA */}
+      {/* Gift Aid - simplified per Eva: no detailed explanation, just the action */}
       <section className="relative mt-24 border-t border-[color:var(--color-sepia)]/25 bg-[color:var(--color-carta)]">
-        <div className="container-site grid gap-10 py-16 md:grid-cols-12 md:gap-12 md:py-24">
-          <div className="md:col-span-5">
+        <div className="container-site grid items-center gap-10 py-16 md:grid-cols-12 md:gap-14 md:py-20">
+          <div className="md:col-span-7">
             <FadeIn>
-              <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-accent)]">
+              <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-pompeiano)]">
                 {t("giftAidTitle")}
               </p>
             </FadeIn>
             <FadeIn delay={0.1}>
-              <h2 className="mt-6 bodoni-italic text-[clamp(1.85rem,2.6vw+1rem,2.85rem)] leading-[1.15] text-[color:var(--color-sepia)]">
+              <h2 className="mt-6 max-w-[26ch] font-[family-name:var(--font-display)] font-medium text-[clamp(1.65rem,2.4vw+0.8rem,2.4rem)] leading-[1.18] tracking-[-0.02em] text-[color:var(--color-sepia)]">
                 {t("giftAidBody")}
               </h2>
             </FadeIn>
-            <FadeIn delay={0.15}>
-              <div className="mt-8">
-                <ButtonLink href="/sostienici/gift-aid" variant="primary" withArrow>
-                  {t("giftAidCta")}
-                </ButtonLink>
-              </div>
-            </FadeIn>
           </div>
-          <div className="md:col-span-7">
-            <FadeIn delay={0.1}>
-              <GiftAidCalculator />
+          <div className="md:col-span-5 md:flex md:justify-end">
+            <FadeIn delay={0.15}>
+              <ButtonLink href="/sostienici/gift-aid" variant="primary" size="lg" withArrow>
+                {t("giftAidCta")}
+              </ButtonLink>
             </FadeIn>
           </div>
         </div>

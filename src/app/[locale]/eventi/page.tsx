@@ -64,7 +64,10 @@ export default async function EventiPage({
             </p>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <h1 className="mt-6 max-w-[12ch] bodoni-italic text-[clamp(2.6rem,7vw+1rem,6.5rem)] leading-[0.94]">
+            <h1
+              className="mt-6 max-w-[12ch] min-w-0 font-[family-name:var(--font-display)] font-medium italic text-[clamp(2.4rem,5.6vw+1rem,5.25rem)] leading-[0.96] tracking-[-0.025em]"
+              style={{ overflowWrap: "break-word" }}
+            >
               {t("title")}
             </h1>
           </FadeIn>
@@ -100,20 +103,34 @@ export default async function EventiPage({
           <Stagger className="mt-10 space-y-2">
             {upcomingCommunityEvents.map((e) => {
               const date = e.date ? new Date(e.date) : null;
+              const posterSrc = e.poster ?? e.cover;
               return (
                 <StaggerItem key={e.slug}>
                   <Link
                     href={`/teatro/${e.slug}`}
-                    className="group grid grid-cols-[auto_1fr_auto] items-center gap-6 border-b border-[color:var(--color-sepia)]/25 py-6 transition-colors hover:bg-[color:var(--color-carta)] md:gap-10 md:py-8"
+                    className="group grid grid-cols-[auto_1fr_auto] items-center gap-6 border-b border-[color:var(--color-sepia)]/25 py-6 transition-colors hover:bg-[color:var(--color-carta)] md:grid-cols-[auto_auto_1fr_auto] md:gap-10 md:py-8"
                   >
                     <div className="text-center">
                       <span className="bodoni-italic block text-[clamp(2.25rem,4vw,3.5rem)] leading-none text-[color:var(--color-sepia)]">
-                        {date ? String(date.getDate()).padStart(2, "0") : "—"}
+                        {date ? String(date.getDate()).padStart(2, "0") : "TBA"}
                       </span>
                       <span className="mt-1 block font-[family-name:var(--font-cartel)] text-[0.7rem] tracking-[0.26em] text-[color:var(--color-accent)]">
                         {date ? monthNames[loc][date.getMonth()].toUpperCase() : ""}
                       </span>
                     </div>
+                    {posterSrc ? (
+                      <div className="hidden md:block relative aspect-[3/4] w-24 overflow-hidden bg-[color:var(--color-sepia)]/5">
+                        <Image
+                          src={posterSrc}
+                          alt={e.title[loc]}
+                          fill
+                          sizes="96px"
+                          className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                        />
+                      </div>
+                    ) : (
+                      <div className="hidden md:block w-0" aria-hidden />
+                    )}
                     <div>
                       <p className="font-[family-name:var(--font-cartel)] text-[0.7rem] tracking-[0.26em] text-[color:var(--color-sepia-soft)]">
                         {e.year}
@@ -124,6 +141,11 @@ export default async function EventiPage({
                       <p className="mt-2 italic text-[0.95rem] text-[color:var(--color-sepia-soft)]">
                         {e.tagline[loc]}
                       </p>
+                      {e.venues && e.venues.length > 0 ? (
+                        <p className="mt-3 font-[family-name:var(--font-mono)] text-[0.78rem] uppercase tracking-[0.16em] text-[color:var(--color-sepia)]">
+                          {e.venues[0]}
+                        </p>
+                      ) : null}
                     </div>
                     <ArrowUpRight
                       size={22}

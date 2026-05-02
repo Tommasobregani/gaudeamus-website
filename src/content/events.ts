@@ -65,12 +65,12 @@ export const events: EventEntry[] = [
       it: "Un divertente tributo alle donne italiane.",
     },
     summary: {
-      en: "Two grandchildren find a mysterious laptop and an AI that begins to reveal, with irony and precision, their grandmother's secrets — and from there, a chorus of extraordinary Italian women steps forward to tell their own stories.",
-      it: "Due nipoti scoprono un misterioso laptop e un'Intelligenza Artificiale che inizia a svelare, con ironia e precisione, i segreti della loro nonna — e da lì, un coro di donne italiane straordinarie si fa avanti per raccontarsi in prima persona.",
+      en: "Two grandchildren find a mysterious laptop and an AI that begins to reveal, with irony and precision, their grandmother's secrets. From there, a chorus of extraordinary Italian women steps forward to tell their own stories.",
+      it: "Due nipoti scoprono un misterioso laptop e un'Intelligenza Artificiale che inizia a svelare, con ironia e precisione, i segreti della loro nonna. Da lì, un coro di donne italiane straordinarie si fa avanti per raccontarsi in prima persona.",
     },
     description: {
       en: [
-        "A bright, irreverent show that pays homage to Italian women throughout history — from icons to forgotten figures, each restored in their own voice, between strength, fragility, irony and truth.",
+        "A bright, irreverent show that pays homage to Italian women throughout history: from icons to forgotten figures, each restored in their own voice, between strength, fragility, irony and truth.",
         "Between comic moments and intense passages, the piece weaves lightness and depth into a continuous dialogue between generations and identities. A choral story about memory, freedom, self-determination and the right to be oneself.",
       ],
       it: [
@@ -79,8 +79,8 @@ export const events: EventEntry[] = [
       ],
     },
     venues: [
-      "Edinburgh Fringe Festival, Venue 67 — 13, 14 & 15 August 2026",
-      "Aberdeen & Glasgow — Autumn 2026",
+      "Edinburgh Fringe Festival, Venue 67. 13, 14 & 15 August 2026",
+      "Aberdeen & Glasgow. Autumn 2026",
     ],
     role: { en: "Original production", it: "Produzione originale" },
     cover: "",
@@ -116,14 +116,14 @@ export const events: EventEntry[] = [
       it: "Ispirato a Le bugie con le gambe lunghe di Eduardo De Filippo.",
     },
     summary: {
-      en: "A bitter, surprisingly current comedy that lays bare social hypocrisy and the power of convention. At its centre, Libero Incoronato — a simple man adrift in a world of appearances, where everyone lies to save their own reputation.",
+      en: "A bitter, surprisingly current comedy that lays bare social hypocrisy and the power of convention. At its centre, Libero Incoronato: a simple man adrift in a world of appearances, where everyone lies to save their own reputation.",
       it: "Una commedia amara e sorprendentemente attuale, capace di mettere a nudo l'ipocrisia sociale e il potere delle convenzioni. Al centro, Libero Incoronato, uomo semplice immerso in un mondo fatto di apparenze, dove tutti mentono per salvare la propria reputazione.",
     },
     description: {
       en: [
         "Inspired by Eduardo De Filippo's Le bugie con le gambe lunghe, the production stages a collective game of pretence in which even the truth is bent until it becomes irrelevant.",
         "While the staging keeps the immediate post-war setting, an added epilogue and a more dynamic, contemporary delivery underline how current the theme remains. Eduardo's lucid, ironic theatrical mechanism still mirrors a society willing to accept any lie to maintain a fragile equilibrium.",
-        "A comedy that makes you smile — and also invites you to recognise how, then as now, “everyone false, everyone happy.”",
+        "A comedy that makes you smile, and also invites you to recognise how, then as now, “everyone false, everyone happy.”",
       ],
       it: [
         "Ispirato a Le bugie con le gambe lunghe di Eduardo De Filippo, lo spettacolo porta in scena una commedia amara e sorprendentemente attuale, capace di mettere a nudo l'ipocrisia sociale e il potere delle convenzioni.",
@@ -131,7 +131,7 @@ export const events: EventEntry[] = [
         "Eduardo costruisce così un meccanismo teatrale lucido e ironico, che ancora oggi rispecchia una società pronta ad accettare qualsiasi menzogna pur di mantenere un fragile equilibrio. Una commedia che fa sorridere, ma che invita anche a riconoscere quanto, ieri come oggi, «tutti falsi, tutti contenti».",
       ],
     },
-    venues: ["Aberdeen, Edinburgh & Glasgow — Winter 2027"],
+    venues: ["Aberdeen, Edinburgh & Glasgow. Winter 2027"],
     role: { en: "Production", it: "Produzione" },
     cover: "",
     gallery: [],
@@ -173,20 +173,20 @@ export const events: EventEntry[] = [
     year: 2024,
     status: "past",
     title: {
-      en: "No Shakespeare — Fringe Edition",
-      it: "No Shakespeare — Fringe Edition",
+      en: "No Shakespeare. Fringe Edition",
+      it: "No Shakespeare. Fringe Edition",
     },
     tagline: {
       en: "A homage to Italian dramaturgy and literature.",
       it: "Un omaggio alla drammaturgia ed alla letteratura italiana.",
     },
     summary: {
-      en: "Inspired by a true story, a metatheatrical journey into Italian culture: desperate actors fighting to put on a show at the Fringe. Discover the beauty of Italian literature — and the terror of looming deadlines.",
+      en: "Inspired by a true story, a metatheatrical journey into Italian culture: desperate actors fighting to put on a show at the Fringe. Discover the beauty of Italian literature, and the terror of looming deadlines.",
       it: "Ispirato a una storia vera, un viaggio metateatrale nella cultura italiana: attori disperati che lottano per mettere in scena uno spettacolo al Fringe. Scoprite la bellezza della letteratura italiana e il terrore delle scadenze imminenti!",
     },
     description: {
       en: [
-        "A reworking of the original No Shakespeare, this Fringe edition is more than a play — it's a fascinating journey through Italian theatre and literature, from the Renaissance to the present day. A unique evening for all ages, dedicated to anyone who loves Italy or has always wanted to know it better.",
+        "A reworking of the original No Shakespeare, this Fringe edition is more than a play. It is a fascinating journey through Italian theatre and literature, from the Renaissance to the present day. A unique evening for all ages, dedicated to anyone who loves Italy or has always wanted to know it better.",
       ],
       it: [
         "Riadattamento della precedente omonima produzione, Niente Shakespeare è molto più di uno spettacolo: è un viaggio affascinante attraverso la cultura teatrale e letteraria italiana, dal Rinascimento ai giorni nostri. Una serata unica, pensata per tutte le età, dedicata a chi ama l'Italia e a chi ha sempre desiderato conoscerla meglio.",
@@ -235,25 +235,25 @@ export const events: EventEntry[] = [
       it: "Un capolavoro di umorismo dissacrante, da Achille Campanile.",
     },
     summary: {
-      en: "Piero is dead. But his funeral quickly becomes a whirlwind of misunderstandings, schemes and twists — a theatre of the absurd in which the deceased is shoved around, hidden in cupboards, and buried under epitaphs while relatives and friends keep up a parade of tears, outbursts and hypocrisy.",
+      en: "Piero is dead. But his funeral quickly becomes a whirlwind of misunderstandings, schemes and twists: a theatre of the absurd in which the deceased is shoved around, hidden in cupboards, and buried under epitaphs while relatives and friends keep up a parade of tears, outbursts and hypocrisy.",
       it: "Piero è morto. Ma il suo funerale si trasforma presto in un turbine di equivoci, sotterfugi e colpi di scena, mentre il defunto viene sballottato, nascosto negli armadi, ricoperto da epitaffi e necrologi e parenti e amici alimentano un teatro dell'assurdo fatto di pianti, escandescenze e ipocrisie.",
     },
     description: {
       en: [
-        "Dripping with irreverent humour, Poor Piero is a divertissement in two acts and a prologue by Achille Campanile — a paradoxical, hilarious comedy in which death itself becomes the occasion for liberating laughter.",
-        "When Piero, perhaps from the shock of dying, unexpectedly resurrects, the chaos becomes total. Campanile's unmistakable style — double meanings, rapid-fire exchanges and situations on the edge of absurdity — dismantles the taboos around death and funeral rituals, exposing the hypocrisy of bourgeois “good manners.”",
+        "Dripping with irreverent humour, Poor Piero is a divertissement in two acts and a prologue by Achille Campanile: a paradoxical, hilarious comedy in which death itself becomes the occasion for liberating laughter.",
+        "When Piero, perhaps from the shock of dying, unexpectedly resurrects, the chaos becomes total. Campanile's unmistakable style (double meanings, rapid-fire exchanges and situations on the edge of absurdity) dismantles the taboos around death and funeral rituals, exposing the hypocrisy of bourgeois “good manners.”",
         "Our staging pushes the comedy and the irreverence further, sharpening the contrast between the rigidity of social conventions and the absurdity of the situations. Characters are deliberately caricatural, stripped of common sense and authentic feeling, fully enslaved to the codes that cage them. Between clumsy obituaries, ceremonial tears and cutting one-liners, the production lingers on the parody of respectability and the hypocrisies that surround death.",
       ],
       it: [
         "Grondante di humour dissacratore, Il povero Piero è un divertissement in due atti e prologo scritto da Achille Campanile. Una commedia tanto paradossale quanto esilarante in cui la morte stessa diventa occasione di risata liberatoria.",
-        "Quando il povero Piero, forse per lo choc della morte, resuscita inaspettatamente, il caos diventa totale. Lo stile inconfondibile di Campanile — fatto di doppi sensi, scambi serrati di battute e situazioni al limite dell'assurdo — smonta i tabù legati alla morte e ai rituali funebri, svelando l'ipocrisia delle «buone maniere» borghesi.",
+        "Quando il povero Piero, forse per lo choc della morte, resuscita inaspettatamente, il caos diventa totale. Lo stile inconfondibile di Campanile (fatto di doppi sensi, scambi serrati di battute e situazioni al limite dell'assurdo) smonta i tabù legati alla morte e ai rituali funebri, svelando l'ipocrisia delle «buone maniere» borghesi.",
         "L'interpretazione registica estremizza il carattere comico e la forza dissacrante, accentuando il contrasto tra la rigidità delle convenzioni sociali e l'assurdità delle situazioni. I personaggi sono volutamente caricaturali, privati di buon senso e sentimenti autentici, completamente asserviti a un codice di comportamento che finisce per ingabbiarli. Tra necrologi maldestri, lacrime di circostanza e battute taglienti, la regia pone l'accento sulla parodia del perbenismo e sulle ipocrisie che avvolgono il tema della morte.",
       ],
     },
     venues: [
-      "Aberdeen — Lemon Tree Theatre (February 2025)",
+      "Aberdeen, Lemon Tree Theatre (February 2025)",
       "Perth Theatre (March 2025)",
-      "Edinburgh — Assembly Roxy Theatre (November 2025)",
+      "Edinburgh, Assembly Roxy Theatre (November 2025)",
     ],
     role: { en: "Production", it: "Produzione" },
     cover: "/events/poor-piero/poor-piero-04.jpeg",
@@ -311,7 +311,7 @@ export const events: EventEntry[] = [
       it: "Un omaggio alla drammaturgia ed alla letteratura italiana.",
     },
     summary: {
-      en: "More than a play — a journey through Italian theatre and literature, from the Renaissance to today. A unique evening for all ages, for anyone who loves Italy or has always wanted to know it better.",
+      en: "More than a play. A journey through Italian theatre and literature, from the Renaissance to today. A unique evening for all ages, for anyone who loves Italy or has always wanted to know it better.",
       it: "Più di uno spettacolo: un viaggio attraverso la cultura teatrale e letteraria italiana, dal Rinascimento a oggi. Una serata unica, per tutte le età, per chi ama l'Italia e per chi ha sempre desiderato conoscerla meglio.",
     },
     description: {
@@ -365,18 +365,18 @@ export const events: EventEntry[] = [
       it: "Un viaggio al centro della lingua italiana.",
     },
     summary: {
-      en: "A Compagnia Gaudeamus theatrical performance for the Girotondo Italian School community in Edinburgh — taking the audience inside the Italian language through its rhythms, words and stories.",
-      it: "Uno spettacolo teatrale della Compagnia Gaudeamus per la comunità della Girotondo Italian School di Edimburgo — un viaggio dentro la lingua italiana attraverso i suoi ritmi, le sue parole e le sue storie.",
+      en: "A Compagnia Gaudeamus theatrical performance for the Girotondo Italian School community in Edinburgh. Taking the audience inside the Italian language through its rhythms, words and stories.",
+      it: "Uno spettacolo teatrale della Compagnia Gaudeamus per la comunità della Girotondo Italian School di Edimburgo. Un viaggio dentro la lingua italiana attraverso i suoi ritmi, le sue parole e le sue storie.",
     },
     description: {
       en: [
-        "An original Compagnia Gaudeamus performance staged for the Girotondo Italian School in Edinburgh, taking children, parents and the wider Italian community on a journey through the Italian language — its sounds, its rhythms and its stories.",
+        "An original Compagnia Gaudeamus performance staged for the Girotondo Italian School in Edinburgh, taking children, parents and the wider Italian community on a journey through the Italian language: its sounds, its rhythms and its stories.",
       ],
       it: [
-        "Uno spettacolo originale della Compagnia Artistica Gaudeamus, andato in scena per la Girotondo Italian School di Edimburgo, che porta bambini, genitori e la comunità italiana più ampia in un viaggio attraverso la lingua italiana — i suoi suoni, i suoi ritmi, le sue storie.",
+        "Uno spettacolo originale della Compagnia Artistica Gaudeamus, andato in scena per la Girotondo Italian School di Edimburgo, che porta bambini, genitori e la comunità italiana più ampia in un viaggio attraverso la lingua italiana: i suoi suoni, i suoi ritmi, le sue storie.",
       ],
     },
-    venues: ["Girotondo Italian School, Edinburgh — Saturday 4 October, 11am"],
+    venues: ["Girotondo Italian School, Edinburgh. Saturday 4 October, 11am"],
     credits: {
       en: [
         { role: "Conceived & Directed by", name: "Eva D'Amico" },
@@ -409,21 +409,21 @@ export const events: EventEntry[] = [
       it: "Uno spettacolo per famiglie che gioca con le lingue.",
     },
     summary: {
-      en: "A Compagnia Gaudeamus family show — two clowns, three languages, and one mission: help Nino learn to speak. Performed at Aberdeen Art Centre with a multilingual edition (English, Spanish, French) and a bilingual edition (English, Italian).",
-      it: "Uno spettacolo per famiglie della Compagnia Gaudeamus — due clown, tre lingue, e una missione: aiutare Nino a imparare a parlare. In scena all'Aberdeen Art Centre con una versione multilingue (inglese, spagnolo, francese) e una bilingue (inglese, italiano).",
+      en: "A Compagnia Gaudeamus family show: two clowns, three languages, and one mission: help Nino learn to speak. Performed at Aberdeen Art Centre with a multilingual edition (English, Spanish, French) and a bilingual edition (English, Italian).",
+      it: "Uno spettacolo per famiglie della Compagnia Gaudeamus: due clown, tre lingue, e una missione: aiutare Nino a imparare a parlare. In scena all'Aberdeen Art Centre con una versione multilingue (inglese, spagnolo, francese) e una bilingue (inglese, italiano).",
     },
     description: {
       en: [
-        "Wander Fool Word is a Compagnia Gaudeamus family show built around two clowns and three languages. The audience follows Nino as he learns to speak — through gesture, song and the playful collisions that happen when languages meet.",
+        "Wander Fool Word is a Compagnia Gaudeamus family show built around two clowns and three languages. The audience follows Nino as he learns to speak: through gesture, song and the playful collisions that happen when languages meet.",
         "The show was staged at Aberdeen Art Centre with two performances on the same day: an 11:30am multilingual edition (English, Spanish, French) and a 2pm bilingual edition (English, Italian). Supported by the Community Fund.",
       ],
       it: [
-        "Wander Fool Word è uno spettacolo per famiglie della Compagnia Gaudeamus costruito attorno a due clown e tre lingue. Il pubblico segue Nino mentre impara a parlare — attraverso il gesto, la canzone e gli incontri giocosi tra le lingue.",
+        "Wander Fool Word è uno spettacolo per famiglie della Compagnia Gaudeamus costruito attorno a due clown e tre lingue. Il pubblico segue Nino mentre impara a parlare: attraverso il gesto, la canzone e gli incontri giocosi tra le lingue.",
         "Lo spettacolo è andato in scena all'Aberdeen Art Centre con due rappresentazioni nello stesso giorno: alle 11:30 nella versione multilingue (inglese, spagnolo, francese) e alle 14:00 nella versione bilingue (inglese, italiano). Sostenuto dal Community Fund.",
       ],
     },
     venues: [
-      "Aberdeen Art Centre, 33 King Street AB24 5AA — Sunday 15 February",
+      "Aberdeen Art Centre, 33 King Street AB24 5AA. Sunday 15 February",
       "11:30am multilingual edition (EN · ES · FR)",
       "2pm bilingual edition (EN · IT)",
     ],
@@ -441,41 +441,10 @@ export const events: EventEntry[] = [
 
   // ── COMMUNITY EVENTS ──────────────────────────────────────────────────
   {
-    slug: "christmas-party-2026",
-    kind: "community",
-    year: 2026,
-    date: "2026-12-13",
-    status: "upcoming",
-    title: { en: "Italian Christmas Party 2026", it: "Italian Christmas Party 2026" },
-    tagline: {
-      en: "An Italian Christmas in Aberdeen — second edition.",
-      it: "Un Natale italiano ad Aberdeen — seconda edizione.",
-    },
-    summary: {
-      en: "Our community Christmas returns to Aberdeen — live music, traditional Italian food, and a roomful of Italian and Scottish friends. Date and venue confirmed closer to the time.",
-      it: "Il nostro Natale di comunità torna ad Aberdeen — musica dal vivo, cibo italiano tradizionale e una sala piena di amici italiani e scozzesi. Data e luogo confermati più vicino all'evento.",
-    },
-    description: {
-      en: [
-        "Building on the 2025 night at the Butchers Arms, we're bringing back the format: live band, food from home, Italian Christmas songs and the community in one room.",
-      ],
-      it: [
-        "Sulla scia della serata 2025 al Butchers Arms, riproponiamo il format: band dal vivo, cibo di casa, canti natalizi italiani e la comunità tutta in una sala.",
-      ],
-    },
-    venues: ["Aberdeen — Dicembre 2026"],
-    cover: "/media/events/christmas-party-2026-1.jpg",
-    gallery: [
-      "/media/events/christmas-party-2026-1.jpg",
-      "/media/events/christmas-party-2026-2.jpg",
-      "/media/events/christmas-party-2026-3.jpg",
-    ],
-  },
-  {
     slug: "christmas-party",
     kind: "community",
     year: 2025,
-    date: "2025-12-01",
+    date: "2025-11-29",
     status: "past",
     title: { en: "Early Italian Christmas Party", it: "Early Italian Christmas Party" },
     tagline: {
@@ -483,23 +452,22 @@ export const events: EventEntry[] = [
       it: "Un Natale italiano al Butchers Arms, Aberdeen.",
     },
     summary: {
-      en: "Aberdeen's Butchers Arms Pub turned into a corner of Italy for our community Christmas — live music with The Badwills, traditional treats, and a room full of Italian and Scottish friends.",
-      it: "Il Butchers Arms Pub di Aberdeen si è trasformato in un angolo d'Italia per il nostro Natale di comunità — musica dal vivo con i The Badwills, dolci tradizionali e una sala piena di amici italiani e scozzesi.",
+      en: "Aberdeen's Butchers Arms Pub turned into a corner of Italy for our community Christmas: live music with The Badwills, traditional treats, and a room full of Italian and Scottish friends.",
+      it: "Il Butchers Arms Pub di Aberdeen si è trasformato in un angolo d'Italia per il nostro Natale di comunità: musica dal vivo con i The Badwills, dolci tradizionali e una sala piena di amici italiani e scozzesi.",
     },
     description: {
       en: [
         "An Early Italian Christmas Party at Aberdeen's Butchers Arms Pub: live music, traditional Italian food, and a celebration of how the Italian community in Scotland keeps its cultural identity alive.",
-        "The live band — The Badwills — kept the night going with rhythms of pizzica, tarantella and tammuriata. The evening was supported by the Honorary Consul and the Com.It.Es. president.",
+        "The live band, The Badwills, kept the night going with rhythms of pizzica, tarantella and tammuriata. The evening was supported by the Honorary Consul and the Com.It.Es. president.",
       ],
       it: [
         "Un Early Italian Christmas Party al Butchers Arms Pub di Aberdeen: musica dal vivo, cibo italiano tradizionale, e una serata che racconta come la comunità italiana in Scozia tenga viva la propria identità culturale.",
-        "La band dal vivo — The Badwills — ha animato la serata con ritmi di pizzica, tarantella e tammuriata. L'evento è stato sostenuto dal Console Onorario e dal presidente del Com.It.Es.",
+        "La band dal vivo, The Badwills, ha animato la serata con ritmi di pizzica, tarantella e tammuriata. L'evento è stato sostenuto dal Console Onorario e dal presidente del Com.It.Es.",
       ],
     },
-    venues: ["Butchers Arms Pub, Aberdeen"],
-    // Lead with the circle-dance group shot — the photo Eva would want as the
-    // signature of the community gathering (group, joyful, in motion).
+    venues: ["Butchers Arms Pub, 443 George Street, Aberdeen. 6 to 9pm, with The Badwills (live)"],
     cover: "/events/christmas-party/christmas-party-07.jpg",
+    poster: "/media/event-posters/christmas-party-poster.jpg",
     gallery: [
       "/events/christmas-party/christmas-party-07.jpg",
       "/events/christmas-party/christmas-party-06.jpg",
@@ -510,32 +478,100 @@ export const events: EventEntry[] = [
     ],
   },
   {
-    slug: "talk-and-toast-edinburgh",
+    slug: "talk-and-toast-edinburgh-2026",
     kind: "community",
-    year: 2024,
+    year: 2026,
+    date: "2026-02-07",
     status: "past",
-    title: { en: "Talk and Toast — Edinburgh", it: "Talk and Toast — Edimburgo" },
+    title: {
+      en: "Talk and Toast: Italy and Scotland, shared Celtic memories",
+      it: "Talk and Toast: Italia e Scozia, memorie celtiche condivise",
+    },
     tagline: {
-      en: "A literary aperitivo with the community.",
-      it: "Un aperitivo letterario con la comunità.",
+      en: "Between the Mediterranean and the Highlands. A journey through history, myth and shared roots.",
+      it: "Tra il Mediterraneo e le Highlands. Un viaggio tra storia, mito e radici condivise.",
     },
     summary: {
-      en: "An informal evening of conversation around Italian literature and culture, hosted with friends in Edinburgh.",
-      it: "Una serata informale di conversazione attorno alla letteratura e alla cultura italiana, ospitata con amici a Edimburgo.",
+      en: "An evening at Valvona & Crolla exploring the Celtic memories that link Italy and Scotland, between history and myth.",
+      it: "Una serata da Valvona & Crolla per esplorare le memorie celtiche che legano Italia e Scozia, tra storia e mito.",
     },
     description: {
       en: [
-        "Talk and Toast is the format we use for our literary aperitivos: a short reading or conversation, a toast, and time with the community.",
+        "Talk and Toast is the format we use for our literary aperitivos: a short reading or conversation, a toast, and time with the community. This edition turned to the surprising threads of Celtic memory shared between Italy and Scotland, between the Mediterranean and the Highlands.",
       ],
       it: [
-        "Talk and Toast è il format dei nostri aperitivi letterari: un breve intervento o lettura, un brindisi e tempo con la comunità.",
+        "Talk and Toast è il format dei nostri aperitivi letterari: un breve intervento o lettura, un brindisi e tempo con la comunità. Questa edizione ha messo a fuoco i fili sorprendenti di memoria celtica condivisi tra Italia e Scozia, tra il Mediterraneo e le Highlands.",
       ],
     },
+    venues: ["Valvona & Crolla, Edinburgh. 7 February 2026, 5:00pm to 7:00pm"],
     cover: "/events/talk-and-toast/talk-and-toast-01.jpg",
+    poster: "/media/event-posters/edinburgh-talk-poster.png",
     gallery: [
       "/events/talk-and-toast/talk-and-toast-01.jpg",
       "/events/talk-and-toast/talk-and-toast-02.jpg",
     ],
+  },
+  {
+    slug: "talk-and-toast-aberdeen-2026",
+    kind: "community",
+    year: 2026,
+    date: "2026-04-26",
+    status: "past",
+    title: {
+      en: "Talk and Toast: Shakespeare segreto",
+      it: "Talk and Toast: Shakespeare segreto",
+    },
+    tagline: {
+      en: "The playwright who spoke Sicilian. A conversation between history and legend.",
+      it: "Il drammaturgo che parlava siciliano. Una conversazione tra storia e leggenda.",
+    },
+    summary: {
+      en: "An informal evening at Monty's Wine Shop and Bar in Aberdeen, exploring the so-called Shakespeare question and the fascinating theory that places his origins in Sicily.",
+      it: "Un momento conviviale al Monty's Wine Shop and Bar di Aberdeen per esplorare la cosiddetta «questione shakespeariana» e l'affascinante teoria che lo vuole nato in Sicilia.",
+    },
+    description: {
+      en: [
+        "Between history and legend, this Talk and Toast led the audience through the so-called Shakespeare question, and the fascinating theory that places the playwright's origins in Sicily, with him speaking Sicilian.",
+      ],
+      it: [
+        "Tra storia e leggenda, questa Talk and Toast ha guidato il pubblico alla scoperta della cosiddetta «questione shakespeariana» e dell'affascinante teoria che vuole il drammaturgo nato in Sicilia, con tanto di siciliano parlato.",
+      ],
+    },
+    venues: ["Monty's Wine Shop and Bar, Aberdeen. 26 April 2026, 5pm to 7pm"],
+    cover: "/media/event-posters/aberdeen-event-poster.png",
+    poster: "/media/event-posters/aberdeen-event-poster.png",
+    gallery: [],
+  },
+  {
+    slug: "talk-and-toast-glasgow-2026",
+    kind: "community",
+    year: 2026,
+    date: "2026-06-14",
+    status: "upcoming",
+    title: {
+      en: "Talk and Toast: Building Communities",
+      it: "Talk and Toast: Building Communities",
+    },
+    tagline: {
+      en: "Migration and transnational ties between Italy and Scotland.",
+      it: "Migrazione e legami transnazionali tra Italia e Scozia.",
+    },
+    summary: {
+      en: "An evening at Sarti, Glasgow, on migration between Italy and Scotland (community building, identity and transnational ties), followed by an authentic Italian aperitivo.",
+      it: "Una serata da Sarti, Glasgow, sulla migrazione tra Italia e Scozia (costruzione di comunità, identità e legami transnazionali), seguita da un autentico aperitivo italiano.",
+    },
+    description: {
+      en: [
+        "Explore migration between Italy and Scotland, focusing on community building, identity and transnational ties. The talk is followed by an informal gathering with an authentic Italian aperitivo.",
+      ],
+      it: [
+        "Un viaggio tra Italia e Scozia attraverso la migrazione, con un focus su costruzione di comunità, identità e legami transnazionali. Il talk è seguito da un incontro informale con un autentico aperitivo italiano.",
+      ],
+    },
+    venues: ["Sarti Restaurant, 121 Wellington Street, Glasgow. 14 June 2026, 4pm to 6pm"],
+    cover: "/media/event-posters/glasgow-talk-poster.png",
+    poster: "/media/event-posters/glasgow-talk-poster.png",
+    gallery: [],
   },
 
   // ── WORKSHOPS ─────────────────────────────────────────────────────────
@@ -545,8 +581,8 @@ export const events: EventEntry[] = [
     year: 2025,
     status: "past",
     title: {
-      en: "Theatre Workshop — Aberdeen",
-      it: "Laboratorio di Teatro — Aberdeen",
+      en: "Theatre Workshop, Aberdeen",
+      it: "Laboratorio di Teatro, Aberdeen",
     },
     tagline: {
       en: "Theatre and Italian language, hands on.",
@@ -557,8 +593,8 @@ export const events: EventEntry[] = [
       it: "Laboratorio di recitazione e lingua italiana ad Aberdeen, aperto a madrelingua e principianti.",
     },
     description: {
-      en: ["TBD — full programme to be confirmed by Eva."],
-      it: ["TBD — programma completo in attesa di conferma da Eva."],
+      en: ["TBD. Full programme to be confirmed by Eva."],
+      it: ["TBD. Programma completo in attesa di conferma da Eva."],
     },
     venues: ["Aberdeen"],
     cover: "/events/laboratori/aberdeen.png",
@@ -571,8 +607,8 @@ export const events: EventEntry[] = [
     year: 2025,
     status: "past",
     title: {
-      en: "Theatre Workshop — Glasgow",
-      it: "Laboratorio di Teatro — Glasgow",
+      en: "Theatre Workshop, Glasgow",
+      it: "Laboratorio di Teatro, Glasgow",
     },
     tagline: {
       en: "Theatre and Italian language, hands on.",
@@ -583,8 +619,8 @@ export const events: EventEntry[] = [
       it: "Laboratorio di recitazione e lingua italiana a Glasgow, aperto a madrelingua e principianti.",
     },
     description: {
-      en: ["TBD — full programme to be confirmed by Eva."],
-      it: ["TBD — programma completo in attesa di conferma da Eva."],
+      en: ["TBD. Full programme to be confirmed by Eva."],
+      it: ["TBD. Programma completo in attesa di conferma da Eva."],
     },
     venues: ["Glasgow"],
     cover: "/events/laboratori/glasgow.png",
@@ -609,8 +645,8 @@ export const events: EventEntry[] = [
       it: "Un laboratorio di teatro aperto.",
     },
     description: {
-      en: ["TBD — full programme to be confirmed by Eva."],
-      it: ["TBD — programma completo in attesa di conferma da Eva."],
+      en: ["TBD. Full programme to be confirmed by Eva."],
+      it: ["TBD. Programma completo in attesa di conferma da Eva."],
     },
     cover: "/events/laboratori/theater.png",
     poster: "/events/laboratori/theater.png",

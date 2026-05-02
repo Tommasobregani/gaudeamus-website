@@ -29,7 +29,7 @@ export function PullQuote({ quote, attribution, className }: Props) {
           </p>
           {attribution && (
             <footer className="mt-6 font-[family-name:var(--font-cartel)] text-[0.72rem] tracking-[0.26em] text-[color:var(--color-sepia-soft)]">
-              — {attribution}
+              {attribution}
             </footer>
           )}
         </blockquote>

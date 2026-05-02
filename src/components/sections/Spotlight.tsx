@@ -21,7 +21,7 @@ export function Spotlight() {
   const show = events.find((e) => e.kind === "production" && e.status === "upcoming");
   if (!show) return null;
 
-  const dateLine = locale === "it" ? "13 — 15 Agosto 2026" : "13 — 15 August 2026";
+  const dateLine = locale === "it" ? "13, 14 & 15 Agosto 2026" : "13, 14 & 15 August 2026";
   const venueLine = "Edinburgh Fringe · Venue 67";
 
   return (
@@ -45,21 +45,24 @@ export function Spotlight() {
 
       <div className="container-site relative py-20 md:py-28">
         <FadeIn>
-          <h2 className="bodoni-italic max-w-[15ch] text-[clamp(2.4rem,6.4vw,5.6rem)] leading-[0.96] text-[color:var(--color-on-accent)]">
+          <h2
+            className="max-w-[15ch] min-w-0 font-[family-name:var(--font-display)] italic font-medium text-[clamp(2.4rem,5.6vw+1rem,5.25rem)] leading-[0.98] tracking-[-0.025em] text-[color:var(--color-on-accent)]"
+            style={{ overflowWrap: "break-word" }}
+          >
             {show.title[locale]}
           </h2>
         </FadeIn>
 
         <FadeIn delay={0.1}>
-          <p className="mt-10 bodoni-italic text-[clamp(1.6rem,3vw,2.6rem)] leading-[1.05] tracking-[-0.01em] text-[color:var(--color-on-accent)]">
+          <p className="mt-9 font-[family-name:var(--font-display)] font-medium text-[clamp(1.4rem,2.4vw+0.5rem,2.2rem)] leading-[1.1] tracking-[-0.015em] text-[color:var(--color-on-accent)]">
             {dateLine}
           </p>
         </FadeIn>
 
-        {/* Tagline + summary — narrow column for legibility */}
+        {/* Tagline + summary - narrow column for legibility */}
         <div className="mt-12 grid gap-10 md:grid-cols-12 md:gap-14">
           <div className="md:col-span-7">
-            <p className="bodoni-italic text-[clamp(1.2rem,1.6vw,1.55rem)] leading-[1.45]">
+            <p className="font-[family-name:var(--font-display)] italic text-[clamp(1.15rem,1.4vw+0.4rem,1.4rem)] leading-[1.5]">
               {show.tagline[locale]}
             </p>
             <p className="mt-6 max-w-[58ch] text-[1rem] leading-[1.7] text-[color:var(--color-on-accent)]/95">

@@ -104,12 +104,21 @@
   /* ---- Spacing / layout ---- */
   --container-site: 1320px;
   --container-prose: 66ch;
-  --radius-sm: 0;
-  --radius-md: 0;
-  --radius-lg: 0;              /* zero radius — teatro manifesto, no buttons-as-pills */
-  --radius-pill: 9999px;        /* only for the specific chip use case */
+  --radius-xs: 0.375rem;       /* 6px  - inline chips, badges */
+  --radius-sm: 0.625rem;       /* 10px - inputs, small surfaces */
+  --radius-md: 0.875rem;       /* 14px - cards, panels */
+  --radius-lg: 1.25rem;         /* 20px - large feature cards */
+  --radius-xl: 1.75rem;         /* 28px - hero panels */
+  --radius-pill: 9999px;        /* CTAs, chips, navigation pills */
   --shadow-soft: 0 1px 2px rgba(30, 30, 30, 0.04), 0 8px 24px rgba(30, 30, 30, 0.06);
   --shadow-lift: 0 20px 60px rgba(30, 30, 30, 0.16);
+  --shadow-glass: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 8px 32px rgba(18, 53, 91, 0.10);
+  --shadow-glass-dark: 0 1px 0 rgba(255, 255, 255, 0.08) inset, 0 12px 40px rgba(0, 0, 0, 0.30);
+
+  /* Hero clamp ceilings reduced from 10rem so italic Bodoni does not bleed
+     across grid columns at large viewports (was: max 10rem -> IT overflow bug). */
+  --text-hero-cap: clamp(2.5rem, 6vw + 1rem, 5.25rem);
+  --text-hero-display: clamp(3rem, 7vw + 1rem, 6.5rem);
 }
 
 /* ---- Base ---- */
@@ -376,6 +385,41 @@
     line-height: 0.85;
     color: var(--color-pompeiano);
     letter-spacing: -0.02em;
+  }
+
+  /* ---- Glass surfaces (subtle, sophisticated) ---- */
+  /* Light glass for paper-tone pages: header, footer-light, panels on cool paper. */
+  .glass-light {
+    background: color-mix(in srgb, var(--color-travertino) 62%, transparent);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    backdrop-filter: blur(20px) saturate(140%);
+    border: 1px solid color-mix(in srgb, var(--color-sepia) 8%, transparent);
+    box-shadow: var(--shadow-glass);
+  }
+  /* Stronger paper glass for sticky surfaces (header on scroll). */
+  .glass-strong {
+    background: color-mix(in srgb, var(--color-travertino) 78%, transparent);
+    -webkit-backdrop-filter: blur(24px) saturate(150%);
+    backdrop-filter: blur(24px) saturate(150%);
+    border: 1px solid color-mix(in srgb, var(--color-sepia) 10%, transparent);
+    box-shadow: var(--shadow-glass);
+  }
+  /* Dark glass for theatre-night sections (hero-dark, footer-dark). */
+  .glass-dark {
+    background: color-mix(in srgb, var(--color-nero) 55%, transparent);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    backdrop-filter: blur(24px) saturate(160%);
+    border: 1px solid color-mix(in srgb, #ffffff 10%, transparent);
+    box-shadow: var(--shadow-glass-dark);
+  }
+  /* Tinted accent glass on theatre-red for primary CTAs that want presence. */
+  .glass-accent {
+    background: color-mix(in srgb, var(--color-pompeiano) 88%, transparent);
+    -webkit-backdrop-filter: blur(12px) saturate(160%);
+    backdrop-filter: blur(12px) saturate(160%);
+    border: 1px solid color-mix(in srgb, #ffffff 14%, transparent);
+    color: var(--color-on-accent);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.18) inset, 0 8px 24px rgba(168, 50, 50, 0.28);
   }
 
   /* Light-blue accent panel — used for impact strips, support callouts, info inserts */

@@ -45,30 +45,24 @@ export default async function ContattiPage({
   const t = await getTranslations({ locale, namespace: "contact" });
   const it = locale === "it";
 
+  // Per Eva's brief: only Artistic + General are public. Finance email
+  // intentionally excluded (privacy of financial inbox).
   const channels = [
     {
       roman: "01",
       title: t("generalTitle"),
       email: siteConfig.email.general,
       body: it
-        ? "Informazioni generali, segreteria, richieste di stampa e curiosità."
-        : "General enquiries, press requests and anything else.",
+        ? "Informazioni generali, workshop, eventi, stampa e domande della comunità."
+        : "General enquiries, workshops, events, press and community questions.",
     },
     {
       roman: "02",
       title: t("artisticTitle"),
       email: siteConfig.email.artistic,
       body: it
-        ? "Proposte artistiche, coproduzioni, inviti a festival, collaborazioni."
-        : "Artistic proposals, co-productions, festival invitations, collaborations.",
-    },
-    {
-      roman: "03",
-      title: t("financeTitle"),
-      email: siteConfig.email.finance,
-      body: it
-        ? "Tesoreria, donazioni e Gift Aid."
-        : "Treasury, donations and Gift Aid.",
+        ? "Proposte artistiche, coproduzioni, inviti a festival, artisti che vogliono presentare un progetto."
+        : "Artistic proposals, co-productions, festival invitations, artists pitching a project.",
     },
   ];
 
@@ -77,22 +71,25 @@ export default async function ContattiPage({
     <>
       {/* Typographic dark-sepia masthead, matching the pattern */}
       <section className="relative bg-[color:var(--color-nero)] text-[color:var(--color-travertino)]">
-        <div className="container-site grid gap-8 py-20 md:grid-cols-12 md:gap-12 md:py-28">
-          <div className="md:col-span-7">
+        <div className="container-site grid gap-10 py-20 md:grid-cols-12 md:gap-x-14 md:gap-y-12 md:py-28">
+          <div className="min-w-0 md:col-span-7">
             <FadeIn>
               <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-oro-soft)]">
                 {it ? "Contatti" : "Contact"}
               </p>
             </FadeIn>
             <FadeIn delay={0.1}>
-              <h1 className="mt-6 max-w-[10ch] bodoni-italic text-[clamp(3.5rem,10vw+1rem,10rem)] leading-[0.92]">
+              <h1
+                className="mt-6 font-[family-name:var(--font-display)] font-medium leading-[0.96] tracking-[-0.025em] text-[clamp(2.6rem,5.6vw+1rem,5.25rem)]"
+                style={{ overflowWrap: "break-word" }}
+              >
                 {it ? "Parliamone." : "Let's talk."}
               </h1>
             </FadeIn>
           </div>
-          <div className="md:col-span-5 md:flex md:items-end">
+          <div className="min-w-0 md:col-span-5 md:flex md:items-end">
             <FadeIn delay={0.2}>
-              <p className="max-w-[44ch] text-[1.05rem] leading-[1.65] opacity-90">
+              <p className="max-w-[44ch] text-[1.02rem] leading-[1.65] opacity-90">
                 {t("lead")}
               </p>
             </FadeIn>
@@ -105,7 +102,7 @@ export default async function ContattiPage({
         <FadeIn>
           <RomanEyebrow n={1} label={it ? "Indirizzi" : "Addresses"} />
         </FadeIn>
-        <Stagger className="mt-12 grid gap-0 border-t-2 border-[color:var(--color-sepia)] md:grid-cols-3">
+        <Stagger className="mt-12 grid gap-0 border-t-2 border-[color:var(--color-sepia)] md:grid-cols-2">
           {channels.map((c, i) => (
             <StaggerItem
               key={c.email}
@@ -123,7 +120,7 @@ export default async function ContattiPage({
                     {t("writeTo")}
                   </span>
                 </div>
-                <h3 className="mt-6 bodoni-italic text-[1.85rem] leading-[1.08] text-[color:var(--color-sepia)]">
+                <h3 className="mt-6 font-[family-name:var(--font-display)] font-medium text-[1.85rem] leading-[1.1] tracking-[-0.02em] text-[color:var(--color-sepia)]">
                   {c.title}
                 </h3>
                 <p className="mt-3 text-[0.95rem] leading-[1.6] text-[color:var(--color-sepia-soft)]">
@@ -132,7 +129,7 @@ export default async function ContattiPage({
 
                 <a
                   href={`mailto:${c.email}`}
-                  className="hover-underline mt-8 inline-flex items-baseline bodoni-italic text-[1.3rem] leading-tight text-[color:var(--color-terracotta)]"
+                  className="hover-underline mt-8 inline-flex items-baseline font-[family-name:var(--font-mono)] text-[0.95rem] leading-tight text-[color:var(--color-pompeiano)]"
                 >
                   {c.email}
                 </a>
