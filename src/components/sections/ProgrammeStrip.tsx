@@ -24,16 +24,6 @@ export function ProgrammeStrip() {
       image: "/events/poor-piero/poor-piero-04.jpeg",
     },
     {
-      key: "workshop",
-      href: "/teatro/laboratori",
-      label: locale === "it" ? "Laboratori" : "Workshops",
-      title:
-        locale === "it"
-          ? "Teatro e lingua italiana, in pratica, in tutta la Scozia."
-          : "Theatre and the Italian language, hands on, across Scotland.",
-      image: "/events/viaggio-lingua/viaggio-lingua-01.jpg",
-    },
-    {
       key: "eventi",
       href: "/eventi",
       label: locale === "it" ? "Eventi" : "Events",
@@ -42,6 +32,16 @@ export function ProgrammeStrip() {
           ? "Aperitivi letterari, feste di Natale, comunità."
           : "Literary aperitivos, Christmas parties, community.",
       image: "/events/christmas-party/christmas-party-07.jpg",
+    },
+    {
+      key: "workshop",
+      href: "/teatro/laboratori",
+      label: locale === "it" ? "Laboratori" : "Workshops",
+      title:
+        locale === "it"
+          ? "Teatro e lingua italiana, in pratica, in tutta la Scozia."
+          : "Theatre and the Italian language, hands on, across Scotland.",
+      image: "/events/viaggio-lingua/viaggio-lingua-01.jpg",
     },
   ];
 
