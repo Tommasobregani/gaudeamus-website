@@ -50,20 +50,20 @@ export function Hero() {
               <LetterReveal
                 as="span"
                 text={t("heroLine1")}
-                className="block font-[family-name:var(--font-display)] text-[clamp(2.4rem,5.4vw+1rem,5.25rem)] font-medium leading-[0.98] tracking-[-0.025em]"
+                className="block font-[family-name:var(--font-display)] text-[clamp(2.2rem,4.9vw+1rem,4.75rem)] font-medium leading-[0.98] tracking-[-0.025em]"
               />
               <LetterReveal
                 as="span"
                 text={t("heroLine2")}
                 delay={0.12}
                 italicize
-                className="mt-1 block font-[family-name:var(--font-display)] italic text-[clamp(2.4rem,5.4vw+1rem,5.25rem)] font-normal leading-[0.98] tracking-[-0.03em] text-[color:var(--color-pompeiano)]"
+                className="mt-1 block font-[family-name:var(--font-display)] italic text-[clamp(2.2rem,4.9vw+1rem,4.75rem)] font-normal leading-[0.98] tracking-[-0.03em] text-[color:var(--color-pompeiano)]"
               />
               <LetterReveal
                 as="span"
                 text={t("heroLine3")}
                 delay={0.24}
-                className="mt-1 block font-[family-name:var(--font-display)] text-[clamp(2.4rem,5.4vw+1rem,5.25rem)] font-medium leading-[0.98] tracking-[-0.025em]"
+                className="mt-1 block font-[family-name:var(--font-display)] text-[clamp(2.2rem,4.9vw+1rem,4.75rem)] font-medium leading-[0.98] tracking-[-0.025em]"
               />
             </h1>
 
