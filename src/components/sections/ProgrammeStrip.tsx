@@ -35,7 +35,7 @@ export function ProgrammeStrip() {
     },
     {
       key: "workshop",
-      href: "/teatro/laboratori",
+      href: "/laboratori",
       label: locale === "it" ? "Laboratori" : "Workshops",
       title:
         locale === "it"
