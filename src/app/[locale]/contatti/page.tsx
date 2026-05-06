@@ -7,6 +7,7 @@ import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { RomanEyebrow } from "@/components/ui/RomanEyebrow";
 import { Fregio } from "@/components/brand/Fregio";
 import { siteConfig } from "@/lib/utils";
+import { ContactForm } from "./ContactForm";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -126,18 +127,35 @@ export default async function ContattiPage({
                 <p className="mt-3 text-[0.95rem] leading-[1.6] text-[color:var(--color-sepia-soft)]">
                   {c.body}
                 </p>
-
-                <a
-                  href={`mailto:${c.email}`}
-                  className="hover-underline mt-8 inline-flex items-baseline font-[family-name:var(--font-mono)] text-[0.95rem] leading-tight text-[color:var(--color-pompeiano)]"
-                >
-                  {c.email}
-                </a>
-
               </article>
             </StaggerItem>
           ))}
         </Stagger>
+
+        <FadeIn delay={0.12}>
+          <div className="mt-12">
+            <ContactForm
+              copy={{
+                name: it ? "Nome" : "Name",
+                email: it ? "Email" : "Email",
+                subject: it ? "Oggetto" : "Subject",
+                recipient: it ? "Destinatario" : "Recipient",
+                recipientArtistic: it
+                  ? "Proposta artistica — sono un artista e presento un progetto"
+                  : "Artistic proposal — I'm an artist pitching a project",
+                recipientGeneral: it
+                  ? "Richiesta generale — laboratori, eventi, stampa, comunità"
+                  : "General enquiry — workshops, events, press, community",
+                message: it ? "Messaggio" : "Message",
+                submit: it ? "Invia" : "Send",
+                success: it
+                  ? "Grazie — ti risponderemo entro qualche giorno lavorativo."
+                  : "Thanks — we'll be in touch within a few working days.",
+                required: "*",
+              }}
+            />
+          </div>
+        </FadeIn>
       </section>
 
       {/* Registered office — single Pompeii-red panel, no empty 2-col grid */}
