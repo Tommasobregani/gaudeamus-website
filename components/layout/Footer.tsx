@@ -56,7 +56,7 @@ export function Footer() {
             </li>
             <li>
               <Link className="hover-underline" href="/contatti">
-                {locale === "it" ? "Contattaci" : "Get in touch"}
+                {t("nav.contact")}
               </Link>
             </li>
           </ul>
