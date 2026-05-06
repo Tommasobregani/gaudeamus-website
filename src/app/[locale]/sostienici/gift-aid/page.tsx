@@ -156,12 +156,12 @@ export default async function GiftAidPage({
                       ? "Le coordinate del conto Lloyds Bank sono in fase di preparazione. Nel frattempo scrivi al nostro team finance e ti guideremo passo passo."
                       : "Our Lloyds Bank details are in preparation. In the meantime, write to our finance team and we'll walk you through the steps."}
                   </p>
-                  <a
+                  <Link
                     className="hover-underline mt-6 inline-flex items-center gap-2 font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.24em] text-[color:var(--color-pompeiano)]"
-                    href={`mailto:${siteConfig.email.finance}`}
+                    href="/contatti"
                   >
-                    {siteConfig.email.finance}
-                  </a>
+                    {locale === "it" ? "Contattaci" : "Get in touch"}
+                  </Link>
                 </div>
               )}
             </FadeIn>
