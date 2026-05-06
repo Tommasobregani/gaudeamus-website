@@ -26,7 +26,6 @@ export const siteConfig = {
   email: {
     general: "info@italiandramauk.org",
     artistic: "gaudeamus@italiandramauk.org",
-    finance: "finance@italiandramauk.org",
   },
   bank: {
     name: "Lloyds Bank",
