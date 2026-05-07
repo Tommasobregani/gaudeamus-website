@@ -3,7 +3,7 @@
 
 [build.environment]
   NODE_VERSION = "20"
-  PNPM_VERSION = "10.4.1"
+  NPM_FLAGS = "--legacy-peer-deps"
 
 # Root → default locale. Belt-and-braces for when middleware
 # doesn't run on the bare path at the edge.
