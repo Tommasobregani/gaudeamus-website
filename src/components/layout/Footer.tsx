@@ -15,7 +15,7 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative mt-32 bg-[color:var(--color-notte)] text-white">
+    <footer className="relative bg-[color:var(--color-notte)] text-white">
       {/* Subtle top luminosity */}
       <div
         aria-hidden
@@ -40,7 +40,7 @@ export function Footer() {
               target="_blank"
               rel="noreferrer noopener"
               aria-label="Facebook"
-              className="glass-on-blue grid h-11 w-11 place-items-center rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:text-[color:var(--color-notte)]"
+              className="grid h-11 w-11 place-items-center rounded-full border border-white/20 text-white/85 transition-all duration-500 ease-[cubic-bezier(0.165,0.84,0.44,1)] hover:-translate-y-0.5 hover:border-white hover:bg-white hover:text-[color:var(--color-notte)]"
             >
               <Facebook size={16} strokeWidth={1.6} />
             </a>
@@ -49,7 +49,7 @@ export function Footer() {
               target="_blank"
               rel="noreferrer noopener"
               aria-label="Instagram"
-              className="glass-on-blue grid h-11 w-11 place-items-center rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:text-[color:var(--color-notte)]"
+              className="grid h-11 w-11 place-items-center rounded-full border border-white/20 text-white/85 transition-all duration-500 ease-[cubic-bezier(0.165,0.84,0.44,1)] hover:-translate-y-0.5 hover:border-white hover:bg-white hover:text-[color:var(--color-notte)]"
             >
               <Instagram size={16} strokeWidth={1.6} />
             </a>
@@ -116,13 +116,13 @@ export function Footer() {
           <div>
             <Link
               href="/sostienici"
-              className="group inline-flex items-center gap-2 rounded-full border border-white/22 bg-white/5 px-4 py-2 font-[family-name:var(--font-inter)] text-[0.7rem] font-medium uppercase tracking-[0.24em] text-white backdrop-blur-md transition-all duration-300 hover:bg-white hover:text-[color:var(--color-notte)]"
+              className="group inline-flex items-center gap-2 rounded-full border border-white/25 px-4 py-2 font-[family-name:var(--font-inter)] text-[0.7rem] font-medium uppercase tracking-[0.24em] text-white transition-all duration-500 ease-[cubic-bezier(0.165,0.84,0.44,1)] hover:border-white hover:bg-white hover:text-[color:var(--color-notte)]"
             >
               {t("nav.support")}
               <ArrowUpRight
                 size={13}
                 strokeWidth={1.8}
-                className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                className="transition-transform duration-500 ease-[cubic-bezier(0.165,0.84,0.44,1)] group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
               />
             </Link>
           </div>

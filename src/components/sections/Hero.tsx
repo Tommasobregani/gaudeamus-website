@@ -74,13 +74,13 @@ export function Hero() {
               <LetterReveal
                 as="span"
                 text={t("heroLine1")}
-                className="block font-[family-name:var(--font-inter)] text-[clamp(2.2rem,5vw+0.5rem,5rem)] font-light leading-[1.04] tracking-[-0.025em]"
+                className="block font-[family-name:var(--font-inter)] text-[clamp(2.4rem,5.4vw+0.5rem,5.4rem)] font-light leading-[1.04] tracking-[-0.028em]"
               />
               <LetterReveal
                 as="span"
                 text={t("heroLine2")}
-                delay={0.1}
-                className="mt-1 block font-[family-name:var(--font-inter)] text-[clamp(2.2rem,5vw+0.5rem,5rem)] font-medium leading-[1.04] tracking-[-0.03em] text-[color:var(--color-notte)]"
+                delay={0.12}
+                className="mt-1 block font-[family-name:var(--font-inter)] text-[clamp(2.4rem,5.4vw+0.5rem,5.4rem)] font-medium leading-[1.04] tracking-[-0.032em] text-[color:var(--color-notte)]"
               />
             </h1>
 

@@ -4,6 +4,7 @@ import { hasLocale } from "@/i18n/routing";
 import { Hero } from "@/components/sections/Hero";
 import { SelectedWork } from "@/components/sections/SelectedWork";
 import { Voice } from "@/components/sections/Voice";
+import { ProgrammeStrip } from "@/components/sections/ProgrammeStrip";
 import { Spotlight } from "@/components/sections/Spotlight";
 import { Impact } from "@/components/sections/Impact";
 import { PressRibbon } from "@/components/sections/PressRibbon";
@@ -48,6 +49,10 @@ export default async function HomePage({
 
       <ScrollStage palette="carta">
         <Voice />
+      </ScrollStage>
+
+      <ScrollStage palette="travertino">
+        <ProgrammeStrip />
       </ScrollStage>
 
       <Spotlight />

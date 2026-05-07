@@ -7,6 +7,7 @@ import { siteConfig } from "@/lib/utils";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { StageReset } from "@/components/motion/StageReset";
+import { SmoothScroll } from "@/components/motion/SmoothScroll";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -92,6 +93,7 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={messages} locale={locale}>
+      <SmoothScroll />
       <StageReset />
       <a
         href="#main"

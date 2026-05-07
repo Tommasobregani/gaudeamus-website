@@ -122,7 +122,7 @@ export function ClosingCTA() {
               {PARTNERS.map((p) => (
                 <li
                   key={p.src}
-                  className="group relative flex aspect-[3/2] items-center justify-center rounded-[var(--radius-md)] bg-white p-3 transition-transform duration-300 hover:-translate-y-0.5"
+                  className="group relative flex aspect-[3/2] items-center justify-center rounded-[var(--radius-md)] border border-[color:var(--color-cielo)]/30 bg-[color:var(--color-travertino)] p-3.5 transition-all duration-500 ease-[cubic-bezier(0.165,0.84,0.44,1)] hover:-translate-y-0.5 hover:border-[color:var(--color-ocra)]/50 hover:shadow-[0_18px_40px_rgba(8,26,49,0.35)]"
                   title={p.alt}
                 >
                   <div className="relative h-full w-full">
