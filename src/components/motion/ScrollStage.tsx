@@ -13,14 +13,17 @@ export type StagePalette =
   | "notte"
   | "pompeiano";
 
+/* Stage palettes — white · light blue · deep blue.
+   Legacy keys (terracotta / salvia / pompeiano) collapse onto the new
+   three-stop scheme so existing markup keeps working. */
 const themes: Record<StagePalette, { bg: string; fg: string; accent: string }> = {
-  travertino: { bg: "#e8edf3", fg: "#1e1e1e", accent: "#a83232" },
-  carta: { bg: "#fbfbfd", fg: "#1e1e1e", accent: "#a83232" },
-  sepia: { bg: "#1e1e1e", fg: "#eef1f5", accent: "#c89b3c" },
-  terracotta: { bg: "#b8613b", fg: "#fbfbfd", accent: "#fbfbfd" },
-  salvia: { bg: "#6f7a5a", fg: "#fbfbfd", accent: "#fbfbfd" },
-  notte: { bg: "#12355b", fg: "#fbfbfd", accent: "#c89b3c" },
-  pompeiano: { bg: "#a83232", fg: "#fbfbfd", accent: "#fbfbfd" },
+  travertino:  { bg: "#f5f7fb", fg: "#0f1622", accent: "#0f2a4a" }, // soft white
+  carta:       { bg: "#ffffff", fg: "#0f1622", accent: "#0f2a4a" }, // pure white
+  sepia:       { bg: "#0f1622", fg: "#f5f7fb", accent: "#a7c0e0" }, // ink
+  terracotta:  { bg: "#d6e3f4", fg: "#0f1622", accent: "#0f2a4a" }, // → light blue
+  salvia:      { bg: "#e8eef8", fg: "#0f1622", accent: "#0f2a4a" }, // → very light blue
+  notte:       { bg: "#0f2a4a", fg: "#ffffff", accent: "#a7c0e0" }, // deep blue
+  pompeiano:   { bg: "#0f2a4a", fg: "#ffffff", accent: "#a7c0e0" }, // → deep blue
 };
 
 type Props = {
@@ -73,7 +76,7 @@ export function ScrollStage({ palette, children, className }: Props) {
       ref={ref}
       data-stage={palette}
       animate={{ backgroundColor: theme.bg, color: theme.fg }}
-      transition={{ duration: 0.45, ease: [0.2, 0.7, 0.1, 1] }}
+      transition={{ duration: 0.9, ease: [0.2, 0.7, 0.1, 1] }}
       style={{ backgroundColor: theme.bg, color: theme.fg }}
       className={cn("relative", className)}
     >

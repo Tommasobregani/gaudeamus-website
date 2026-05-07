@@ -21,7 +21,8 @@ export function ProgrammeStrip() {
         locale === "it"
           ? "Produzioni in italiano con sottotitoli live."
           : "Productions in Italian, with live English subtitles.",
-      image: "/events/poor-piero/poor-piero-04.jpeg",
+      image: "/events/poor-piero/poor-piero-09.jpeg",
+      position: "center 30%",
     },
     {
       key: "workshop",
@@ -32,6 +33,7 @@ export function ProgrammeStrip() {
           ? "Teatro e lingua italiana, in pratica, in tutta la Scozia."
           : "Theatre and the Italian language, hands on, across Scotland.",
       image: "/events/viaggio-lingua/viaggio-lingua-01.jpg",
+      position: "center 40%",
     },
     {
       key: "eventi",
@@ -42,17 +44,18 @@ export function ProgrammeStrip() {
           ? "Aperitivi letterari, feste di Natale, comunità."
           : "Literary aperitivos, Christmas parties, community.",
       image: "/events/christmas-party/christmas-party-07.jpg",
+      position: "center 35%",
     },
   ];
 
   return (
-    <section className="container-site py-20 md:py-28 text-[color:var(--color-travertino)]">
+    <section className="container-site py-20 md:py-28 text-white">
       <div className="flex flex-wrap items-end justify-between gap-6">
         <FadeIn>
-          <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] opacity-80">
+          <p className="font-[family-name:var(--font-inter)] text-[0.74rem] uppercase tracking-[0.32em] text-[color:var(--color-cielo)]">
             {t("manifestoEyebrow")}
           </p>
-          <h2 className="mt-6 max-w-[24ch] bodoni-italic text-[clamp(2.25rem,4.5vw+1rem,4rem)] leading-[1.05]">
+          <h2 className="mt-6 max-w-[24ch] font-[family-name:var(--font-inter)] font-light text-[clamp(2.1rem,4.4vw+0.5rem,3.8rem)] leading-[1.06] tracking-[-0.025em] text-white">
             {t("manifestoTitle")}
           </h2>
         </FadeIn>
@@ -61,24 +64,34 @@ export function ProgrammeStrip() {
         {items.map((it, i) => (
           <StaggerItem key={it.key}>
             <Link href={it.href} className="group block">
-              <div className="relative aspect-[4/5] w-full overflow-hidden bg-[color:var(--color-sepia)]">
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[var(--radius-lg)] bg-[color:var(--color-notte-deep)]">
                 <Image
                   src={it.image}
                   alt={it.label}
                   fill
                   sizes="(min-width: 768px) 30vw, 90vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                  className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+                  style={{ objectPosition: it.position }}
                 />
-                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[color:var(--color-sepia)]/65 via-[color:var(--color-sepia)]/15 to-transparent" />
-                <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-3 text-[color:var(--color-travertino)]">
-                  <span className="font-[family-name:var(--font-cartel)] text-[0.82rem] uppercase tracking-[0.28em]">
-                    {String(i + 1).padStart(2, "0")} · {it.label}
-                  </span>
-                  <ArrowUpRight size={20} strokeWidth={1.25} className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                </div>
               </div>
-              <h3 className="mt-5 max-w-[28ch] font-[family-name:var(--font-display)] font-medium text-[1.45rem] leading-[1.25] tracking-[-0.018em] text-[color:var(--color-travertino)]">
+
+              {/* Caption below the photo — no overlays, no glass */}
+              <div className="mt-5 flex items-baseline justify-between gap-3">
+                <span className="font-[family-name:var(--font-mono)] text-[0.66rem] uppercase tracking-[0.22em] text-[color:var(--color-cielo)]">
+                  {String(i + 1).padStart(2, "0")} · {it.label}
+                </span>
+                <ArrowUpRight
+                  size={16}
+                  strokeWidth={1.6}
+                  className="text-white/70 transition-all duration-500 ease-[cubic-bezier(0.2,0.7,0.1,1)] group-hover:rotate-45 group-hover:text-white"
+                />
+              </div>
+              <h3 className="relative mt-3 inline-block max-w-[28ch] font-[family-name:var(--font-inter)] font-medium text-[1.2rem] leading-[1.3] tracking-[-0.015em] text-white">
                 {it.title}
+                <span
+                  aria-hidden
+                  className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-[color:var(--color-cielo)] transition-transform duration-700 ease-[cubic-bezier(0.2,0.7,0.1,1)] group-hover:scale-x-100"
+                />
               </h3>
             </Link>
           </StaggerItem>

@@ -6,7 +6,13 @@ import { useLocale } from "next-intl";
 import { useParams } from "next/navigation";
 import { cn } from "@/lib/utils";
 
-export function LanguageToggle({ className }: { className?: string }) {
+type Props = {
+  className?: string;
+  /** Color mode — defaults to dark text. "light" inverts for use over dark photos. */
+  tone?: "dark" | "light";
+};
+
+export function LanguageToggle({ className, tone = "dark" }: Props) {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
@@ -24,10 +30,13 @@ export function LanguageToggle({ className }: { className?: string }) {
     });
   }
 
+  const isLight = tone === "light";
+
   return (
     <div
       className={cn(
-        "inline-flex items-center gap-0 font-[family-name:var(--font-cartel)] text-[0.78rem] tracking-[0.3em] text-[color:var(--color-sepia)]",
+        "inline-flex items-center gap-0 font-[family-name:var(--font-inter)] text-[0.74rem] font-medium tracking-[0.24em]",
+        isLight ? "text-white" : "text-[color:var(--color-sepia)]",
         className,
       )}
       aria-label="Language selector"
@@ -38,13 +47,17 @@ export function LanguageToggle({ className }: { className?: string }) {
         aria-current={locale === "en" ? "true" : undefined}
         disabled={isPending}
         className={cn(
-          "px-2 py-1 transition-colors",
-          locale === "en" ? "text-[color:var(--color-pompeiano)]" : "opacity-65 hover:opacity-100",
+          "px-2 py-1 transition-opacity",
+          locale === "en"
+            ? isLight
+              ? "text-[color:var(--color-cielo)]"
+              : "text-[color:var(--color-notte)]"
+            : "opacity-60 hover:opacity-100",
         )}
       >
         EN
       </button>
-      <span aria-hidden className="opacity-30">
+      <span aria-hidden className="opacity-25">
         ·
       </span>
       <button
@@ -53,8 +66,12 @@ export function LanguageToggle({ className }: { className?: string }) {
         aria-current={locale === "it" ? "true" : undefined}
         disabled={isPending}
         className={cn(
-          "px-2 py-1 transition-colors",
-          locale === "it" ? "text-[color:var(--color-pompeiano)]" : "opacity-65 hover:opacity-100",
+          "px-2 py-1 transition-opacity",
+          locale === "it"
+            ? isLight
+              ? "text-[color:var(--color-cielo)]"
+              : "text-[color:var(--color-notte)]"
+            : "opacity-60 hover:opacity-100",
         )}
       >
         IT

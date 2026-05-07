@@ -204,22 +204,40 @@ function GalleryCell({
       type="button"
       onClick={onOpen}
       aria-label={alt}
-      initial={{ y: 12 }}
-      animate={{ y: entered ? 0 : 12 }}
-      transition={{ duration: 0.6, delay: Math.min(index * 0.03, 0.3), ease: [0.2, 0.7, 0.1, 1] }}
+      initial={{ clipPath: "inset(100% 0 0 0)", opacity: 0 }}
+      animate={
+        entered
+          ? { clipPath: "inset(0% 0 0 0)", opacity: 1 }
+          : { clipPath: "inset(100% 0 0 0)", opacity: 0 }
+      }
+      transition={{
+        clipPath: { duration: 1.1, delay: Math.min(index * 0.06, 0.36), ease: [0.2, 0.7, 0.1, 1] },
+        opacity: { duration: 0.45, delay: Math.min(index * 0.06, 0.36), ease: [0.2, 0.7, 0.1, 1] },
+      }}
       className={cn(
-        "group relative block overflow-hidden bg-[color:var(--color-sepia)]/10 focus-visible:outline-2 focus-visible:outline-offset-4",
+        "group relative block overflow-hidden rounded-[var(--radius-md)] bg-[color:var(--color-sepia)]/10 focus-visible:outline-2 focus-visible:outline-offset-4",
         spanClass,
         aspectClass,
       )}
     >
-      <Image
-        src={image}
-        alt={alt}
-        fill
-        sizes="(min-width: 1024px) 66vw, 100vw"
-        className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.2,0.7,0.1,1)] group-hover:scale-[1.04]"
-      />
+      <motion.div
+        initial={{ scale: 1.18 }}
+        animate={{ scale: entered ? 1 : 1.18 }}
+        transition={{
+          duration: 1.4,
+          delay: Math.min(index * 0.06, 0.36),
+          ease: [0.2, 0.7, 0.1, 1],
+        }}
+        className="absolute inset-0"
+      >
+        <Image
+          src={image}
+          alt={alt}
+          fill
+          sizes="(min-width: 1024px) 66vw, 100vw"
+          className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.2,0.7,0.1,1)] group-hover:scale-[1.05]"
+        />
+      </motion.div>
     </motion.button>
   );
 }

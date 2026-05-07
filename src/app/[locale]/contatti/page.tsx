@@ -3,6 +3,7 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { hasLocale, routing } from "@/i18n/routing";
 import { FadeIn } from "@/components/motion/FadeIn";
+import { PageHero } from "@/components/layout/PageHero";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { RomanEyebrow } from "@/components/ui/RomanEyebrow";
 import { Fregio } from "@/components/brand/Fregio";
@@ -69,33 +70,15 @@ export default async function ContattiPage({
 
   return (
     <>
-      {/* Typographic dark-sepia masthead, matching the pattern */}
-      <section className="relative bg-[color:var(--color-nero)] text-[color:var(--color-travertino)]">
-        <div className="container-site grid gap-10 py-20 md:grid-cols-12 md:gap-x-14 md:gap-y-12 md:py-28">
-          <div className="min-w-0 md:col-span-7">
-            <FadeIn>
-              <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-oro-soft)]">
-                {it ? "Contatti" : "Contact"}
-              </p>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <h1
-                className="mt-6 font-[family-name:var(--font-display)] font-medium leading-[0.96] tracking-[-0.025em] text-[clamp(2.6rem,5.6vw+1rem,5.25rem)]"
-                style={{ overflowWrap: "break-word" }}
-              >
-                {it ? "Parliamone." : "Let's talk."}
-              </h1>
-            </FadeIn>
-          </div>
-          <div className="min-w-0 md:col-span-5 md:flex md:items-end">
-            <FadeIn delay={0.2}>
-              <p className="max-w-[44ch] text-[1.02rem] leading-[1.65] opacity-90">
-                {t("lead")}
-              </p>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow={it ? "Contatti" : "Contact"}
+        title={it ? "Parliamone." : "Let's talk."}
+        lead={t("lead")}
+        image="/events/no-shakespeare/no-shakespeare-04.jpg"
+        imageAlt="Compagnia Gaudeamus on stage"
+        imagePosition="center 22%"
+        size="compact"
+      />
 
       {/* Channels — three big address cards */}
       <section className="container-site border-t border-[color:var(--color-sepia)]/25 py-20 md:py-24">

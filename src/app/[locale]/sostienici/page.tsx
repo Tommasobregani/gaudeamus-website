@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { hasLocale, routing, Link } from "@/i18n/routing";
 import { ArrowUpRight } from "lucide-react";
 import { FadeIn } from "@/components/motion/FadeIn";
+import { PageHero } from "@/components/layout/PageHero";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { ButtonLink } from "@/components/ui/Button";
 import { siteConfig } from "@/lib/utils";
@@ -70,55 +71,15 @@ export default async function SostieniciPage({
 
   return (
     <>
-      {/* Support masthead — theatre red, urgent + warm */}
-      <section className="relative bg-[color:var(--color-pompeiano)] text-[color:var(--color-on-accent)]">
-        <div className="container-site grid gap-10 py-20 md:grid-cols-12 md:gap-14 md:py-28">
-          <div className="md:col-span-7">
-            <FadeIn>
-              <p className="font-[family-name:var(--font-cartel)] text-[0.74rem] uppercase tracking-[0.32em] text-[color:var(--color-on-accent)]/80">
-                {t("eyebrow")}
-              </p>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <h1
-                className="mt-6 max-w-[20ch] min-w-0 font-[family-name:var(--font-display)] font-medium italic text-[clamp(2.4rem,5.4vw+1rem,5.25rem)] leading-[0.98] tracking-[-0.025em]"
-                style={{ overflowWrap: "break-word" }}
-              >
-                {t("title")}
-              </h1>
-            </FadeIn>
-            <FadeIn delay={0.2}>
-              <p className="mt-10 max-w-[58ch] text-[1.05rem] leading-[1.7] opacity-90">
-                {t("lead")}
-              </p>
-              <p className="mt-8 font-[family-name:var(--font-mono)] text-[0.74rem] uppercase tracking-[0.2em] opacity-75">
-                {t("heroMeta")}
-              </p>
-            </FadeIn>
-          </div>
-          <FadeIn delay={0.15} className="md:col-span-5 md:flex md:items-end">
-            <div className="relative aspect-[4/5] w-full overflow-hidden">
-              <Image
-                src="/events/christmas-party/christmas-party-07.jpg"
-                alt="Gaudeamus community Christmas Party, Aberdeen"
-                fill
-                priority
-                sizes="(min-width: 768px) 40vw, 100vw"
-                className="object-cover"
-              />
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[color:var(--color-nero)]/55 to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between text-[color:var(--color-travertino)]">
-                <span className="font-[family-name:var(--font-cartel)] text-[0.72rem] tracking-[0.26em]">
-                  {locale === "it" ? "Comunità · Aberdeen" : "Community · Aberdeen"}
-                </span>
-                <span className="font-[family-name:var(--font-mono)] text-[0.68rem] tracking-[0.22em]">
-                  2025
-                </span>
-              </div>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+      <PageHero
+        eyebrow={t("eyebrow")}
+        title={t("title")}
+        lead={t("lead")}
+        meta={t("heroMeta")}
+        image="/events/christmas-party/christmas-party-07.jpg"
+        imageAlt="Gaudeamus community Christmas Party, Aberdeen"
+        imagePosition="center 30%"
+      />
 
       {/* Where your money goes — deep-blue panel after the red hero */}
       <section className="mt-0 bg-[color:var(--color-notte)] py-20 text-[color:var(--color-travertino)] md:py-28">

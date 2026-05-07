@@ -2,85 +2,102 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
-import { motion, useScroll, useTransform, useReducedMotion } from "motion/react";
+import { useLocale, useTranslations } from "next-intl";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useReducedMotion,
+} from "motion/react";
+import { ArrowUpRight } from "lucide-react";
+import { Link } from "@/i18n/routing";
 import { ButtonLink } from "@/components/ui/Button";
 import { LetterReveal } from "@/components/motion/LetterReveal";
+import { ImgReveal } from "@/components/motion/ImgReveal";
+import { upcomingProductions, productions } from "@/content/events";
+import type { Locale } from "@/lib/utils";
+
+// archi-site easing curves
+const POWER3_OUT = [0.215, 0.61, 0.355, 1] as const;
+const POWER4_OUT = [0.165, 0.84, 0.44, 1] as const;
 
 /**
- * Cinematic hero per Eva's brief:
- *  - Smaller title (was clamp(...,10rem); now clamp(...,6rem))
- *  - Better photo on the right, dominant, full-height with slow Ken Burns motion
- *  - Two clear opening options: Explore Teatro (primary) + Support (secondary)
- *  - "Vivace ma sobrio" - one strong statement, not a poem
+ * Hero — calm editorial layout, charity register.
+ * Type left, photo right, captions BELOW the photo. No glass plates.
+ * Motion patterns mirror Northfold/archi-site:
+ *   • Title rises (y: 60 → 0) with power4.out, word-stagger.
+ *   • Photo: clip-reveal (power4.inOut) + slow Ken Burns scale settle.
+ *   • Sub + CTAs: power3.out fade + small y-offset, gently delayed.
+ *   • Scroll: tiny parallax on the photo column only.
  */
 export function Hero() {
   const t = useTranslations("home");
+  const locale = useLocale() as Locale;
   const reduce = useReducedMotion();
-  const sectionRef = useRef<HTMLElement | null>(null);
+  const ref = useRef<HTMLElement | null>(null);
 
-  // Subtle Ken Burns: slow scale + drift while page is in view
   const { scrollYProgress } = useScroll({
-    target: sectionRef,
+    target: ref,
     offset: ["start start", "end start"],
   });
-  const photoScale = useTransform(scrollYProgress, [0, 1], [1.04, 1.12]);
-  const photoY = useTransform(scrollYProgress, [0, 1], ["0%", "-6%"]);
-  const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0.18, 0.42]);
+  const photoScale = useTransform(scrollYProgress, [0, 1], [1.02, 1.08]);
+  const photoY = useTransform(scrollYProgress, [0, 1], ["0%", "-4%"]);
+
+  const nextShow = upcomingProductions[0] ?? productions[0];
+  const nextDate = nextShow?.date
+    ? new Date(nextShow.date).toLocaleDateString(
+        locale === "it" ? "it-IT" : "en-GB",
+        { day: "numeric", month: "long", year: "numeric" },
+      )
+    : null;
+  const nextVenue = nextShow?.venues?.[0]?.split(".")[0] ?? "";
 
   return (
     <section
-      ref={sectionRef}
-      className="relative isolate overflow-hidden pt-10 pb-20 md:pt-16 md:pb-28"
+      ref={ref}
+      className="relative isolate overflow-hidden pt-12 pb-20 md:pt-20 md:pb-28"
     >
       <div className="container-site">
-        <div className="grid items-center gap-10 md:grid-cols-12 md:gap-14">
-          {/* Left — typography */}
-          <div className="md:col-span-6 lg:col-span-6">
+        <div className="grid items-start gap-10 md:grid-cols-12 md:gap-14 lg:gap-20">
+          {/* ═══ LEFT — type column ═══ */}
+          <div className="md:col-span-7 lg:col-span-7">
             <motion.p
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: [0.2, 0.7, 0.1, 1] }}
-              className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.32em] text-[color:var(--color-pompeiano)]"
+              transition={{ duration: 0.7, ease: POWER3_OUT }}
+              className="font-[family-name:var(--font-inter)] text-[0.72rem] font-medium uppercase tracking-[0.32em] text-[color:var(--color-notte)]"
             >
               {t("eyebrow")}
             </motion.p>
 
-            <h1 className="mt-7 max-w-[14ch] min-w-0 text-[color:var(--color-sepia)]">
+            <h1 className="mt-7 max-w-[16ch] min-w-0 text-[color:var(--color-sepia)]">
               <LetterReveal
                 as="span"
                 text={t("heroLine1")}
-                className="block font-[family-name:var(--font-display)] text-[clamp(2.4rem,5.4vw+1rem,5.25rem)] font-medium leading-[0.98] tracking-[-0.025em]"
+                className="block font-[family-name:var(--font-inter)] text-[clamp(2.2rem,5vw+0.5rem,5rem)] font-light leading-[1.04] tracking-[-0.025em]"
               />
               <LetterReveal
                 as="span"
                 text={t("heroLine2")}
-                delay={0.12}
-                italicize
-                className="mt-1 block font-[family-name:var(--font-display)] italic text-[clamp(2.4rem,5.4vw+1rem,5.25rem)] font-normal leading-[0.98] tracking-[-0.03em] text-[color:var(--color-pompeiano)]"
-              />
-              <LetterReveal
-                as="span"
-                text={t("heroLine3")}
-                delay={0.24}
-                className="mt-1 block font-[family-name:var(--font-display)] text-[clamp(2.4rem,5.4vw+1rem,5.25rem)] font-medium leading-[0.98] tracking-[-0.025em]"
+                delay={0.1}
+                className="mt-1 block font-[family-name:var(--font-inter)] text-[clamp(2.2rem,5vw+0.5rem,5rem)] font-medium leading-[1.04] tracking-[-0.03em] text-[color:var(--color-notte)]"
               />
             </h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.55, ease: [0.2, 0.7, 0.1, 1] }}
-              className="mt-9 max-w-[52ch] text-[1.02rem] leading-[1.65] text-[color:var(--color-sepia-soft)] md:text-[1.08rem]"
+              transition={{ duration: 0.9, delay: 0.55, ease: POWER4_OUT }}
+              className="mt-8 max-w-[52ch] text-[1rem] leading-[1.65] text-[color:var(--color-sepia-soft)] md:text-[1.05rem]"
             >
               {t("heroSub")}
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.7, ease: [0.2, 0.7, 0.1, 1] }}
-              className="mt-10 flex flex-wrap items-center gap-3"
+              initial={{ opacity: 0, y: 12, scale: 0.94 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.75, ease: POWER3_OUT }}
+              className="mt-9 flex flex-wrap items-center gap-3"
             >
               <ButtonLink href="/teatro" variant="primary" size="lg" withArrow>
                 {t("heroCtaPrimary")}
@@ -89,54 +106,81 @@ export function Hero() {
                 {t("heroCtaSecondary")}
               </ButtonLink>
             </motion.div>
+
+            {/* Quiet "next on stage" row, hairline-only */}
+            {nextShow ? (
+              <motion.div
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.95, ease: POWER3_OUT }}
+                className="mt-12 max-w-md border-t border-[color:var(--color-sepia)]/12 pt-5"
+              >
+                <Link href={`/teatro/${nextShow.slug}`} className="group block">
+                  <div className="flex items-baseline justify-between gap-3">
+                    <p className="font-[family-name:var(--font-mono)] text-[0.66rem] uppercase tracking-[0.24em] text-[color:var(--color-muted)]">
+                      {locale === "it" ? "Prossimo spettacolo" : "Next on stage"}
+                    </p>
+                    <ArrowUpRight
+                      size={14}
+                      strokeWidth={1.6}
+                      className="text-[color:var(--color-notte)] transition-transform duration-500 ease-[cubic-bezier(0.165,0.84,0.44,1)] group-hover:rotate-45"
+                    />
+                  </div>
+                  <p className="mt-3 font-[family-name:var(--font-inter)] text-[1.18rem] font-medium leading-[1.2] tracking-[-0.012em] text-[color:var(--color-sepia)] group-hover:text-[color:var(--color-notte)]">
+                    {nextShow.title[locale]}
+                  </p>
+                  <p className="mt-1.5 font-[family-name:var(--font-inter)] text-[0.92rem] leading-[1.45] text-[color:var(--color-sepia-soft)]">
+                    {nextDate}
+                    {nextVenue ? ` · ${nextVenue}` : ""}
+                  </p>
+                </Link>
+              </motion.div>
+            ) : null}
           </div>
 
-          {/* Right — cinematic photo */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.4, ease: [0.2, 0.7, 0.1, 1] }}
-            className="md:col-span-6 lg:col-span-6"
-          >
-            <figure className="relative overflow-hidden rounded-[var(--radius-xl)] bg-[color:var(--color-nero)] shadow-[var(--shadow-lift)]">
-              <div className="relative aspect-[4/5] w-full overflow-hidden md:aspect-[5/6]">
-                <motion.div
-                  style={
-                    reduce
-                      ? undefined
-                      : { scale: photoScale, y: photoY }
-                  }
-                  className="absolute inset-0"
-                >
-                  <Image
-                    src="/events/poor-piero/poor-piero-07.jpeg"
-                    alt="Compagnia Gaudeamus, Poor Piero in scena"
-                    fill
-                    priority
-                    sizes="(min-width: 1024px) 50vw, 100vw"
-                    className="object-cover"
-                  />
-                </motion.div>
-                {/* subtle vignette + dynamic darkening at scroll for type readability */}
-                <motion.div
-                  aria-hidden
-                  style={reduce ? undefined : { opacity: overlayOpacity }}
-                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent"
+          {/* ═══ RIGHT — photo column. Caption sits BELOW the photo. ═══ */}
+          <div className="md:col-span-5 lg:col-span-5">
+            <ImgReveal
+              from="bottom"
+              parallax={false}
+              className="relative aspect-[4/5] w-full overflow-hidden rounded-[var(--radius-xl)] bg-[color:var(--color-cielo)] shadow-[var(--shadow-lift)] md:aspect-[3/4]"
+            >
+              <motion.div
+                style={reduce ? undefined : { scale: photoScale, y: photoY }}
+                className="absolute inset-0"
+              >
+                <Image
+                  src="/events/poor-piero/poor-piero-07.jpeg"
+                  alt="Compagnia Gaudeamus, Poor Piero in scena"
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 42vw, (min-width: 768px) 42vw, 100vw"
+                  className="object-cover"
+                  style={{ objectPosition: "center 25%" }}
                 />
-                {/* hairline rosso accent on bottom edge */}
-                <span aria-hidden className="absolute inset-x-6 bottom-5 h-px bg-white/30" />
-                {/* meta strip — production credit */}
-                <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between gap-3 text-white">
-                  <span className="font-[family-name:var(--font-cartel)] text-[0.72rem] uppercase tracking-[0.28em] text-white/85">
-                    Poor Piero · in scena
-                  </span>
-                  <span className="font-[family-name:var(--font-mono)] text-[0.68rem] tracking-[0.2em] text-white/65">
-                    2025
-                  </span>
-                </div>
+              </motion.div>
+            </ImgReveal>
+
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.85, ease: POWER3_OUT }}
+              className="mt-5 flex items-baseline justify-between gap-4"
+            >
+              <div>
+                <p className="font-[family-name:var(--font-mono)] text-[0.62rem] uppercase tracking-[0.22em] text-[color:var(--color-muted)]">
+                  In scena
+                </p>
+                <p className="mt-1.5 font-[family-name:var(--font-inter)] text-[0.96rem] font-medium leading-[1.2] tracking-[-0.005em] text-[color:var(--color-sepia)]">
+                  Poor Piero
+                </p>
               </div>
-            </figure>
-          </motion.div>
+              <span aria-hidden className="h-px flex-1 self-end bg-[color:var(--color-sepia)]/15" />
+              <span className="self-end font-[family-name:var(--font-mono)] text-[0.66rem] tracking-[0.18em] text-[color:var(--color-muted)]">
+                Aberdeen · 2025
+              </span>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>

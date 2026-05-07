@@ -19,8 +19,8 @@ export default async function OG() {
           color: "#1e1e1e",
           fontFamily: "serif",
           backgroundImage:
-            "radial-gradient(rgba(18,53,91,0.07) 1px, transparent 1px)",
-          backgroundSize: "22px 22px",
+            "radial-gradient(60% 80% at 0% 0%, rgba(167,192,224,0.22), transparent)",
+          backgroundSize: "100% 100%",
         }}
       >
         <div

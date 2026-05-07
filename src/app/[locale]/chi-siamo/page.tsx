@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { hasLocale, routing } from "@/i18n/routing";
 import { FadeIn } from "@/components/motion/FadeIn";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
+import { PageHero } from "@/components/layout/PageHero";
 import { staff } from "@/content/staff";
 import { siteConfig, type Locale } from "@/lib/utils";
 import { JsonLd } from "@/components/JsonLd";
@@ -62,37 +63,15 @@ export default async function ChiSiamoPage({
         ])}
       />
 
-      {/* Welcome masthead — paper, warm narrative */}
-      <section className="relative">
-        <div className="container-site border-b border-[color:var(--color-sepia)]/15 py-3 font-[family-name:var(--font-cartel)] text-[0.7rem] uppercase tracking-[0.26em] text-[color:var(--color-muted)]">
-          {t("stamp")}
-        </div>
-        <div className="container-site py-20 md:py-28">
-          <FadeIn>
-            <p className="font-[family-name:var(--font-cartel)] text-[0.74rem] uppercase tracking-[0.32em] text-[color:var(--color-pompeiano)]">
-              {t("eyebrow")}
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.1}>
-            <h1
-              className="mt-6 max-w-[16ch] min-w-0 font-[family-name:var(--font-display)] font-medium italic text-[clamp(2.4rem,5.6vw+1rem,5.25rem)] leading-[0.96] tracking-[-0.025em] text-[color:var(--color-sepia)]"
-              style={{ overflowWrap: "break-word" }}
-            >
-              {t("title")}
-            </h1>
-          </FadeIn>
-          <FadeIn delay={0.2}>
-            <div className="mt-12 grid items-end gap-10 md:grid-cols-12 md:gap-14">
-              <p className="md:col-span-7 max-w-[60ch] text-[1.1rem] leading-[1.7] text-[color:var(--color-sepia-soft)]">
-                {t("lead")}
-              </p>
-              <p className="md:col-span-4 md:col-start-9 font-[family-name:var(--font-mono)] text-[0.74rem] uppercase tracking-[0.2em] text-[color:var(--color-muted)]">
-                {t("heroMeta")}
-              </p>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+      <PageHero
+        eyebrow={t("eyebrow")}
+        title={t("title")}
+        lead={t("lead")}
+        meta={t("heroMeta")}
+        image="/events/poor-piero/poor-piero-04.jpeg"
+        imageAlt="Compagnia Gaudeamus on stage"
+        imagePosition="center 28%"
+      />
 
       {/* History */}
       <section className="relative border-t border-[color:var(--color-sepia)]/25 bg-[color:var(--color-carta)]">
@@ -116,29 +95,33 @@ export default async function ChiSiamoPage({
         </div>
       </section>
 
-      {/* Mission — Pompeii-red panel for emotional weight */}
-      <section className="bg-[color:var(--color-pompeiano)] py-20 text-[color:var(--color-travertino)] md:py-28">
-        <div className="container-site grid gap-10 md:grid-cols-12">
+      {/* Mission — deep blue stage */}
+      <section className="relative overflow-hidden bg-[color:var(--color-notte)] py-20 text-white md:py-28">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_70%_at_15%_30%,rgba(167,192,224,0.14)_0%,transparent_60%)]"
+        />
+        <div className="container-site relative grid gap-10 md:grid-cols-12">
           <div className="md:col-span-4">
             <FadeIn>
-              <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] opacity-80">
+              <p className="font-[family-name:var(--font-inter)] text-[0.74rem] font-medium uppercase tracking-[0.32em] text-[color:var(--color-cielo)]">
                 {t("missionTitle")}
               </p>
             </FadeIn>
           </div>
           <div className="md:col-span-8 space-y-8">
             <FadeIn delay={0.1}>
-              <p className="bodoni-italic text-[clamp(1.6rem,2.4vw+0.8rem,2.5rem)] leading-[1.2]">
+              <p className="font-[family-name:var(--font-inter)] text-[clamp(1.6rem,2.4vw+0.8rem,2.5rem)] font-light leading-[1.22] tracking-[-0.018em] text-white">
                 {t("missionBody")}
               </p>
             </FadeIn>
             <FadeIn delay={0.15}>
-              <p className="max-w-[64ch] text-[1.05rem] leading-[1.7] opacity-90">
+              <p className="max-w-[64ch] text-[1.02rem] leading-[1.7] text-white/85">
                 {t("missionExtra1")}
               </p>
             </FadeIn>
             <FadeIn delay={0.2}>
-              <p className="max-w-[64ch] text-[1.05rem] leading-[1.7] opacity-90">
+              <p className="max-w-[64ch] text-[1.02rem] leading-[1.7] text-white/85">
                 {t("missionExtra2")}
               </p>
             </FadeIn>
@@ -197,15 +180,15 @@ export default async function ChiSiamoPage({
               .slice(0, 2);
             return (
               <StaggerItem key={p.name}>
-                <article className="flex items-start gap-5 border border-[color:var(--color-sepia)]/15 bg-[color:var(--color-carta)] p-6 transition-colors hover:bg-[color:var(--color-travertino)]">
-                  <span className="flex h-14 w-14 shrink-0 items-center justify-center bg-[color:var(--color-notte)] font-[family-name:var(--font-cartel)] text-[1.05rem] tracking-[0.18em] text-[color:var(--color-travertino)]">
+                <article className="glass-light flex items-start gap-5 rounded-[var(--radius-lg)] p-6 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)]">
+                  <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[color:var(--color-notte)] font-[family-name:var(--font-inter)] text-[0.95rem] font-medium tracking-[0.12em] text-white">
                     {initials}
                   </span>
                   <div className="min-w-0">
-                    <h3 className="bodoni-italic text-[1.5rem] leading-[1.1] text-[color:var(--color-sepia)]">
+                    <h3 className="font-[family-name:var(--font-inter)] text-[1.15rem] font-medium leading-[1.2] tracking-[-0.012em] text-[color:var(--color-sepia)]">
                       {p.name}
                     </h3>
-                    <p className="mt-1 font-[family-name:var(--font-cartel)] text-[0.72rem] uppercase tracking-[0.26em] text-[color:var(--color-sepia-soft)]">
+                    <p className="mt-1 font-[family-name:var(--font-inter)] text-[0.7rem] uppercase tracking-[0.26em] text-[color:var(--color-muted)]">
                       {p.role[loc]}
                     </p>
                   </div>

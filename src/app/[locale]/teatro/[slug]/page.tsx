@@ -6,6 +6,7 @@ import { hasLocale, routing, Link } from "@/i18n/routing";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { events, eventBySlug, producerLabel, type EventKind } from "@/content/events";
 import { FadeIn } from "@/components/motion/FadeIn";
+import { ImgReveal } from "@/components/motion/ImgReveal";
 import { RomanEyebrow } from "@/components/ui/RomanEyebrow";
 import { Fregio } from "@/components/brand/Fregio";
 import { CastList } from "@/components/brand/CastList";
@@ -126,27 +127,25 @@ export default async function ProjectPage({
 
       {event.cover ? (
         <section className="container-site pb-10 md:pb-14">
-          <FadeIn>
-            <div className="relative aspect-[16/9] w-full overflow-hidden bg-[color:var(--color-sepia)]/10 md:aspect-[21/9]">
-              <Image
-                src={event.cover}
-                alt={`${event.title[loc]} — on stage`}
-                fill
-                priority
-                sizes="100vw"
-                className="object-cover"
-              />
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[color:var(--color-sepia)]/55 to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between text-[color:var(--color-travertino)]">
-                <span className="font-[family-name:var(--font-cartel)] text-[0.72rem] tracking-[0.26em]">
-                  SCENA · {event.title[loc].toUpperCase()}
-                </span>
-                <span className="font-[family-name:var(--font-mono)] text-[0.68rem] tracking-[0.22em]">
-                  {event.year}
-                </span>
-              </div>
+          <ImgReveal className="relative block aspect-[16/9] w-full overflow-hidden rounded-[var(--radius-lg)] bg-[color:var(--color-sepia)]/10 md:aspect-[21/9]">
+            <Image
+              src={event.cover}
+              alt={`${event.title[loc]} — on stage`}
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+            />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/55 to-transparent" />
+            <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between text-white">
+              <span className="font-[family-name:var(--font-inter)] text-[0.72rem] font-medium uppercase tracking-[0.26em]">
+                SCENA · {event.title[loc].toUpperCase()}
+              </span>
+              <span className="font-[family-name:var(--font-mono)] text-[0.68rem] tracking-[0.22em]">
+                {event.year}
+              </span>
             </div>
-          </FadeIn>
+          </ImgReveal>
         </section>
       ) : null}
 

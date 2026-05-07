@@ -18,14 +18,19 @@ type Common = {
  */
 
 const styles = {
+  // Primary — solid deep blue on any surface. The single high-contrast CTA.
   primary:
-    "glass-accent text-[color:var(--color-on-accent)] hover:-translate-y-0.5 hover:brightness-110",
+    "glass-accent text-white hover:-translate-y-0.5 hover:brightness-110",
+  // Outline — for light surfaces. Hairline blue border, clean fill on hover.
   outline:
-    "border border-[color:var(--color-sepia)]/22 bg-[color:var(--color-travertino)]/40 text-[color:var(--color-sepia)] backdrop-blur-md hover:bg-[color:var(--color-sepia)] hover:text-[color:var(--color-travertino)] hover:border-[color:var(--color-sepia)]",
+    "border border-[color:var(--color-notte)]/22 bg-white text-[color:var(--color-notte)] hover:bg-[color:var(--color-notte)] hover:text-white hover:border-[color:var(--color-notte)]",
+  // Ghost — quiet text-only action.
   ghost:
-    "bg-transparent text-[color:var(--color-sepia)] hover:bg-[color:var(--color-sepia)]/8",
+    "bg-transparent text-[color:var(--color-notte)] hover:bg-[color:var(--color-notte)]/8",
+  // Glass — for dark sections (dark photo, blue stages). Translucent white,
+  // becomes solid white on hover.
   glass:
-    "glass-light text-[color:var(--color-sepia)] hover:bg-[color:var(--color-sepia)]/10",
+    "border border-white/25 bg-white/12 text-white backdrop-blur-md hover:bg-white hover:text-[color:var(--color-notte)] hover:border-white",
 } as const;
 
 const sizes = {
@@ -35,7 +40,7 @@ const sizes = {
 } as const;
 
 const base =
-  "inline-flex items-center justify-center gap-2.5 rounded-full font-[family-name:var(--font-cartel)] uppercase tracking-[0.2em] transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[color:var(--color-pompeiano)] disabled:opacity-50 disabled:pointer-events-none";
+  "inline-flex items-center justify-center gap-2.5 rounded-full font-[family-name:var(--font-inter)] font-medium uppercase tracking-[0.2em] transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[color:var(--color-notte)] disabled:opacity-50 disabled:pointer-events-none";
 
 type LinkProps = Common & { href: string } & Omit<
     ComponentPropsWithoutRef<typeof Link>,

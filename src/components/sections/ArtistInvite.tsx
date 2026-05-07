@@ -24,14 +24,14 @@ export function ArtistInvite() {
 
   return (
     <section className="relative overflow-hidden bg-[color:var(--color-notte)] text-[color:var(--color-travertino)]">
+      {/* Soft luminosity glow — no dot patterns. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.06]"
-        style={{
-          backgroundImage:
-            "radial-gradient(rgba(255,255,255,0.9) 1px, transparent 1px)",
-          backgroundSize: "22px 22px",
-        }}
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(50%_60%_at_85%_30%,rgba(167,192,224,0.16)_0%,transparent_60%)]"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(40%_50%_at_10%_80%,rgba(15,42,74,0.55)_0%,transparent_60%)]"
       />
       <div className="container-site relative grid gap-10 py-20 md:grid-cols-12 md:gap-14 md:py-24">
         <motion.div
@@ -41,23 +41,23 @@ export function ArtistInvite() {
           transition={{ duration: 0.8, ease: [0.2, 0.7, 0.1, 1] }}
           className="md:col-span-7"
         >
-          <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.32em] text-[color:var(--color-oro-soft)]">
+          <p className="font-[family-name:var(--font-inter)] text-[0.74rem] uppercase tracking-[0.32em] text-[color:var(--color-cielo)]">
             {it ? "Sei un artista?" : "Are you an artist?"}
           </p>
-          <h2 className="mt-6 max-w-[20ch] font-[family-name:var(--font-display)] font-medium leading-[1.02] tracking-[-0.025em] text-[clamp(1.85rem,3vw+0.6rem,3.4rem)]">
+          <h2 className="mt-6 max-w-[20ch] font-[family-name:var(--font-inter)] font-light leading-[1.04] tracking-[-0.025em] text-[clamp(1.85rem,3vw+0.6rem,3.4rem)] text-white">
             {it ? (
               <>
                 Presentaci il tuo progetto.{" "}
-                <span className="italic text-[color:var(--color-oro-soft)]">Ascoltiamo.</span>
+                <span className="font-medium text-[color:var(--color-cielo)]">Ascoltiamo.</span>
               </>
             ) : (
               <>
                 Pitch your project.{" "}
-                <span className="italic text-[color:var(--color-oro-soft)]">We listen.</span>
+                <span className="font-medium text-[color:var(--color-cielo)]">We listen.</span>
               </>
             )}
           </h2>
-          <p className="mt-7 max-w-[58ch] text-[1.02rem] leading-[1.65] text-[color:var(--color-travertino)]/85">
+          <p className="mt-7 max-w-[58ch] text-[1.02rem] leading-[1.65] text-white/85">
             {it
               ? "Gaudeamus non produce solo spettacoli propri: ospitiamo e facciamo circolare progetti di artisti italiani in Scozia e nel Regno Unito. Se hai uno spettacolo, un laboratorio o un'idea, scrivici alla direzione artistica."
               : "Gaudeamus is not only a producing company - we also host and circulate work by Italian artists in Scotland and the UK. If you have a show, a workshop or an idea, write to artistic direction."}
@@ -73,7 +73,7 @@ export function ArtistInvite() {
         >
           <a
             href={mailto}
-            className="inline-flex items-center gap-2 font-[family-name:var(--font-cartel)] text-[0.74rem] uppercase tracking-[0.26em] text-[color:var(--color-oro-soft)] hover:text-[color:var(--color-travertino)]"
+            className="inline-flex items-center gap-2 font-[family-name:var(--font-inter)] text-[0.72rem] uppercase tracking-[0.26em] text-[color:var(--color-cielo)] hover:text-white"
           >
             {siteConfig.email.artistic}
             <ArrowUpRight size={14} strokeWidth={1.7} />
@@ -81,7 +81,7 @@ export function ArtistInvite() {
           <div className="mt-5">
             <ButtonLink
               href={mailto}
-              variant="primary"
+              variant="glass"
               size="lg"
               withArrow
             >

@@ -1,37 +1,43 @@
 import { cn } from "@/lib/utils";
 
 type Props = {
-  issueLabel: string;      // "ANNO I · NUMERO III"
-  dateLabel: string;       // "APRILE · 2026"
-  title: string;           // "Il Diario"
-  subtitle?: string;       // "Notes from the wings."
+  issueLabel: string;
+  dateLabel: string;
+  title: string;
+  subtitle?: string;
   className?: string;
 };
 
 /**
- * MagazineMasthead — the front-page header of a printed Italian periodical.
- * Horizontal rule, issue + date flanking a big Bodoni title.
+ * MagazineMasthead — section header for the news/journal page.
+ * Inter only. Hairline rules, weight contrast, no italic.
  */
-export function MagazineMasthead({ issueLabel, dateLabel, title, subtitle, className }: Props) {
+export function MagazineMasthead({
+  issueLabel,
+  dateLabel,
+  title,
+  subtitle,
+  className,
+}: Props) {
   return (
-    <header className={cn("border-y-2 border-[color:var(--color-sepia)]", className)}>
-      <div className="flex items-center justify-between border-b border-[color:var(--color-sepia)]/25 px-1 py-3">
-        <span className="font-[family-name:var(--font-cartel)] text-[0.72rem] tracking-[0.3em] text-[color:var(--color-sepia)]">
+    <header className={cn("border-y border-[color:var(--color-sepia)]/15", className)}>
+      <div className="flex items-center justify-between border-b border-[color:var(--color-sepia)]/10 px-1 py-3">
+        <span className="font-[family-name:var(--font-inter)] text-[0.7rem] font-medium uppercase tracking-[0.28em] text-[color:var(--color-sepia)]">
           {issueLabel}
         </span>
-        <span className="font-[family-name:var(--font-mono)] text-[0.72rem] uppercase tracking-[0.24em] text-[color:var(--color-sepia)]">
+        <span className="font-[family-name:var(--font-mono)] text-[0.7rem] uppercase tracking-[0.22em] text-[color:var(--color-muted)]">
           {dateLabel}
         </span>
       </div>
-      <div className="px-1 py-6 text-center">
-        <h1 className="bodoni-italic text-[clamp(3.5rem,10vw+1rem,10rem)] leading-[0.88] text-[color:var(--color-sepia)]">
+      <div className="px-1 py-10 text-center md:py-14">
+        <h1 className="font-[family-name:var(--font-inter)] text-[clamp(2.6rem,6vw+0.5rem,5.5rem)] font-light leading-[1.02] tracking-[-0.025em] text-[color:var(--color-sepia)]">
           {title}
         </h1>
-        {subtitle && (
-          <p className="mt-3 font-[family-name:var(--font-body)] italic text-[1.05rem] text-[color:var(--color-sepia-soft)]">
+        {subtitle ? (
+          <p className="mx-auto mt-4 max-w-[52ch] font-[family-name:var(--font-inter)] text-[1rem] leading-[1.6] text-[color:var(--color-sepia-soft)]">
             {subtitle}
           </p>
-        )}
+        ) : null}
       </div>
     </header>
   );

@@ -6,6 +6,7 @@ import { hasLocale, routing, Link } from "@/i18n/routing";
 import { ArrowUpRight } from "lucide-react";
 import { FadeIn } from "@/components/motion/FadeIn";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
+import { PageHero } from "@/components/layout/PageHero";
 import {
   upcomingProductions,
   pastProductions,
@@ -71,34 +72,15 @@ export default async function TeatroPage({
         <JsonLd key={e.slug} data={eventJsonLd(e, loc)} />
       ))}
 
-      {/* Theatre-night masthead — black for the dark of the theatre */}
-      <section className="relative bg-[color:var(--color-nero)] text-[color:var(--color-travertino)]">
-        <div className="container-site py-20 md:py-28">
-          <FadeIn>
-            <p className="font-[family-name:var(--font-cartel)] text-[0.74rem] uppercase tracking-[0.32em] text-[color:var(--color-pompeiano)]">
-              {t("eyebrow")}
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.1}>
-            <h1
-              className="mt-6 max-w-[14ch] min-w-0 font-[family-name:var(--font-display)] font-medium italic text-[clamp(2.4rem,5.6vw+1rem,5.25rem)] leading-[0.96] tracking-[-0.025em]"
-              style={{ overflowWrap: "break-word" }}
-            >
-              {t("title")}
-            </h1>
-          </FadeIn>
-          <FadeIn delay={0.2}>
-            <div className="mt-12 grid items-end gap-10 md:grid-cols-12 md:gap-14">
-              <p className="md:col-span-7 max-w-[58ch] text-[1.05rem] leading-[1.7] text-[color:var(--color-travertino)]/85">
-                {t("heroKicker")}
-              </p>
-              <p className="md:col-span-4 md:col-start-9 font-[family-name:var(--font-mono)] text-[0.74rem] uppercase tracking-[0.2em] text-[color:var(--color-travertino)]/55">
-                {t("heroMeta")}
-              </p>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+      <PageHero
+        eyebrow={t("eyebrow")}
+        title={t("title")}
+        lead={t("heroKicker")}
+        meta={t("heroMeta")}
+        image="/events/poor-piero/poor-piero-07.jpeg"
+        imageAlt="Compagnia Gaudeamus on stage"
+        imagePosition="center 22%"
+      />
 
       <section className="container-site py-12 md:py-16">
         <FadeIn>

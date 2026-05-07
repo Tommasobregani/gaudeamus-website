@@ -53,11 +53,11 @@ export function LetterReveal({
           className="inline-block"
           style={{ whiteSpace: "pre" }}
           variants={{
-            hidden: { y: 24, skewY: italicize ? -6 : 0 },
+            hidden: { y: 60, opacity: 0 },
             visible: {
               y: 0,
-              skewY: 0,
-              transition: { duration: 0.9, ease: [0.2, 0.7, 0.1, 1] },
+              opacity: 1,
+              transition: { duration: 1.0, ease: [0.165, 0.84, 0.44, 1] },
             },
           }}
         >
