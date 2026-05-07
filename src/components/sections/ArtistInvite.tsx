@@ -46,7 +46,7 @@ export function ArtistInvite() {
 
           <div className="md:col-span-3 md:text-right">
             <Link
-              href={{ pathname: "/contatti", query: { recipient: "artistic" } }}
+              href={{ pathname: "/contatti", hash: "artistic" }}
               className="group inline-flex items-center gap-3 font-[family-name:var(--font-inter)] text-[0.78rem] font-medium uppercase tracking-[0.24em] text-[color:var(--color-notte)]"
             >
               <span className="relative">

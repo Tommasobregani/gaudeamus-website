@@ -1,15 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useRef, useState } from "react";
 
 type FormCopy = {
   name: string;
   email: string;
   subject: string;
-  recipient: string;
-  recipientArtistic: string;
-  recipientGeneral: string;
   message: string;
   submit: string;
   submitting: string;
@@ -19,24 +15,22 @@ type FormCopy = {
 };
 
 type Props = {
+  kind: "artistic" | "general";
   copy: FormCopy;
 };
 
-export function ContactForm({ copy }: Props) {
-  const params = useSearchParams();
-  const [recipient, setRecipient] = useState<"artistic" | "general">("general");
+/**
+ * Single-purpose contact form. Two of these live on /contatti — one per
+ * inbox per Eva's directive (artistic → her personal director email,
+ * general → info). No more recipient radio; the form's `kind` is fixed.
+ */
+export function ContactForm({ kind, copy }: Props) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "ok" | "error">("idle");
   const botFieldRef = useRef<HTMLInputElement | null>(null);
-
-  // Pre-fill recipient from ?recipient=artistic (used by the homepage strip).
-  useEffect(() => {
-    const r = params.get("recipient");
-    if (r === "artistic" || r === "general") setRecipient(r);
-  }, [params]);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -50,12 +44,16 @@ export function ContactForm({ copy }: Props) {
           email,
           subject,
           message,
-          recipient,
+          recipient: kind,
           botField: botFieldRef.current?.value ?? "",
         }),
       });
       if (!res.ok) throw new Error("Send failed");
       setStatus("ok");
+      setName("");
+      setEmail("");
+      setSubject("");
+      setMessage("");
     } catch {
       setStatus("error");
     }
@@ -63,8 +61,8 @@ export function ContactForm({ copy }: Props) {
 
   if (status === "ok") {
     return (
-      <div className="border border-[color:var(--color-sepia)]/20 bg-[color:var(--color-carta)] p-8 md:p-10">
-        <p className="font-[family-name:var(--font-inter)] text-[1.05rem] leading-[1.7] text-[color:var(--color-sepia)]">
+      <div className="border border-[color:var(--color-sepia)]/20 bg-[color:var(--color-carta)] p-6 md:p-7">
+        <p className="font-[family-name:var(--font-inter)] text-[0.98rem] leading-[1.65] text-[color:var(--color-sepia)]">
           {copy.success}
         </p>
       </div>
@@ -75,57 +73,53 @@ export function ContactForm({ copy }: Props) {
     <form
       noValidate
       onSubmit={onSubmit}
-      className="border border-[color:var(--color-sepia)]/20 bg-[color:var(--color-carta)] p-8 md:p-10"
+      className="space-y-4"
+      aria-label={kind === "artistic" ? "Artistic enquiry form" : "General enquiry form"}
     >
-      {/* Honeypot — hidden from real users, must stay empty. */}
+      {/* Honeypot — off-screen, must stay empty. */}
       <input
         ref={botFieldRef}
         type="text"
-        name="bot_field"
+        name={`bot_field_${kind}`}
         tabIndex={-1}
         autoComplete="off"
         aria-hidden="true"
         className="absolute left-[-9999px] top-[-9999px] h-0 w-0 opacity-0"
       />
 
-      <div className="grid gap-6 md:grid-cols-2">
-        <label className="block">
-          <span className="mb-2 block font-[family-name:var(--font-inter)] text-[0.72rem] uppercase tracking-[0.22em] text-[color:var(--color-sepia-soft)]">
-            {copy.name} {copy.required}
-          </span>
-          <input
-            type="text"
-            name="name"
-            required
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="w-full border border-[color:var(--color-sepia)]/25 bg-white px-4 py-3 text-[color:var(--color-sepia)] outline-none transition focus:border-[color:var(--color-rosso)]"
-          />
-        </label>
+      <label className="block">
+        <span className="mb-1.5 block font-[family-name:var(--font-mono)] text-[0.66rem] uppercase tracking-[0.22em] text-[color:var(--color-sepia-soft)]">
+          {copy.name} {copy.required}
+        </span>
+        <input
+          type="text"
+          required
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className="w-full border border-[color:var(--color-sepia)]/25 bg-white px-4 py-3 text-[color:var(--color-sepia)] outline-none transition focus:border-[color:var(--color-rosso)]"
+        />
+      </label>
 
-        <label className="block">
-          <span className="mb-2 block font-[family-name:var(--font-inter)] text-[0.72rem] uppercase tracking-[0.22em] text-[color:var(--color-sepia-soft)]">
-            {copy.email} {copy.required}
-          </span>
-          <input
-            type="email"
-            name="email"
-            required
-            autoComplete="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="w-full border border-[color:var(--color-sepia)]/25 bg-white px-4 py-3 text-[color:var(--color-sepia)] outline-none transition focus:border-[color:var(--color-rosso)]"
-          />
-        </label>
-      </div>
+      <label className="block">
+        <span className="mb-1.5 block font-[family-name:var(--font-mono)] text-[0.66rem] uppercase tracking-[0.22em] text-[color:var(--color-sepia-soft)]">
+          {copy.email} {copy.required}
+        </span>
+        <input
+          type="email"
+          required
+          autoComplete="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="w-full border border-[color:var(--color-sepia)]/25 bg-white px-4 py-3 text-[color:var(--color-sepia)] outline-none transition focus:border-[color:var(--color-rosso)]"
+        />
+      </label>
 
-      <label className="mt-6 block">
-        <span className="mb-2 block font-[family-name:var(--font-inter)] text-[0.72rem] uppercase tracking-[0.22em] text-[color:var(--color-sepia-soft)]">
+      <label className="block">
+        <span className="mb-1.5 block font-[family-name:var(--font-mono)] text-[0.66rem] uppercase tracking-[0.22em] text-[color:var(--color-sepia-soft)]">
           {copy.subject} {copy.required}
         </span>
         <input
           type="text"
-          name="subject"
           required
           value={subject}
           onChange={(e) => setSubject(e.target.value)}
@@ -133,54 +127,21 @@ export function ContactForm({ copy }: Props) {
         />
       </label>
 
-      <fieldset className="mt-6 border border-[color:var(--color-sepia)]/20 p-4">
-        <legend className="px-2 font-[family-name:var(--font-inter)] text-[0.72rem] uppercase tracking-[0.22em] text-[color:var(--color-sepia-soft)]">
-          {copy.recipient} {copy.required}
-        </legend>
-        <div className="mt-2 grid gap-3">
-          <label className="inline-flex items-start gap-3 text-[0.96rem] leading-[1.5] text-[color:var(--color-sepia)]">
-            <input
-              type="radio"
-              name="recipient"
-              value="artistic"
-              checked={recipient === "artistic"}
-              onChange={() => setRecipient("artistic")}
-              required
-              className="mt-1 accent-[color:var(--color-rosso)]"
-            />
-            <span>{copy.recipientArtistic}</span>
-          </label>
-          <label className="inline-flex items-start gap-3 text-[0.96rem] leading-[1.5] text-[color:var(--color-sepia)]">
-            <input
-              type="radio"
-              name="recipient"
-              value="general"
-              checked={recipient === "general"}
-              onChange={() => setRecipient("general")}
-              required
-              className="mt-1 accent-[color:var(--color-rosso)]"
-            />
-            <span>{copy.recipientGeneral}</span>
-          </label>
-        </div>
-      </fieldset>
-
-      <label className="mt-6 block">
-        <span className="mb-2 block font-[family-name:var(--font-inter)] text-[0.72rem] uppercase tracking-[0.22em] text-[color:var(--color-sepia-soft)]">
+      <label className="block">
+        <span className="mb-1.5 block font-[family-name:var(--font-mono)] text-[0.66rem] uppercase tracking-[0.22em] text-[color:var(--color-sepia-soft)]">
           {copy.message} {copy.required}
         </span>
         <textarea
-          name="message"
           required
           minLength={10}
-          rows={7}
+          rows={6}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           className="w-full border border-[color:var(--color-sepia)]/25 bg-white px-4 py-3 text-[color:var(--color-sepia)] outline-none transition focus:border-[color:var(--color-rosso)]"
         />
       </label>
 
-      <div className="mt-8 flex flex-wrap items-center gap-4">
+      <div className="flex flex-wrap items-center gap-4 pt-2">
         <button
           type="submit"
           disabled={status === "loading"}
@@ -191,7 +152,7 @@ export function ContactForm({ copy }: Props) {
         {status === "error" ? (
           <p
             role="alert"
-            className="font-[family-name:var(--font-mono)] text-[0.72rem] tracking-[0.08em] text-[color:var(--color-rosso)]"
+            className="font-[family-name:var(--font-mono)] text-[0.7rem] tracking-[0.08em] text-[color:var(--color-rosso)]"
           >
             {copy.error}
           </p>

@@ -22,10 +22,12 @@ const POWER3_OUT = [0.215, 0.61, 0.355, 1] as const;
 const POWER4_OUT = [0.165, 0.84, 0.44, 1] as const;
 
 // Hero stills rotated on each pageview (Poor Piero, 2025).
+// Positions tuned to keep the actor's face roughly on the upper third
+// across the 3:4 / 4:5 portrait crop the column uses.
 const HERO_STILLS = [
-  { src: "/events/poor-piero/poor-piero-07.jpeg", position: "center 25%" },
-  { src: "/events/poor-piero/poor-piero-04.jpeg", position: "center 30%" },
-  { src: "/events/poor-piero/poor-piero-06.jpeg", position: "center 28%" },
+  { src: "/events/poor-piero/poor-piero-07.jpeg", position: "center 35%" },
+  { src: "/events/poor-piero/poor-piero-04.jpeg", position: "center 40%" },
+  { src: "/events/poor-piero/poor-piero-06.jpeg", position: "center 38%" },
 ] as const;
 
 /**
@@ -92,14 +94,14 @@ export function Hero() {
               <LetterReveal
                 as="span"
                 text={t("heroLine1")}
-                className="block font-[family-name:var(--font-serif-display)] text-[clamp(2.8rem,6.4vw+0.5rem,6.4rem)] font-light leading-[1.04] tracking-[-0.018em] md:font-extralight"
+                className="block font-[family-name:var(--font-serif-display)] text-[clamp(3.2rem,7.4vw+0.5rem,7.4rem)] font-light leading-[1.0] tracking-[-0.02em] md:font-extralight"
               />
               <LetterReveal
                 as="span"
                 text={t("heroLine2")}
                 delay={0.12}
                 italicize
-                className="mt-1 block font-[family-name:var(--font-serif-display)] text-[clamp(2.8rem,6.4vw+0.5rem,6.4rem)] font-light italic leading-[1.04] tracking-[-0.018em] text-[color:var(--color-rosso)] md:font-extralight"
+                className="mt-1 block font-[family-name:var(--font-serif-display)] text-[clamp(3.2rem,7.4vw+0.5rem,7.4rem)] font-light italic leading-[1.0] tracking-[-0.02em] text-[color:var(--color-rosso)] md:font-extralight"
               />
             </h1>
 

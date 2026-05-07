@@ -85,12 +85,8 @@
     "donate": {
       "eyebrow": "Why support us",
       "title": "Help keep Italian theatre alive in Scotland.",
-      "body": "Gaudeamus is the only Scottish charity bringing Italian theatre to a bilingual audience. Every donation is a programme, a workshop, a chair in the room. UK taxpayers can add Gift Aid at no cost.",
-      "tiersTitle": "What your support pays for",
-      "tier25": "A workshop seat for one young Italian-Scot.",
-      "tier50": "An hour of rehearsal.",
-      "tier100": "A full rehearsal evening.",
-      "tier500": "A performance, free for the audience.",
+      "body": "Gaudeamus is the only Scottish charity bringing Italian theatre to a bilingual audience. Every donation is a programme, a workshop, a chair in the room.",
+      "freeNote": "Any amount, any time. No fixed steps, no checkout funnel. We treat your donation as a relationship, not a transaction.",
       "ctaPrimary": "Donate",
       "ctaSecondary": "Add Gift Aid",
       "trust": "Registered Scottish charity · SCIO No. SC052772 · OSCR-listed · Lloyds Bank account"

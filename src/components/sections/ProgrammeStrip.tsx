@@ -45,10 +45,10 @@ const PILLARS: Pillar[] = [
   {
     key: "eventi",
     href: "/eventi",
-    label: { en: "Community", it: "Comunità" },
+    label: { en: "Events", it: "Eventi" },
     title: {
-      en: "Literary aperitivos, gatherings, Christmas parties.",
-      it: "Aperitivi letterari, incontri, feste di Natale.",
+      en: "Community events: aperitivos, gatherings, Christmas parties.",
+      it: "Eventi di comunità: aperitivi letterari, incontri, feste di Natale.",
     },
     image: "/events/christmas-party/christmas-party-07.jpg",
     position: "center 35%",

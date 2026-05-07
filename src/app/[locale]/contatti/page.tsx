@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { hasLocale, routing } from "@/i18n/routing";
 import { FadeIn } from "@/components/motion/FadeIn";
 import { PageHero } from "@/components/layout/PageHero";
-import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { RomanEyebrow } from "@/components/ui/RomanEyebrow";
 import { Fregio } from "@/components/brand/Fregio";
 import { siteConfig } from "@/lib/utils";
@@ -48,26 +46,24 @@ export default async function ContattiPage({
   const t = await getTranslations({ locale, namespace: "contact" });
   const it = locale === "it";
 
-  // Per Eva's brief: only Artistic + General are public. Finance email
-  // intentionally excluded (privacy of financial inbox).
-  const channels = [
-    {
-      roman: "01",
-      title: t("generalTitle"),
-      email: siteConfig.email.general,
-      body: it
-        ? "Informazioni generali, workshop, eventi, stampa e domande della comunità."
-        : "General enquiries, workshops, events, press and community questions.",
-    },
-    {
-      roman: "02",
-      title: t("artisticTitle"),
-      email: siteConfig.email.artistic,
-      body: it
-        ? "Proposte artistiche, coproduzioni, inviti a festival, artisti che vogliono presentare un progetto."
-        : "Artistic proposals, co-productions, festival invitations, artists pitching a project.",
-    },
-  ];
+  // Per Eva's brief: two physical inboxes, two physical forms.
+  // General → info@; Artistic → her personal director email.
+  // Finance email intentionally excluded.
+  const formCopy = {
+    name: it ? "Nome" : "Name",
+    email: it ? "Email" : "Email",
+    subject: it ? "Oggetto" : "Subject",
+    message: it ? "Messaggio" : "Message",
+    submit: it ? "Invia" : "Send",
+    submitting: it ? "Invio in corso…" : "Sending…",
+    success: it
+      ? "Grazie. Ti risponderemo entro qualche giorno lavorativo."
+      : "Thanks. We'll be in touch within a few working days.",
+    error: it
+      ? "Qualcosa è andato storto. Riprova o scrivici direttamente."
+      : "Something went wrong. Please try again or email us directly.",
+    required: "*",
+  };
 
 
   return (
@@ -82,70 +78,75 @@ export default async function ContattiPage({
         size="compact"
       />
 
-      {/* Channels — three big address cards */}
+      {/* Two physical channels — General + Artistic. Each owns its own form. */}
       <section className="container-site border-t border-[color:var(--color-sepia)]/25 py-20 md:py-24">
         <FadeIn>
-          <RomanEyebrow n={1} label={it ? "Indirizzi" : "Addresses"} />
+          <RomanEyebrow n={1} label={it ? "Scrivici" : "Write to us"} />
         </FadeIn>
-        <Stagger className="mt-12 grid gap-0 border-t-2 border-[color:var(--color-sepia)] md:grid-cols-2">
-          {channels.map((c, i) => (
-            <StaggerItem
-              key={c.email}
-              className={
-                "border-b border-[color:var(--color-sepia)]/25 md:border-b-0 " +
-                (i < channels.length - 1 ? "md:border-r md:border-r-[color:var(--color-sepia)]/25" : "")
-              }
-            >
-              <article className="flex h-full flex-col p-8 md:p-10">
-                <div className="flex items-baseline justify-between">
-                  <span className="bodoni-italic text-[2.5rem] leading-none text-[color:var(--color-terracotta)]">
-                    {c.roman}
-                  </span>
-                  <span className="font-[family-name:var(--font-cartel)] text-[0.72rem] tracking-[0.26em] text-[color:var(--color-sepia-soft)]">
-                    {t("writeTo")}
-                  </span>
-                </div>
-                <h3 className="mt-6 font-[family-name:var(--font-display)] font-medium text-[1.85rem] leading-[1.1] tracking-[-0.02em] text-[color:var(--color-sepia)]">
-                  {c.title}
-                </h3>
-                <p className="mt-3 text-[0.95rem] leading-[1.6] text-[color:var(--color-sepia-soft)]">
-                  {c.body}
-                </p>
-              </article>
-            </StaggerItem>
-          ))}
-        </Stagger>
 
-        <FadeIn delay={0.12}>
-          <div className="mt-12">
-            <Suspense fallback={null}>
-            <ContactForm
-              copy={{
-                name: it ? "Nome" : "Name",
-                email: it ? "Email" : "Email",
-                subject: it ? "Oggetto" : "Subject",
-                recipient: it ? "Destinatario" : "Recipient",
-                recipientArtistic: it
-                  ? "Proposta artistica — sono un artista e presento un progetto"
-                  : "Artistic proposal — I'm an artist pitching a project",
-                recipientGeneral: it
-                  ? "Richiesta generale — laboratori, eventi, stampa, comunità"
-                  : "General enquiry — workshops, events, press, community",
-                message: it ? "Messaggio" : "Message",
-                submit: it ? "Invia" : "Send",
-                submitting: it ? "Invio in corso…" : "Sending…",
-                success: it
-                  ? "Grazie. Ti risponderemo entro qualche giorno lavorativo."
-                  : "Thanks. We'll be in touch within a few working days.",
-                error: it
-                  ? "Qualcosa è andato storto. Riprova o scrivici direttamente."
-                  : "Something went wrong. Please try again or email us directly.",
-                required: "*",
-              }}
-            />
-            </Suspense>
-          </div>
-        </FadeIn>
+        <div className="mt-12 grid gap-0 border-t-2 border-[color:var(--color-sepia)] md:grid-cols-2">
+          {/* 01 — General */}
+          <FadeIn className="border-b border-[color:var(--color-sepia)]/25 md:border-b-0 md:border-r md:border-r-[color:var(--color-sepia)]/25" id="general">
+            <article className="flex h-full flex-col p-8 md:p-10">
+              <div className="flex items-baseline justify-between">
+                <span className="bodoni-italic text-[2.5rem] leading-none text-[color:var(--color-rosso)]">
+                  01
+                </span>
+                <span className="font-[family-name:var(--font-mono)] text-[0.7rem] uppercase tracking-[0.26em] text-[color:var(--color-sepia-soft)]">
+                  {t("writeTo")}
+                </span>
+              </div>
+              <h3 className="mt-6 font-[family-name:var(--font-serif-display)] font-light text-[1.95rem] leading-[1.12] tracking-[-0.018em] text-[color:var(--color-sepia)]">
+                {t("generalTitle")}
+              </h3>
+              <p className="mt-3 max-w-[42ch] text-[0.95rem] leading-[1.65] text-[color:var(--color-sepia-soft)]">
+                {it
+                  ? "Informazioni generali, workshop, eventi, stampa e domande della comunità."
+                  : "General enquiries, workshops, events, press and community questions."}
+              </p>
+              <a
+                href={`mailto:${siteConfig.email.general}`}
+                className="mt-3 inline-flex items-center font-[family-name:var(--font-mono)] text-[0.74rem] tracking-[0.08em] text-[color:var(--color-notte)] underline-offset-4 hover:text-[color:var(--color-rosso)] hover:underline"
+              >
+                {siteConfig.email.general}
+              </a>
+              <div className="mt-7">
+                <ContactForm kind="general" copy={formCopy} />
+              </div>
+            </article>
+          </FadeIn>
+
+          {/* 02 — Artistic */}
+          <FadeIn delay={0.08} id="artistic">
+            <article className="flex h-full flex-col p-8 md:p-10">
+              <div className="flex items-baseline justify-between">
+                <span className="bodoni-italic text-[2.5rem] leading-none text-[color:var(--color-rosso)]">
+                  02
+                </span>
+                <span className="font-[family-name:var(--font-mono)] text-[0.7rem] uppercase tracking-[0.26em] text-[color:var(--color-sepia-soft)]">
+                  {t("writeTo")}
+                </span>
+              </div>
+              <h3 className="mt-6 font-[family-name:var(--font-serif-display)] font-light text-[1.95rem] leading-[1.12] tracking-[-0.018em] text-[color:var(--color-sepia)]">
+                {t("artisticTitle")}
+              </h3>
+              <p className="mt-3 max-w-[42ch] text-[0.95rem] leading-[1.65] text-[color:var(--color-sepia-soft)]">
+                {it
+                  ? "Proposte artistiche, coproduzioni, inviti a festival, artisti che vogliono presentare un progetto."
+                  : "Artistic proposals, co-productions, festival invitations, artists pitching a project."}
+              </p>
+              <a
+                href={`mailto:${siteConfig.email.artistic}`}
+                className="mt-3 inline-flex items-center font-[family-name:var(--font-mono)] text-[0.74rem] tracking-[0.08em] text-[color:var(--color-notte)] underline-offset-4 hover:text-[color:var(--color-rosso)] hover:underline"
+              >
+                {siteConfig.email.artistic}
+              </a>
+              <div className="mt-7">
+                <ContactForm kind="artistic" copy={formCopy} />
+              </div>
+            </article>
+          </FadeIn>
+        </div>
       </section>
 
       {/* Registered office — single Pompeii-red panel, no empty 2-col grid */}

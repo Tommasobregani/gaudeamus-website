@@ -3,14 +3,18 @@
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { motion } from "motion/react";
-import { ArrowUpRight } from "lucide-react";
-import { Link } from "@/i18n/routing";
 import { ButtonLink } from "@/components/ui/Button";
 import { ImgReveal } from "@/components/motion/ImgReveal";
 import type { Locale } from "@/lib/utils";
 
-const TIERS = [25, 50, 100, 500] as const;
+const POWER3_OUT = [0.215, 0.61, 0.355, 1] as const;
 
+/**
+ * DonateStory — emotional ask. Per Eva's directive (29 Apr meeting):
+ * "mantenere la donazione libera senza gli step perché tendenzialmente una
+ * donazione non è un crowdfunding". No tiered amounts. Plain ask + Donate
+ * + Gift Aid. Trust microline kept.
+ */
 export function DonateStory() {
   const t = useTranslations("home.donate");
   const locale = useLocale() as Locale;
@@ -56,7 +60,7 @@ export function DonateStory() {
             initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-15% 0px" }}
-            transition={{ duration: 0.7, ease: [0.2, 0.7, 0.1, 1] }}
+            transition={{ duration: 0.7, ease: POWER3_OUT }}
             className="flex items-center gap-3"
           >
             <span aria-hidden className="h-px w-8 bg-[color:var(--color-ocra)]" />
@@ -69,7 +73,7 @@ export function DonateStory() {
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-15% 0px" }}
-            transition={{ duration: 0.9, delay: 0.05, ease: [0.2, 0.7, 0.1, 1] }}
+            transition={{ duration: 0.9, delay: 0.05, ease: POWER3_OUT }}
             className="mt-5 max-w-[24ch] font-[family-name:var(--font-inter)] text-[clamp(1.9rem,3.4vw+0.5rem,3.2rem)] font-light leading-[1.06] tracking-[-0.025em] text-[color:var(--color-sepia)]"
           >
             {t("title")}
@@ -79,69 +83,31 @@ export function DonateStory() {
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-15% 0px" }}
-            transition={{ duration: 0.9, delay: 0.1, ease: [0.2, 0.7, 0.1, 1] }}
+            transition={{ duration: 0.9, delay: 0.1, ease: POWER3_OUT }}
             className="mt-6 max-w-[58ch] text-[1.02rem] leading-[1.7] text-[color:var(--color-sepia-soft)]"
           >
             {t("body")}
           </motion.p>
 
-          {/* Tier label */}
-          <motion.p
-            initial={{ opacity: 0, y: 8 }}
+          {/* Free donation, any amount — no tiers, no crowdfunding feel. */}
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-15% 0px" }}
-            transition={{ duration: 0.7, delay: 0.18, ease: [0.2, 0.7, 0.1, 1] }}
-            className="mt-12 font-[family-name:var(--font-mono)] text-[0.66rem] uppercase tracking-[0.22em] text-[color:var(--color-muted)]"
+            transition={{ duration: 0.85, delay: 0.18, ease: POWER3_OUT }}
+            className="mt-10 border-t border-[color:var(--color-sepia)]/15 pt-6"
           >
-            {t("tiersTitle")}
-          </motion.p>
-
-          {/* Tier entries — editorial programme-card feel, not pricing tiles */}
-          <ul className="mt-5 grid grid-cols-2 gap-x-4 gap-y-2 lg:grid-cols-4 lg:gap-x-6">
-            {TIERS.map((amount, i) => (
-              <motion.li
-                key={amount}
-                initial={{ opacity: 0, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-15% 0px" }}
-                transition={{
-                  duration: 0.8,
-                  delay: 0.22 + i * 0.06,
-                  ease: [0.215, 0.61, 0.355, 1],
-                }}
-              >
-                <Link
-                  href={`/sostienici?amount=${amount}`}
-                  className="group relative block pt-5 pb-2"
-                >
-                  <span
-                    aria-hidden
-                    className="absolute inset-x-0 top-0 h-px bg-[color:var(--color-sepia)]/20 transition-colors duration-500 ease-[cubic-bezier(0.165,0.84,0.44,1)] group-hover:bg-[color:var(--color-ocra)]"
-                  />
-                  <div className="flex items-start justify-between gap-2">
-                    <span className="font-[family-name:var(--font-inter)] text-[clamp(1.7rem,2.2vw+0.5rem,2.2rem)] font-light leading-[1.0] tracking-[-0.025em] text-[color:var(--color-notte)]">
-                      £{amount}
-                    </span>
-                    <ArrowUpRight
-                      size={14}
-                      strokeWidth={1.6}
-                      className="mt-2 text-[color:var(--color-muted)] transition-all duration-500 ease-[cubic-bezier(0.165,0.84,0.44,1)] group-hover:text-[color:var(--color-ocra)] group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                    />
-                  </div>
-                  <p className="mt-3 text-[0.88rem] leading-[1.5] text-[color:var(--color-sepia)] group-hover:text-[color:var(--color-sepia)]">
-                    {t(`tier${amount}` as "tier25" | "tier50" | "tier100" | "tier500")}
-                  </p>
-                </Link>
-              </motion.li>
-            ))}
-          </ul>
+            <p className="font-[family-name:var(--font-serif-display)] text-[clamp(1.1rem,1.4vw+0.5rem,1.45rem)] font-light italic leading-[1.4] text-[color:var(--color-sepia)]">
+              {t("freeNote")}
+            </p>
+          </motion.div>
 
           {/* Trust microline */}
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: "-15% 0px" }}
-            transition={{ duration: 0.8, delay: 0.45, ease: [0.2, 0.7, 0.1, 1] }}
+            transition={{ duration: 0.8, delay: 0.3, ease: POWER3_OUT }}
             className="mt-7 font-[family-name:var(--font-mono)] text-[0.66rem] tracking-[0.18em] text-[color:var(--color-muted)]"
           >
             {t("trust")}
@@ -151,7 +117,7 @@ export function DonateStory() {
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-15% 0px" }}
-            transition={{ duration: 0.8, delay: 0.5, ease: [0.2, 0.7, 0.1, 1] }}
+            transition={{ duration: 0.8, delay: 0.4, ease: POWER3_OUT }}
             className="mt-9 flex flex-wrap items-center gap-3"
           >
             <ButtonLink href="/sostienici" variant="primary" size="lg" withArrow>

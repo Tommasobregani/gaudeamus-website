@@ -103,22 +103,49 @@ export default async function ProgettiPage({
         );
       })()}
 
-      {/* Institutional partners strip */}
+      {/* Institutional partners strip — logos + names per Eva's directive */}
       <section className="border-y border-[color:var(--color-sepia)]/15 bg-[color:var(--color-cielo)] py-16 md:py-20">
         <div className="container-site grid gap-10 md:grid-cols-12 md:gap-14">
           <div className="md:col-span-4">
             <FadeIn>
-              <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.32em] text-[color:var(--color-pompeiano)]">
+              <p className="font-[family-name:var(--font-mono)] text-[0.74rem] uppercase tracking-[0.32em] text-[color:var(--color-rosso)]">
                 {t("partnersTitle")}
               </p>
-              <p className="mt-6 max-w-[36ch] bodoni-italic text-[1.1rem] leading-[1.45] text-[color:var(--color-sepia)]">
+              <p className="mt-6 max-w-[36ch] font-[family-name:var(--font-serif-display)] font-light italic text-[1.15rem] leading-[1.45] text-[color:var(--color-sepia)]">
                 {t("partnersBody")}
               </p>
             </FadeIn>
           </div>
           <div className="md:col-span-8">
-            <FadeIn delay={0.1}>
-              <ul className="grid grid-cols-1 gap-x-10 gap-y-5 sm:grid-cols-2">
+            <FadeIn delay={0.05}>
+              <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+                {[
+                  { src: "/partners/maeci-consolato-edinburgh.png", alt: "Consolato Generale d'Italia, Edimburgo" },
+                  { src: "/partners/comites.png", alt: "Com.It.Es. Scotland & Northern Ireland" },
+                  { src: "/partners/consolato-aberdeen.jpg", alt: "Consolato Onorario d'Italia, Aberdeen" },
+                  { src: "/partners/valvona-crolla.png", alt: "Valvona & Crolla, Edinburgh" },
+                  { src: "/partners/london-one-radio.jpg", alt: "London One Radio" },
+                ].map((p) => (
+                  <li
+                    key={p.src}
+                    title={p.alt}
+                    className="group relative flex aspect-[3/2] items-center justify-center rounded-[var(--radius-md)] border border-[color:var(--color-sepia)]/12 bg-white p-3.5 transition-all duration-500 ease-[cubic-bezier(0.165,0.84,0.44,1)] hover:-translate-y-0.5 hover:border-[color:var(--color-rosso)]/40 hover:shadow-[0_18px_40px_rgba(15,42,74,0.12)]"
+                  >
+                    <div className="relative h-full w-full">
+                      <Image
+                        src={p.src}
+                        alt={p.alt}
+                        fill
+                        sizes="120px"
+                        className="object-contain"
+                      />
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </FadeIn>
+            <FadeIn delay={0.12}>
+              <ul className="mt-10 grid grid-cols-1 gap-x-10 gap-y-5 sm:grid-cols-2">
                 {[
                   loc === "it"
                     ? "Com.It.Es. Scozia e Irlanda del Nord"
@@ -151,7 +178,7 @@ export default async function ProgettiPage({
                     key={p}
                     className="flex items-baseline gap-3 border-t border-[color:var(--color-sepia)]/15 pt-4 text-[0.95rem] leading-[1.4] text-[color:var(--color-sepia)]"
                   >
-                    <span aria-hidden className="text-[color:var(--color-pompeiano)]">·</span>
+                    <span aria-hidden className="text-[color:var(--color-rosso)]">·</span>
                     <span>{p}</span>
                   </li>
                 ))}
