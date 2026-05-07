@@ -40,8 +40,7 @@ export function ContactForm({ copy }: Props) {
     <form
       name="contact"
       method="POST"
-      data-netlify="true"
-      data-netlify-honeypot="bot-field"
+      action="/"
       className="border border-[color:var(--color-sepia)]/20 bg-[color:var(--color-carta)] p-8 md:p-10"
       onSubmit={() => setSent(true)}
     >
