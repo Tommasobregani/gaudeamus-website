@@ -45,9 +45,9 @@ export function PressRibbon() {
       <div className="grid gap-8 md:grid-cols-12 md:gap-12">
         <div className="md:col-span-2">
           <FadeIn>
-            <div className="flex items-center gap-2.5">
-              <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-ocra)]" />
-              <p className="font-[family-name:var(--font-inter)] text-[0.72rem] font-medium uppercase tracking-[0.32em] text-[color:var(--color-notte)]">
+            <div className="flex items-center gap-3">
+              <span aria-hidden className="h-px w-8 bg-[color:var(--color-ocra)]" />
+              <p className="font-[family-name:var(--font-mono)] text-[0.72rem] uppercase tracking-[0.32em] text-[color:var(--color-notte)]">
                 {locale === "it" ? "Stampa" : "Press"}
               </p>
             </div>

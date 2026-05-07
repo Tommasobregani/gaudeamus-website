@@ -18,31 +18,17 @@ const navLinks = [
 ] as const;
 
 /**
- * Header v3 — dark-aware.
- *  • White text + cream wordmark while sitting on a dark hero (`[data-page-hero="dark"]`).
- *  • Glass-strong + dark text once scrolled past the hero.
- *  • Mobile menu unchanged.
+ * Header — sticky, ink-on-light. Glass-strong + hairline once scrolled.
+ * Mobile sheet unchanged.
  */
 export function Header() {
   const t = useTranslations("nav");
   const [scrolled, setScrolled] = useState(false);
-  const [overDark, setOverDark] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
-    const HEADER_H = 60;
-    const update = () => {
-      setScrolled(window.scrollY > 8);
-      const hero = document.querySelector<HTMLElement>('[data-page-hero="dark"]');
-      if (!hero) {
-        setOverDark(false);
-        return;
-      }
-      const rect = hero.getBoundingClientRect();
-      // Dark mode while the hero still covers the area below the header line.
-      setOverDark(rect.bottom > HEADER_H + 8);
-    };
+    const update = () => setScrolled(window.scrollY > 8);
     update();
     window.addEventListener("scroll", update, { passive: true });
     window.addEventListener("resize", update);
@@ -72,14 +58,10 @@ export function Header() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
-  // Dark mode wins until scrolled past the hero. Glass mode kicks in on scroll.
-  const isDark = overDark && !scrolled;
-
   return (
     <header
-      data-dark={isDark || undefined}
       className={cn(
-        "sticky top-0 z-40 transition-[background,box-shadow,border-color,color] duration-500",
+        "sticky top-0 z-40 transition-[background,box-shadow,border-color] duration-500 ease-[cubic-bezier(0.165,0.84,0.44,1)]",
         scrolled
           ? "glass-strong border-b border-black/5 shadow-[0_1px_0_rgba(15,42,74,0.04)]"
           : "border-b border-transparent bg-transparent",
@@ -87,7 +69,7 @@ export function Header() {
     >
       <div className="container-site flex h-[60px] items-center justify-between gap-4 md:h-[68px]">
         <Link href="/" className="shrink-0 transition-opacity hover:opacity-80">
-          <Wordmark tone={isDark ? "cream" : "ink"} />
+          <Wordmark tone="ink" />
         </Link>
 
         <nav
@@ -104,20 +86,16 @@ export function Header() {
                 aria-current={isActive ? "page" : undefined}
                 className={cn(
                   "group relative font-[family-name:var(--font-inter)] text-[0.78rem] font-medium tracking-[-0.005em] transition-colors duration-300",
-                  isDark
-                    ? isActive
-                      ? "text-white"
-                      : "text-white/72 hover:text-white"
-                    : isActive
-                      ? "text-[color:var(--color-notte)]"
-                      : "text-[color:var(--color-sepia)]/72 hover:text-[color:var(--color-sepia)]",
+                  isActive
+                    ? "text-[color:var(--color-notte)]"
+                    : "text-[color:var(--color-sepia)]/72 hover:text-[color:var(--color-sepia)]",
                 )}
               >
                 {t(l.key)}
                 <span
                   aria-hidden
                   className={cn(
-                    "absolute -bottom-1.5 left-0 h-px w-full bg-current transition-transform duration-500 ease-[cubic-bezier(0.2,0.7,0.1,1)]",
+                    "absolute -bottom-1.5 left-0 h-px w-full bg-current transition-transform duration-500 ease-[cubic-bezier(0.165,0.84,0.44,1)]",
                     isActive
                       ? "scale-x-100 origin-left"
                       : "scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left",
@@ -135,12 +113,7 @@ export function Header() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
-              className={cn(
-                "grid h-8 w-8 place-items-center rounded-full transition-all duration-300",
-                isDark
-                  ? "text-white/65 hover:bg-white/10 hover:text-white"
-                  : "text-[color:var(--color-sepia)]/65 hover:bg-[color:var(--color-notte)]/8 hover:text-[color:var(--color-notte)]",
-              )}
+              className="grid h-8 w-8 place-items-center rounded-full text-[color:var(--color-sepia)]/65 transition-all duration-300 hover:bg-[color:var(--color-notte)]/8 hover:text-[color:var(--color-notte)]"
             >
               <Facebook size={14} strokeWidth={1.7} />
             </a>
@@ -150,35 +123,19 @@ export function Header() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className={cn(
-                "grid h-8 w-8 place-items-center rounded-full transition-all duration-300",
-                isDark
-                  ? "text-white/65 hover:bg-white/10 hover:text-white"
-                  : "text-[color:var(--color-sepia)]/65 hover:bg-[color:var(--color-notte)]/8 hover:text-[color:var(--color-notte)]",
-              )}
+              className="grid h-8 w-8 place-items-center rounded-full text-[color:var(--color-sepia)]/65 transition-all duration-300 hover:bg-[color:var(--color-notte)]/8 hover:text-[color:var(--color-notte)]"
             >
               <Instagram size={14} strokeWidth={1.7} />
             </a>
           </div>
 
-          <span
-            aria-hidden
-            className={cn(
-              "hidden h-4 w-px md:block",
-              isDark ? "bg-white/20" : "bg-[color:var(--color-sepia)]/12",
-            )}
-          />
+          <span aria-hidden className="hidden h-4 w-px bg-[color:var(--color-sepia)]/12 md:block" />
 
-          <LanguageToggle tone={isDark ? "light" : "dark"} className="hidden md:block" />
+          <LanguageToggle tone="dark" className="hidden md:block" />
 
           <Link
             href="/sostienici"
-            className={cn(
-              "group hidden items-center gap-1.5 rounded-full px-4 py-2 font-[family-name:var(--font-inter)] text-[0.72rem] font-medium uppercase tracking-[0.18em] transition-all duration-300 hover:-translate-y-0.5 md:inline-flex",
-              isDark
-                ? "bg-white text-[color:var(--color-notte)] hover:bg-[color:var(--color-cielo)]"
-                : "bg-[color:var(--color-notte)] text-white hover:bg-[color:var(--color-notte-deep)]",
-            )}
+            className="group hidden items-center gap-1.5 rounded-full bg-[color:var(--color-notte)] px-4 py-2 font-[family-name:var(--font-inter)] text-[0.72rem] font-medium uppercase tracking-[0.18em] text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[color:var(--color-notte-deep)] md:inline-flex"
           >
             {t("support")}
             <ArrowUpRight
@@ -190,12 +147,7 @@ export function Header() {
 
           <button
             type="button"
-            className={cn(
-              "-mr-1 grid h-10 w-10 place-items-center rounded-full transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--color-notte)] lg:hidden",
-              isDark
-                ? "text-white hover:bg-white/10"
-                : "text-[color:var(--color-sepia)] hover:bg-[color:var(--color-sepia)]/8",
-            )}
+            className="-mr-1 grid h-10 w-10 place-items-center rounded-full text-[color:var(--color-sepia)] transition-colors hover:bg-[color:var(--color-sepia)]/8 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--color-notte)] lg:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? t("close") : t("menu")}

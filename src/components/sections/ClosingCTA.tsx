@@ -33,7 +33,7 @@ export function ClosingCTA() {
             <FadeIn>
               <div className="flex items-center gap-3">
                 <span aria-hidden className="h-px w-8 bg-[color:var(--color-ocra)]" />
-                <p className="font-[family-name:var(--font-inter)] text-[0.72rem] font-medium uppercase tracking-[0.32em] text-[color:var(--color-cielo)]">
+                <p className="font-[family-name:var(--font-mono)] text-[0.72rem] uppercase tracking-[0.32em] text-[color:var(--color-cielo)]">
                   {t("closingEyebrow")}
                 </p>
               </div>

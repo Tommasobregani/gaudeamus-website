@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import {
@@ -20,6 +20,13 @@ import type { Locale } from "@/lib/utils";
 // archi-site easing curves
 const POWER3_OUT = [0.215, 0.61, 0.355, 1] as const;
 const POWER4_OUT = [0.165, 0.84, 0.44, 1] as const;
+
+// Hero stills rotated on each pageview (Poor Piero, 2025).
+const HERO_STILLS = [
+  { src: "/events/poor-piero/poor-piero-07.jpeg", position: "center 25%" },
+  { src: "/events/poor-piero/poor-piero-04.jpeg", position: "center 30%" },
+  { src: "/events/poor-piero/poor-piero-06.jpeg", position: "center 28%" },
+] as const;
 
 /**
  * Hero — calm editorial layout, charity register.
@@ -43,6 +50,14 @@ export function Hero() {
   const photoScale = useTransform(scrollYProgress, [0, 1], [1.02, 1.08]);
   const photoY = useTransform(scrollYProgress, [0, 1], ["0%", "-4%"]);
 
+  // Pick a photo on the client so each visit can land on a different still
+  // without an SSR/CSR mismatch. SSR always sees stills[0].
+  const [stillIndex, setStillIndex] = useState(0);
+  useEffect(() => {
+    setStillIndex(Math.floor(Math.random() * HERO_STILLS.length));
+  }, []);
+  const still = HERO_STILLS[stillIndex];
+
   const nextShow = upcomingProductions[0] ?? productions[0];
   const nextDate = nextShow?.date
     ? new Date(nextShow.date).toLocaleDateString(
@@ -61,27 +76,30 @@ export function Hero() {
         <div className="grid items-start gap-10 md:grid-cols-12 md:gap-14 lg:gap-20">
           {/* ═══ LEFT — type column ═══ */}
           <div className="md:col-span-7 lg:col-span-7">
-            <motion.p
+            <motion.div
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: POWER3_OUT }}
-              className="font-[family-name:var(--font-inter)] text-[0.72rem] font-medium uppercase tracking-[0.32em] text-[color:var(--color-notte)]"
+              className="flex items-center gap-3"
             >
-              {t("eyebrow")}
-            </motion.p>
+              <span aria-hidden className="h-px w-8 bg-[color:var(--color-ocra)]" />
+              <p className="font-[family-name:var(--font-mono)] text-[0.72rem] uppercase tracking-[0.32em] text-[color:var(--color-notte)]">
+                {t("eyebrow")}
+              </p>
+            </motion.div>
 
             <h1 className="mt-7 max-w-[18ch] min-w-0 text-[color:var(--color-sepia)]">
               <LetterReveal
                 as="span"
                 text={t("heroLine1")}
-                className="block font-[family-name:var(--font-serif-display)] text-[clamp(2.8rem,6.4vw+0.5rem,6.4rem)] font-extralight leading-[1.04] tracking-[-0.018em]"
+                className="block font-[family-name:var(--font-serif-display)] text-[clamp(2.8rem,6.4vw+0.5rem,6.4rem)] font-light leading-[1.04] tracking-[-0.018em] md:font-extralight"
               />
               <LetterReveal
                 as="span"
                 text={t("heroLine2")}
                 delay={0.12}
                 italicize
-                className="mt-1 block font-[family-name:var(--font-serif-display)] text-[clamp(2.8rem,6.4vw+0.5rem,6.4rem)] font-extralight italic leading-[1.04] tracking-[-0.018em] text-[color:var(--color-rosso)]"
+                className="mt-1 block font-[family-name:var(--font-serif-display)] text-[clamp(2.8rem,6.4vw+0.5rem,6.4rem)] font-light italic leading-[1.04] tracking-[-0.018em] text-[color:var(--color-rosso)] md:font-extralight"
               />
             </h1>
 
@@ -151,13 +169,13 @@ export function Hero() {
                 className="absolute inset-0"
               >
                 <Image
-                  src="/events/poor-piero/poor-piero-07.jpeg"
+                  src={still.src}
                   alt="Compagnia Gaudeamus, Poor Piero in scena"
                   fill
                   priority
                   sizes="(min-width: 1024px) 42vw, (min-width: 768px) 42vw, 100vw"
                   className="object-cover"
-                  style={{ objectPosition: "center 25%" }}
+                  style={{ objectPosition: still.position }}
                 />
               </motion.div>
             </ImgReveal>

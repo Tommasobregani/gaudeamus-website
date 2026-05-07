@@ -26,17 +26,34 @@ export function Spotlight() {
   const photoY = useTransform(scrollYProgress, [0, 1], ["-6%", "6%"]);
   const photoScale = useTransform(scrollYProgress, [0, 1], [1.08, 1.0]);
 
-  const show = events.find((e) => e.kind === "production" && e.status === "upcoming");
+  // Prefer an upcoming production; fall back to the most recent past one
+  // so the section never silently disappears between seasons.
+  const productions = events.filter((e) => e.kind === "production");
+  const upcoming = productions.find((e) => e.status === "upcoming");
+  const past = productions
+    .filter((e) => e.status === "past")
+    .sort((a, b) => (b.date ?? "").localeCompare(a.date ?? ""))[0];
+  const show = upcoming ?? past;
   if (!show) return null;
 
-  // Use the show's hero/cover where possible, fall back to a strong production still.
+  const isUpcoming = show.status === "upcoming";
+
   const cover =
     (show.cover as string | undefined) && (show.cover as string).length > 0
       ? (show.cover as string)
       : "/events/no-shakespeare/no-shakespeare-09.jpg";
 
-  const dateLine = locale === "it" ? "13, 14 & 15 Agosto 2026" : "13, 14 & 15 August 2026";
-  const venueLine = "Edinburgh Fringe · Venue 67";
+  const dateLine = isUpcoming
+    ? locale === "it" ? "13, 14 & 15 Agosto 2026" : "13, 14 & 15 August 2026"
+    : show.date
+      ? new Date(show.date).toLocaleDateString(
+          locale === "it" ? "it-IT" : "en-GB",
+          { month: "long", year: "numeric" },
+        )
+      : "";
+  const venueLine = isUpcoming
+    ? "Edinburgh Fringe · Venue 67"
+    : show.venues?.[0] ?? "";
 
   return (
     <section
@@ -73,10 +90,14 @@ export function Spotlight() {
 
       {/* Top eyebrow strap */}
       <div className="container-site relative z-10 flex flex-wrap items-center justify-between gap-3 pt-10 text-white/85">
-        <span className="font-[family-name:var(--font-inter)] text-[0.74rem] uppercase tracking-[0.3em]">
-          {t("eyebrow")}
+        <span className="font-[family-name:var(--font-mono)] text-[0.72rem] uppercase tracking-[0.3em]">
+          {isUpcoming
+            ? t("eyebrow")
+            : locale === "it"
+              ? "Ultima produzione"
+              : "Most recent production"}
         </span>
-        <span className="font-[family-name:var(--font-inter)] text-[0.74rem] uppercase tracking-[0.28em] text-white/70">
+        <span className="font-[family-name:var(--font-mono)] text-[0.72rem] uppercase tracking-[0.28em] text-white/70">
           {venueLine}
         </span>
       </div>
@@ -111,7 +132,11 @@ export function Spotlight() {
                 href={`/teatro/${show.slug}`}
                 className="group mt-10 inline-flex items-center gap-3 border-b border-white/45 pb-1 font-[family-name:var(--font-inter)] text-[0.78rem] uppercase tracking-[0.26em] text-white transition-colors hover:border-white"
               >
-                {t("cta")}
+                {isUpcoming
+                  ? t("cta")
+                  : locale === "it"
+                    ? "Vai all'archivio"
+                    : "Open the archive"}
                 <ArrowUpRight
                   size={18}
                   strokeWidth={1.5}

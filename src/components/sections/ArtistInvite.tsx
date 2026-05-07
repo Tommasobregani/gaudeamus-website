@@ -28,8 +28,8 @@ export function ArtistInvite() {
         <div className="grid items-center gap-7 md:grid-cols-12 md:gap-10">
           <div className="md:col-span-3">
             <div className="flex items-center gap-3">
-              <span aria-hidden className="h-px w-8 bg-[color:var(--color-rosso)]" />
-              <p className="font-[family-name:var(--font-inter)] text-[0.72rem] font-medium uppercase tracking-[0.32em] text-[color:var(--color-notte)]">
+              <span aria-hidden className="h-px w-8 bg-[color:var(--color-ocra)]" />
+              <p className="font-[family-name:var(--font-mono)] text-[0.72rem] uppercase tracking-[0.32em] text-[color:var(--color-notte)]">
                 {t("artistInviteEyebrow")}
               </p>
             </div>

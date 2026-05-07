@@ -6,7 +6,6 @@ import { SelectedWork } from "@/components/sections/SelectedWork";
 import { Voice } from "@/components/sections/Voice";
 import { ProgrammeStrip } from "@/components/sections/ProgrammeStrip";
 import { Spotlight } from "@/components/sections/Spotlight";
-import { Impact } from "@/components/sections/Impact";
 import { PressRibbon } from "@/components/sections/PressRibbon";
 import { DonateStory } from "@/components/sections/DonateStory";
 import { ClosingCTA } from "@/components/sections/ClosingCTA";
@@ -57,10 +56,6 @@ export default async function HomePage({
       </ScrollStage>
 
       <Spotlight />
-
-      <ScrollStage palette="travertino">
-        <Impact />
-      </ScrollStage>
 
       <ScrollStage palette="carta">
         <PressRibbon />
