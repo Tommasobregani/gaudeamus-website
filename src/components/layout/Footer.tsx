@@ -96,6 +96,28 @@ export function Footer() {
                 </a>
               </li>
             </ul>
+            <div className="mt-4 flex items-center gap-2">
+              {/* TODO: replace with real URL from Eva */}
+              <a
+                href="https://www.facebook.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="grid h-9 w-9 place-items-center rounded-full border border-[color:var(--color-sepia)]/12 bg-[color:var(--color-travertino)] text-[color:var(--color-sepia)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[color:var(--color-pompeiano)] hover:bg-[color:var(--color-pompeiano)] hover:text-white"
+              >
+                <Facebook size={16} strokeWidth={1.6} />
+              </a>
+              {/* TODO: replace with real URL from Eva */}
+              <a
+                href="https://www.instagram.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="grid h-9 w-9 place-items-center rounded-full border border-[color:var(--color-sepia)]/12 bg-[color:var(--color-travertino)] text-[color:var(--color-sepia)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[color:var(--color-pompeiano)] hover:bg-[color:var(--color-pompeiano)] hover:text-white"
+              >
+                <Instagram size={16} strokeWidth={1.6} />
+              </a>
+            </div>
           </div>
 
           <div>

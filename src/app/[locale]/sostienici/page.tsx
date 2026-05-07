@@ -189,12 +189,12 @@ export default async function SostieniciPage({
                   </dl>
                   <p className="mt-6 border-t border-[color:var(--color-sepia)]/20 pt-5 text-[0.88rem] italic text-[color:var(--color-sepia-soft)]">
                     {t("bankNote")}{" "}
-                    <a
+                    <Link
                       className="hover-underline text-[color:var(--color-sepia)]"
-                      href={`mailto:${siteConfig.email.finance}`}
+                      href="/contatti"
                     >
-                      {siteConfig.email.finance}
-                    </a>
+                      {locale === "it" ? "Contattaci" : "Get in touch"}
+                    </Link>
                   </p>
                 </div>
               ) : (
@@ -202,13 +202,13 @@ export default async function SostieniciPage({
                   <p className="bodoni-italic text-[clamp(1.25rem,1.6vw+0.5rem,1.6rem)] leading-[1.3] text-[color:var(--color-sepia)]">
                     {t("bankPending")}
                   </p>
-                  <a
+                  <Link
                     className="hover-underline mt-6 inline-flex items-center gap-2 font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.24em] text-[color:var(--color-accent)]"
-                    href={`mailto:${siteConfig.email.finance}`}
+                    href="/contatti"
                   >
-                    {siteConfig.email.finance}
+                    {locale === "it" ? "Contattaci" : "Get in touch"}
                     <ArrowUpRight size={14} strokeWidth={1.5} />
-                  </a>
+                  </Link>
                 </div>
               )}
             </FadeIn>

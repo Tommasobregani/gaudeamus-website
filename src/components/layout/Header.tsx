@@ -6,7 +6,6 @@ import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/routing";
 import { Wordmark } from "@/components/brand/Wordmark";
 import { LanguageToggle } from "./LanguageToggle";
-import { siteConfig } from "@/lib/utils";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -132,9 +131,9 @@ export function Header() {
         <div className="flex items-center gap-2 md:gap-3">
           <div className="hidden items-center gap-0.5 md:flex">
             <a
-              href={siteConfig.social.facebook}
+              href="https://www.facebook.com/"
               target="_blank"
-              rel="noreferrer noopener"
+              rel="noopener noreferrer"
               aria-label="Facebook"
               className={cn(
                 "grid h-8 w-8 place-items-center rounded-full transition-all duration-300",
@@ -145,10 +144,11 @@ export function Header() {
             >
               <Facebook size={14} strokeWidth={1.7} />
             </a>
+            {/* TODO: replace with real URL from Eva */}
             <a
-              href={siteConfig.social.instagram}
+              href="https://www.instagram.com/"
               target="_blank"
-              rel="noreferrer noopener"
+              rel="noopener noreferrer"
               aria-label="Instagram"
               className={cn(
                 "grid h-8 w-8 place-items-center rounded-full transition-all duration-300",
@@ -275,18 +275,19 @@ export function Header() {
 
           <div className="mt-6 flex items-center gap-3">
             <a
-              href={siteConfig.social.facebook}
+              href="https://www.facebook.com/"
               target="_blank"
-              rel="noreferrer noopener"
+              rel="noopener noreferrer"
               aria-label="Facebook"
               className="grid h-11 w-11 place-items-center rounded-full bg-[color:var(--color-notte)]/8 text-[color:var(--color-sepia)] transition-colors hover:bg-[color:var(--color-notte)] hover:text-white"
             >
               <Facebook size={18} strokeWidth={1.6} />
             </a>
+            {/* TODO: replace with real URL from Eva */}
             <a
-              href={siteConfig.social.instagram}
+              href="https://www.instagram.com/"
               target="_blank"
-              rel="noreferrer noopener"
+              rel="noopener noreferrer"
               aria-label="Instagram"
               className="grid h-11 w-11 place-items-center rounded-full bg-[color:var(--color-notte)]/8 text-[color:var(--color-sepia)] transition-colors hover:bg-[color:var(--color-notte)] hover:text-white"
             >

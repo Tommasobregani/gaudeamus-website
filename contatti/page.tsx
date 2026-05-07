@@ -62,14 +62,6 @@ export default async function ContattiPage({
         ? "Proposte artistiche, coproduzioni, inviti a festival, collaborazioni."
         : "Artistic proposals, co-productions, festival invitations, collaborations.",
     },
-    {
-      roman: "03",
-      title: t("financeTitle"),
-      email: siteConfig.email.finance,
-      body: it
-        ? "Tesoreria, donazioni e Gift Aid."
-        : "Treasury, donations and Gift Aid.",
-    },
   ];
 
 

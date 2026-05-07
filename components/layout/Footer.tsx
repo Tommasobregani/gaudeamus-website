@@ -55,9 +55,9 @@ export function Footer() {
               </a>
             </li>
             <li>
-              <a className="hover-underline" href={`mailto:${siteConfig.email.finance}`}>
-                {siteConfig.email.finance}
-              </a>
+              <Link className="hover-underline" href="/contatti">
+                {t("nav.contact")}
+              </Link>
             </li>
           </ul>
 
