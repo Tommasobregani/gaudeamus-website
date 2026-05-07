@@ -70,17 +70,18 @@ export function Hero() {
               {t("eyebrow")}
             </motion.p>
 
-            <h1 className="mt-7 max-w-[16ch] min-w-0 text-[color:var(--color-sepia)]">
+            <h1 className="mt-7 max-w-[18ch] min-w-0 text-[color:var(--color-sepia)]">
               <LetterReveal
                 as="span"
                 text={t("heroLine1")}
-                className="block font-[family-name:var(--font-inter)] text-[clamp(2.4rem,5.4vw+0.5rem,5.4rem)] font-light leading-[1.04] tracking-[-0.028em]"
+                className="block font-[family-name:var(--font-serif-display)] text-[clamp(2.8rem,6.4vw+0.5rem,6.4rem)] font-extralight leading-[1.04] tracking-[-0.018em]"
               />
               <LetterReveal
                 as="span"
                 text={t("heroLine2")}
                 delay={0.12}
-                className="mt-1 block font-[family-name:var(--font-inter)] text-[clamp(2.4rem,5.4vw+0.5rem,5.4rem)] font-medium leading-[1.04] tracking-[-0.032em] text-[color:var(--color-notte)]"
+                italicize
+                className="mt-1 block font-[family-name:var(--font-serif-display)] text-[clamp(2.8rem,6.4vw+0.5rem,6.4rem)] font-extralight italic leading-[1.04] tracking-[-0.018em] text-[color:var(--color-rosso)]"
               />
             </h1>
 

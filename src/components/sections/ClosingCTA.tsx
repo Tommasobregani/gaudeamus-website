@@ -56,7 +56,7 @@ export function ClosingCTA() {
             <FadeIn delay={0.22}>
               <div className="mt-9">
                 <ButtonLink
-                  href="/sostienici"
+                  href="/contatti"
                   variant="primary"
                   size="lg"
                   withArrow

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { hasLocale, routing } from "@/i18n/routing";
@@ -117,6 +118,7 @@ export default async function ContattiPage({
 
         <FadeIn delay={0.12}>
           <div className="mt-12">
+            <Suspense fallback={null}>
             <ContactForm
               copy={{
                 name: it ? "Nome" : "Name",
@@ -131,12 +133,17 @@ export default async function ContattiPage({
                   : "General enquiry — workshops, events, press, community",
                 message: it ? "Messaggio" : "Message",
                 submit: it ? "Invia" : "Send",
+                submitting: it ? "Invio in corso…" : "Sending…",
                 success: it
-                  ? "Grazie — ti risponderemo entro qualche giorno lavorativo."
-                  : "Thanks — we'll be in touch within a few working days.",
+                  ? "Grazie. Ti risponderemo entro qualche giorno lavorativo."
+                  : "Thanks. We'll be in touch within a few working days.",
+                error: it
+                  ? "Qualcosa è andato storto. Riprova o scrivici direttamente."
+                  : "Something went wrong. Please try again or email us directly.",
                 required: "*",
               }}
             />
+            </Suspense>
           </div>
         </FadeIn>
       </section>

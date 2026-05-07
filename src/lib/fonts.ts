@@ -1,4 +1,4 @@
-import { Inter, IBM_Plex_Mono } from "next/font/google";
+import { Inter, IBM_Plex_Mono, Noto_Serif_Display } from "next/font/google";
 
 const interFont = Inter({
   subsets: ["latin", "latin-ext"],
@@ -15,11 +15,21 @@ const monoFont = IBM_Plex_Mono({
   weight: ["400", "500"],
 });
 
+// Theatrical title face — used ONLY on the homepage hero.
+const displaySerifFont = Noto_Serif_Display({
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+  variable: "--font-serif-display",
+  weight: ["200", "300"],
+  style: ["normal", "italic"],
+});
+
 export const inter = interFont;
 export const mono = monoFont;
+export const serifDisplay = displaySerifFont;
 
 // Legacy aliases — components still import these names.
-// All four collapse to Inter; italic styles are removed at the CSS layer.
+// All collapse to Inter; italic at the CSS layer is now allowed (selectively).
 export const bodoni = interFont;
 export const sourceSerif = interFont;
 export const cartel = interFont;

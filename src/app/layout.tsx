@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { inter, mono } from "@/lib/fonts";
+import { inter, mono, serifDisplay } from "@/lib/fonts";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
@@ -19,7 +19,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
-      className={`${inter.variable} ${mono.variable}`}
+      className={`${inter.variable} ${mono.variable} ${serifDisplay.variable}`}
       suppressHydrationWarning
     >
       <body>{children}</body>

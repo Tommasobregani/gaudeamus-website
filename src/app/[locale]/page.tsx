@@ -10,6 +10,7 @@ import { Impact } from "@/components/sections/Impact";
 import { PressRibbon } from "@/components/sections/PressRibbon";
 import { DonateStory } from "@/components/sections/DonateStory";
 import { ClosingCTA } from "@/components/sections/ClosingCTA";
+import { ArtistInvite } from "@/components/sections/ArtistInvite";
 import { ScrollStage } from "@/components/motion/ScrollStage";
 import { JsonLd } from "@/components/JsonLd";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/schema-org";
@@ -63,6 +64,10 @@ export default async function HomePage({
 
       <ScrollStage palette="carta">
         <PressRibbon />
+      </ScrollStage>
+
+      <ScrollStage palette="travertino">
+        <ArtistInvite />
       </ScrollStage>
 
       <ScrollStage palette="carta">
