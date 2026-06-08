@@ -61,7 +61,7 @@ export default async function EventiPage({
         title={t("title")}
         lead={t("lead")}
         meta={t("heroMeta")}
-        image="/events/christmas-party/christmas-party-07.jpg"
+        image="/events/christmas-party/christmas-party-05.jpg"
         imageAlt="Gaudeamus community gathering"
         imagePosition="center 35%"
       />

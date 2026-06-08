@@ -35,8 +35,8 @@ export const siteConfig = {
     reference: "DONATION + your name",
   },
   social: {
-    facebook: "https://www.facebook.com/",
-    instagram: "https://www.instagram.com/",
+    facebook: "https://www.facebook.com/profile.php?id=100094224285903",
+    instagram: "https://www.instagram.com/compagnia_artistica_gaudeamus/",
   },
 } as const;
 

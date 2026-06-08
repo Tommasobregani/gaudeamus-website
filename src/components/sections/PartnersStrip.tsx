@@ -4,28 +4,20 @@ import Image from "next/image";
 import { useLocale } from "next-intl";
 import type { Locale } from "@/lib/utils";
 
+// Canonical partner set agreed with the charity (June 2026 review):
+// London One Radio · Italian Scotland · Valvona & Crolla · Com.It.Es ·
+// Consolato Generale d'Italia, Edimburgo · Istituto Italiano di Cultura (TBC).
+// Consolato Onorario di Aberdeen removed.
 const PARTNERS = [
-  {
-    src: "/partners/comites.png",
-    alt: "Com.It.Es. Scotland & Northern Ireland",
-    width: 220,
-    height: 90,
-  },
-  {
-    src: "/partners/consolato-aberdeen.jpg",
-    alt: "Honorary Consulate of Italy, Aberdeen",
-    width: 220,
-    height: 90,
-  },
-  {
-    src: "/partners/maeci-consolato-edinburgh.png",
-    alt: "Consulate General of Italy, Edinburgh",
-    width: 220,
-    height: 90,
-  },
   {
     src: "/partners/london-one-radio.jpg",
     alt: "London One Radio",
+    width: 220,
+    height: 90,
+  },
+  {
+    src: "/partners/italian-scotland.jpg",
+    alt: "Italian Scotland",
     width: 220,
     height: 90,
   },
@@ -35,6 +27,25 @@ const PARTNERS = [
     width: 220,
     height: 90,
   },
+  {
+    src: "/partners/comites.png",
+    alt: "Com.It.Es. Scotland & Northern Ireland",
+    width: 220,
+    height: 90,
+  },
+  {
+    src: "/partners/maeci-consolato-edinburgh.png",
+    alt: "Consulate General of Italy, Edinburgh",
+    width: 220,
+    height: 90,
+  },
+  // Istituto Italiano di Cultura, Edimburgo — TBC, will be re-enabled once confirmed.
+  // {
+  //   src: "/partners/istituto-cultura-edinburgh.png",
+  //   alt: "Istituto Italiano di Cultura, Edinburgh",
+  //   width: 220,
+  //   height: 90,
+  // },
 ] as const;
 
 export function PartnersStrip() {

@@ -72,9 +72,9 @@ export default async function ContattiPage({
         eyebrow={it ? "Contatti" : "Contact"}
         title={it ? "Parliamone." : "Let's talk."}
         lead={t("lead")}
-        image="/events/no-shakespeare/no-shakespeare-04.jpg"
-        imageAlt="Compagnia Gaudeamus on stage"
-        imagePosition="center 22%"
+        image="/events/talk-and-toast/talk-and-toast-02.jpg"
+        imageAlt="Compagnia Gaudeamus, Talk and Toast"
+        imagePosition="center 35%"
         size="compact"
       />
 

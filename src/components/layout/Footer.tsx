@@ -5,6 +5,18 @@ import { Wordmark } from "@/components/brand/Wordmark";
 import { siteConfig } from "@/lib/utils";
 import { NewsletterForm } from "@/components/sections/NewsletterForm";
 
+// Treat the bare-host placeholders that ship in lib/utils.ts as "not set yet"
+// so we don't render dead social chips while the real URLs are pending.
+function isRealSocialUrl(url: string | undefined): boolean {
+  if (!url) return false;
+  try {
+    const u = new URL(url);
+    return u.pathname !== "/" && u.pathname.length > 1;
+  } catch {
+    return false;
+  }
+}
+
 /**
  * Footer v2 — deep-blue stage. Inter only.
  * Structure: brand + tagline · newsletter · contacts · locations · legal.
@@ -13,6 +25,8 @@ import { NewsletterForm } from "@/components/sections/NewsletterForm";
 export function Footer() {
   const t = useTranslations();
   const year = new Date().getFullYear();
+  const fb = isRealSocialUrl(siteConfig.social.facebook) ? siteConfig.social.facebook : null;
+  const ig = isRealSocialUrl(siteConfig.social.instagram) ? siteConfig.social.instagram : null;
 
   return (
     <footer className="relative bg-[color:var(--color-notte)] text-white">
@@ -34,26 +48,32 @@ export function Footer() {
             {t("footer.tagline")}
           </p>
 
-          <div className="mt-7 flex items-center gap-2.5">
-            <a
-              href={siteConfig.social.facebook}
-              target="_blank"
-              rel="noreferrer noopener"
-              aria-label="Facebook"
-              className="grid h-11 w-11 place-items-center rounded-full border border-white/20 text-white/85 transition-all duration-500 ease-[cubic-bezier(0.165,0.84,0.44,1)] hover:-translate-y-0.5 hover:border-white hover:bg-white hover:text-[color:var(--color-notte)]"
-            >
-              <Facebook size={16} strokeWidth={1.6} />
-            </a>
-            <a
-              href={siteConfig.social.instagram}
-              target="_blank"
-              rel="noreferrer noopener"
-              aria-label="Instagram"
-              className="grid h-11 w-11 place-items-center rounded-full border border-white/20 text-white/85 transition-all duration-500 ease-[cubic-bezier(0.165,0.84,0.44,1)] hover:-translate-y-0.5 hover:border-white hover:bg-white hover:text-[color:var(--color-notte)]"
-            >
-              <Instagram size={16} strokeWidth={1.6} />
-            </a>
-          </div>
+          {fb || ig ? (
+            <div className="mt-7 flex items-center gap-2.5">
+              {fb ? (
+                <a
+                  href={fb}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  aria-label="Facebook"
+                  className="grid h-11 w-11 place-items-center rounded-full border border-white/20 text-white/85 transition-all duration-500 ease-[cubic-bezier(0.165,0.84,0.44,1)] hover:-translate-y-0.5 hover:border-white hover:bg-white hover:text-[color:var(--color-notte)]"
+                >
+                  <Facebook size={16} strokeWidth={1.6} />
+                </a>
+              ) : null}
+              {ig ? (
+                <a
+                  href={ig}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  aria-label="Instagram"
+                  className="grid h-11 w-11 place-items-center rounded-full border border-white/20 text-white/85 transition-all duration-500 ease-[cubic-bezier(0.165,0.84,0.44,1)] hover:-translate-y-0.5 hover:border-white hover:bg-white hover:text-[color:var(--color-notte)]"
+                >
+                  <Instagram size={16} strokeWidth={1.6} />
+                </a>
+              ) : null}
+            </div>
+          ) : null}
         </div>
 
         {/* Newsletter */}
@@ -96,28 +116,6 @@ export function Footer() {
                 </a>
               </li>
             </ul>
-            <div className="mt-4 flex items-center gap-2">
-              {/* TODO: replace with real URL from Eva */}
-              <a
-                href="https://www.facebook.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                className="grid h-9 w-9 place-items-center rounded-full border border-[color:var(--color-sepia)]/12 bg-[color:var(--color-travertino)] text-[color:var(--color-sepia)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[color:var(--color-pompeiano)] hover:bg-[color:var(--color-pompeiano)] hover:text-white"
-              >
-                <Facebook size={16} strokeWidth={1.6} />
-              </a>
-              {/* TODO: replace with real URL from Eva */}
-              <a
-                href="https://www.instagram.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="grid h-9 w-9 place-items-center rounded-full border border-[color:var(--color-sepia)]/12 bg-[color:var(--color-travertino)] text-[color:var(--color-sepia)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[color:var(--color-pompeiano)] hover:bg-[color:var(--color-pompeiano)] hover:text-white"
-              >
-                <Instagram size={16} strokeWidth={1.6} />
-              </a>
-            </div>
           </div>
 
           <div>

@@ -33,11 +33,11 @@ const PILLARS: Pillar[] = [
   },
   {
     key: "workshop",
-    href: "/teatro",
+    href: "/teatro/laboratori",
     label: { en: "Workshops", it: "Laboratori" },
     title: {
-      en: "Theatre and the Italian language, hands on, across Scotland.",
-      it: "Teatro e lingua italiana, in pratica, in tutta la Scozia.",
+      en: "Workshops open to Italians and beyond, to explore acting, culture and the Italian language.",
+      it: "Laboratori aperti a italiani e non per esplorare la recitazione, la cultura e la lingua italiana.",
     },
     image: "/events/viaggio-lingua/viaggio-lingua-01.jpg",
     position: "center 40%",
@@ -47,8 +47,8 @@ const PILLARS: Pillar[] = [
     href: "/eventi",
     label: { en: "Events", it: "Eventi" },
     title: {
-      en: "Community events: aperitivos, gatherings, Christmas parties.",
-      it: "Eventi di comunità: aperitivi letterari, incontri, feste di Natale.",
+      en: "Readings, talks, conferences and dinners — open to Italians and beyond, to share our culture.",
+      it: "Letture, incontri, conferenze e cene, aperti ad italiani e non per promuovere la nostra cultura.",
     },
     image: "/events/christmas-party/christmas-party-07.jpg",
     position: "center 35%",

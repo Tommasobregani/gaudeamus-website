@@ -39,24 +39,20 @@ export const fundedProjects: FundedProject[] = [
       it: "Gaudeamus entra ufficialmente nell'Albo Consolare delle Associazioni Culturali Italiane nel Regno Unito, consolidando il proprio ruolo istituzionale nella promozione dell'arte e della cultura italiana in Scozia.",
     },
     image: "/events/no-shakespeare/no-shakespeare-04.jpg",
-    partners: [
-      "MAECI · Italian Ministry of Foreign Affairs",
-      "Consulate General of Italy, Edinburgh",
-    ],
+    partners: ["Consulate General of Italy, Edinburgh"],
   },
   {
     slug: "production-season-2024",
     year: 2024,
     title: {
-      en: "Production season: Poor Piero, No Shakespeare Fringe Edition",
-      it: "Stagione produttiva: Poor Piero, No Shakespeare Fringe Edition",
+      en: "Theatrical consolidation: a year that marked a turning point.",
+      it: "Consolidamento teatrale: un anno che ha segnato un punto di svolta.",
     },
     body: {
-      en: "Mission-driven production of Poor Piero (after Achille Campanile) and the Fringe Edition of No Shakespeare, both staged in Italian with live English subtitles, with the goal of giving Italian dramaturgy a Scottish stage.",
-      it: "Produzione mission-driven di Poor Piero (da Achille Campanile) e della Fringe Edition di No Shakespeare, entrambi in italiano con sottotitoli live in inglese, con l'obiettivo di portare la drammaturgia italiana sui palchi scozzesi.",
+      en: "A year rich in productions that marked a turning point for Gaudeamus. From staging Poor Piero by Achille Campanile to the Edinburgh Fringe debut with No Shakespeare. Both performed in Italian with live English subtitles, with the goal of bringing Italian dramaturgy to Scottish stages.",
+      it: "Un anno ricco di produzioni che ha segnato un punto di svolta per la Gaudeamus. Dalla messa in scena del Povero Piero di Achille Campanile, al debutto al Fringe di Edimburgo con No Shakespeare. Entrambi in italiano con sottotitoli live in inglese, con l'obiettivo di portare la drammaturgia italiana sui palchi scozzesi.",
     },
     image: "/events/poor-piero/poor-piero-04.jpeg",
-    partners: ["Edinburgh Fringe Festival"],
   },
   {
     slug: "return-to-the-roots-2023",
@@ -66,8 +62,8 @@ export const fundedProjects: FundedProject[] = [
       it: "Return to the Roots: prima produzione e laboratori di comunità",
     },
     body: {
-      en: "Our first theatrical production, staged in Italian and made accessible to English-speaking audiences through live surtitles to encourage inclusive cultural exchange. Alongside the show, a series of workshops actively involved the community, fostering participation and connection. The project set out to counter isolation and strengthen the ties between the Italian community and the local territory. In partnership with Aberdeen City Council, Creative Funding.",
-      it: "La nostra prima produzione teatrale in italiano, resa accessibile al pubblico anglofono tramite sovratitoli per favorire uno scambio culturale inclusivo. Parallelamente allo spettacolo, una serie di laboratori ha coinvolto attivamente la comunità, promuovendo partecipazione e incontro. Il progetto mirava a contrastare l'isolamento e rafforzare i legami tra la comunità italiana e il territorio locale. In collaborazione con l'Aberdeen City Council, Creative Funding.",
+      en: "Return to the Roots was the Charity's first project. It set out to counter isolation and strengthen the ties between the Italian community and the local territory. Not only a series of workshops aimed at actively involving the community, but also the debut of our first theatrical production, No Shakespeare, with live English subtitles to make the show accessible to everyone. In partnership with Aberdeen City Council, Creative Funding.",
+      it: "Return to the Roots è stato il primo progetto della Charity, che mirava a contrastare l'isolamento ed a rafforzare i legami tra la comunità italiana ed il territorio locale. Non solo una serie di laboratori mirati a coinvolgere attivamente la comunità, ma anche il debutto della nostra prima produzione teatrale No Shakespeare, con l'uso di sottotitoli live in inglese per rendere lo spettacolo accessibile a tutti. In collaborazione con Aberdeen City Council, Creative Funding.",
     },
     image: "/events/no-shakespeare/no-shakespeare-01.jpg",
     partners: ["Aberdeen City Council", "Creative Funding"],

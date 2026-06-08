@@ -14,14 +14,14 @@ export const staff: StaffMember[] = [
   },
   {
     name: "Elena Pampana",
-    role: { en: "Treasurer", it: "Tesoriere" },
+    role: { en: "Treasurer · Trustee", it: "Tesoriera · Trustee" },
   },
   {
     name: "Erika Boetto",
-    role: { en: "Secretary", it: "Segretario" },
+    role: { en: "Secretary · Trustee", it: "Segretaria · Trustee" },
   },
   {
     name: "Sacha Fop",
-    role: { en: "Secretary", it: "Segretario" },
+    role: { en: "Secretary · Trustee", it: "Segretario · Trustee" },
   },
 ];

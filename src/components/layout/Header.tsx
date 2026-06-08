@@ -6,7 +6,19 @@ import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/routing";
 import { Wordmark } from "@/components/brand/Wordmark";
 import { LanguageToggle } from "./LanguageToggle";
-import { cn } from "@/lib/utils";
+import { cn, siteConfig } from "@/lib/utils";
+
+// Match the same guard used in Footer: only render social chips when the URL
+// has a real path, never the bare host placeholder.
+function isRealSocialUrl(url: string | undefined): boolean {
+  if (!url) return false;
+  try {
+    const u = new URL(url);
+    return u.pathname !== "/" && u.pathname.length > 1;
+  } catch {
+    return false;
+  }
+}
 
 const navLinks = [
   { href: "/chi-siamo", key: "about" },
@@ -107,27 +119,37 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2 md:gap-3">
-          <div className="hidden items-center gap-0.5 md:flex">
-            <a
-              href="https://www.facebook.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-              className="grid h-8 w-8 place-items-center rounded-full text-[color:var(--color-sepia)]/65 transition-all duration-300 hover:bg-[color:var(--color-notte)]/8 hover:text-[color:var(--color-notte)]"
-            >
-              <Facebook size={14} strokeWidth={1.7} />
-            </a>
-            {/* TODO: replace with real URL from Eva */}
-            <a
-              href="https://www.instagram.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="grid h-8 w-8 place-items-center rounded-full text-[color:var(--color-sepia)]/65 transition-all duration-300 hover:bg-[color:var(--color-notte)]/8 hover:text-[color:var(--color-notte)]"
-            >
-              <Instagram size={14} strokeWidth={1.7} />
-            </a>
-          </div>
+          {(() => {
+            const fb = isRealSocialUrl(siteConfig.social.facebook) ? siteConfig.social.facebook : null;
+            const ig = isRealSocialUrl(siteConfig.social.instagram) ? siteConfig.social.instagram : null;
+            if (!fb && !ig) return null;
+            return (
+              <div className="hidden items-center gap-0.5 md:flex">
+                {fb ? (
+                  <a
+                    href={fb}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Facebook"
+                    className="grid h-8 w-8 place-items-center rounded-full text-[color:var(--color-sepia)]/65 transition-all duration-300 hover:bg-[color:var(--color-notte)]/8 hover:text-[color:var(--color-notte)]"
+                  >
+                    <Facebook size={14} strokeWidth={1.7} />
+                  </a>
+                ) : null}
+                {ig ? (
+                  <a
+                    href={ig}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                    className="grid h-8 w-8 place-items-center rounded-full text-[color:var(--color-sepia)]/65 transition-all duration-300 hover:bg-[color:var(--color-notte)]/8 hover:text-[color:var(--color-notte)]"
+                  >
+                    <Instagram size={14} strokeWidth={1.7} />
+                  </a>
+                ) : null}
+              </div>
+            );
+          })()}
 
           <span aria-hidden className="hidden h-4 w-px bg-[color:var(--color-sepia)]/12 md:block" />
 
@@ -226,25 +248,36 @@ export function Header() {
           </Link>
 
           <div className="mt-6 flex items-center gap-3">
-            <a
-              href="https://www.facebook.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-              className="grid h-11 w-11 place-items-center rounded-full bg-[color:var(--color-notte)]/8 text-[color:var(--color-sepia)] transition-colors hover:bg-[color:var(--color-notte)] hover:text-white"
-            >
-              <Facebook size={18} strokeWidth={1.6} />
-            </a>
-            {/* TODO: replace with real URL from Eva */}
-            <a
-              href="https://www.instagram.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="grid h-11 w-11 place-items-center rounded-full bg-[color:var(--color-notte)]/8 text-[color:var(--color-sepia)] transition-colors hover:bg-[color:var(--color-notte)] hover:text-white"
-            >
-              <Instagram size={18} strokeWidth={1.6} />
-            </a>
+            {(() => {
+              const fb = isRealSocialUrl(siteConfig.social.facebook) ? siteConfig.social.facebook : null;
+              const ig = isRealSocialUrl(siteConfig.social.instagram) ? siteConfig.social.instagram : null;
+              return (
+                <>
+                  {fb ? (
+                    <a
+                      href={fb}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Facebook"
+                      className="grid h-11 w-11 place-items-center rounded-full bg-[color:var(--color-notte)]/8 text-[color:var(--color-sepia)] transition-colors hover:bg-[color:var(--color-notte)] hover:text-white"
+                    >
+                      <Facebook size={18} strokeWidth={1.6} />
+                    </a>
+                  ) : null}
+                  {ig ? (
+                    <a
+                      href={ig}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Instagram"
+                      className="grid h-11 w-11 place-items-center rounded-full bg-[color:var(--color-notte)]/8 text-[color:var(--color-sepia)] transition-colors hover:bg-[color:var(--color-notte)] hover:text-white"
+                    >
+                      <Instagram size={18} strokeWidth={1.6} />
+                    </a>
+                  ) : null}
+                </>
+              );
+            })()}
             <div className="ml-auto">
               <LanguageToggle />
             </div>

@@ -63,7 +63,7 @@ export default async function ProgettiPage({
         title={t("title")}
         lead={t("lead")}
         meta={t("heroMeta")}
-        image="/events/wander-fool-word/wander-fool-word-05.jpg"
+        image="/events/no-shakespeare/no-shakespeare-04.jpg"
         imageAlt="Compagnia Gaudeamus on stage"
         imagePosition="center 30%"
       />
@@ -120,11 +120,11 @@ export default async function ProgettiPage({
             <FadeIn delay={0.05}>
               <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
                 {[
-                  { src: "/partners/maeci-consolato-edinburgh.png", alt: "Consolato Generale d'Italia, Edimburgo" },
-                  { src: "/partners/comites.png", alt: "Com.It.Es. Scotland & Northern Ireland" },
-                  { src: "/partners/consolato-aberdeen.jpg", alt: "Consolato Onorario d'Italia, Aberdeen" },
-                  { src: "/partners/valvona-crolla.png", alt: "Valvona & Crolla, Edinburgh" },
                   { src: "/partners/london-one-radio.jpg", alt: "London One Radio" },
+                  { src: "/partners/italian-scotland.jpg", alt: "Italian Scotland" },
+                  { src: "/partners/valvona-crolla.png", alt: "Valvona & Crolla, Edinburgh" },
+                  { src: "/partners/comites.png", alt: "Com.It.Es. Scotland & Northern Ireland" },
+                  { src: "/partners/maeci-consolato-edinburgh.png", alt: "Consolato Generale d'Italia, Edimburgo" },
                 ].map((p) => (
                   <li
                     key={p.src}
@@ -147,32 +147,23 @@ export default async function ProgettiPage({
             <FadeIn delay={0.12}>
               <ul className="mt-10 grid grid-cols-1 gap-x-10 gap-y-5 sm:grid-cols-2">
                 {[
+                  "London One Radio",
+                  "Italian Scotland",
+                  loc === "it" ? "Valvona & Crolla, Edimburgo" : "Valvona & Crolla, Edinburgh",
                   loc === "it"
                     ? "Com.It.Es. Scozia e Irlanda del Nord"
                     : "Com.It.Es. Scotland & Northern Ireland",
                   loc === "it"
-                    ? "Istituto Italiano di Cultura, Edimburgo"
-                    : "Italian Cultural Institute, Edinburgh",
-                  loc === "it"
                     ? "Consolato Generale d'Italia, Edimburgo"
                     : "Consulate General of Italy, Edinburgh",
                   loc === "it"
-                    ? "Consolato Onorario d'Italia, Aberdeen"
-                    : "Honorary Consulate of Italy, Aberdeen",
-                  loc === "it"
-                    ? "MAECI · Ministero degli Affari Esteri"
-                    : "MAECI · Italian Ministry of Foreign Affairs",
+                    ? "Istituto Italiano di Cultura, Edimburgo"
+                    : "Italian Cultural Institute, Edinburgh",
                   loc === "it"
                     ? "Albo Consolare delle Associazioni Culturali Italiane nel Regno Unito"
                     : "Italian Consular Register of Cultural Associations in the UK",
-                  loc === "it" ? "London One Radio" : "London One Radio",
-                  loc === "it" ? "Valvona & Crolla, Edimburgo" : "Valvona & Crolla, Edinburgh",
-                  loc === "it"
-                    ? "Aberdeen City Council, Creative Funding"
-                    : "Aberdeen City Council, Creative Funding",
-                  loc === "it"
-                    ? "National Lottery Ethnic Minority Development Fund"
-                    : "National Lottery Ethnic Minority Development Fund",
+                  "Aberdeen City Council, Creative Funding",
+                  "National Lottery Ethnic Minority Development Fund",
                 ].map((p) => (
                   <li
                     key={p}

@@ -40,3 +40,7 @@ next-env.d.ts
 
 # image originals (backed up before sharp optimization)
 /.image-backup/
+
+# local backups
+*.bak
+**/.*.bak

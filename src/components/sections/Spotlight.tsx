@@ -43,17 +43,15 @@ export function Spotlight() {
       ? (show.cover as string)
       : "/events/no-shakespeare/no-shakespeare-09.jpg";
 
-  const dateLine = isUpcoming
-    ? locale === "it" ? "13, 14 & 15 Agosto 2026" : "13, 14 & 15 August 2026"
-    : show.date
-      ? new Date(show.date).toLocaleDateString(
-          locale === "it" ? "it-IT" : "en-GB",
-          { month: "long", year: "numeric" },
-        )
-      : "";
-  const venueLine = isUpcoming
-    ? "Edinburgh Fringe · Venue 67"
-    : show.venues?.[0] ?? "";
+  const dateLine = show.date
+    ? new Date(show.date).toLocaleDateString(
+        locale === "it" ? "it-IT" : "en-GB",
+        isUpcoming
+          ? { day: "numeric", month: "long", year: "numeric" }
+          : { month: "long", year: "numeric" },
+      )
+    : "";
+  const venueLine = show.venues?.[0]?.split(".")[0]?.trim() ?? "";
 
   return (
     <section

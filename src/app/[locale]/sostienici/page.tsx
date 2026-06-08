@@ -7,7 +7,7 @@ import { ArrowUpRight } from "lucide-react";
 import { FadeIn } from "@/components/motion/FadeIn";
 import { PageHero } from "@/components/layout/PageHero";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
-import { ButtonLink } from "@/components/ui/Button";
+import { GiftAidModalButton } from "@/components/forms/GiftAidModalButton";
 import { siteConfig } from "@/lib/utils";
 
 export function generateStaticParams() {
@@ -135,9 +135,7 @@ export default async function SostieniciPage({
           </div>
           <div className="md:col-span-5 md:flex md:justify-end">
             <FadeIn delay={0.15}>
-              <ButtonLink href="/sostienici/gift-aid" variant="primary" size="lg" withArrow>
-                {t("giftAidCta")}
-              </ButtonLink>
+              <GiftAidModalButton ctaLabel={t("giftAidCta")} size="lg" />
             </FadeIn>
           </div>
         </div>

@@ -5,6 +5,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { motion } from "motion/react";
 import { ButtonLink } from "@/components/ui/Button";
 import { ImgReveal } from "@/components/motion/ImgReveal";
+import { GiftAidModalButton } from "@/components/forms/GiftAidModalButton";
 import type { Locale } from "@/lib/utils";
 
 const POWER3_OUT = [0.215, 0.61, 0.355, 1] as const;
@@ -123,9 +124,7 @@ export function DonateStory() {
             <ButtonLink href="/sostienici" variant="primary" size="lg" withArrow>
               {t("ctaPrimary")}
             </ButtonLink>
-            <ButtonLink href="/sostienici/gift-aid" variant="outline" size="lg">
-              {t("ctaSecondary")}
-            </ButtonLink>
+            <GiftAidModalButton ctaLabel={t("ctaSecondary")} size="md" />
           </motion.div>
         </div>
       </div>
