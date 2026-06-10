@@ -549,9 +549,12 @@ export const events: EventEntry[] = [
       ],
     },
     venues: ["Monty's Wine Shop and Bar, Aberdeen. 26 April 2026, 5pm to 7pm"],
-    cover: "/media/event-posters/aberdeen-event-poster.png",
+    cover: "/events/talk-and-toast-aberdeen/shakespeare-segreto-01.jpg",
     poster: "/media/event-posters/aberdeen-event-poster.png",
-    gallery: [],
+    gallery: [
+      "/events/talk-and-toast-aberdeen/shakespeare-segreto-01.jpg",
+      "/events/talk-and-toast-aberdeen/shakespeare-segreto-02.jpg",
+    ],
   },
   {
     slug: "talk-and-toast-glasgow-2026",
