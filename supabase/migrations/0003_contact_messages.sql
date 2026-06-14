@@ -1,6 +1,6 @@
 -- Contact form messages ------------------------------------------------
 -- Saved before best-effort email delivery so enquiries are not lost if
--- Resend cannot send while the domain is unverified.
+-- Resend cannot send.
 
 create table if not exists public.contact_messages (
   id uuid primary key default gen_random_uuid(),

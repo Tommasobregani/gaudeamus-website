@@ -13,7 +13,7 @@ const schema = z.object({
   botField: z.string().max(0).optional().default(""),
 });
 
-const fromAddress = "Gaudeamus Website <onboarding@resend.dev>";
+const fromAddress = "Gaudeamus <info@italiandramauk.org>";
 
 function safeError(error: unknown) {
   if (error instanceof Error) {
