@@ -65,8 +65,6 @@ NEXT_PUBLIC_SUPABASE_URL        (Supabase project URL)
 NEXT_PUBLIC_SUPABASE_ANON_KEY   (Supabase anon key)
 SUPABASE_SERVICE_ROLE_KEY       (server-side only)
 RESEND_API_KEY                  (Resend API key)
-CONTACT_EMAIL_GENERAL          (general contact destination)
-CONTACT_EMAIL_ARTISTIC         (artistic contact destination)
 ```
 
 ### Supabase
@@ -84,6 +82,7 @@ CONTACT_EMAIL_ARTISTIC         (artistic contact destination)
 1. Verify the `italiandramauk.org` domain.
 2. Add `RESEND_API_KEY` in Netlify.
 3. The `/api/contact` route sends contact form emails with Resend.
+4. The `/api/newsletter` route sends newsletter confirmation emails with Resend.
 
 ## Content
 

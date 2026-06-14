@@ -14,12 +14,26 @@ const schema = z.object({
 });
 
 const fromAddress = "Gaudeamus <info@italiandramauk.org>";
+const recipientEmails = {
+  general: "info@italiandramauk.org",
+  artistic: "gaudeamus@italiandramauk.org",
+} as const;
 
 function safeError(error: unknown) {
   if (error instanceof Error) {
     return { name: error.name, message: error.message, stack: error.stack };
   }
   return error;
+}
+
+function safeErrorMessage(error: unknown) {
+  if (error instanceof Error) return error.message;
+  if (typeof error === "string") return error;
+  if (error && typeof error === "object" && "message" in error) {
+    const message = (error as { message?: unknown }).message;
+    if (typeof message === "string") return message;
+  }
+  return "Email delivery failed";
 }
 
 export async function POST(req: Request) {
@@ -47,10 +61,7 @@ export async function POST(req: Request) {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
   const apiKey = process.env.RESEND_API_KEY;
-  const recipientEmail =
-    data.recipient === "artistic"
-      ? process.env.CONTACT_EMAIL_ARTISTIC
-      : process.env.CONTACT_EMAIL_GENERAL;
+  const recipientEmail = recipientEmails[data.recipient];
   const tag = data.recipient === "artistic" ? "[ARTIST]" : "[GENERAL]";
 
   if (!supabaseUrl || !serviceKey) {
@@ -73,7 +84,9 @@ export async function POST(req: Request) {
       subject: data.subject,
       message: data.message,
       recipient: data.recipient,
+      recipient_email: recipientEmail,
       email_status: "pending",
+      email_error: null,
     })
     .select("id")
     .single();
@@ -100,14 +113,25 @@ export async function POST(req: Request) {
   ].join("\n");
 
   if (!apiKey) {
-    console.error("[contact] email failed: RESEND_API_KEY not set", {
+    const emailError = "RESEND_API_KEY not set";
+    console.error("[contact] email failed", {
       messageId: savedMessage.id,
+      error: emailError,
     });
-  } else if (!recipientEmail) {
-    console.error("[contact] email failed: recipient email env var not set", {
-      messageId: savedMessage.id,
-      recipient: data.recipient,
-    });
+    const { error: updateError } = await supabase
+      .from("contact_messages")
+      .update({
+        email_status: "failed",
+        recipient_email: recipientEmail,
+        email_error: emailError,
+      })
+      .eq("id", savedMessage.id);
+    if (updateError) {
+      console.error("[contact] email status update failed", {
+        messageId: savedMessage.id,
+        error: updateError,
+      });
+    }
   } else {
     try {
       const resend = new Resend(apiKey);
@@ -118,23 +142,66 @@ export async function POST(req: Request) {
         subject: `${tag} ${data.subject}`.slice(0, 200),
         text,
       });
+      console.info("[contact] Resend result", {
+        messageId: savedMessage.id,
+        result,
+      });
 
       if (result.error) {
         console.error("[contact] email failed", {
           messageId: savedMessage.id,
           error: result.error,
         });
-      } else {
-        await supabase
+        const { error: updateError } = await supabase
           .from("contact_messages")
-          .update({ email_status: "sent", resend_id: result.data?.id ?? null })
+          .update({
+            email_status: "failed",
+            recipient_email: recipientEmail,
+            email_error: safeErrorMessage(result.error),
+          })
           .eq("id", savedMessage.id);
+        if (updateError) {
+          console.error("[contact] email status update failed", {
+            messageId: savedMessage.id,
+            error: updateError,
+          });
+        }
+      } else {
+        const { error: updateError } = await supabase
+          .from("contact_messages")
+          .update({
+            email_status: "sent",
+            recipient_email: recipientEmail,
+            email_error: null,
+            resend_id: result.data?.id ?? null,
+          })
+          .eq("id", savedMessage.id);
+        if (updateError) {
+          console.error("[contact] email status update failed", {
+            messageId: savedMessage.id,
+            error: updateError,
+          });
+        }
       }
     } catch (error) {
       console.error("[contact] email failed", {
         messageId: savedMessage.id,
         error: safeError(error),
       });
+      const { error: updateError } = await supabase
+        .from("contact_messages")
+        .update({
+          email_status: "failed",
+          recipient_email: recipientEmail,
+          email_error: safeErrorMessage(error),
+        })
+        .eq("id", savedMessage.id);
+      if (updateError) {
+        console.error("[contact] email status update failed", {
+          messageId: savedMessage.id,
+          error: updateError,
+        });
+      }
     }
   }
 

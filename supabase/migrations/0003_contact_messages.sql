@@ -9,7 +9,9 @@ create table if not exists public.contact_messages (
   subject text not null,
   message text not null,
   recipient text not null check (recipient in ('general', 'artistic')),
-  email_status text not null default 'pending' check (email_status in ('pending', 'sent')),
+  recipient_email text,
+  email_status text not null default 'pending' check (email_status in ('pending', 'sent', 'failed')),
+  email_error text,
   resend_id text,
   created_at timestamptz not null default now()
 );
