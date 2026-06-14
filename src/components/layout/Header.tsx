@@ -55,9 +55,18 @@ export function Header() {
   }, [pathname]);
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
+    const previousBodyOverflow = document.body.style.overflow;
+    const previousHtmlOverflow = document.documentElement.style.overflow;
+    const previousBodyTouchAction = document.body.style.touchAction;
+    if (open) {
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+      document.body.style.touchAction = "none";
+    }
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = previousBodyOverflow;
+      document.documentElement.style.overflow = previousHtmlOverflow;
+      document.body.style.touchAction = previousBodyTouchAction;
     };
   }, [open]);
 
@@ -74,12 +83,13 @@ export function Header() {
     <header
       className={cn(
         "sticky top-0 z-40 transition-[background,box-shadow,border-color] duration-500 ease-[cubic-bezier(0.165,0.84,0.44,1)]",
+        open && "z-[90]",
         scrolled
           ? "glass-strong border-b border-black/5 shadow-[0_1px_0_rgba(15,42,74,0.04)]"
           : "border-b border-transparent bg-transparent",
       )}
     >
-      <div className="container-site flex h-[60px] items-center justify-between gap-4 md:h-[68px]">
+      <div className="container-site relative z-[90] flex h-[60px] items-center justify-between gap-4 md:h-[68px]">
         <Link href="/" className="shrink-0 transition-opacity hover:opacity-80">
           <Wordmark tone="ink" />
         </Link>
@@ -180,21 +190,11 @@ export function Header() {
         </div>
       </div>
 
-      {/* Mobile overlay */}
-      <div
-        aria-hidden
-        onClick={() => setOpen(false)}
-        className={cn(
-          "fixed inset-0 top-[60px] z-20 bg-[color:var(--color-notte)]/30 backdrop-blur-[2px] transition-opacity duration-300 lg:hidden",
-          open ? "opacity-100" : "pointer-events-none opacity-0",
-        )}
-      />
-
       {/* Mobile sheet */}
       <div
         id="mobile-nav"
         className={cn(
-          "fixed inset-x-0 top-[60px] bottom-0 z-30 overflow-y-auto glass-strong transition-[transform,opacity] duration-400 lg:hidden",
+          "fixed inset-0 z-[80] h-screen h-[100dvh] overflow-y-auto overscroll-contain bg-[color:var(--color-travertino)] pt-[60px] shadow-[0_24px_80px_rgba(15,42,74,0.28)] transition-[transform,opacity] duration-400 lg:hidden",
           open
             ? "translate-y-0 opacity-100"
             : "pointer-events-none -translate-y-2 opacity-0",
@@ -211,6 +211,7 @@ export function Header() {
               <Link
                 key={l.key}
                 href={l.href}
+                onClick={() => setOpen(false)}
                 aria-current={isActive ? "page" : undefined}
                 className={cn(
                   "flex items-baseline gap-4 border-b border-[color:var(--color-sepia)]/10 py-5 transition-opacity",
@@ -241,6 +242,7 @@ export function Header() {
 
           <Link
             href="/sostienici"
+            onClick={() => setOpen(false)}
             className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[color:var(--color-notte)] px-6 py-3.5 font-[family-name:var(--font-inter)] text-[0.78rem] font-medium uppercase tracking-[0.2em] text-white"
           >
             {t("support")}
@@ -279,7 +281,7 @@ export function Header() {
               );
             })()}
             <div className="ml-auto">
-              <LanguageToggle />
+              <LanguageToggle onNavigate={() => setOpen(false)} />
             </div>
           </div>
         </nav>

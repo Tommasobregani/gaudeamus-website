@@ -8,11 +8,12 @@ import { cn } from "@/lib/utils";
 
 type Props = {
   className?: string;
+  onNavigate?: () => void;
   /** Color mode — defaults to dark text. "light" inverts for use over dark photos. */
   tone?: "dark" | "light";
 };
 
-export function LanguageToggle({ className, tone = "dark" }: Props) {
+export function LanguageToggle({ className, onNavigate, tone = "dark" }: Props) {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
@@ -21,6 +22,7 @@ export function LanguageToggle({ className, tone = "dark" }: Props) {
 
   function switchTo(next: "en" | "it") {
     if (next === locale) return;
+    onNavigate?.();
     startTransition(() => {
       router.replace(
         // @ts-expect-error — next-intl allows params-less replace for dynamic paths
