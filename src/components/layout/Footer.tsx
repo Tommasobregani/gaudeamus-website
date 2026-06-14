@@ -1,4 +1,7 @@
+"use client";
+
 import { useTranslations } from "next-intl";
+import { usePathname } from "next/navigation";
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import { Facebook, Instagram, ArrowUpRight } from "lucide-react";
@@ -34,9 +37,11 @@ function isRealSocialUrl(url: string | undefined): boolean {
  */
 export function Footer() {
   const t = useTranslations();
+  const pathname = usePathname();
   const year = new Date().getFullYear();
   const fb = isRealSocialUrl(siteConfig.social.facebook) ? siteConfig.social.facebook : null;
   const ig = isRealSocialUrl(siteConfig.social.instagram) ? siteConfig.social.instagram : null;
+  const isHomepage = pathname === "/en" || pathname === "/it";
 
   return (
     <footer className="relative bg-[color:var(--color-notte)] text-white">
@@ -159,30 +164,31 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Partner logos */}
-      <div className="relative border-t border-white/10">
-        <div className="container-site py-8">
-          <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-6">
-            {FOOTER_PARTNERS.map((p) => (
-              <li
-                key={p.src}
-                className="group relative flex aspect-[3/2] items-center justify-center rounded-[var(--radius-md)] border border-white/12 bg-white p-3 transition-all duration-500 ease-[cubic-bezier(0.165,0.84,0.44,1)] hover:-translate-y-0.5 hover:border-[color:var(--color-ocra)]/60"
-                title={p.alt}
-              >
-                <div className="relative h-full w-full">
-                  <Image
-                    src={p.src}
-                    alt={p.alt}
-                    fill
-                    sizes="(min-width: 768px) 13vw, 40vw"
-                    className="object-contain"
-                  />
-                </div>
-              </li>
-            ))}
-          </ul>
+      {!isHomepage ? (
+        <div className="relative border-t border-white/10">
+          <div className="container-site py-8">
+            <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-6">
+              {FOOTER_PARTNERS.map((p) => (
+                <li
+                  key={p.src}
+                  className="group relative flex aspect-[3/2] items-center justify-center rounded-[var(--radius-md)] border border-white/12 bg-white p-3 transition-all duration-500 ease-[cubic-bezier(0.165,0.84,0.44,1)] hover:-translate-y-0.5 hover:border-[color:var(--color-ocra)]/60"
+                  title={p.alt}
+                >
+                  <div className="relative h-full w-full">
+                    <Image
+                      src={p.src}
+                      alt={p.alt}
+                      fill
+                      sizes="(min-width: 768px) 13vw, 40vw"
+                      className="object-contain"
+                    />
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-      </div>
+      ) : null}
 
       {/* Bottom bar — legal */}
       <div className="relative border-t border-white/10">
