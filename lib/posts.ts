@@ -6,7 +6,7 @@ import type { Article } from "@/content/news";
  * Safely returns [] if Supabase isn't configured or the query fails.
  */
 export async function listPublishedPosts(): Promise<Article[]> {
-  if (!process.env.NEXT_PUBLIC_SUPABASE_URL) return [];
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) return [];
 
   try {
     const supabase = await createClient();
@@ -27,7 +27,7 @@ export async function listPublishedPosts(): Promise<Article[]> {
 }
 
 export async function getPublishedPostBySlug(slug: string): Promise<Article | null> {
-  if (!process.env.NEXT_PUBLIC_SUPABASE_URL) return null;
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) return null;
 
   try {
     const supabase = await createClient();

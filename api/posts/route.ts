@@ -17,7 +17,7 @@ const postSchema = z.object({
 });
 
 async function requireEditor() {
-  if (!process.env.NEXT_PUBLIC_SUPABASE_URL) {
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
     return { error: "Supabase not configured", status: 500 as const };
   }
   const supabase = await createClient();

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { Resend } from "resend";
+import { createClient as createServerSupabase } from "@supabase/supabase-js";
 
 const schema = z.object({
   email: z.string().email(),
@@ -21,25 +21,31 @@ export async function POST(req: Request) {
   }
 
   const { email, locale = "en" } = parsed.data;
-  const apiKey = process.env.RESEND_API_KEY;
-  const audienceId = process.env.RESEND_NEWSLETTER_AUDIENCE_ID;
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-  if (!apiKey || !audienceId) {
+  if (!supabaseUrl || !serviceKey) {
     // Graceful stub before env is configured — still return 200 so the UI feels alive in dev.
-    console.warn("[newsletter] RESEND env not configured; accepting silently.");
+    console.warn("[newsletter] Supabase env not configured; accepting silently.");
     return NextResponse.json({ ok: true, stub: true });
   }
 
   try {
-    const resend = new Resend(apiKey);
-    await resend.contacts.create({
-      email,
-      audienceId,
-      unsubscribed: false,
+    const supabase = createServerSupabase(supabaseUrl, serviceKey, {
+      auth: { autoRefreshToken: false, persistSession: false },
     });
+    const { error } = await supabase.from("subscribers").upsert(
+      {
+        email,
+        locale,
+        status: "confirmed",
+      },
+      { onConflict: "email" },
+    );
+    if (error) throw error;
     return NextResponse.json({ ok: true, locale });
   } catch (err) {
-    console.error("[newsletter] resend error", err);
+    console.error("[newsletter] subscribe error", err);
     return NextResponse.json({ ok: false, error: "Subscription failed" }, { status: 500 });
   }
 }

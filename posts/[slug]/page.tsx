@@ -19,7 +19,7 @@ export default async function EditPostPage({
   setRequestLocale(locale);
   const it = locale === "it";
 
-  if (!process.env.NEXT_PUBLIC_SUPABASE_URL) notFound();
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) notFound();
 
   const supabase = await createClient();
   const {

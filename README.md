@@ -11,8 +11,8 @@ Next.js 15 App Router + Supabase + Resend, bilingual (EN / IT), editorial, SEO-f
 - **Tailwind CSS v4** (`@theme` token system)
 - **Motion for React** (`motion/react`, restrained editorial animations)
 - **next-intl 3** — `/en` + `/it` localized routes, cookie-persistent toggle, hreflang alternates
-- **Supabase** — auth, Postgres, storage (community submissions)
-- **Resend** — newsletter + transactional email
+- **Supabase** — auth, Postgres, storage, newsletter subscribers
+- **Resend** — contact form email
 - **next/font** — Fraunces, Inter, JetBrains Mono (self-hosted)
 - **TypeScript strict**, ESLint, Prettier + Tailwind plugin
 
@@ -51,7 +51,7 @@ pnpm install
 
 # Development
 cp .env.example .env.local
-# fill in Supabase + Resend keys (both optional in dev; app degrades gracefully)
+# fill in Supabase + Resend keys (optional in dev; app degrades gracefully)
 pnpm dev   # → http://localhost:3000/en
 
 # Production build
@@ -61,13 +61,10 @@ pnpm build && pnpm start
 ### Environment
 
 ```
-NEXT_PUBLIC_SITE_URL            https://www.italiandramauk.org
 NEXT_PUBLIC_SUPABASE_URL        (Supabase project URL)
 NEXT_PUBLIC_SUPABASE_ANON_KEY   (Supabase anon key)
 SUPABASE_SERVICE_ROLE_KEY       (server-side only)
 RESEND_API_KEY                  (Resend API key)
-RESEND_FROM_EMAIL               Gaudeamus <hello@italiandramauk.org>
-RESEND_NEWSLETTER_AUDIENCE_ID   (Resend audience ID)
 ```
 
 ### Supabase
@@ -83,8 +80,8 @@ RESEND_NEWSLETTER_AUDIENCE_ID   (Resend audience ID)
 ### Resend
 
 1. Verify the `italiandramauk.org` domain.
-2. Create an **Audience** for the newsletter. Copy its ID into `RESEND_NEWSLETTER_AUDIENCE_ID`.
-3. The `/api/newsletter` route will create contacts in that audience.
+2. Add `RESEND_API_KEY` in Netlify.
+3. The `/api/contact` route sends contact form emails with Resend.
 
 ## Content
 

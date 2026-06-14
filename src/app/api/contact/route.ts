@@ -13,6 +13,8 @@ const schema = z.object({
   botField: z.string().max(0).optional().default(""),
 });
 
+const fromAddress = "Gaudeamus <hello@italiandramauk.org>";
+
 export async function POST(req: Request) {
   let payload: unknown;
   try {
@@ -34,8 +36,6 @@ export async function POST(req: Request) {
 
   const data = parsed.data;
   const apiKey = process.env.RESEND_API_KEY;
-  const fromAddress =
-    process.env.RESEND_FROM ?? "Gaudeamus <onboarding@resend.dev>";
 
   // Route to the right inbox based on the user's recipient choice.
   const to =
