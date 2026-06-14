@@ -65,6 +65,8 @@ NEXT_PUBLIC_SUPABASE_URL        (Supabase project URL)
 NEXT_PUBLIC_SUPABASE_ANON_KEY   (Supabase anon key)
 SUPABASE_SERVICE_ROLE_KEY       (server-side only)
 RESEND_API_KEY                  (Resend API key)
+CONTACT_EMAIL_GENERAL          (general contact destination)
+CONTACT_EMAIL_ARTISTIC         (artistic contact destination)
 ```
 
 ### Supabase

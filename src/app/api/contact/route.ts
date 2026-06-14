@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { Resend } from "resend";
-import { siteConfig } from "@/lib/utils";
 
 const schema = z.object({
   name: z.string().trim().min(1).max(120),
@@ -13,7 +12,7 @@ const schema = z.object({
   botField: z.string().max(0).optional().default(""),
 });
 
-const fromAddress = "Gaudeamus <hello@italiandramauk.org>";
+const fromAddress = "Gaudeamus Website <onboarding@resend.dev>";
 
 export async function POST(req: Request) {
   let payload: unknown;
@@ -36,18 +35,33 @@ export async function POST(req: Request) {
 
   const data = parsed.data;
   const apiKey = process.env.RESEND_API_KEY;
+  const recipientEmail =
+    data.recipient === "artistic"
+      ? process.env.CONTACT_EMAIL_ARTISTIC
+      : process.env.CONTACT_EMAIL_GENERAL;
 
   // Route to the right inbox based on the user's recipient choice.
-  const to =
-    data.recipient === "artistic"
-      ? siteConfig.email.artistic
-      : siteConfig.email.general;
   const tag = data.recipient === "artistic" ? "[ARTIST]" : "[GENERAL]";
+
+  if (!recipientEmail) {
+    console.error("[contact] recipient email env var not set", {
+      recipient: data.recipient,
+    });
+    return NextResponse.json(
+      { ok: false, error: "Email failed" },
+      { status: 500 },
+    );
+  }
 
   // No API key configured — accept silently in dev / preview to avoid leaking.
   if (!apiKey) {
     console.warn("[contact] RESEND_API_KEY not set; logging payload only.");
-    console.warn("[contact] would send to", to, "subject:", `${tag} ${data.subject}`);
+    console.warn(
+      "[contact] would send to",
+      recipientEmail,
+      "subject:",
+      `${tag} ${data.subject}`,
+    );
     return NextResponse.json({ ok: true, stub: true });
   }
 
@@ -64,7 +78,7 @@ export async function POST(req: Request) {
   try {
     const result = await resend.emails.send({
       from: fromAddress,
-      to,
+      to: recipientEmail,
       replyTo: data.email,
       subject: `${tag} ${data.subject}`.slice(0, 200),
       text,
