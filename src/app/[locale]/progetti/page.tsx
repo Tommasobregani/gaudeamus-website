@@ -63,8 +63,8 @@ export default async function ProgettiPage({
         title={t("title")}
         lead={t("lead")}
         meta={t("heroMeta")}
-        image="/events/no-shakespeare/no-shakespeare-04.jpg"
-        imageAlt="Compagnia Gaudeamus on stage"
+        image="/media/events/christmas-party-2026-3.jpg"
+        imageAlt="Gaudeamus Christmas Party"
         imagePosition="center 30%"
       />
 

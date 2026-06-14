@@ -1,9 +1,19 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
+import Image from "next/image";
 import { Facebook, Instagram, ArrowUpRight } from "lucide-react";
 import { Wordmark } from "@/components/brand/Wordmark";
 import { siteConfig } from "@/lib/utils";
 import { NewsletterForm } from "@/components/sections/NewsletterForm";
+
+const FOOTER_PARTNERS = [
+  { src: "/partners/maeci-consolato-edinburgh.png", alt: "Consolato Generale d'Italia, Edimburgo" },
+  { src: "/partners/comites.png", alt: "Com.It.Es. Scotland" },
+  { src: "/partners/consolato-aberdeen.jpg", alt: "Consolato Onorario di Aberdeen" },
+  { src: "/partners/valvona-crolla.png", alt: "Valvona & Crolla, Edimburgo" },
+  { src: "/partners/london-one-radio.jpg", alt: "London ONE Radio" },
+  { src: "/partners/italian-scotland.jpg", alt: "Italia Scozia" },
+] as const;
 
 // Treat the bare-host placeholders that ship in lib/utils.ts as "not set yet"
 // so we don't render dead social chips while the real URLs are pending.
@@ -146,6 +156,31 @@ export function Footer() {
               />
             </Link>
           </div>
+        </div>
+      </div>
+
+      {/* Partner logos */}
+      <div className="relative border-t border-white/10">
+        <div className="container-site py-8">
+          <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-6">
+            {FOOTER_PARTNERS.map((p) => (
+              <li
+                key={p.src}
+                className="group relative flex aspect-[3/2] items-center justify-center rounded-[var(--radius-md)] border border-white/12 bg-white p-3 transition-all duration-500 ease-[cubic-bezier(0.165,0.84,0.44,1)] hover:-translate-y-0.5 hover:border-[color:var(--color-ocra)]/60"
+                title={p.alt}
+              >
+                <div className="relative h-full w-full">
+                  <Image
+                    src={p.src}
+                    alt={p.alt}
+                    fill
+                    sizes="(min-width: 768px) 13vw, 40vw"
+                    className="object-contain"
+                  />
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 
