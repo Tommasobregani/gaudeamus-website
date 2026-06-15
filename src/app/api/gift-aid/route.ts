@@ -24,7 +24,7 @@ const schema = z.object({
   taxResponsibilityDeclaration: z.literal(true),
 });
 
-const fromAddress = "Gaudeamus <finance@italiandrama.uk>";
+const fromAddress = "Gaudeamus <no-reply@italiandramauk.org>";
 const financeEmail = "finance@italiandrama.uk";
 const infoEmail = "info@italiandrama.uk";
 
@@ -171,6 +171,7 @@ export async function POST(req: Request) {
     const result = await resend.emails.send({
       from: fromAddress,
       to: [financeEmail, infoEmail],
+      replyTo: data.email,
       subject: "New Gift Aid Declaration — Gaudeamus",
       text,
     });
