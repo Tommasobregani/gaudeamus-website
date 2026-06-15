@@ -23,6 +23,7 @@ export function GiftAidModalButton({
 }) {
   const t = useTranslations("giftAid");
   const dialogRef = useRef<HTMLDialogElement | null>(null);
+  const lockedScrollY = useRef(0);
   const [open, setOpen] = useState(false);
 
   function openModal() {
@@ -50,10 +51,35 @@ export function GiftAidModalButton({
   // Lock body scroll while the dialog is open.
   useEffect(() => {
     if (!open) return;
-    const prev = document.body.style.overflow;
+    lockedScrollY.current = window.scrollY;
+    const previousBodyOverflow = document.body.style.overflow;
+    const previousHtmlOverflow = document.documentElement.style.overflow;
+    const previousBodyTouchAction = document.body.style.touchAction;
+    const previousBodyPosition = document.body.style.position;
+    const previousBodyTop = document.body.style.top;
+    const previousBodyLeft = document.body.style.left;
+    const previousBodyRight = document.body.style.right;
+    const previousBodyWidth = document.body.style.width;
+
     document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.touchAction = "none";
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${lockedScrollY.current}px`;
+    document.body.style.left = "0";
+    document.body.style.right = "0";
+    document.body.style.width = "100%";
+
     return () => {
-      document.body.style.overflow = prev;
+      document.body.style.overflow = previousBodyOverflow;
+      document.documentElement.style.overflow = previousHtmlOverflow;
+      document.body.style.touchAction = previousBodyTouchAction;
+      document.body.style.position = previousBodyPosition;
+      document.body.style.top = previousBodyTop;
+      document.body.style.left = previousBodyLeft;
+      document.body.style.right = previousBodyRight;
+      document.body.style.width = previousBodyWidth;
+      window.scrollTo(0, lockedScrollY.current);
     };
   }, [open]);
 
@@ -81,11 +107,14 @@ export function GiftAidModalButton({
           // Click on the backdrop (the dialog element itself, not its child) closes it.
           if (e.target === dialogRef.current) closeModal();
         }}
-        className="m-0 max-h-[100dvh] w-full max-w-2xl border-0 bg-transparent p-0 backdrop:bg-[color:var(--color-notte)]/72 backdrop:backdrop-blur-sm"
+        className="fixed inset-0 m-auto max-h-[90dvh] w-[calc(100%-2rem)] max-w-2xl overflow-hidden border-0 bg-transparent p-0 backdrop:bg-[color:var(--color-notte)]/72 backdrop:backdrop-blur-sm"
         style={{ inset: 0, margin: "auto" }}
         aria-labelledby="gift-aid-modal-title"
       >
-        <div className="relative max-h-[100dvh] overflow-y-auto bg-[color:var(--color-travertino)] p-6 md:p-10">
+        <div
+          data-lenis-prevent
+          className="relative max-h-[90dvh] touch-pan-y overflow-y-auto overscroll-contain bg-[color:var(--color-travertino)] p-6 [-webkit-overflow-scrolling:touch] md:p-10"
+        >
           <button
             type="button"
             onClick={closeModal}

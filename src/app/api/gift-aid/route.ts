@@ -24,7 +24,7 @@ const schema = z.object({
   taxResponsibilityDeclaration: z.literal(true),
 });
 
-const fromAddress = "Gaudeamus <info@italiandramauk.org>";
+const fromAddress = "Gaudeamus <finance@italiandrama.uk>";
 const financeEmail = "finance@italiandrama.uk";
 const infoEmail = "info@italiandrama.uk";
 
@@ -132,7 +132,11 @@ export async function POST(req: Request) {
       .from("gift_aid_declarations")
       .update({ notification_error: emailError })
       .eq("id", declaration.id);
-    return NextResponse.json({ ok: false, error: "Submission failed" }, { status: 500 });
+    return NextResponse.json({
+      ok: true,
+      emailNotification: "failed",
+      message: "Declaration saved, but email notification failed",
+    });
   }
 
   const amountLine =
@@ -165,8 +169,7 @@ export async function POST(req: Request) {
     const resend = new Resend(apiKey);
     const result = await resend.emails.send({
       from: fromAddress,
-      to: financeEmail,
-      cc: infoEmail,
+      to: [financeEmail, infoEmail],
       subject: "New Gift Aid Declaration — Gaudeamus",
       text,
     });
@@ -186,7 +189,11 @@ export async function POST(req: Request) {
         .from("gift_aid_declarations")
         .update({ notification_error: emailError })
         .eq("id", declaration.id);
-      return NextResponse.json({ ok: false, error: "Submission failed" }, { status: 500 });
+      return NextResponse.json({
+        ok: true,
+        emailNotification: "failed",
+        message: "Declaration saved, but email notification failed",
+      });
     }
 
     await supabase
@@ -206,8 +213,12 @@ export async function POST(req: Request) {
       .from("gift_aid_declarations")
       .update({ notification_error: emailError })
       .eq("id", declaration.id);
-    return NextResponse.json({ ok: false, error: "Submission failed" }, { status: 500 });
+    return NextResponse.json({
+      ok: true,
+      emailNotification: "failed",
+      message: "Declaration saved, but email notification failed",
+    });
   }
 
-  return NextResponse.json({ ok: true });
+  return NextResponse.json({ ok: true, emailNotification: "sent" });
 }
