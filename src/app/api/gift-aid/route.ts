@@ -103,6 +103,7 @@ export async function POST(req: Request) {
       donation_reference: data.donationReference,
       submitted_at: submittedAt,
       consent_at: submittedAt,
+      is_uk_taxpayer: data.ukTaxpayerDeclaration,
       uk_taxpayer_confirmed: data.ukTaxpayerDeclaration,
       gift_aid_confirmed: data.giftAidDeclaration,
       tax_responsibility_confirmed: data.taxResponsibilityDeclaration,
