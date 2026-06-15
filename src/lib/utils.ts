@@ -26,13 +26,14 @@ export const siteConfig = {
   email: {
     general: "info@italiandramauk.org",
     artistic: "gaudeamus@italiandramauk.org",
+    finance: "finance@italiandrama.uk",
   },
   bank: {
     name: "Lloyds Bank",
     accountHolder: "Compagnia Artistica Gaudeamus SCIO",
-    accountNumber: "" as string, // To be set when Eva sends the details
-    sortCode: "" as string,
-    reference: "DONATION + your name",
+    accountNumber: "20035163",
+    sortCode: "30-99-50",
+    reference: "Donation — Gaudeamus",
   },
   social: {
     facebook: "https://www.facebook.com/profile.php?id=100094224285903",

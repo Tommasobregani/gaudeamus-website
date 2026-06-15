@@ -148,6 +148,17 @@ export default async function GiftAidPage({
                       <dd className="text-[color:var(--color-sepia)]">{siteConfig.bank.reference}</dd>
                     </div>
                   </dl>
+                  <p className="mt-6 border-t border-[color:var(--color-sepia)]/20 pt-5 text-[0.88rem] italic text-[color:var(--color-sepia-soft)]">
+                    {locale === "it"
+                      ? "Per domande su donazioni o finance, contatta:"
+                      : "For donation or finance enquiries, please contact:"}{" "}
+                    <a
+                      className="hover-underline text-[color:var(--color-sepia)]"
+                      href={`mailto:${siteConfig.email.finance}`}
+                    >
+                      {siteConfig.email.finance}
+                    </a>
+                  </p>
                 </div>
               ) : (
                 <div className="border-2 border-dashed border-[color:var(--color-sepia)]/30 bg-[color:var(--color-carta)] p-6 md:p-8">

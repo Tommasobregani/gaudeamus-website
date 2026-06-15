@@ -187,12 +187,12 @@ export default async function SostieniciPage({
                   </dl>
                   <p className="mt-6 border-t border-[color:var(--color-sepia)]/20 pt-5 text-[0.88rem] italic text-[color:var(--color-sepia-soft)]">
                     {t("bankNote")}{" "}
-                    <Link
+                    <a
                       className="hover-underline text-[color:var(--color-sepia)]"
-                      href="/contatti"
+                      href={`mailto:${siteConfig.email.finance}`}
                     >
-                      {locale === "it" ? "Contattaci" : "Get in touch"}
-                    </Link>
+                      {siteConfig.email.finance}
+                    </a>
                   </p>
                 </div>
               ) : (
