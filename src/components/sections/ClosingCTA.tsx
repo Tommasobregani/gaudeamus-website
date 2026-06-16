@@ -9,7 +9,6 @@ import { NewsletterForm } from "@/components/sections/NewsletterForm";
 const PARTNERS = [
   { src: "/partners/maeci-consolato-edinburgh.png", alt: "Consolato Generale d'Italia, Edimburgo" },
   { src: "/partners/comites.png", alt: "Com.It.Es. Scotland" },
-  { src: "/partners/consolato-aberdeen.jpg", alt: "Consolato Onorario di Aberdeen" },
   { src: "/partners/valvona-crolla.png", alt: "Valvona & Crolla, Edimburgo" },
   { src: "/partners/london-one-radio.jpg", alt: "London ONE Radio" },
   { src: "/partners/italian-scotland.jpg", alt: "Italia Scozia" },
@@ -119,7 +118,7 @@ export function ClosingCTA() {
             <p className="font-[family-name:var(--font-inter)] text-[0.7rem] font-medium uppercase tracking-[0.3em] text-[color:var(--color-cielo)]">
               {t("partnersLabel")}
             </p>
-            <ul className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-6">
+            <ul className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5">
               {PARTNERS.map((p) => (
                 <li
                   key={p.src}

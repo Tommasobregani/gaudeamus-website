@@ -12,7 +12,6 @@ import { NewsletterForm } from "@/components/sections/NewsletterForm";
 const FOOTER_PARTNERS = [
   { src: "/partners/maeci-consolato-edinburgh.png", alt: "Consolato Generale d'Italia, Edimburgo" },
   { src: "/partners/comites.png", alt: "Com.It.Es. Scotland" },
-  { src: "/partners/consolato-aberdeen.jpg", alt: "Consolato Onorario di Aberdeen" },
   { src: "/partners/valvona-crolla.png", alt: "Valvona & Crolla, Edimburgo" },
   { src: "/partners/london-one-radio.jpg", alt: "London ONE Radio" },
   { src: "/partners/italian-scotland.jpg", alt: "Italia Scozia" },
@@ -167,7 +166,7 @@ export function Footer() {
       {!isHomepage ? (
         <div className="relative border-t border-white/10">
           <div className="container-site py-8">
-            <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-6">
+            <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5">
               {FOOTER_PARTNERS.map((p) => (
                 <li
                   key={p.src}

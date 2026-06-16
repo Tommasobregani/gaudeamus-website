@@ -37,7 +37,7 @@ const PILLARS: Pillar[] = [
     label: { en: "Workshops", it: "Laboratori" },
     title: {
       en: "Workshops open to Italians and beyond, to explore acting, culture and the Italian language.",
-      it: "Laboratori aperti a italiani e non per esplorare la recitazione, la cultura e la lingua italiana.",
+      it: "Laboratori aperti ad italiani e non per esplorare la recitazione, la cultura e la lingua italiana.",
     },
     image: "/events/viaggio-lingua/viaggio-lingua-01.jpg",
     position: "center 40%",
