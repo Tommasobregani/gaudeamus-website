@@ -279,7 +279,8 @@
     "submit": "Invia dichiarazione",
     "submitting": "Invio in corso…",
     "success": "Grazie. La tua dichiarazione Gift Aid è stata ricevuta. Completa la donazione con bonifico usando le coordinate indicate in questa pagina.",
-    "error": "Qualcosa è andato storto. Riprova o contatta finance@italiandrama.uk.",
+    "checkboxError": "Seleziona tutte e tre le conferme Gift Aid prima di inviare.",
+    "error": "Qualcosa è andato storto. Riprova o contatta finance@italiandramauk.org.",
     "back": "Torna a Sostienici"
   },
   "contact": {

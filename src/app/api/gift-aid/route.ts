@@ -25,8 +25,8 @@ const schema = z.object({
 });
 
 const fromAddress = "Gaudeamus <no-reply@italiandramauk.org>";
-const financeEmail = "finance@italiandrama.uk";
-const infoEmail = "info@italiandrama.uk";
+const financeEmail = "finance@italiandramauk.org";
+const infoEmail = "info@italiandramauk.org";
 
 function safeError(error: unknown) {
   if (error instanceof Error) {
@@ -57,8 +57,18 @@ export async function POST(req: Request) {
   const parsed = schema.safeParse(payload);
   if (!parsed.success) {
     console.warn("[gift-aid] validation failed", parsed.error.flatten());
+    const fieldErrors = parsed.error.flatten().fieldErrors;
+    const missingConfirmations =
+      fieldErrors.ukTaxpayerDeclaration ||
+      fieldErrors.giftAidDeclaration ||
+      fieldErrors.taxResponsibilityDeclaration;
+
     return NextResponse.json(
-      { ok: false, error: "Validation failed", issues: parsed.error.flatten() },
+      {
+        ok: false,
+        error: missingConfirmations ? "Gift Aid confirmations required" : "Validation failed",
+        issues: parsed.error.flatten(),
+      },
       { status: 400 },
     );
   }

@@ -8,13 +8,33 @@ type Status = "idle" | "submitting" | "success" | "error";
 export function GiftAidForm() {
   const t = useTranslations("giftAid");
   const [status, setStatus] = useState<Status>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setStatus("submitting");
 
     const formEl = e.currentTarget;
     const fd = new FormData(formEl);
+    const confirmationsChecked =
+      fd.get("ukTaxpayerDeclaration") === "on" &&
+      fd.get("giftAidDeclaration") === "on" &&
+      fd.get("taxResponsibilityDeclaration") === "on";
+
+    if (!confirmationsChecked) {
+      setErrorMessage(t("checkboxError"));
+      setStatus("error");
+      return;
+    }
+
+    if (!formEl.reportValidity()) {
+      setErrorMessage(t("error"));
+      setStatus("error");
+      return;
+    }
+
+    setStatus("submitting");
+    setErrorMessage("");
+
     const payload = {
       fullName: String(fd.get("fullName") ?? "").trim(),
       email: String(fd.get("email") ?? "").trim(),
@@ -35,6 +55,9 @@ export function GiftAidForm() {
       });
       const json = await res.json();
       if (!res.ok || !json.ok) {
+        setErrorMessage(
+          json.error === "Gift Aid confirmations required" ? t("checkboxError") : t("error"),
+        );
         setStatus("error");
         return;
       }
@@ -42,6 +65,7 @@ export function GiftAidForm() {
       formEl.reset();
     } catch (err) {
       console.error(err);
+      setErrorMessage(t("error"));
       setStatus("error");
     }
   }
@@ -60,7 +84,7 @@ export function GiftAidForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-6">
+    <form onSubmit={onSubmit} noValidate className="space-y-6">
       <Field name="fullName" label={t("fullName")} required autoComplete="name" />
       <Field name="email" label={t("email")} required type="email" autoComplete="email" />
       <TextAreaField
@@ -93,7 +117,7 @@ export function GiftAidForm() {
           role="alert"
           className="border-l-2 border-[color:var(--color-pompeiano)] bg-[color:var(--color-carta)] p-4 text-[0.9rem] text-[color:var(--color-sepia)]"
         >
-          {t("error")}
+          {errorMessage || t("error")}
         </p>
       )}
 

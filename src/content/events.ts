@@ -586,8 +586,6 @@ export const events: EventEntry[] = [
     cover: "/events/talk-and-toast/26eb395f-81b3-4c83-a246-2dfb6de3bc96.JPG",
     poster: "/media/event-posters/glasgow-talk-poster.png",
     gallery: [
-      "/events/talk-and-toast/talk-and-toast-01.jpg",
-      "/events/talk-and-toast/talk-and-toast-02.jpg",
       "/events/talk-and-toast/26eb395f-81b3-4c83-a246-2dfb6de3bc96.JPG",
       "/events/talk-and-toast/46c6837b-76bf-4142-bf16-e2a7d5f427d8.JPG",
       "/events/talk-and-toast/4dfa6c5e-3f13-4a75-b16f-1c01e9e1921b.JPG",

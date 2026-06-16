@@ -279,7 +279,8 @@
     "submit": "Submit declaration",
     "submitting": "Submitting…",
     "success": "Thank you. Your Gift Aid declaration has been received. Please complete your donation by bank transfer using the details shown on this page.",
-    "error": "Something went wrong. Please try again or contact finance@italiandrama.uk.",
+    "checkboxError": "Please tick all three Gift Aid confirmation boxes before submitting.",
+    "error": "Something went wrong. Please try again or contact finance@italiandramauk.org.",
     "back": "Back to Support us"
   },
   "contact": {
