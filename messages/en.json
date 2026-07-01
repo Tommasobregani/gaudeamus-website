@@ -9,7 +9,7 @@
   "nav": {
     "home": "Home",
     "about": "About",
-    "teatro": "Teatro",
+    "teatro": "theatre",
     "events": "Events",
     "news": "News",
     "projects": "Projects",
@@ -144,7 +144,7 @@
     "partnersBody": "London One Radio · Italian Scotland · Valvona & Crolla, Edinburgh · Com.It.Es. Scotland & Northern Ireland · Italian Consulate General, Edinburgh · Italian Cultural Institute, Edinburgh."
   },
   "teatro": {
-    "eyebrow": "Teatro",
+    "eyebrow": "theatre",
     "stamp": "Compagnia Artistica Gaudeamus",
     "title": "Theatre is the backbone of Gaudeamus.",
     "heroKicker": "Plays staged entirely in Italian, with live English subtitles. Compagnia productions, and every so often shows by artists we host.",
@@ -179,7 +179,7 @@
     "title": "What they say about us.",
     "lead": "A collection of articles, reviews and conversations about the company, in the words of those who have seen us.",
     "external": "Read article",
-    "back": "Back to Teatro"
+    "back": "Back to theatre"
   },
   "projects": {
     "eyebrow": "Projects",
@@ -347,6 +347,6 @@
     "title": "This page is not on the playbill.",
     "body": "It may have moved, or it was never here at all. Let's get you back to where things are happening.",
     "primaryCta": "Return home",
-    "secondaryCta": "Explore Teatro"
+    "secondaryCta": "Explore theatre"
   }
 }
