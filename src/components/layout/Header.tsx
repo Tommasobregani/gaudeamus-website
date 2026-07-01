@@ -23,7 +23,7 @@ function isRealSocialUrl(url: string | undefined): boolean {
 
 const navLinks = [
   { href: "/chi-siamo", key: "about" },
-  { href: "/teatro", key: "theatre" },
+  { href: "/teatro", key: "teatro" },
   { href: "/eventi", key: "events" },
   { href: "/news", key: "news" },
   { href: "/progetti", key: "projects" },
