@@ -28,12 +28,13 @@ export const siteConfig = {
     artistic: "gaudeamus@italiandramauk.org",
     finance: "finance@italiandramauk.org",
   },
+  donationUrl: "https://donate.stripe.com/6oU00i8ajcbZce183E8bS00",
   bank: {
     name: "Lloyds Bank",
     accountHolder: "Compagnia Artistica Gaudeamus SCIO",
     accountNumber: "20035163",
     sortCode: "30-99-50",
-    reference: "Donation — Gaudeamus",
+    reference: "Donation - Gaudeamus",
   },
   social: {
     facebook: "https://www.facebook.com/profile.php?id=100094224285903",
