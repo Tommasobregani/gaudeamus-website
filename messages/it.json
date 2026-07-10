@@ -233,7 +233,7 @@
     "whereCommunity": "Eventi di comunità: aperitivi letterari, feste",
     "whereCommunityBody": "Momenti per la comunità per trovare o scoprire un angolo d'Italia in Scozia.",
     "donateTitle": "Dona",
-    "donateBody": "Accettiamo donazioni di qualunque importo tramite bonifico sul nostro conto charity presso Lloyds Bank. I contribuenti del Regno Unito possono aggiungere il Gift Aid alla loro donazione, senza costi per loro.",
+    "donateBody": "Accettiamo donazioni di qualunque importo tramite la nostra pagina di pagamento online sicura. I contribuenti del Regno Unito possono aggiungere il Gift Aid alla loro donazione, senza costi per loro.",
     "bankTitle": "Coordinate bancarie",
     "bankPending": "Le coordinate del nostro conto Lloyds Bank sono in fase di preparazione. Nel frattempo scrivi al nostro team finance: ti guideremo passo passo.",
     "bankAccountHolder": "Intestatario",
@@ -278,7 +278,7 @@
     "taxResponsibilityDeclaration": "Capisco che se pago meno Income Tax e/o Capital Gains Tax dell'importo del Gift Aid richiesto su tutte le mie donazioni in quell'anno fiscale, è mia responsabilità pagare la differenza.",
     "submit": "Invia dichiarazione",
     "submitting": "Invio in corso…",
-    "success": "Grazie. La tua dichiarazione Gift Aid è stata ricevuta. Completa la donazione con bonifico usando le coordinate indicate in questa pagina.",
+    "success": "Grazie. La tua dichiarazione Gift Aid è stata ricevuta. Completa la donazione tramite la nostra pagina di pagamento online sicura.",
     "checkboxError": "Seleziona tutte e tre le conferme Gift Aid prima di inviare.",
     "error": "Qualcosa è andato storto. Riprova o contatta finance@italiandramauk.org.",
     "back": "Torna a Sostienici"
