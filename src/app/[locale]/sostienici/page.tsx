@@ -10,6 +10,8 @@ import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { GiftAidModalButton } from "@/components/forms/GiftAidModalButton";
 import { siteConfig } from "@/lib/utils";
 
+const donationUrl = "https://donate.stripe.com/6oU00i8ajcbZce183E8bS00";
+
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
@@ -22,6 +24,7 @@ export async function generateMetadata({
   const { locale } = await params;
   if (!hasLocale(locale)) return {};
   const t = await getTranslations({ locale, namespace: "support" });
+
   return {
     title: t("title"),
     description: t("lead"),
@@ -42,11 +45,10 @@ export default async function SostieniciPage({
 }) {
   const { locale } = await params;
   if (!hasLocale(locale)) notFound();
+
   setRequestLocale(locale);
+
   const t = await getTranslations({ locale, namespace: "support" });
-  const hasBankDetails = Boolean(
-    siteConfig.bank.accountNumber && siteConfig.bank.sortCode,
-  );
 
   const where = [
     {
@@ -81,7 +83,6 @@ export default async function SostieniciPage({
         imagePosition="center 30%"
       />
 
-      {/* Where your money goes — deep-blue panel after the red hero */}
       <section className="mt-0 bg-[color:var(--color-notte)] py-20 text-[color:var(--color-travertino)] md:py-28">
         <div className="container-site">
           <FadeIn>
@@ -89,6 +90,7 @@ export default async function SostieniciPage({
               {t("whereTitle")}
             </p>
           </FadeIn>
+
           <Stagger className="mt-10 grid gap-10 md:grid-cols-3 md:gap-8">
             {where.map((w, i) => (
               <StaggerItem key={w.key}>
@@ -118,7 +120,6 @@ export default async function SostieniciPage({
         </div>
       </section>
 
-      {/* Gift Aid - simplified per Eva: no detailed explanation, just the action */}
       <section className="relative mt-24 border-t border-[color:var(--color-sepia)]/25 bg-[color:var(--color-carta)]">
         <div className="container-site grid items-center gap-10 py-16 md:grid-cols-12 md:gap-14 md:py-20">
           <div className="md:col-span-7">
@@ -133,6 +134,7 @@ export default async function SostieniciPage({
               </h2>
             </FadeIn>
           </div>
+
           <div className="md:col-span-5 md:flex md:justify-end">
             <FadeIn delay={0.15}>
               <GiftAidModalButton ctaLabel={t("giftAidCta")} size="lg" />
@@ -141,7 +143,6 @@ export default async function SostieniciPage({
         </div>
       </section>
 
-      {/* Donate / bank transfer */}
       <section className="container-site border-t border-[color:var(--color-sepia)]/25 py-16 md:py-20">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-4">
@@ -156,65 +157,35 @@ export default async function SostieniciPage({
               </p>
             </FadeIn>
           </div>
+
           <div className="md:col-span-8">
             <FadeIn delay={0.1}>
-              {hasBankDetails ? (
-                <div className="border-2 border-[color:var(--color-sepia)] bg-[color:var(--color-carta)] p-6 md:p-8">
-                  <p className="font-[family-name:var(--font-cartel)] text-[0.74rem] uppercase tracking-[0.26em] text-[color:var(--color-sepia)]">
-                    {t("bankTitle")}
-                  </p>
-                  <dl className="mt-6 space-y-4 font-[family-name:var(--font-mono)] text-[0.92rem]">
-                    <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
-                      <dt className="text-[color:var(--color-sepia-soft)]">{t("bankAccountHolder")}</dt>
-                      <dd className="text-[color:var(--color-sepia)]">{siteConfig.bank.accountHolder}</dd>
-                    </div>
-                    <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
-                      <dt className="text-[color:var(--color-sepia-soft)]">{t("bankName")}</dt>
-                      <dd className="text-[color:var(--color-sepia)]">{siteConfig.bank.name}</dd>
-                    </div>
-                    <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
-                      <dt className="text-[color:var(--color-sepia-soft)]">{t("bankAccountNumber")}</dt>
-                      <dd className="text-[color:var(--color-sepia)]">{siteConfig.bank.accountNumber}</dd>
-                    </div>
-                    <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
-                      <dt className="text-[color:var(--color-sepia-soft)]">{t("bankSortCode")}</dt>
-                      <dd className="text-[color:var(--color-sepia)]">{siteConfig.bank.sortCode}</dd>
-                    </div>
-                    <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
-                      <dt className="text-[color:var(--color-sepia-soft)]">{t("bankReference")}</dt>
-                      <dd className="text-[color:var(--color-sepia)]">{siteConfig.bank.reference}</dd>
-                    </div>
-                  </dl>
-                  <p className="mt-6 border-t border-[color:var(--color-sepia)]/20 pt-5 text-[0.88rem] italic text-[color:var(--color-sepia-soft)]">
-                    {t("bankNote")}{" "}
-                    <a
-                      className="hover-underline text-[color:var(--color-sepia)]"
-                      href={`mailto:${siteConfig.email.finance}`}
-                    >
-                      {siteConfig.email.finance}
-                    </a>
-                  </p>
-                </div>
-              ) : (
-                <div className="border-2 border-dashed border-[color:var(--color-sepia)]/30 bg-[color:var(--color-carta)] p-6 md:p-8">
-                  <p className="bodoni-italic text-[clamp(1.25rem,1.6vw+0.5rem,1.6rem)] leading-[1.3] text-[color:var(--color-sepia)]">
-                    {t("bankPending")}
-                  </p>
-                  <Link
-                    className="hover-underline mt-6 inline-flex items-center gap-2 font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.24em] text-[color:var(--color-accent)]"
-                    href="/contatti"
-                  >
-                    {locale === "it" ? "Contattaci" : "Get in touch"}
-                    <ArrowUpRight size={14} strokeWidth={1.5} />
-                  </Link>
-                </div>
-              )}
+              <div className="border-2 border-[color:var(--color-sepia)] bg-[color:var(--color-carta)] p-6 md:p-8">
+                <p className="font-[family-name:var(--font-cartel)] text-[0.74rem] uppercase tracking-[0.26em] text-[color:var(--color-sepia)]">
+                  {locale === "it" ? "Donazione online" : "Online donation"}
+                </p>
+
+                <p className="mt-6 max-w-[46ch] text-[1rem] leading-[1.65] text-[color:var(--color-sepia-soft)]">
+                  {locale === "it"
+                    ? "Dona in modo sicuro con carta, Apple Pay o altri metodi disponibili tramite Stripe."
+                    : "Donate securely by card, Apple Pay or other available payment methods through Stripe."}
+                </p>
+
+                <a
+                  href={donationUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-7 inline-flex items-center gap-2 rounded-full bg-[color:var(--color-accent)] px-8 py-4 font-[family-name:var(--font-cartel)] text-sm uppercase tracking-[0.22em] text-white transition hover:brightness-110"
+                >
+                  {locale === "it" ? "Dona ora" : "Donate now"}
+                  <ArrowUpRight size={16} strokeWidth={1.6} />
+                </a>
+              </div>
             </FadeIn>
           </div>
         </div>
       </section>
 
-      {/* Volunteer + share */}
       <section className="container-site border-t border-[color:var(--color-sepia)]/25 py-16 md:py-20">
         <div className="grid gap-12 md:grid-cols-2 md:gap-16">
           <FadeIn>
@@ -231,6 +202,7 @@ export default async function SostieniciPage({
               {t("contactCta")} <ArrowUpRight size={14} strokeWidth={1.5} />
             </Link>
           </FadeIn>
+
           <FadeIn delay={0.1}>
             <p className="font-[family-name:var(--font-cartel)] text-[0.78rem] uppercase tracking-[0.28em] text-[color:var(--color-accent)]">
               {t("shareTitle")}
