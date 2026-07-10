@@ -233,7 +233,7 @@
     "whereCommunity": "Community gatherings: literary aperitivos, parties",
     "whereCommunityBody": "Moments for the community to find — or discover — a corner of Italy in Scotland.",
     "donateTitle": "Donate",
-    "donateBody": "We accept donations of any amount by bank transfer to our charity account at Lloyds Bank. UK taxpayers can add Gift Aid to their donation at no cost to themselves.",
+    "donateBody": "We accept donations of any amount through our secure online payment page. UK taxpayers can add Gift Aid to their donation at no cost to themselves.",
     "bankTitle": "Bank transfer details",
     "bankPending": "Our Lloyds Bank transfer details are being prepared. In the meantime, please contact our finance team and we'll walk you through it.",
     "bankAccountHolder": "Account holder",
@@ -278,7 +278,7 @@
     "taxResponsibilityDeclaration": "I understand that if I pay less Income Tax and/or Capital Gains Tax than the amount of Gift Aid claimed on all my donations in that tax year, it is my responsibility to pay any difference.",
     "submit": "Submit declaration",
     "submitting": "Submitting…",
-    "success": "Thank you. Your Gift Aid declaration has been received. Please complete your donation by bank transfer using the details shown on this page.",
+    "success": "Thank you. Your Gift Aid declaration has been received. Please complete your donation through our secure online payment page.",
     "checkboxError": "Please tick all three Gift Aid confirmation boxes before submitting.",
     "error": "Something went wrong. Please try again or contact finance@italiandramauk.org.",
     "back": "Back to Support us"
