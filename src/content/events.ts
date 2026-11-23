@@ -35,6 +35,8 @@ export type EventEntry = {
   cover: string;
   poster?: string;
   gallery: string[];
+  /** Booking link, shown under the dates and as a button on the page. */
+  tickets?: { url: string; label: { en: string; it: string } };
   credits?: {
     en: { role: string; name: string }[];
     it: { role: string; name: string }[];
@@ -86,7 +88,14 @@ export const events: EventEntry[] = [
     role: { en: "Original production", it: "Produzione originale" },
     cover: "",
     poster: "/events/high-heels-from-the-big-boot/locandina.jpg",
-    gallery: [],
+    gallery: [
+      "/events/high-heels-from-the-big-boot/high-heels-01.jpg",
+      "/events/high-heels-from-the-big-boot/high-heels-02.jpg",
+      "/events/high-heels-from-the-big-boot/high-heels-03.jpg",
+      "/events/high-heels-from-the-big-boot/high-heels-04.jpg",
+      "/events/high-heels-from-the-big-boot/high-heels-05.jpg",
+      "/events/high-heels-from-the-big-boot/high-heels-06.jpg",
+    ],
     credits: {
       en: [
         { role: "Written by", name: "Eva D'Amico" },
@@ -117,61 +126,66 @@ export const events: EventEntry[] = [
     status: "upcoming",
     title: { en: "God's Honest Lies", it: "God's Honest Lies" },
     tagline: {
-      en: "After Eduardo De Filippo's Le bugie con le gambe lunghe.",
-      it: "Ispirato a Le bugie con le gambe lunghe di Eduardo De Filippo.",
+      en: "Inspired by Eduardo De Filippo's Le Bugie con le Gambe Lunghe.",
+      it: "Ispirato a Le Bugie con le Gambe Lunghe di Eduardo De Filippo.",
     },
     summary: {
-      en: "A bitter, surprisingly current comedy that lays bare social hypocrisy and the power of convention. At its centre, Libero Incoronato: a simple man adrift in a world of appearances, where everyone lies to save their own reputation.",
-      it: "Una commedia amara e sorprendentemente attuale, capace di mettere a nudo l'ipocrisia sociale e il potere delle convenzioni. Al centro, Libero Incoronato, uomo semplice immerso in un mondo fatto di apparenze, dove tutti mentono per salvare la propria reputazione.",
+      en: "In a world where everyone lies, telling the truth can be the most dangerous thing of all.",
+      it: "In un mondo in cui tutti mentono, dire la verità può essere la cosa più pericolosa di tutte.",
     },
     description: {
       en: [
-        "Inspired by Eduardo De Filippo's Le bugie con le gambe lunghe, the production stages a collective game of pretence in which even the truth is bent until it becomes irrelevant.",
-        "While the staging keeps the immediate post-war setting, an added epilogue and a more dynamic, contemporary delivery underline how current the theme remains. Eduardo's lucid, ironic theatrical mechanism still mirrors a society willing to accept any lie to maintain a fragile equilibrium.",
-        "A comedy that makes you smile, and also invites you to recognise how, then as now, “everyone false, everyone happy.”",
+        "What if the biggest lie of all was the truth?",
+        "Following the success of Poor Piero and High Heels from the Big Boot, Gaudeamus Theatre Company returns with a sharp, witty and surprisingly contemporary comedy inspired by one of the great masters of Italian theatre, Eduardo De Filippo.",
+        "Meet Libero Incoronato, an ordinary man caught in a world where appearances matter more than honesty. Here, lies are everywhere: told to protect reputations, avoid scandals and save relationships. Everyone has something to hide, and everyone has a reason to lie. But when deception becomes the norm, where does the truth belong?",
+        "Set in the immediate post-war period, God's Honest Lies brings Eduardo's unmistakable blend of humour, irony and social criticism to the stage in a dynamic, contemporary production. With a new prologue and epilogue that connect the world of the original play to our own, the story reveals just how little has changed.",
+        "A comedy of lies, misunderstandings and uncomfortable truths, this ensemble production invites us to laugh at the absurdity of human behaviour while confronting a question that feels more relevant than ever:",
+        "How far would you go to preserve the peace, even if it meant living a lie?",
+        "Performed in Italian with live English surtitles, God's Honest Lies brings the wit, musicality and Neapolitan soul of Eduardo De Filippo to an international audience.",
+        "Come for the comedy. Stay for the truth.",
       ],
       it: [
-        "Ispirato a Le bugie con le gambe lunghe di Eduardo De Filippo, lo spettacolo porta in scena una commedia amara e sorprendentemente attuale, capace di mettere a nudo l'ipocrisia sociale e il potere delle convenzioni.",
-        "La regia, pur mantenendo l'ambientazione nell'immediato dopoguerra, evidenzia con decisione l'attualità del tema attraverso l'inserimento di un epilogo e una recitazione più dinamica e contemporanea, capace di avvicinare il linguaggio scenico alla sensibilità di oggi.",
-        "Eduardo costruisce così un meccanismo teatrale lucido e ironico, che ancora oggi rispecchia una società pronta ad accettare qualsiasi menzogna pur di mantenere un fragile equilibrio. Una commedia che fa sorridere, ma che invita anche a riconoscere quanto, ieri come oggi, «tutti falsi, tutti contenti».",
+        "E se la bugia più grande di tutte fosse la verità?",
+        "Dopo il successo di Poor Piero e High Heels from the Big Boot, la Compagnia Gaudeamus torna in scena con una commedia brillante, ironica e sorprendentemente attuale, ispirata a uno dei grandi maestri del teatro italiano: Eduardo De Filippo.",
+        "Ecco Libero Incoronato, un uomo comune in un mondo dove le apparenze contano più dell'onestà. Qui le bugie sono ovunque: si dicono per proteggere la reputazione, evitare scandali e salvare i rapporti. Tutti hanno qualcosa da nascondere, e tutti hanno un motivo per mentire. Ma quando l'inganno diventa la regola, dove trova posto la verità?",
+        "Ambientato nell'immediato dopoguerra, lo spettacolo porta in scena l'inconfondibile miscela di umorismo, ironia e critica sociale di Eduardo in un allestimento dinamico e contemporaneo. Con un nuovo prologo e un nuovo epilogo che collegano il mondo della commedia originale al nostro, la storia mostra quanto poco sia cambiato.",
+        "Una commedia di bugie, equivoci e verità scomode: uno spettacolo corale che ci invita a ridere dell'assurdità dei comportamenti umani, mettendoci di fronte a una domanda oggi più attuale che mai:",
+        "Fin dove ti spingeresti per mantenere la pace, anche a costo di vivere una bugia?",
+        "In italiano con sopratitoli in inglese dal vivo, lo spettacolo porta l'arguzia, la musicalità e l'anima napoletana di Eduardo De Filippo davanti a un pubblico internazionale.",
+        "Vieni per ridere. Resta per la verità.",
       ],
     },
     venues: [
-      "Aberdeen Art Centre, Aberdeen. 27 February 2027",
-      "Edinburgh. TBC",
-      "Glasgow. TBC",
+      "Aberdeen Arts Centre, Aberdeen. Saturday 27 February 2027, 7:30pm",
+      "Lyra Theatre, Edinburgh. Saturday 8 May 2027, time TBC",
+      "Impact Arts, Glasgow. Saturday 29 May 2027, time TBC",
     ],
     role: { en: "Production", it: "Produzione" },
     cover: "",
+    poster: "/events/gods-honest-lies/locandina-aberdeen.jpg",
     gallery: [],
     credits: {
       en: [
-        { role: "Direction", name: "Eva D'Amico" },
+        { role: "Adapted and directed by", name: "Eva D'Amico" },
         { role: "Assistant Director", name: "Giancarlo Abobua" },
         { role: "Stage Assistant", name: "Antonio Ibba" },
         { role: "Make-up", name: "Federica Casolari" },
-        { role: "Prompt", name: "Elena Pampana" },
-        {
-          role: "Cast",
-          name: "Erika Boetto, Barbara Canu, Federica Casolari, Eva D'Amico, Silvia Fittante, Sacha Fop, Nicolò Ibba, Mauro Manassi, Silvia Scoppio, Domenico Serino, Elena Tortoioli",
-        },
+        { role: "Cast", name: "Erika Boetto, Barbara Canu, Federica Casolari, Eva D'Amico, Silvia Laura Fittante, Sacha Fop, Nicolò Ibba, Mauro Manassi, Lucrezia Piccicacchi, Domenico Serino, Elena Tortoioli" },
         { role: "Graphic designer", name: "Alessia D'Angelo" },
-        { role: "Running time", name: "Three acts, 30 min each" },
-        { role: "Audience", name: "12+" },
+        { role: "Language", name: "Italian with live English surtitles" },
+        { role: "Running time", name: "1 hour 30 minutes, two acts" },
+        { role: "Audience", name: "All ages" },
       ],
       it: [
-        { role: "Regia", name: "Eva D'Amico" },
+        { role: "Adattamento e regia", name: "Eva D'Amico" },
         { role: "Assistente di regia", name: "Giancarlo Abobua" },
         { role: "Assistente di palcoscenico", name: "Antonio Ibba" },
         { role: "Make-up artist", name: "Federica Casolari" },
-        { role: "Suggeritore", name: "Elena Pampana" },
-        {
-          role: "Cast",
-          name: "Erika Boetto, Barbara Canu, Federica Casolari, Eva D'Amico, Silvia Fittante, Sacha Fop, Nicolò Ibba, Mauro Manassi, Silvia Scoppio, Domenico Serino, Elena Tortoioli",
-        },
+        { role: "Cast", name: "Erika Boetto, Barbara Canu, Federica Casolari, Eva D'Amico, Silvia Laura Fittante, Sacha Fop, Nicolò Ibba, Mauro Manassi, Lucrezia Piccicacchi, Domenico Serino, Elena Tortoioli" },
         { role: "Grafica locandina", name: "Alessia D'Angelo" },
-        { role: "Durata", name: "Tre atti da 30 minuti" },
-        { role: "Pubblico", name: "Da 12 anni in su" },
+        { role: "Lingua", name: "Italiano con sopratitoli in inglese dal vivo" },
+        { role: "Durata", name: "1 ora e 30 minuti, due atti" },
+        { role: "Pubblico", name: "Per tutte le età" },
       ],
     },
   },
@@ -452,6 +466,40 @@ export const events: EventEntry[] = [
 
   // ── COMMUNITY EVENTS ──────────────────────────────────────────────────
   {
+    slug: "christmas-party-2026",
+    kind: "community",
+    year: 2026,
+    date: "2026-12-05",
+    status: "upcoming",
+    title: { en: "Christmas Party", it: "Christmas Party" },
+    tagline: {
+      en: "Saturday 5 December 2026, The Holburn Bar, Aberdeen.",
+      it: "Sabato 5 dicembre 2026, The Holburn Bar, Aberdeen.",
+    },
+    summary: {
+      en: "Join us for a traditional Italian Christmas party with live music, a welcome drink and our traditional Pandoro. Live music from the Edinburgh based folk band Scylla.",
+      it: "Unisciti a noi per una tradizionale festa di Natale italiana, con musica dal vivo, un drink di benvenuto e il nostro immancabile Pandoro. Musica dal vivo con gli Scylla, band folk di Edimburgo.",
+    },
+    description: {
+      en: [
+        "Tickets are on Eventbrite.",
+        "For further information, write to info@italiandramauk.org.",
+      ],
+      it: [
+        "I biglietti sono su Eventbrite.",
+        "Per informazioni scrivi a info@italiandramauk.org.",
+      ],
+    },
+    venues: ["The Holburn Bar, 225 Holburn Street, Aberdeen AB10 6BL. Saturday 5 December 2026, 5pm to 8pm"],
+    cover: "/events/christmas-party-2026/flyer-card.jpg",
+    poster: "/events/christmas-party-2026/flyer.jpg",
+    gallery: [],
+    tickets: {
+      url: "https://www.eventbrite.com/e/italian-christmas-party-tickets-2003509457721",
+      label: { en: "Tickets on Eventbrite", it: "Biglietti su Eventbrite" },
+    },
+  },
+  {
     slug: "christmas-party",
     kind: "community",
     year: 2025,
@@ -598,6 +646,65 @@ export const events: EventEntry[] = [
   },
 
   // ── WORKSHOPS ─────────────────────────────────────────────────────────
+  {
+    slug: "parliamo-di-noi",
+    kind: "workshop",
+    year: 2027,
+    date: "2027-01-22",
+    status: "upcoming",
+    title: { en: "Parliamo di Noi", it: "Parliamo di Noi" },
+    tagline: {
+      en: "Let's talk about us. Your story, your identity, your film.",
+      it: "La tua storia, la tua identità, il tuo film.",
+    },
+    summary: {
+      en: "A free filmmaking workshop for young people aged 12 to 24 from Italian family backgrounds, living in Scotland.",
+      it: "Un laboratorio di cinema gratuito per ragazze e ragazzi dai 12 ai 24 anni, di famiglia italiana, che vivono in Scozia.",
+    },
+    description: {
+      en: [
+        "What does it mean to grow up between two cultures?",
+        "Through smartphone filmmaking, acting exercises and storytelling, you'll explore your Italian-British identity, sharing personal memories, everyday experiences, family traditions and the places that shape who you are.",
+        "You'll learn to make engaging videos with your phone, capture the images, sounds and moments of everyday life (B-roll), tell stories through framing and composition, and try acting and improvisation in front of the camera.",
+        "Before the workshop you'll be invited to film a few short clips on your phone: your neighbourhood, family objects, daily routines, special places, anything that shows what growing up between Italian and British cultures is like for you.",
+        "All the footage and ideas become a collaborative short film, edited by the workshop facilitator with input from the participants. It will be presented at a special social event (date to be confirmed).",
+        "No filmmaking or acting experience needed: just bring your smartphone, your ideas and your curiosity. The workshop is free, but you need to book your place.",
+        "Come and tell your story. Let's make a film together! For more information, write to info@italiandramauk.org.",
+      ],
+      it: [
+        "Cosa significa crescere tra due culture?",
+        "Con il cinema da smartphone, esercizi di recitazione e lo storytelling, esplorerai la tua identità italo-britannica, condividendo ricordi personali, esperienze quotidiane, tradizioni di famiglia e i luoghi che ti hanno reso ciò che sei.",
+        "Imparerai a girare video coinvolgenti con il telefono, a catturare immagini, suoni e momenti della vita di tutti i giorni (B-roll), a raccontare storie attraverso l'inquadratura e la composizione, e a sperimentare recitazione e improvvisazione davanti alla telecamera.",
+        "Prima del laboratorio ti chiederemo di girare qualche breve clip con il telefono: il tuo quartiere, oggetti di famiglia, la routine quotidiana, luoghi speciali, tutto ciò che racconta cosa vuol dire per te crescere tra la cultura italiana e quella britannica.",
+        "Tutto il materiale e le idee raccolte diventeranno un cortometraggio collettivo, montato da chi conduce il laboratorio con il contributo dei partecipanti. Sarà presentato durante un evento speciale (data da confermare).",
+        "Non serve alcuna esperienza di cinema o di recitazione: porta solo il tuo smartphone, le tue idee e la tua curiosità. Il laboratorio è gratuito, ma è necessario prenotare il posto.",
+        "Vieni a raccontare la tua storia. Facciamo un film insieme! Per informazioni scrivi a info@italiandramauk.org.",
+      ],
+    },
+    venues: [
+      "Online introductory session. 22 January 2027, time TBC",
+      "Online creative session. 12 February 2027, time TBC",
+      "Glasgow, in person. 6 March 2027, 10:30am to 3:30pm",
+      "Edinburgh, in person. 24 April 2027, 10:30am to 3:30pm",
+    ],
+    cover: "",
+    poster: "/events/laboratori/parliamo-di-noi.jpg",
+    gallery: [],
+    tickets: {
+      url: "https://www.eventbrite.co.uk/e/parliamo-di-noi-lets-talk-about-us-tickets-2004116101208",
+      label: { en: "Free. Book your place on Eventbrite", it: "Gratuito. Prenota il tuo posto su Eventbrite" },
+    },
+    credits: {
+      en: [
+        { role: "Ages", name: "12 to 24" },
+        { role: "Price", name: "Free, booking required" },
+      ],
+      it: [
+        { role: "Età", name: "Dai 12 ai 24 anni" },
+        { role: "Prezzo", name: "Gratuito, su prenotazione" },
+      ],
+    },
+  },
   {
     slug: "laboratorio-aberdeen",
     kind: "workshop",

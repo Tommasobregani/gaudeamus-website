@@ -83,6 +83,7 @@ export default async function LaboratoriPage({
         <Stagger className="grid gap-10 md:grid-cols-3 md:gap-12">
           {workshops.map((w) => (
             <StaggerItem key={w.slug}>
+              <Link href={`/teatro/${w.slug}`} className="group block">
               <article>
                 <div className="relative aspect-[3/4] w-full overflow-hidden bg-[color:var(--color-sepia)]/5">
                   <Image
@@ -98,7 +99,7 @@ export default async function LaboratoriPage({
                     {w.year}
                     {w.venues ? ` · ${w.venues.join(" · ")}` : ""}
                   </p>
-                  <h3 className="mt-2 bodoni-italic text-[1.5rem] leading-[1.05] text-[color:var(--color-sepia)]">
+                  <h3 className="mt-2 bodoni-italic text-[1.5rem] leading-[1.05] text-[color:var(--color-sepia)] group-hover:underline">
                     {w.title[loc]}
                   </h3>
                   <p className="mt-2 text-[0.95rem] italic text-[color:var(--color-sepia-soft)]">
@@ -106,6 +107,7 @@ export default async function LaboratoriPage({
                   </p>
                 </div>
               </article>
+              </Link>
             </StaggerItem>
           ))}
         </Stagger>
