@@ -19,6 +19,31 @@ export type PressItem = {
 
 export const press: PressItem[] = [
   {
+    title: { en: "High Heels from the Big Boot. Review", it: "High Heels from the Big Boot. Recensione" },
+    outlet: "Edinburgh Reviews",
+    url: "https://edinburgh-reviews.co.uk/review-high-heels-from-the-big-boot-fringe-2026/",
+    date: "2026-08-16",
+    quote: {
+      en: "Even though this show has a couple of genuinely moving moments, comedy remains at the centre of it.",
+      it: "Anche se lo spettacolo ha un paio di momenti davvero commoventi, al centro resta la comicità.",
+    },
+    type: "review",
+    related: "high-heels-from-the-big-boot",
+  },
+  {
+    title: { en: "High Heels from the Big Boot. Review", it: "High Heels from the Big Boot. Recensione" },
+    outlet: "Rialto Arts Hub",
+    url: "https://www.rialtoarts.com/post/high-heels-from-the-big-boot",
+    date: "2026-08-17",
+    author: "Roger Kay",
+    quote: {
+      en: "The performers spark off one another with sardonic wit and lovely timing, while the pace remains relentless throughout.",
+      it: "Gli interpreti si accendono a vicenda con un'ironia pungente e tempi comici deliziosi, mentre il ritmo resta incalzante dall'inizio alla fine.",
+    },
+    type: "review",
+    related: "high-heels-from-the-big-boot",
+  },
+  {
     title: {
       en: "Italian theatre in Scotland: triumph for Poor Piero by Compagnia Gaudeamus",
       it: "Teatro italiano in Scozia: trionfo per Poor Piero della Compagnia Gaudeamus",

@@ -5,6 +5,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { hasLocale, routing, Link } from "@/i18n/routing";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { events, eventBySlug, producerLabel, type EventKind } from "@/content/events";
+import { press } from "@/content/press";
 import { FadeIn } from "@/components/motion/FadeIn";
 import { ImgReveal } from "@/components/motion/ImgReveal";
 import { RomanEyebrow } from "@/components/ui/RomanEyebrow";
@@ -83,6 +84,12 @@ export default async function ProjectPage({
   const related = events.filter((e) => e.slug !== event.slug && e.kind === event.kind).slice(0, 3);
   const relatedFallback = events.filter((e) => e.slug !== event.slug).slice(0, 3);
   const relatedList = (related.length >= 2 ? related : relatedFallback).slice(0, 3);
+  const eventPress = press.filter((p) => p.related === event.slug);
+  const hasGallery = event.gallery.length >= 2;
+  const pressN = hasGallery ? 3 : 2;
+  const relatedN = pressN + (eventPress.length > 0 ? 1 : 0);
+  const fmtDate = (d: string) =>
+    new Date(d).toLocaleDateString(loc === "it" ? "it-IT" : "en-GB", { day: "numeric", month: "long", year: "numeric" });
 
   return (
     <>
@@ -167,6 +174,13 @@ export default async function ProjectPage({
                   {v}
                 </li>
               ))}
+              {event.tickets ? (
+                <li className="font-[family-name:var(--font-mono)] text-[0.85rem] uppercase tracking-[0.16em] text-[color:var(--color-sepia)]">
+                  <a className="hover-underline" href={event.tickets.url} target="_blank" rel="noopener noreferrer">
+                    {event.tickets.label[loc]}
+                  </a>
+                </li>
+              ) : null}
             </ul>
           ) : null}
         </div>
@@ -193,6 +207,16 @@ export default async function ProjectPage({
                     {p}
                   </p>
                 ))}
+                {event.tickets ? (
+                  <a
+                    href={event.tickets.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-7 inline-flex items-center gap-2 rounded-full bg-[color:var(--color-accent)] px-8 py-4 font-[family-name:var(--font-cartel)] text-sm uppercase tracking-[0.22em] text-white transition hover:brightness-110"
+                  >
+                    {event.tickets.label[loc]}
+                  </a>
+                ) : null}
               </div>
             </FadeIn>
           </div>
@@ -254,7 +278,7 @@ export default async function ProjectPage({
       </section>
 
       {/* Gallery — only when we have at least 2 images */}
-      {event.gallery.length >= 2 ? (
+      {hasGallery ? (
         <section className="container-site border-t border-[color:var(--color-sepia)]/25 py-20 md:py-32">
           <FadeIn>
             <div className="flex items-end justify-between">
@@ -270,13 +294,66 @@ export default async function ProjectPage({
         </section>
       ) : null}
 
+      {/* Press about this show (from content/press.ts, matched by `related`) */}
+      {eventPress.length > 0 ? (
+        <section className="container-site py-20 md:py-28">
+          <FadeIn>
+            <div className="flex items-end justify-between">
+              <RomanEyebrow n={pressN} label={locale === "it" ? "Dicono di noi" : "Press"} />
+              <Link
+                href="/teatro/recensioni"
+                className="hover-underline inline-flex items-center gap-1 font-[family-name:var(--font-cartel)] text-sm tracking-[0.22em]"
+              >
+                {locale === "it" ? "Tutta la rassegna" : "All press"}
+                <ArrowUpRight size={14} strokeWidth={1.5} />
+              </Link>
+            </div>
+          </FadeIn>
+          <div className="mt-10 border-t-2 border-[color:var(--color-sepia)]">
+            {eventPress.map((item) => (
+              <a
+                key={item.url}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group grid grid-cols-[auto_1fr_auto] items-start gap-4 border-b border-[color:var(--color-sepia)]/25 py-7 transition-colors hover:bg-[color:var(--color-carta)] md:gap-8 md:py-9"
+              >
+                <span className="mt-1 font-[family-name:var(--font-mono)] text-[0.7rem] uppercase tracking-[0.22em] text-[color:var(--color-sepia)]/55">
+                  {item.type === "review" ? (loc === "it" ? "Recensione" : "Review") : loc === "it" ? "Articolo" : "Article"}
+                </span>
+                <div>
+                  <h3 className="bodoni-italic text-[clamp(1.25rem,1.75vw+0.5rem,1.75rem)] leading-[1.15] text-[color:var(--color-sepia)]">
+                    {item.title[loc]}
+                  </h3>
+                  <p className="mt-2 font-[family-name:var(--font-cartel)] text-[0.7rem] uppercase tracking-[0.26em] text-[color:var(--color-sepia-soft)]">
+                    {item.outlet}
+                    {item.author ? ` · ${item.author}` : ""}
+                    {item.date ? ` · ${fmtDate(item.date)}` : ""}
+                  </p>
+                  {item.quote ? (
+                    <p className="mt-4 max-w-[64ch] border-l-2 border-[color:var(--color-accent)] pl-4 italic text-[0.98rem] leading-[1.55] text-[color:var(--color-sepia-soft)]">
+                      “{item.quote[loc]}”
+                    </p>
+                  ) : null}
+                </div>
+                <ArrowUpRight
+                  size={20}
+                  strokeWidth={1.25}
+                  className="mt-1 text-[color:var(--color-accent)] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                />
+              </a>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
       {/* Related */}
       {relatedList.length > 0 && (
         <section className="relative border-t border-[color:var(--color-sepia)]/25 bg-[color:var(--color-carta)]">
           <div className="container-site py-20 md:py-28">
             <FadeIn>
               <div className="flex items-end justify-between">
-                <RomanEyebrow n={3} label={locale === "it" ? "Anche da vedere" : "Also worth seeing"} />
+                <RomanEyebrow n={relatedN} label={locale === "it" ? "Anche da vedere" : "Also worth seeing"} />
                 <Link
                   href="/teatro"
                   className="hover-underline inline-flex items-center gap-1 font-[family-name:var(--font-cartel)] text-sm tracking-[0.22em]"
