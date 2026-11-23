@@ -124,7 +124,7 @@ export const events: EventEntry[] = [
     year: 2027,
     date: "2027-02-27",
     status: "upcoming",
-    title: { en: "God's Honest Lies", it: "God's Honest Lies" },
+    title: { en: "God's Honest Lies", it: "Le bugie dalle gambe lunghe" },
     tagline: {
       en: "Inspired by Eduardo De Filippo's Le Bugie con le Gambe Lunghe.",
       it: "Ispirato a Le Bugie con le Gambe Lunghe di Eduardo De Filippo.",
