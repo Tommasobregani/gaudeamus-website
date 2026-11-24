@@ -90,7 +90,7 @@ export const events: EventEntry[] = [
     poster: "/events/high-heels-from-the-big-boot/locandina.jpg",
     gallery: [
       "/events/high-heels-from-the-big-boot/high-heels-01.jpg",
-      "/events/high-heels-from-the-big-boot/high-heels-02.jpg",
+      "/events/high-heels-from-the-big-boot/high-heels-07.jpg",
       "/events/high-heels-from-the-big-boot/high-heels-03.jpg",
       "/events/high-heels-from-the-big-boot/high-heels-04.jpg",
       "/events/high-heels-from-the-big-boot/high-heels-05.jpg",
@@ -157,8 +157,8 @@ export const events: EventEntry[] = [
     },
     venues: [
       "Aberdeen Arts Centre, Aberdeen. Saturday 27 February 2027, 7:30pm",
-      "Lyra Theatre, Edinburgh. Saturday 8 May 2027, time TBC",
-      "Impact Arts, Glasgow. Saturday 29 May 2027, time TBC",
+      "Lyra Theatre, Edinburgh. Saturday 8 May 2027, 7pm",
+      "Impact Arts, Glasgow. Saturday 29 May 2027, 7pm",
     ],
     role: { en: "Production", it: "Produzione" },
     cover: "",
@@ -168,7 +168,7 @@ export const events: EventEntry[] = [
       en: [
         { role: "Adapted and directed by", name: "Eva D'Amico" },
         { role: "Assistant Director", name: "Giancarlo Abobua" },
-        { role: "Stage Assistant", name: "Antonio Ibba" },
+        { role: "Stage Assistants", name: "Antonio Ibba, Andrea Sacco, Stefano Gregori" },
         { role: "Make-up", name: "Federica Casolari" },
         { role: "Cast", name: "Erika Boetto, Barbara Canu, Federica Casolari, Eva D'Amico, Silvia Laura Fittante, Sacha Fop, Nicolò Ibba, Mauro Manassi, Lucrezia Piccicacchi, Domenico Serino, Elena Tortoioli" },
         { role: "Graphic designer", name: "Alessia D'Angelo" },
@@ -179,7 +179,7 @@ export const events: EventEntry[] = [
       it: [
         { role: "Adattamento e regia", name: "Eva D'Amico" },
         { role: "Assistente di regia", name: "Giancarlo Abobua" },
-        { role: "Assistente di palcoscenico", name: "Antonio Ibba" },
+        { role: "Assistenti di palcoscenico", name: "Antonio Ibba, Andrea Sacco, Stefano Gregori" },
         { role: "Make-up artist", name: "Federica Casolari" },
         { role: "Cast", name: "Erika Boetto, Barbara Canu, Federica Casolari, Eva D'Amico, Silvia Laura Fittante, Sacha Fop, Nicolò Ibba, Mauro Manassi, Lucrezia Piccicacchi, Domenico Serino, Elena Tortoioli" },
         { role: "Grafica locandina", name: "Alessia D'Angelo" },

@@ -11,6 +11,26 @@ export type FundedProject = {
 
 export const fundedProjects: FundedProject[] = [
   {
+    slug: "italian-scottish-cultural-bridges-2027",
+    year: 2027,
+    title: {
+      en: "Italian–Scottish Cultural Bridges. Cultural Programme 2027",
+      it: "Italian–Scottish Cultural Bridges. Programma culturale 2027",
+    },
+    body: {
+      en: "Connecting communities through theatre, music, language and intercultural exchange. Italian–Scottish Cultural Bridges is an international cultural programme presented by Gaudeamus Artistic Company, designed to strengthen artistic collaboration and cultural connections between Scotland and Italy. Through theatre, music, storytelling, creative workshops and participatory activities, it brings Italian and Scottish communities together, encouraging intercultural dialogue and exploring identity, bilingualism, belonging, migration and cultural heritage. The programme takes place across Aberdeen, Edinburgh and Glasgow, involving professional artists, young people, bilingual families, schools and local communities. Its aims: to strengthen cultural relations between Scotland and Italy, support multilingual and migrant communities, create opportunities for young people and emerging artists, promote inclusive access to cultural activities, develop new audiences for international and multilingual theatre, and encourage dialogue, inclusion and social cohesion through the arts. Building bridges between people, languages and cultures through the power of the arts.",
+      it: "Unire le comunità attraverso il teatro, la musica, la lingua e lo scambio interculturale. Italian–Scottish Cultural Bridges è un programma culturale internazionale presentato dalla Compagnia Artistica Gaudeamus, pensato per rafforzare la collaborazione artistica e i legami culturali tra la Scozia e l'Italia. Attraverso teatro, musica, narrazione, laboratori creativi e attività partecipative, il progetto avvicina le comunità italiane e scozzesi, favorendo il dialogo interculturale ed esplorando i temi dell'identità, del bilinguismo, dell'appartenenza, della migrazione e del patrimonio culturale. Il programma si svolge tra Aberdeen, Edimburgo e Glasgow e coinvolge artisti professionisti, giovani, famiglie bilingui, scuole e comunità locali. Gli obiettivi: rafforzare le relazioni culturali tra Scozia e Italia, sostenere le comunità multilingui e migranti, creare opportunità per giovani e artisti emergenti, promuovere un accesso inclusivo alle attività culturali, sviluppare nuovi pubblici per il teatro internazionale e multilingue, e favorire il dialogo, l'inclusione e la coesione sociale attraverso le arti. Costruire ponti tra persone, lingue e culture grazie alla forza delle arti.",
+    },
+    image: "/events/high-heels-from-the-big-boot/high-heels-03.jpg",
+    partners: [
+      "Istituto Italiano di Cultura, Edinburgh",
+      "Aberdeen City Council",
+      "Mazzini Garibaldi Society",
+      "Italian Scotland",
+      "Consulate General of Italy, Edinburgh",
+    ],
+  },
+  {
     slug: "italian-connections-2025-26",
     year: 2025,
     title: {
